@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 9 💻 Linear Regression in class | Statistics &amp; Big Data 24-25 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content='9.1 General Linear Regression Workflow &amp; Caveats 🗒 fix in memory the following steps: install package if you already dot have that and load it i.e. install.package("&lt;the package&gt;") library(&lt;the...'>
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 9 💻 Linear Regression in class | Statistics &amp; Big Data 24-25 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content='9.1 General Linear Regression Workflow &amp; Caveats 🗒 fix in memory the following steps: install package if you already dot have that and load it i.e. install.package("&lt;the package&gt;") library(&lt;the...'>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 9 💻 Linear Regression in class | Statistics &amp; Big Data 24-25 Labs">
+<meta name="twitter:description" content='9.1 General Linear Regression Workflow &amp; Caveats 🗒 fix in memory the following steps: install package if you already dot have that and load it i.e. install.package("&lt;the package&gt;") library(&lt;the...'>
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 24-25 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">6</span> 💻 Hypothesis Testing</a></li>
+<li><a class="" href="essentials-of-data-wrangling-and-basic-statistics.html"><span class="header-section-number">7</span> 💻 Essentials of Data Wrangling and Basic Statistics</a></li>
+<li><a class="" href="lin-reg.html"><span class="header-section-number">8</span> Linear Regression</a></li>
+<li><a class="active" href="lin-reg-class.html"><span class="header-section-number">9</span> 💻 Linear Regression in class</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">10</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">11</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">12</span> 💻 ANOVA</a></li>
+<li><a class="" href="dummy-vars.html"><span class="header-section-number">13</span> 💻 Dummy Variables</a></li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="log-reg.html"><span class="header-section-number">15</span> 💻 Binary Logistic Regression</a></li>
+<li><a class="" href="log-reg-ex.html"><span class="header-section-number">16</span> 💻 Binary LogReg exer</a></li>
+<li><a class="" href="pca.html"><span class="header-section-number">17</span> 💻 PCA</a></li>
+<li><a class="" href="poi-reg-ex.html"><span class="header-section-number">18</span> 💻 Poisson regr exer</a></li>
+<li><a class="" href="hier-clust-ex.html"><span class="header-section-number">19</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-mean-ex.html"><span class="header-section-number">20</span> 💻 K-Means Clustering</a></li>
+<li><a class="" href="reg-tree-ex.html"><span class="header-section-number">21</span> 💻 Regression Trees</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">22</span> ⚡ course performance</a></li>
+<li><a class="" href="how-to-ask-for-help.html"><span class="header-section-number">23</span> ✋ How to ask for help!</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">24</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">25</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">26</span> Datasets</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="lin-reg-class" class="section level1" number="9">
+<h1>
+<span class="header-section-number">9</span> 💻 Linear Regression in class<a class="anchor" aria-label="anchor" href="#lin-reg-class"><i class="fas fa-link"></i></a>
+</h1>
+<div id="general-linear-regression-workflow-caveats" class="section level2" number="9.1">
+<h2>
+<span class="header-section-number">9.1</span> General Linear Regression Workflow &amp; Caveats 🗒<a class="anchor" aria-label="anchor" href="#general-linear-regression-workflow-caveats"><i class="fas fa-link"></i></a>
+</h2>
+<p>fix in memory the following steps:</p>
+<ol style="list-style-type: decimal">
+<li><p>install package if you already dot have that and load it i.e. <code>install.package("&lt;the package&gt;")</code> <code>library(&lt;the package&gt;)</code>. remember also that install.package needs quotation, indeed library don’t. Make sure also to have internet connection, otherwise you can’t download anything.</p></li>
+<li><p>Load data into your environment with <code>data("&lt;the dataset&gt;")</code></p></li>
+<li><p><em>bis</em> further data manipulation step:</p></li>
+</ol>
+<ul>
+<li>select columns ()</li>
+<li>filter rows</li>
+<li>encode to factor/ numeric</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li><p>do the model with <code>lm(formula = Y ~ X + X2 + X3, data = &lt;the dataset&gt;)</code> where formula is the model you are fitting (understand it by the question) and data is the actual dataset</p></li>
+<li><p>summary of the model</p></li>
+</ol>
+<p>Please also don’t just skip <em>parenthesis</em>, <em>quotations</em> i.e. ““, <strong>Capital and lowercase</strong> characters. They all matters! Prior throwing outside the window you laptop at least check if there’s any of the issues in this code.</p>
+</div>
+<div id="collinearity-and-vif" class="section level2" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> collinearity and VIF<a class="anchor" aria-label="anchor" href="#collinearity-and-vif"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Collinearity</strong> is a phenomenon in multiple linear regression where two or more independent variables in a regression model are highly correlated. It can lead to <strong>multicollinearity</strong>, making it challenging to interpret the individual effects of each predictor variable. Variance Inflation Factor (<strong>VIF</strong>) is a measure used to detect and quantify collinearity in regression analysis. A high VIF indicates that a predictor variable is highly correlated with other predictor variables in the model.</p>
+<p>We calculate the VIF via function <code><a href="https://rdrr.io/pkg/regclass/man/VIF.html">VIF()</a></code> contained in the package <code>regclass</code>, if don’t have it please install it (i.e. <code>install.packages("regclass")</code>).</p>
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">regclass</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Loading required package: bestglm</span></span>
+<span><span class="co">#&gt; Loading required package: leaps</span></span>
+<span><span class="co">#&gt; Loading required package: VGAM</span></span>
+<span><span class="co">#&gt; Loading required package: stats4</span></span>
+<span><span class="co">#&gt; Loading required package: splines</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'VGAM'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:webexercises':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     round2</span></span>
+<span><span class="co">#&gt; Loading required package: rpart</span></span>
+<span><span class="co">#&gt; Loading required package: randomForest</span></span>
+<span><span class="co">#&gt; randomForest 4.7-1.1</span></span>
+<span><span class="co">#&gt; Type rfNews() to see new features/changes/bug fixes.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'randomForest'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:dplyr':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     combine</span></span>
+<span><span class="co">#&gt; Important regclass change from 1.3:</span></span>
+<span><span class="co">#&gt; All functions that had a . in the name now have an _</span></span>
+<span><span class="co">#&gt; all.correlations -&gt; all_correlations, cor.demo -&gt; cor_demo, etc.</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Fit a multiple linear regression model</span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span> <span class="op">+</span> <span class="va">qsec</span> <span class="op">+</span> <span class="va">disp</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate VIF for each predictor variable in the model</span></span>
+<span><span class="va">vif_values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/regclass/man/VIF.html">VIF</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span>
+<span><span class="va">vif_values</span></span>
+<span><span class="co">#&gt;       wt       hp     qsec     disp </span></span>
+<span><span class="co">#&gt; 6.916942 5.166758 3.133119 7.985439</span></span></code></pre></div>
+<p>The output will provide VIF values for <em>each predictor variable</em>. If you see a high VIF (typically <strong>greater than 5 or 10</strong>), it indicates a potential issue with collinearity, and you may need to consider removing one of the correlated predictor variables from the model to address this problem. Lower VIF values are preferred, as they indicate less multicollinearity.</p>
+<p>Keep in mind that the VIF is calculated for each predictor variable separately, considering the correlation with other predictor variables. It helps you assess the impact of collinearity on each variable’s variance.</p>
+</div>
+<div id="class-exercies-2024-10-26" class="section level2" number="9.3">
+<h2>
+<span class="header-section-number">9.3</span> Class exercies @ 2024-10-26 🏛<a class="anchor" aria-label="anchor" href="#class-exercies-2024-10-26"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:linreg1" class="exercise"><strong>Exercise 9.1  </strong></span>Using the dataset <code>baltimore</code> downloadable from the library <code>spdep</code>
+Estimate the simple linear regression model which explains the price (PRICE)
+as a function the “age” of the house (AGE)
+&gt; Is the slope significant at 5%?</p>
+</div>
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># if you don't have that, install it at first</span></span>
+<span><span class="co"># install.packages("spdep")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-spatial/spdep/">spdep</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"baltimore"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># let's look at baltimore</span></span>
+<span><span class="co"># View(baltimore)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">baltimore</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">baltimore</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">baltimore</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## estimate regression</span></span>
+<span></span>
+<span><span class="va">baltimore_regression</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">PRICE</span> <span class="op">~</span> <span class="va">AGE</span>, data <span class="op">=</span> <span class="va">baltimore</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">baltimore_regression</span><span class="op">)</span></span></code></pre></div>
+<hr>
+<div class="exercise">
+<p><span id="exr:linreg2" class="exercise"><strong>Exercise 9.2  </strong></span>The coleman data set in the robustbase library lists summary statistics for 20 different schools in the northeast US.
+The six variables measured on each school include demographic information (such as percent of white-collar fathers) and
+characteristics of each school (such as staff salaries per pupil).
+&gt; 1. Code a regression model explaining the variable Y, using all other varibles.
+&gt; 2. Which variable is most significant?</p>
+</div>
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("robustbase") if you dont already have the package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://robustbase.R-forge.R-project.org/">robustbase</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"coleman"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## explore data, how many rows it has?</span></span>
+<span><span class="co">## View(coleman)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">coleman</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">model_coleman</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">Y</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">coleman</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_coleman</span><span class="op">)</span></span></code></pre></div>
+<hr>
+<div class="exercise">
+<p><span id="exr:linreg3" class="exercise"><strong>Exercise 9.3  </strong></span>Using the dataset Bikeshare of the library ISLR2,
+Estimate the regression that explains causal users as a function of the registered users
+&gt; What is the p-value of the estimate of the intercept?</p>
+</div>
+<p>Bikeshare data descr:
+This data set contains the hourly and daily count of rental bikes between years 2011 and 2012 in Capital bikeshare system, along with weather and seasonal information.</p>
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># for those who can not install that, don't worry,</span></span>
+<span><span class="co"># manifest tyour problem and I will make avaible for you the dataset</span></span>
+<span><span class="co"># in a different way! </span></span>
+<span><span class="co"># install.packages("ISLR2")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.statlearning.com">ISLR2</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"Bikeshare"</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">## !! for those we cant install ISLR2 then execte the follwing !!</span></span>
+<span><span class="va">Bikeshare</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/NiccoloSalvini/sbd_22-23/main/data/bikeshare.csv?token=GHSAT0AAAAAABZG6GFQDNXQRWROYOGNIKCIY2X7Y4Q"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## explore data, focus on column types</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">Bikeshare</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## fit model</span></span>
+<span><span class="va">bikeshare_model</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">casual</span><span class="op">~</span><span class="va">registered</span>, data <span class="op">=</span> <span class="va">Bikeshare</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">bikeshare_model</span><span class="op">)</span></span></code></pre></div>
+<hr>
+<div class="exercise">
+<p><span id="exr:linreg4" class="exercise"><strong>Exercise 9.4  </strong></span>Given the dataset “Duncan” in the library “carData” estimate the regression model where
+the variable prestige is regressed on the variables income and education.
+&gt;Which variable is the most significant?</p>
+</div>
+<p><code>Duncan</code> data descr:
+The Duncan data frame has 45 rows and 4 columns. Data on the prestige and other characteristics of 45 U. S. occupations in 1950.</p>
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## install package if already dont have it</span></span>
+<span><span class="co">## install.packages("carData")  please notice that the "D" is uppercase</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">carData</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"Duncan"</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">##explore Duncan dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">Duncan</span><span class="op">)</span> <span class="co">## 45 rows x 4 columns</span></span>
+<span></span>
+<span><span class="co">## any prep needed</span></span>
+<span></span>
+<span><span class="co">## fit model</span></span>
+<span></span>
+<span><span class="va">duncan_model</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">prestige</span> <span class="op">~</span> <span class="va">income</span> <span class="op">+</span> <span class="va">education</span>, data  <span class="op">=</span> <span class="va">Duncan</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">duncan_model</span><span class="op">)</span></span></code></pre></div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="lin-reg-class.html#exr:linreg4">9.4</a></strong></p>
+<pre><code>Coefficients:
+            Estimate Std. Error t value   Pr(&gt;|t|)    
+(Intercept) -6.06466    4.27194  -1.420      0.163    
+income       0.59873    0.11967   5.003 0.00001053 ***
+education    0.54583    0.09825   5.555 0.00000173 ***
+--- </code></pre>
+<p>the most significant variables are both income and education at a 0 alpha level.
+It might be worth noting also that both of the two have positive signs i.e. 0.59, 0.54
+which suggests that prestige is positively linked to income and education level.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:linreg51" class="exercise"><strong>Exercise 9.5  </strong></span>Given the dataset <code>state.x77</code> which should be already present in R perform following tasks
+&gt; 1. load the state datasets.
+&gt; 2. Convert the <code>state.x77</code> dataset to a dataframe.
+&gt; 3. Rename the <code>Life Exp</code> variable to <code>Life.Exp</code>, and <code>HS Grad</code> to <code>HS.Grad</code>. (This avoids
+problems with referring to these variables when specifying a model.)</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:linreg52" class="exercise"><strong>Exercise 9.6  </strong></span>Suppose we wanted to enter all the variables in a first-order linear regression model with Life Expectancy as the dependent variable.
+&gt; 1. Fit this model</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:linreg53" class="exercise"><strong>Exercise 9.7  </strong></span>Let’s assume that we have settled on a model that has <code>HS.Grad</code> and <code>Murder</code> as predictors.</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>Fit this model.</li>
+<li>Add an interaction term to the previous model.</li>
+<li>Predict the Life Expectancy for a state where 55% of the population are High School graduates, and the murder rate is 8 per 100,000.</li>
+</ol>
+</blockquote>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:linreg54" class="exercise"><strong>Exercise 9.8  </strong></span>In this exercise, we’ll perform multiple linear regression with interaction terms using the mtcars dataset. Create a model with interaction between “wt” and “hp” and calculate R-squared and adjusted R-squared.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:linreg55" class="exercise"><strong>Exercise 9.9  </strong></span>Using the dataset <code>swiss</code>, fit the model whose response variable is “Fertility” and whose explanatory variable are all the rest.
+Then verify the absence or presence of collinearity in predictors. If you find any which is the model without collinear predictors?</p>
+</div>
+</div>
+<div id="solutions-1" class="section level2" number="9.4">
+<h2>
+<span class="header-section-number">9.4</span> solutions<a class="anchor" aria-label="anchor" href="#solutions-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="lin-reg-class.html#exr:linreg1">9.1</a></strong></p>
+<pre><code> Coefficients:
+            Estimate Std. Error t value             Pr(&gt;|t|)    
+(Intercept) 55.08500    2.82833   19.48 &lt; 0.0000000000000002 ***
+AGE         -0.35802    0.07851   -4.56            0.0000087 ***
+---
+coefficient AGE is significant up to a 0% alpha level, therefore it also is at 5%</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="lin-reg-class.html#exr:linreg2">9.2</a></strong>:</p>
+<pre><code> Coefficients:
+            Estimate Std. Error t value  Pr(&gt;|t|)    
+(Intercept) 19.94857   13.62755   1.464    0.1653    
+salaryP     -1.79333    1.23340  -1.454    0.1680    
+fatherWc     0.04360    0.05326   0.819    0.4267    
+sstatus      0.55576    0.09296   5.979 0.0000338 ***
+teacherSc    1.11017    0.43377   2.559    0.0227 *  
+motherLev   -1.81092    2.02739  -0.893    0.3868    </code></pre>
+<p>the most significant coefficient in the regression model we fitted is “sstatus” with a nearly 0 alpha,
+however there’s also “teacherSc” which is significant witha 5% alpha.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="lin-reg-class.html#exr:linreg3">9.3</a></strong>:</p>
+<pre><code>Coefficients:
+            Estimate Std. Error t value            Pr(&gt;|t|)    
+(Intercept) 7.393972   0.518483   14.26 &lt;0.0000000000000002 ***
+registered  0.184095   0.003263   56.42 &lt;0.0000000000000002 ***
+... </code></pre>
+<p>the estimate value for the intercept is 7.393972</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="lin-reg-class.html#exr:linreg51">9.5</a></strong></p>
+<p>dataset <code>state.x77</code> comes by default with R. You don’t need to install any library. Point 1 done.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>
+<p>when you need to convert (sometimes people like to say “coerce”) a object of a class to another class, say from matrix to dataframe (this is the most common case) you need to apply the function.</p>
+<p>new_state.x77 = data.frame(state.x77)</p>
+</li>
+<li>
+<p>By looking at the column name before and after the conversion to dataframe with <code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> you may notice something weird. print out these commands:</p>
+<p>colnames(state.x77)
+colnames(data.frame(state.x77))</p>
+</li>
+</ol>
+<p>during the conversion R took care also of renaming the column names in the desired way. Why this happens? R needs to have column name with that type of notation. R does not neither want ” ” empty spaces nor accents “à” as column names. Essentially R does not undestand these signs and complains about them.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="lin-reg-class.html#exr:linreg52">9.6</a></strong></p>
+<pre><code>simple_linear_model = lm(Life.Exp~.,  data =  new_state.x77)
+summary(simple_linear_model)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="lin-reg-class.html#exr:linreg53">9.7</a></strong></p>
+<ol style="list-style-type: decimal">
+<li>
+<p>fit the model with HS.Grad and Murder being the predictors</p>
+<p>linear_model_1 = lm(Life.Exp~ HS.Grad + Murder, data = new_state.x77)
+summary(linear_model_1)</p>
+</li>
+<li>
+<p>add the interaction term to the model</p>
+<p>linear_model_interaction = lm(Life.Exp~ HS.Grad + Murder + HS.Grad*Murder, data = new_state.x77)
+summary(linear_model_interaction)</p>
+</li>
+<li>
+<p>calculate the Life expectancy given 55% pop and 8 over 10^5 rate. Look at help from state.x77 to see which are to which scales these numbers are expressed.</p>
+<p>y = 67.831203 + 0.089368<em>55 + 8</em>0.023510 -0.004959<em>55</em>8</p>
+</li>
+</ol>
+<p>this results in 70.75256</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="lin-reg-class.html#exr:linreg54">9.8</a></strong></p>
+<pre><code><a href="https://rdrr.io/r/base/library.html"># Load the regclass package
+library(regclass)
+
+# Create interaction term between "wt" and "hp"
+mtcars$wt_hp_interaction &lt;- mtcars$wt * mtcars$hp
+
+# Perform multiple linear regression with the interaction term
+model &lt;- lm(mpg ~ wt + hp + wt_hp_interaction, data = mtcars)
+
+# Calculate R-squared
+r_squared &lt;- R2(model)
+
+# Calculate adjusted R-squared
+adjusted_r_squared &lt;- adjR2(model)
+
+# Print R-squared and adjusted R-squared values
+cat("R-squared:", r_squared, "\n")
+cat("Adjusted R-squared:", adjusted_r_squared, "\n")</a></code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="lin-reg-class.html#exr:linreg55">9.9</a></strong></p>
+<pre><code><a href="https://rdrr.io/r/base/library.html"># Load the regclass package
+library(regclass)
+
+# Load the 'swiss' dataset (data on fertility and socio-economic indicators in the Swiss cantons)
+data(swiss)
+
+# Perform multiple linear regression with "Fertility" as the dependent variable
+model &lt;- lm(Fertility ~ ., data = swiss)
+
+# Calculate Variance Inflation Factors (VIF) for independent variables
+vif &lt;- VIF(model)</a></code></pre>
+<p>print in the console <code>vif</code>. No collinearity detected. The model does not suffer from collinerity.</p>
+</div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="lin-reg.html"><span class="header-section-number">8</span> Linear Regression</a></div>
+<div class="next"><a href="int-samp-q-second.html"><span class="header-section-number">10</span> 💻 Second Intermediate Sample Questions</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#lin-reg-class"><span class="header-section-number">9</span> 💻 Linear Regression in class</a></li>
+<li><a class="nav-link" href="#general-linear-regression-workflow-caveats"><span class="header-section-number">9.1</span> General Linear Regression Workflow &amp; Caveats 🗒</a></li>
+<li><a class="nav-link" href="#collinearity-and-vif"><span class="header-section-number">9.2</span> collinearity and VIF</a></li>
+<li><a class="nav-link" href="#class-exercies-2024-10-26"><span class="header-section-number">9.3</span> Class exercies @ 2024-10-26 🏛</a></li>
+<li><a class="nav-link" href="#solutions-1"><span class="header-section-number">9.4</span> solutions</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/06bis-lab-linearreg-class-exercies.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
+          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/06bis-lab-linearreg-class-exercies.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 24-25 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2024-10-26.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

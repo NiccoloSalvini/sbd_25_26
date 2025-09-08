@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 14 💻 Intermediate preparation | Statistics &amp; Big Data 24-25 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="Intermediate test topics should include: - hypothesis tests on means - anova - simple + multiple regression (adj-R2 + collinearity + dummy vars) - logistic regression Below you find a review of...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 14 💻 Intermediate preparation | Statistics &amp; Big Data 24-25 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Intermediate test topics should include: - hypothesis tests on means - anova - simple + multiple regression (adj-R2 + collinearity + dummy vars) - logistic regression Below you find a review of...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 14 💻 Intermediate preparation | Statistics &amp; Big Data 24-25 Labs">
+<meta name="twitter:description" content="Intermediate test topics should include: - hypothesis tests on means - anova - simple + multiple regression (adj-R2 + collinearity + dummy vars) - logistic regression Below you find a review of...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 24-25 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">6</span> 💻 Hypothesis Testing</a></li>
+<li><a class="" href="essentials-of-data-wrangling-and-basic-statistics.html"><span class="header-section-number">7</span> 💻 Essentials of Data Wrangling and Basic Statistics</a></li>
+<li><a class="" href="lin-reg.html"><span class="header-section-number">8</span> Linear Regression</a></li>
+<li><a class="" href="lin-reg-class.html"><span class="header-section-number">9</span> 💻 Linear Regression in class</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">10</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">11</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">12</span> 💻 ANOVA</a></li>
+<li><a class="" href="dummy-vars.html"><span class="header-section-number">13</span> 💻 Dummy Variables</a></li>
+<li><a class="active" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="log-reg.html"><span class="header-section-number">15</span> 💻 Binary Logistic Regression</a></li>
+<li><a class="" href="log-reg-ex.html"><span class="header-section-number">16</span> 💻 Binary LogReg exer</a></li>
+<li><a class="" href="pca.html"><span class="header-section-number">17</span> 💻 PCA</a></li>
+<li><a class="" href="poi-reg-ex.html"><span class="header-section-number">18</span> 💻 Poisson regr exer</a></li>
+<li><a class="" href="hier-clust-ex.html"><span class="header-section-number">19</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-mean-ex.html"><span class="header-section-number">20</span> 💻 K-Means Clustering</a></li>
+<li><a class="" href="reg-tree-ex.html"><span class="header-section-number">21</span> 💻 Regression Trees</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">22</span> ⚡ course performance</a></li>
+<li><a class="" href="how-to-ask-for-help.html"><span class="header-section-number">23</span> ✋ How to ask for help!</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">24</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">25</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">26</span> Datasets</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="int-prep" class="section level1" number="14">
+<h1>
+<span class="header-section-number">14</span> 💻 Intermediate preparation<a class="anchor" aria-label="anchor" href="#int-prep"><i class="fas fa-link"></i></a>
+</h1>
+<p>Intermediate test topics should include:
+- <strong>hypothesis tests on means</strong>
+- <strong>anova</strong>
+- <strong>simple + multiple regression (adj-R2 + collinearity + dummy vars)</strong>
+- <strong>logistic regression</strong></p>
+<p>Below you find a review of core concepts and a bunch of exercises which in some way may resemble intermediate ones.</p>
+<div id="core-concepts-of-t-test" class="section level2" number="14.1">
+<h2>
+<span class="header-section-number">14.1</span> 🪨 core concepts of T test<a class="anchor" aria-label="anchor" href="#core-concepts-of-t-test"><i class="fas fa-link"></i></a>
+</h2>
+<p>recall from <a href="https://drive.google.com/file/d/1UqDW1UG5CY3wbW2SisCqzoPtK7ZpvQs7/view?usp=sharing">Arbia’s slide</a> 69 that we are focusing on test on <strong>mean</strong> and that steps for calculating statistical tests generally are:</p>
+<ol style="list-style-type: decimal">
+<li>Develop the null Hypothesis</li>
+<li>Specify the level of Significance <span class="math inline">\(\alpha\)</span>
+</li>
+<li>Collect the sample data and compute the test statistic.</li>
+</ol>
+<p>then <em>pvalues</em>:
+4. Use the value of the test statistic to compute the p-value
+5. Reject <span class="math inline">\(H_0\)</span> if p-value $ &lt; $</p>
+<p>Notice that Z-test are not really used since we almost always do not know the variance <span class="math inline">\(\sigma^2\)</span> of the distribution. So instead of Standard Normal distribution we use Student’s <strong>T distribution</strong>, doing t-tests. That’s the t test stat:</p>
+<p><span class="math display">\[
+t = \frac{(m - \mu_0)}{S/\sqrt{n}}
+\]</span></p>
+<p>Below all the possible cases you should be dealing with:</p>
+<div class="figure">
+<span style="display:block;" id="fig:ttest"></span>
+<img src="images/wf_test.png" alt="The t.test vademecum" width="100%"><p class="caption">
+Figure 14.1: The t.test vademecum
+</p>
+</div>
+</div>
+<div id="t.test-function" class="section level2" number="14.2">
+<h2>
+<span class="header-section-number">14.2</span> <code>t.test()</code> function<a class="anchor" aria-label="anchor" href="#t.test-function"><i class="fas fa-link"></i></a>
+</h2>
+<p>The <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function may run one and two sample t-tests on data vectors. The function has several parameters and is invoked as follows:</p>
+<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">x</span>, y <span class="op">=</span> <span class="cn">NULL</span>, alternative <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"two.sided"</span>, <span class="st">"less"</span>, <span class="st">"greater"</span><span class="op">)</span>, mu <span class="op">=</span> <span class="fl">0</span>, </span>
+<span>        paired <span class="op">=</span> <span class="cn">FALSE</span>, var.equal <span class="op">=</span> <span class="cn">FALSE</span>, conf.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></code></pre></div>
+<p>In this case, <code>x</code> is a numeric vector of data values, and <code>y</code> is optional. If <code>y</code> is not included, the function does a one-sample t-test on the data in <code>x</code>; if it is included, the function runs a two-sample t-test on both <code>x</code> and <code>y</code>.</p>
+<p>The <code>mu</code> (i.e. <span class="math inline">\(\mu\)</span>) argument returns a number showing the real value of the mean (or difference in means if a two sample test is used) under the null hypothesis. The test conducts a two-sided t-test by default; however, you may perform an alternative hypothesis by changing the <code>alternative</code> argument to <code>"greater"</code> or <code>"less"</code>, depending on whether the alternative hypothesis is that the mean is larger than or smaller than <code>mu</code>. Consider the following:</p>
+<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">x</span>, alternative <span class="op">=</span> <span class="st">"less"</span>, mu <span class="op">=</span> <span class="fl">25</span><span class="op">)</span></span></code></pre></div>
+<p>…performs a one-sample t-test on the data contained in <code>x</code> where the null hypothesis is that $ = 25$ and the alternative is that $ &lt; 25 $</p>
+<p>The <code>paired</code> argument will indicate whether or not you want a paired t-test. The default is set to <code>FALSE</code> but can be set to <code>TRUE</code> if you desire to perform a paired t-test. We do paired test when we are considering pre-post treatment test or when we are considering couples of individuals.</p>
+<p>When doing a two-sample t-test, the <code>var.equal</code> option specifies whether or not to assume equal variances. The default assumption is unequal variance and the Welsh approximation to degrees of freedom; however, you may change this to <code>TRUE</code> to pool the variance.</p>
+<p>Finally, the <code>conf.level</code> parameter specifies the degree of confidence in the reported confidence interval for <span class="math inline">\(\mu\)</span> in the one-sample and for <span class="math inline">\(\mu_1 - \mu_2\)</span> two-sample cases. Below a very simple example:</p>
+<p>To use the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function in R for linear modeling, you can create a Markdown document to explain its usage and its various arguments. Below is an example of how to create a conceptual guide in RMarkdown format:</p>
+<p>## Linear Modeling with lm() in R</p>
+</div>
+<div id="introduction-1" class="section level2" number="14.3">
+<h2>
+<span class="header-section-number">14.3</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>The <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function in R is used for performing linear regression modeling. Linear regression is a statistical method that models the relationship between a dependent variable and one or more independent variables. In this document, we will explore how to use the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function and its various arguments for linear modeling.</p>
+</div>
+<div id="basic-usage" class="section level2" number="14.4">
+<h2>
+<span class="header-section-number">14.4</span> Basic Usage<a class="anchor" aria-label="anchor" href="#basic-usage"><i class="fas fa-link"></i></a>
+</h2>
+<p>To perform linear modeling with <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>, you need to specify the formula of the linear regression model. The basic syntax is as follows:</p>
+<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">dependent_variable</span> <span class="op">~</span> <span class="va">independent_variable</span>, data <span class="op">=</span> <span class="va">your_data</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>
+<code>dependent_variable</code>: The variable you want to predict.</li>
+<li>
+<code>independent_variable</code>: The variable(s) used to make the prediction.</li>
+<li>
+<code>data</code>: The data frame containing your variables.</li>
+</ul>
+</div>
+<div id="arguments" class="section level2" number="14.5">
+<h2>
+<span class="header-section-number">14.5</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments"><i class="fas fa-link"></i></a>
+</h2>
+<div id="formula" class="section level3" number="14.5.1">
+<h3>
+<span class="header-section-number">14.5.1</span> Formula<a class="anchor" aria-label="anchor" href="#formula"><i class="fas fa-link"></i></a>
+</h3>
+<p>The formula is at the core of the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function and specifies the relationship between the dependent and independent variables. It follows the <code>Y ~ X</code> pattern, where <code>Y</code> is the dependent variable, and <code>X</code> is the independent variable. You can include multiple independent variables and interactions by using <code>+</code> and <code>*</code>. For example:</p>
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x1</span> <span class="op">+</span> <span class="va">x2</span> <span class="op">+</span> <span class="va">x1</span><span class="op">*</span><span class="va">x2</span>, data <span class="op">=</span> <span class="va">your_data</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="data" class="section level3" number="14.5.2">
+<h3>
+<span class="header-section-number">14.5.2</span> Data<a class="anchor" aria-label="anchor" href="#data"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code>data</code> argument should point to the data frame where your variables are located. This argument helps R locate the variables specified in the formula.</p>
+</div>
+<div id="subset" class="section level3" number="14.5.3">
+<h3>
+<span class="header-section-number">14.5.3</span> Subset<a class="anchor" aria-label="anchor" href="#subset"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can use the <code>subset</code> argument to specify a subset of your data for modeling. This is useful when you want to focus on a specific portion of your dataset.</p>
+<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">your_data</span>, subset <span class="op">=</span> <span class="va">condition</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="weight" class="section level3" number="14.5.4">
+<h3>
+<span class="header-section-number">14.5.4</span> Weight<a class="anchor" aria-label="anchor" href="#weight"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code>weight</code> argument allows you to assign different weights to each data point. This can be useful when you want to give more importance to certain observations.</p>
+<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">your_data</span>, weights <span class="op">=</span> <span class="va">weight_variable</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="na.action" class="section level3" number="14.5.5">
+<h3>
+<span class="header-section-number">14.5.5</span> Na.action<a class="anchor" aria-label="anchor" href="#na.action"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code>na.action</code> argument controls how missing values are treated. By default, <code>na.action = na.fail</code>, which means the model will fail if there are missing values in your data. You can also use <code>na.omit</code> to automatically remove rows with missing values.</p>
+<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">your_data</span>, na.action <span class="op">=</span> <span class="va">na.omit</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="other-arguments" class="section level3" number="14.5.6">
+<h3>
+<span class="header-section-number">14.5.6</span> Other Arguments<a class="anchor" aria-label="anchor" href="#other-arguments"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are additional arguments for controlling aspects of the modeling process, such as <code>offset</code>, <code>method</code>, and <code>control</code>. You can refer to the R documentation for a complete list of available arguments and their descriptions.</p>
+</div>
+</div>
+<div id="vif-variance-inflation-factor" class="section level2" number="14.6">
+<h2>
+<span class="header-section-number">14.6</span> VIF (Variance Inflation Factor)<a class="anchor" aria-label="anchor" href="#vif-variance-inflation-factor"><i class="fas fa-link"></i></a>
+</h2>
+<p>The Variance Inflation Factor (VIF) is a measure used to detect multicollinearity in a linear regression model. Multicollinearity occurs when independent variables in the model are highly correlated, making it challenging to determine the individual effect of each variable on the dependent variable. The <code>VIF</code> function from the <code>regclass</code> package in R can help us identify multicollinearity in our linear regression model.</p>
+<div id="calculating-vif" class="section level3" number="14.6.1">
+<h3>
+<span class="header-section-number">14.6.1</span> Calculating VIF<a class="anchor" aria-label="anchor" href="#calculating-vif"><i class="fas fa-link"></i></a>
+</h3>
+<p>To calculate the VIF for the independent variables in your model, you can use the <code><a href="https://rdrr.io/pkg/regclass/man/VIF.html">VIF()</a></code> function. First, make sure you have the <code>regclass</code> package installed and loaded:</p>
+<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"regclass"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">regclass</span><span class="op">)</span></span></code></pre></div>
+<p>Next, you can calculate VIF for your linear regression model as follows:</p>
+<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Fit a linear regression model</span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula  <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x1</span> <span class="op">+</span> <span class="va">x2</span> <span class="op">+</span> <span class="va">x3</span>, data <span class="op">=</span> <span class="va">your_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate VIF</span></span>
+<span><span class="va">vif_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/regclass/man/VIF.html">VIF</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
+<p>The <code><a href="https://rdrr.io/pkg/regclass/man/VIF.html">VIF()</a></code> function takes the linear regression model as its argument and returns a data frame with VIF values for each independent variable. Higher VIF values indicate stronger multicollinearity, typically with a threshold of 5 or 10 as a rule of thumb.</p>
+</div>
+<div id="interpreting-vif" class="section level3" number="14.6.2">
+<h3>
+<span class="header-section-number">14.6.2</span> Interpreting VIF<a class="anchor" aria-label="anchor" href="#interpreting-vif"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>If VIF is close to 1, it suggests that the variable is not highly correlated with other independent variables, indicating no significant multicollinearity.</p></li>
+<li><p>If VIF is greater than 1 but less than a chosen threshold (e.g., 5 or 10), it suggests some correlation but not necessarily problematic multicollinearity.</p></li>
+<li><p>If VIF is significantly greater than the chosen threshold (e.g., 10), it indicates a high degree of multicollinearity, and you may need to consider removing or combining variables to address this issue.</p></li>
+</ul>
+</div>
+<div id="addressing-multicollinearity" class="section level3" number="14.6.3">
+<h3>
+<span class="header-section-number">14.6.3</span> Addressing Multicollinearity<a class="anchor" aria-label="anchor" href="#addressing-multicollinearity"><i class="fas fa-link"></i></a>
+</h3>
+<p>If you detect problematic multicollinearity with high VIF values, you can take several steps to address the issue:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Remove one of the correlated variables:</strong> If two or more variables are highly correlated, removing one of them can often resolve the multicollinearity issue.</p></li>
+<li><p><strong>Combine correlated variables:</strong> You can create new variables that are combinations of highly correlated variables, reducing multicollinearity.</p></li>
+<li><p><strong>Collect more data:</strong> Sometimes, multicollinearity can be alleviated by collecting more data, especially if the sample size is small.</p></li>
+<li><p><strong>Regularization techniques:</strong> Consider using regularization techniques like Ridge or Lasso regression, which can handle multicollinearity by adding penalties to the coefficients of correlated variables.</p></li>
+</ol>
+<p>VIF analysis is a crucial step in assessing the quality of your linear regression model and ensuring the independence of your independent variables.</p>
+</div>
+</div>
+<div id="anova-analysis-of-variance" class="section level2" number="14.7">
+<h2>
+<span class="header-section-number">14.7</span> ANOVA (Analysis of Variance)<a class="anchor" aria-label="anchor" href="#anova-analysis-of-variance"><i class="fas fa-link"></i></a>
+</h2>
+<p>ANOVA, or Analysis of Variance, is a statistical technique used to analyze the differences among group means in a dataset. It is particularly useful when you want to compare the means of more than two groups. The <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code> function in R is commonly used to perform ANOVA.</p>
+<div id="performing-anova-with-aov" class="section level3" number="14.7.1">
+<h3>
+<span class="header-section-number">14.7.1</span> Performing ANOVA with <code>aov()</code><a class="anchor" aria-label="anchor" href="#performing-anova-with-aov"><i class="fas fa-link"></i></a>
+</h3>
+<p>To perform ANOVA using the <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code> function, you need to specify a formula that describes the relationship between the dependent variable and the grouping factor (categorical variable). The basic syntax is as follows:</p>
+<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">anova_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">dependent_variable</span> <span class="op">~</span> <span class="va">grouping_factor</span>, data <span class="op">=</span> <span class="va">your_data</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>
+<code>dependent_variable</code>: The continuous variable you want to analyze.</li>
+<li>
+<code>grouping_factor</code>: The categorical variable that defines the groups.</li>
+<li>
+<code>data</code>: The data frame containing your variables.</li>
+</ul>
+</div>
+<div id="anova-tables" class="section level3" number="14.7.2">
+<h3>
+<span class="header-section-number">14.7.2</span> ANOVA Tables<a class="anchor" aria-label="anchor" href="#anova-tables"><i class="fas fa-link"></i></a>
+</h3>
+<p>Once you’ve created the ANOVA model, you can obtain an ANOVA table using the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function applied to the <code>aov</code> object:</p>
+<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">anova_model</span><span class="op">)</span></span></code></pre></div>
+<p>This table provides various statistics, including the sum of squares, degrees of freedom, F-statistic, and p-value, which allow you to assess the significance of differences among group means.</p>
+</div>
+<div id="interpreting-anova" class="section level3" number="14.7.3">
+<h3>
+<span class="header-section-number">14.7.3</span> Interpreting ANOVA<a class="anchor" aria-label="anchor" href="#interpreting-anova"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>The F-statistic in the ANOVA table tests whether there are significant differences among the group means. A small p-value (&lt; 0.05) suggests that there are significant differences.</p></li>
+<li><p>If the ANOVA is not statistically significant, it indicates that there are no significant differences among the group means.</p></li>
+</ul>
+</div>
+<div id="assumptions-of-anova" class="section level3" number="14.7.4">
+<h3>
+<span class="header-section-number">14.7.4</span> Assumptions of ANOVA<a class="anchor" aria-label="anchor" href="#assumptions-of-anova"><i class="fas fa-link"></i></a>
+</h3>
+<p>ANOVA assumes that the variances of the groups are equal (homogeneity of variances) and that the data are normally distributed. Violations of these assumptions may lead to inaccurate results. You can check the homogeneity of variances using tests like Levene’s test or Bartlett’s test and assess the normality of data using normal probability plots or statistical tests like the Shapiro-Wilk test.</p>
+</div>
+</div>
+<div id="logistic-regression-with-glm" class="section level2" number="14.8">
+<h2>
+<span class="header-section-number">14.8</span> Logistic Regression with <code>glm()</code><a class="anchor" aria-label="anchor" href="#logistic-regression-with-glm"><i class="fas fa-link"></i></a>
+</h2>
+<p>Logistic regression is a statistical technique used for modeling the relationship between a binary dependent variable (0/1, Yes/No, True/False) and one or more independent variables. The <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> function in R is commonly used to perform logistic regression.</p>
+<div id="performing-logistic-regression-with-glm" class="section level3" number="14.8.1">
+<h3>
+<span class="header-section-number">14.8.1</span> Performing Logistic Regression with <code>glm()</code><a class="anchor" aria-label="anchor" href="#performing-logistic-regression-with-glm"><i class="fas fa-link"></i></a>
+</h3>
+<p>To perform logistic regression using the <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> function, you need to specify a formula that describes the relationship between the binary dependent variable and the independent variables. The basic syntax is as follows:</p>
+<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">logistic_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">dependent_variable</span> <span class="op">~</span> <span class="va">independent_variable1</span> <span class="op">+</span> <span class="va">independent_variable2</span>, family <span class="op">=</span> <span class="st">"binomial"</span>, data <span class="op">=</span> <span class="va">your_data</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>
+<code>dependent_variable</code>: The binary dependent variable you want to model.</li>
+<li>
+<code>independent_variable1</code>, <code>independent_variable2</code>, etc.: The independent variables that influence the probability of the binary outcome.</li>
+<li>
+<code>family</code>: Specify the family argument as <code>binomial</code> to indicate logistic regression.</li>
+<li>
+<code>data</code>: The data frame containing your variables.</li>
+</ul>
+</div>
+<div id="model-summary" class="section level3" number="14.8.2">
+<h3>
+<span class="header-section-number">14.8.2</span> Model Summary<a class="anchor" aria-label="anchor" href="#model-summary"><i class="fas fa-link"></i></a>
+</h3>
+<p>After creating the logistic regression model, you can obtain a summary of the model’s coefficients, standard errors, z-values, and p-values using the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function applied to the <code>glm</code> object:</p>
+<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">logistic_model</span><span class="op">)</span></span></code></pre></div>
+<p>This summary provides valuable information about the influence of the independent variables on the log-odds of the binary outcome.</p>
+</div>
+<div id="interpreting-logistic-regression" class="section level3" number="14.8.3">
+<h3>
+<span class="header-section-number">14.8.3</span> Interpreting Logistic Regression<a class="anchor" aria-label="anchor" href="#interpreting-logistic-regression"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>The coefficients in the summary indicate the direction and strength of the relationship between the independent variables and the log-odds of the binary outcome.</p></li>
+<li><p>Positive coefficients suggest an increase in the log-odds, while negative coefficients suggest a decrease.</p></li>
+<li><p>The odds ratio (exp(coef)) can be used to interpret the change in the odds of the binary outcome for a one-unit change in the independent variable.</p></li>
+<li><p>A significant p-value (&lt; 0.05) for a coefficient suggests that the independent variable has a significant effect on the binary outcome.</p></li>
+<li><p>The null hypothesis in logistic regression is that there is no relationship between the independent variable and the binary outcome.</p></li>
+</ul>
+</div>
+<div id="model-evaluation" class="section level3" number="14.8.4">
+<h3>
+<span class="header-section-number">14.8.4</span> Model Evaluation<a class="anchor" aria-label="anchor" href="#model-evaluation"><i class="fas fa-link"></i></a>
+</h3>
+<p>To evaluate the performance of your logistic regression model, you can assess its accuracy, sensitivity, specificity, and other metrics using techniques like cross-validation and ROC analysis. You can also plot the ROC curve and calculate the AUC (Area Under the Curve) to assess the model’s predictive power.</p>
+</div>
+<div id="assumptions-of-logistic-regression" class="section level3" number="14.8.5">
+<h3>
+<span class="header-section-number">14.8.5</span> Assumptions of Logistic Regression<a class="anchor" aria-label="anchor" href="#assumptions-of-logistic-regression"><i class="fas fa-link"></i></a>
+</h3>
+<p>Logistic regression assumes that the log-odds of the binary outcome are a linear combination of the independent variables. It is important to check for violations of this assumption, which can be done through residual analysis.</p>
+</div>
+</div>
+<div id="poisson-regression-with-glm" class="section level2" number="14.9">
+<h2>
+<span class="header-section-number">14.9</span> Poisson Regression with <code>glm()</code><a class="anchor" aria-label="anchor" href="#poisson-regression-with-glm"><i class="fas fa-link"></i></a>
+</h2>
+<p>Poisson regression is a statistical technique used to model the relationship between a count-dependent variable (typically non-negative integers) and one or more independent variables. The <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> function in R is commonly used to perform Poisson regression.</p>
+<div id="performing-poisson-regression-with-glm" class="section level3" number="14.9.1">
+<h3>
+<span class="header-section-number">14.9.1</span> Performing Poisson Regression with <code>glm()</code><a class="anchor" aria-label="anchor" href="#performing-poisson-regression-with-glm"><i class="fas fa-link"></i></a>
+</h3>
+<p>To perform Poisson regression using the <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> function, you need to specify a formula that describes the relationship between the count-dependent variable and the independent variables. The basic syntax is as follows:</p>
+<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">poisson_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">count_dependent_variable</span> <span class="op">~</span> <span class="va">independent_variable1</span> <span class="op">+</span> <span class="va">independent_variable2</span>, family <span class="op">=</span> <span class="st">"poisson"</span>, data <span class="op">=</span> <span class="va">your_data</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>
+<code>count_dependent_variable</code>: The count-dependent variable you want to model.</li>
+<li>
+<code>independent_variable1</code>, <code>independent_variable2</code>, etc.: The independent variables that influence the count-dependent variable.</li>
+<li>
+<code>family</code>: Specify the family argument as <code>poisson</code> to indicate Poisson regression.</li>
+<li>
+<code>data</code>: The data frame containing your variables.</li>
+</ul>
+</div>
+<div id="model-summary-1" class="section level3" number="14.9.2">
+<h3>
+<span class="header-section-number">14.9.2</span> Model Summary<a class="anchor" aria-label="anchor" href="#model-summary-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>After creating the Poisson regression model, you can obtain a summary of the model’s coefficients, standard errors, z-values, and p-values using the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function applied to the <code>glm</code> object:</p>
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">poisson_model</span><span class="op">)</span></span></code></pre></div>
+<p>This summary provides information about the influence of the independent variables on the expected count of the dependent variable.</p>
+</div>
+<div id="interpreting-poisson-regression" class="section level3" number="14.9.3">
+<h3>
+<span class="header-section-number">14.9.3</span> Interpreting Poisson Regression<a class="anchor" aria-label="anchor" href="#interpreting-poisson-regression"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>The coefficients in the summary indicate the direction and strength of the relationship between the independent variables and the expected count of the dependent variable.</p></li>
+<li><p>Positive coefficients suggest an increase in the expected count, while negative coefficients suggest a decrease.</p></li>
+<li><p>The exponential of the coefficients (exp(coef)) can be used to interpret the multiplicative effect of a one-unit change in the independent variable on the expected count.</p></li>
+<li><p>A significant p-value (&lt; 0.05) for a coefficient suggests that the independent variable has a significant effect on the expected count.</p></li>
+<li><p>The null hypothesis in Poisson regression is that there is no relationship between the independent variable and the expected count.</p></li>
+</ul>
+</div>
+</div>
+<div id="class-exercises-do-it-in-groups" class="section level2" number="14.10">
+<h2>
+<span class="header-section-number">14.10</span> class exercises, do it in groups 👯<a class="anchor" aria-label="anchor" href="#class-exercises-do-it-in-groups"><i class="fas fa-link"></i></a>
+</h2>
+<p>first guided,</p>
+<div class="exercise">
+<p><span id="exr:ttest1" class="exercise"><strong>Exercise 14.1  </strong></span>A state Highway Patrol periodically samples vehicle at various location on a
+particular roadway. The sample of vehicle speed is used to test the hypothesis H0
+for which the mean is less than equal to <strong>65</strong></p>
+<p>The locations where <span class="math inline">\(H_0\)</span> is rejected are deemed the best locations for radar traps.
+At location F, a sample of <strong>64</strong> vehicles shows a mean speed of <strong>66.2 mph</strong> with a std
+dev of <strong>4.2 mph</strong>. Use a <span class="math inline">\(\alpha = 0.05\)</span> to test the hypothesis.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:ttest6" class="exercise"><strong>Exercise 14.2  </strong></span>Let’s assume to have dataset <code>midwest</code> in <code>ggplot2</code> package: this contains demographic information of midwest counties from 2000 US census.
+Besides all the other variables we are interested in <code>percollege</code> which describes the Percent college educated in midwest.</p>
+<ol style="list-style-type: decimal">
+<li>test if the midwest average is less than the national average (i.e. *<strong>35%</strong>) with a p-value &lt; .02.</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:ttest2" class="exercise"><strong>Exercise 14.3  </strong></span>Download the datafile ‘prawnGR.CSV’ from the <a href="https://alexd106.github.io/intro2R/data.html">Data link</a> and save it to the data directory (Remember R projects and working directory). Import these data into R and assign to a variable with an appropriate name. These data were collected from an experiment to investigate the difference in growth rate of the <strong>giant tiger prawn</strong> (Penaeus monodon) fed either an artificial or natural diet.</p>
+<ol style="list-style-type: decimal">
+<li>Have a quick look at the structure of this dataset.</li>
+<li>plot the growth rate versus the diet using an appropriate plot.</li>
+<li>How many observations are there in each diet treatment?</li>
+<li>You want to compare the difference in growth rate between the two diets using a two sample t-test.</li>
+<li>Conduct a two sample t-test using the t.test() using the argument <code>var.equal = TRUE</code> to perform the t-test assuming equal variances. What is the null hypothesis you want to test? Do you reject or fail to reject the null hypothesis? What is the value of the t statistic, degrees of freedom and p value? How would you summarise these summary statistics in a report?</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:ttest3" class="exercise"><strong>Exercise 14.4  </strong></span>A new coach has been hired at an athletics school, and the effectiveness of the new type of training will be evaluated by comparing the average times of 10 centimeters. The times in seconds before and after each athlete’s competition are repeated.ù</p>
+<pre><code>before_training: =  c(12.9, 13.5, 12.8, 15.6, 17.2, 19.2, 12.6, 15.3, 14.4, 11.3)
+after_training = c( 12.7, 13.6, 12.0, 15.2, 16.8, 20.0, 12.0, 15.9, 16.0, 11.1)</code></pre>
+<p>We are up against two groups of trained competitors, as measurements were taken on the same athletes before and after the competition. To determine if there has been an improvement, a deterioration, or if the time averages have remained essentially constant (i.e., H0). Conduct a test t of student for paired changes if the difference significant to a 95% confidence level?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:ttest4" class="exercise"><strong>Exercise 14.5  </strong></span>Following exercise 4 Assume that the club management, based on the statistics, fires this coach who has not improved and hires another more promising coach. Following the second training session, we record the athletes’ times:</p>
+<pre><code>before training: 12.9, 13.5, 12.8, 15.6, 17.2, 19.2, 12.6, 15.3, 14.4, 11.3
+after training: 12.0, 12.2, 11.2, 13.0, 15.0, 15.8, 12.2, 13.4, 12.9, 11.0</code></pre>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:ttest5" class="exercise"><strong>Exercise 14.6  </strong></span>Let’s assume <code>genderweight</code> in <code>datarium</code> package, containing the weight of 40 individuals (20 women and 20 men).</p>
+<ol style="list-style-type: decimal">
+<li>which are the mean weights for male and females?</li>
+<li>test is they are statistically significant with 95% confidence level</li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:anova1" class="exercise"><strong>Exercise 12.1  </strong></span>Let’s assume to have a sample with this data and respective belonging group:</p>
+<pre><code>x&lt;-c(12,23,12,13,14,21,23,24,30,21,12,13,14,15,16)
+
+z&lt;-c(1,1,1,1,1,2,2,2,2,2,3,3,3,3,3)</code></pre>
+<p>perform anova test with <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code> function testing if there is significant differences between group <strong>1</strong>, <strong>2</strong> and <strong>3</strong>.</p>
+</div>
+<p>You specify the formula, where <code>x</code> is the continous variable and <code>y</code> is the group variable.
+This is how you solve it.</p>
+<hr>
+<div class="exercise">
+<p><span id="exr:anova2" class="exercise"><strong>Exercise 12.2  </strong></span>Assume you have a dataset named <code>PlantGrowth</code> with variables <code>weight</code> (dependent variable) and <code>group</code> (categorical independent variable).</p>
+<ol style="list-style-type: decimal">
+<li>Perform an ANOVA analysis to compare the means of <code>weight</code> among different <code>group</code> levels.</li>
+<li>Check the p-value and determine whether there are significant differences among the group means.</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:anova3" class="exercise"><strong>Exercise 12.3  </strong></span>We recruit 90 people to participate in an experiment in which we randomly assign 30 people to follow either program A, program B, or program C for one month.</p>
+<pre><code>#make this example reproducible
+set.seed(0)
+
+#create data frame
+data &lt;- data.frame(program = rep(c("A", "B", "C"), each = 30),
+                   weight_loss = c(runif(30, 0, 3),
+                                   runif(30, 0, 5),
+                                   runif(30, 1, 7)))
+                                   </code></pre>
+<ol style="list-style-type: decimal">
+<li>plot boxplot of weight_loss ~ program Hint: use <code><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot()</a></code> function specifying the formula.</li>
+<li>fit 1 way anova to test difference in weight loss for each program.</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:anova4" class="exercise"><strong>Exercise 12.4  </strong></span>Consider the maximum size of 4 fish each from 3 populations (n=12). We want to use a model that will help us examine the question of whether the mean maximum fish size differs among populations.</p>
+<pre><code>size &lt;- c(3,4,5,6,4,5,6,7,7,8,9,10)
+pop &lt;- c("A","A","A","A","B","B","B","B","C","C","C","C")</code></pre>
+<ol style="list-style-type: decimal">
+<li>visualize it through boxplot</li>
+<li>Using ANOVA model test whether any group means differ from another.</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:anova5" class="exercise"><strong>Exercise 12.5  </strong></span>Let’s consider 6 different insect sprays in <code>InsectSprays</code> contained in R. Let’s assume we are interested in testing if there was a difference in the number of insects found in the field after each spraying, use varibales <code>count</code> and <code>spray</code>.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:anova6" class="exercise"><strong>Exercise 14.7  </strong></span>Let’s consider the <code>diet</code> dataset in <a href="https://www.kaggle.com/code/evitaginiyatullina/one-way-anova-comparison/data">this link here</a> The data set contains information on 76 people who undertook one of three diets (referred to as diet A, B and C). There is background information such as age, gender, and height. The aim of the study was to see which diet was best for losing weight.</p>
+<p>to read data first dowload it from the link, then move data inside your R project. then run these commands:</p>
+<pre><code>diet = read.csv("&lt; the dataset name&gt;.csv")</code></pre>
+<p>We will be using variable <code>Diet</code>, <code>pre.weight</code> and <code>weight6weeks</code></p>
+<ol style="list-style-type: decimal">
+<li>read data from kaggle</li>
+<li>compute mean weights for each group</li>
+<li>calculate anova on Diet against the weight cut</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:lr1" class="exercise"><strong>Exercise 14.8  </strong></span>Use the built-in <code>mtcars</code> dataset with variables mpg (miles per gallon) and vs (engine type: 0 = V-shaped, 1 = straight).</p>
+<ul>
+<li>Fit a logistic regression model to predict vs (engine type) based on mpg.</li>
+<li>Interpret the coefficients of the logistic regression model.</li>
+</ul>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:pr1" class="exercise"><strong>Exercise 14.9  </strong></span>Use the built-in <code>mtcars</code> dataset with variables <code>mpg</code> (miles per gallon) and <code>gear</code> (number of forward gears).</p>
+<ul>
+<li>Fit a Poisson regression model to predict gear based on mpg.</li>
+<li>Interpret the coefficients of the Poisson regression model.</li>
+</ul>
+</div>
+<hr>
+</div>
+<div id="solutions-6" class="section level2" number="14.11">
+<h2>
+<span class="header-section-number">14.11</span> solutions<a class="anchor" aria-label="anchor" href="#solutions-6"><i class="fas fa-link"></i></a>
+</h2>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:ttest1">14.1</a></strong>:</p>
+<p>Sample random data from a Normal distribution with a given mean and sd.
+Then define <strong>H0</strong> and <strong>H1</strong>. In the end run hte test.</p>
+<pre><code>x &lt;- rnorm(n = 64, mean = 66.2, sd = 4.2)
+test&lt;-t.test(x, mu = 65, alternative = "less")
+
+
+t = 1.469, df = 63, p-value = 0.9266
+alternative hypothesis: true mean is less than 65
+95 percent confidence interval:
+ -Inf 66.80805
+sample estimates:
+mean of x 
+65.84629 </code></pre>
+<p>The One Sample t-test testing the difference between x (mean = 65.85)
+and mu = 65 suggests that the effect is positive, statistically not
+significant, and very small (difference = 0.85, 95% CI [-Inf, 66.81],
+t(63) = 1.47, p = <strong>0.927</strong></p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="anova.html#exr:anova1">12.1</a></strong>:</p>
+<pre><code>x &lt;- c(12,23,12,13,14,21,23,24,30,21,12,13,14,15,16) 
+z &lt;- c(1,1,1,1,1,2,2,2,2,2,3,3,3,3,3)
+anova &lt;- aov( x ~ z ) 
+summary(anova)
+
+        Df Sum Sq Mean Sq F value Pr(&gt;F)
+z            1    1.6    1.60   0.047  **0.832**
+Residuals   13  446.1   34.32</code></pre>
+<p>The ANOVA (formula: x ~ z) suggests that the main effect of z is statistically not significant and very small
+(F(1, 13) = 0.05, p = 0.832; Eta2 = 3.57e-03, 95% CI [0.00, 1.00]). That means that group means are not that different
+one from the other</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:anova6">14.7</a></strong>:</p>
+<p>Assuming you have the ‘plant_growth’ dataset</p>
+<pre><code># 1. Perform ANOVA
+anova_model &lt;- aov(weight ~ group, data = plant_growth)
+
+# 2. Check p-value
+summary(anova_model)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:lr1">14.8</a></strong>:</p>
+<pre><code>data(mtcars)</code></pre>
+<p>Convert vs to a factor variable</p>
+<pre><code>mtcars$vs &lt;- as.factor(mtcars$vs)</code></pre>
+<p>Fit a logistic regression model</p>
+<pre><code>logistic_model &lt;- glm(vs ~ mpg, family = binomial, data = mtcars)</code></pre>
+<p>Interpret coefficients</p>
+<pre><code>summary(logistic_model)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:pr1">14.9</a></strong>:</p>
+<pre><code>data(mtcars)</code></pre>
+<p>Fit a Poisson regression model</p>
+<pre><code>poisson_model &lt;- glm(gear ~ mpg, family = poisson, data = mtcars)</code></pre>
+<p>Interpret coefficients</p>
+<pre><code>summary(poisson_model)</code></pre>
+</div>
+</div>
+<div id="tips" class="section level2" number="14.12">
+<h2>
+<span class="header-section-number">14.12</span> 🍬 tips and tricks<a class="anchor" aria-label="anchor" href="#tips"><i class="fas fa-link"></i></a>
+</h2>
+<p>Yout might be interested in standardizing/fornalize how you say things with a statistical jargon, <code>report</code> does that for you.
+you simply pass the test, wether it is ANOVA or t.test object inside report <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code>. Do you rememer the function <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> we have been using for linear regression? This is exactly that, but for both ANOVA and t tests.</p>
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="co"># remotes::install_github("easystats/report")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/report/">report</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">64</span>, mean <span class="op">=</span> <span class="fl">66.2</span>, sd <span class="op">=</span> <span class="fl">4.2</span><span class="op">)</span></span>
+<span><span class="va">test</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">x</span>, mu <span class="op">=</span> <span class="fl">65</span>, alternative <span class="op">=</span> <span class="st">"less"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">test</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Effect sizes were labelled following Cohen's (1988)</span></span>
+<span><span class="co">#&gt; recommendations.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; The One Sample t-test testing the difference between x</span></span>
+<span><span class="co">#&gt; (mean = 66.99) and mu = 65 suggests that the effect is</span></span>
+<span><span class="co">#&gt; positive, statistically not significant, and small</span></span>
+<span><span class="co">#&gt; (difference = 1.99, 95% CI [-Inf, 67.86], t(63) = 3.83, p &gt;</span></span>
+<span><span class="co">#&gt; .999; Cohen's d = 0.48, 95% CI [-Inf, 0.69])</span></span></code></pre></div>
+<hr>
+<p>when you have data in <code>longer</code> fromat there a different in syntax when you specify t test and it pretty much follows the one for linear models i.e. <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>.
+let’s look at it.</p>
+<p>we may have something like:</p>
+<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
+<span><span class="va">longer</span> <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span> </span>
+<span>  <span class="op">~</span><span class="va">group</span>, <span class="op">~</span><span class="va">var</span>,</span>
+<span>  <span class="st">"a"</span>,   <span class="fl">10</span>,</span>
+<span>  <span class="st">"b"</span>,   <span class="fl">24</span>, </span>
+<span>  <span class="st">"a"</span>,   <span class="fl">31</span>,</span>
+<span>  <span class="st">"a"</span>,   <span class="fl">75</span>,</span>
+<span>  <span class="st">"b"</span>,   <span class="fl">26</span>,</span>
+<span>  <span class="st">"a"</span>,   <span class="fl">8</span>,</span>
+<span>  <span class="st">"b"</span>,   <span class="fl">98</span>,</span>
+<span>  <span class="st">"b"</span>,   <span class="fl">62</span>,</span>
+<span>  <span class="op">)</span></span>
+<span><span class="va">wider</span> <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span> </span>
+<span>  <span class="op">~</span><span class="va">group_a</span>, <span class="op">~</span><span class="va">group_b</span>,</span>
+<span>   <span class="fl">10</span>,       <span class="fl">24</span>,</span>
+<span>   <span class="fl">31</span>,       <span class="fl">26</span>,</span>
+<span>   <span class="fl">75</span>,       <span class="fl">98</span>,</span>
+<span>   <span class="fl">8</span>,        <span class="fl">62</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<p>Those are exaclty the same dataset but arranged in a different format. We are used to the <em>wider</em> format but iut might happen that we bump into the <em>longer</em> one. What do we do? There’sa trick for that, let’s say you want to test if the mean are statistically different with a 95% confidence level, the instead of supplying <code>x</code> and <code>y</code> to <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> you would follow pretty much the syntax for linear models <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>:</p>
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">test_for_wider_format</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">var</span><span class="op">~</span><span class="va">group</span>, data <span class="op">=</span>  <span class="va">longer</span><span class="op">)</span></span>
+<span><span class="va">test_for_wider_format</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Welch Two Sample t-test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  var by group</span></span>
+<span><span class="co">#&gt; t = -0.91809, df = 5.9192, p-value = 0.3944</span></span>
+<span><span class="co">#&gt; alternative hypothesis: true difference in means between group a and group b is not equal to 0</span></span>
+<span><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span><span class="co">#&gt;  -78.99271  35.99271</span></span>
+<span><span class="co">#&gt; sample estimates:</span></span>
+<span><span class="co">#&gt; mean in group a mean in group b </span></span>
+<span><span class="co">#&gt;            31.0            52.5</span></span></code></pre></div>
+<p>what we conclude? we conclude that: Effect sizes were labelled following Cohen’s (1988) recommendations.</p>
+<p>The Welch Two Sample t-test testing the difference of var by group (mean in group a = 31.00, mean in group b = 52.50) suggests that the effect is negative, statistically not significant, and medium (difference = -21.50, 95% CI [-78.99, 35.99], t(5.92) = -0.92, p = 0.394; Cohen’s d = -0.75, 95% CI [-2.39, 0.94])</p>
+</div>
+<div id="further-exercies" class="section level2" number="14.13">
+<h2>
+<span class="header-section-number">14.13</span> further exercies 🏋️<a class="anchor" aria-label="anchor" href="#further-exercies"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:paired1" class="exercise"><strong>Exercise 14.10  </strong></span>We have the test scores of students before and after an intervention. How can we assess if the intervention had a statistically significant effect on the scores? Specify the type of test to use and the assumptions involved.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:mtcars1" class="exercise"><strong>Exercise 14.11  </strong></span>Using the dataset mtcars, write the R command to calculate the mean and standard deviation of the disp variable grouped by cyl.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:mean_diff1" class="exercise"><strong>(#exr:mean_diff1) </strong></span>Explain how you would assess if the mean difference between two groups is statistically significant, without running any R code.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:boston1" class="exercise"><strong>Exercise 14.12  </strong></span>Use the Boston dataset in MASS to create a histogram for the variable crim. Report the R code you used.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:pvalue1" class="exercise"><strong>Exercise 14.13  </strong></span>Describe the meaning of the p-value in the context of hypothesis testing.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:temp_diff1" class="exercise"><strong>(#exr:temp_diff1) </strong></span>Given a dataset with daily temperatures recorded for two cities over one year, write the R code to perform a hypothesis test to determine if there is a significant difference in mean temperature between the cities. Specify which test should be used.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:corr1" class="exercise"><strong>Exercise 14.14  </strong></span>Given X = c(10, 12, 15, 20) and Y = c(11, 14, 16, 18), calculate the Pearson correlation coefficient between X and Y using R.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:errors1" class="exercise"><strong>Exercise 14.15  </strong></span>Explain the concept of Type I and Type II errors in hypothesis testing.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:plantgrowth1" class="exercise"><strong>Exercise 14.16  </strong></span>Using the PlantGrowth dataset in R, calculate the mean of weight for each level of group and plot a boxplot of weight grouped by group.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:ttest1" class="exercise"><strong>Exercise 14.1  </strong></span>Run a one-sample t-test to test if the mean of hp in mtcars is different from 120. Write the R code.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:iris1" class="exercise"><strong>Exercise 14.17  </strong></span>Using the dataset iris, write the R code to test for a significant difference between the average Sepal.Length of setosa and versicolor species.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:poisson1" class="exercise"><strong>Exercise 14.18  </strong></span>Write an R function to simulate 500 observations from a Poisson distribution with a lambda of 3 and plot its histogram.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:multicollinearity1" class="exercise"><strong>Exercise 14.19  </strong></span>Describe how to check for multicollinearity in a multiple regression model in R.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:airquality1" class="exercise"><strong>Exercise 14.20  </strong></span>Using the airquality dataset, calculate the correlation matrix for Ozone, Solar.R, Wind, and Temp.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:paired2" class="exercise"><strong>Exercise 14.21  </strong></span>Perform a paired t-test using the before and after variables where before = c(5, 7, 8, 6, 10) and after = c(6, 8, 9, 7, 12). Report the p-value.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:lr1" class="exercise"><strong>Exercise 14.8  </strong></span>Using the dataset mtcars, perform a linear regression with mpg as the dependent variable and hp and wt as independent variables. Report the adjusted R-squared.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:density1" class="exercise"><strong>Exercise 14.22  </strong></span>Write the R code to create a density plot of the variable Sepal.Length for each species in the iris dataset.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:anova1" class="exercise"><strong>Exercise 12.1  </strong></span>Using iris, perform a one-way ANOVA to test if the mean Sepal.Length differs across the three species.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:ci1" class="exercise"><strong>Exercise 14.23  </strong></span>Define the term “confidence interval” in the context of statistical estimation.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:stepwise1" class="exercise"><strong>Exercise 14.24  </strong></span>Using the mtcars dataset, refit a multiple linear regression model with mpg as the dependent variable and hp, wt, and drat as independent variables. Use stepwise regression to iteratively remove insignificant predictors. Report the final model with the significant coefficients.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:anova2" class="exercise"><strong>Exercise 12.2  </strong></span>Using the dataset ToothGrowth, perform a one-way ANOVA with the function aov() to test if the mean tooth length differs across the supplement types and doses.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:anova3" class="exercise"><strong>Exercise 12.3  </strong></span>We recruit 90 people to participate in an experiment in which we randomly assign 30 people to follow either program A, program B, or program C for one month.</p>
+<pre><code>#make this example reproducible
+set.seed(0)
+
+#create data frame
+data &lt;- data.frame(program = rep(c("A", "B", "C"), each = 30),
+                   weight_loss = c(runif(30, 0, 3),
+                                   runif(30, 0, 5),
+                                   runif(30, 1, 7)))</code></pre>
+<ol style="list-style-type: decimal">
+<li>plot boxplot of weight_loss ~ program Hint: use <code><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot()</a></code> function specifying the formula.</li>
+<li>fit 1 way anova to test difference in weight loss for each program.</li>
+</ol>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:paired1">14.10</a></strong>:</p>
+<p>The appropriate test to use is the paired t-test. This test is used when we have two related samples, such as before and after measurements for the same individuals, and we want to determine if there is a statistically significant difference between the means. The assumptions include that the differences are normally distributed and the data is paired.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:mtcars1">14.11</a></strong>:</p>
+<p>The <code>dplyr</code> package is used to calculate the mean and standard deviation of the <code>disp</code> variable grouped by <code>cyl</code>:</p>
+<pre><code><a href="https://dplyr.tidyverse.org">library(dplyr)
+mtcars %&gt;% group_by(cyl) %&gt;% summarise(mean_disp = mean(disp), sd_disp = sd(disp))</a></code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise @ref(exr:mean_diff1)</strong>:</p>
+<p>To assess if the mean difference between two groups is statistically significant, we can use a hypothesis test such as the independent t-test. This involves setting up null and alternative hypotheses, calculating the test statistic, and comparing it to a critical value or using the p-value to determine significance, typically using a significance level (e.g., 0.05).</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:boston1">14.12</a></strong>:</p>
+<p>To create a histogram of the <code>crim</code> variable from the Boston dataset, use the following code:</p>
+<pre><code><a href="http://www.stats.ox.ac.uk/pub/MASS4/">library(MASS)
+data(Boston)
+hist(Boston$crim, main = "Histogram of crim", xlab = "Crime rate per capita")</a></code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:pvalue1">14.13</a></strong>:</p>
+<p>The p-value is the probability of obtaining test results at least as extreme as the observed results, under the assumption that the null hypothesis is true. A smaller p-value indicates stronger evidence against the null hypothesis, and if the p-value is below a chosen significance level (e.g., 0.05), we reject the null hypothesis.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise @ref(exr:temp_diff1)</strong>:</p>
+<p>The appropriate test to use is the two-sample t-test, as we are comparing the means of two independent groups. The R code is as follows:</p>
+<pre><code>t.test(temp_city1, temp_city2, var.equal = TRUE)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:corr1">14.14</a></strong>:</p>
+<p>To calculate the Pearson correlation coefficient between vectors <code>X</code> and <code>Y</code>:</p>
+<pre><code>X &lt;- c(10, 12, 15, 20)
+Y &lt;- c(11, 14, 16, 18)
+cor(X, Y)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:errors1">14.15</a></strong>:</p>
+<p>A Type I error occurs when we reject a true null hypothesis (false positive), while a Type II error occurs when we fail to reject a false null hypothesis (false negative).</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:plantgrowth1">14.16</a></strong>:</p>
+<p>To calculate the mean of <code>weight</code> for each level of <code>group</code> and plot a boxplot of <code>weight</code> grouped by <code>group</code>:</p>
+<pre><code>data(PlantGrowth)
+aggregate(weight ~ group, data = PlantGrowth, mean)
+boxplot(weight ~ group, data = PlantGrowth, main = "Boxplot of Weight by Group")</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:ttest1">14.1</a></strong>:</p>
+<p>To run a one-sample t-test to test if the mean of <code>hp</code> in <code>mtcars</code> is different from 120:</p>
+<pre><code>t.test(mtcars$hp, mu = 120)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:iris1">14.17</a></strong>:</p>
+<p>To test for a significant difference between the average <code>Sepal.Length</code> of setosa and versicolor species:</p>
+<pre><code>t.test(Sepal.Length ~ Species, data = subset(iris, Species %in% c("setosa", "versicolor")))</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:poisson1">14.18</a></strong>:</p>
+<p>To simulate 500 observations from a Poisson distribution with a lambda of 3 and plot its histogram:</p>
+<pre><code>set.seed(0)
+poisson_data &lt;- rpois(500, lambda = 3)
+hist(poisson_data, main = "Histogram of Poisson Distribution", xlab = "Values")</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:multicollinearity1">14.19</a></strong>:</p>
+<p>To check for multicollinearity, we can use the Variance Inflation Factor (VIF). A VIF value greater than 10 indicates high multicollinearity:</p>
+<pre><code><a href="https://r-forge.r-project.org/projects/car/">library(car)
+vif(model)</a></code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:airquality1">14.20</a></strong>:</p>
+<p>To calculate the correlation matrix for <code>Ozone</code>, <code>Solar.R</code>, <code>Wind</code>, and <code>Temp</code> in the <code>airquality</code> dataset:</p>
+<pre><code>airquality_subset &lt;- airquality[, c("Ozone", "Solar.R", "Wind", "Temp")]
+cor(airquality_subset, use = "complete.obs")</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:paired2">14.21</a></strong>:</p>
+<p>To perform a paired t-test using the <code>before</code> and <code>after</code> variables:</p>
+<pre><code>before &lt;- c(5, 7, 8, 6, 10)
+after &lt;- c(6, 8, 9, 7, 12)
+t.test(before, after, paired = TRUE)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:lr1">14.8</a></strong>:</p>
+<p>To perform a linear regression with <code>mpg</code> as the dependent variable and <code>hp</code> and <code>wt</code> as independent variables, and report the adjusted R-squared:</p>
+<pre><code>model &lt;- lm(mpg ~ hp + wt, data = mtcars)
+summary(model)$adj.r.squared</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:density1">14.22</a></strong>:</p>
+<p>To create a density plot of the variable <code>Sepal.Length</code> for each species in the <code>iris</code> dataset:</p>
+<pre><code><a href="https://ggplot2.tidyverse.org">library(ggplot2)
+ggplot(iris, aes(x = Sepal.Length, fill = Species)) +
+  geom_density(alpha = 0.5) +
+  labs(title = "Density Plot of Sepal.Length by Species")</a></code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="anova.html#exr:anova1">12.1</a></strong>:</p>
+<p>To perform a one-way ANOVA to test if the mean <code>Sepal.Length</code> differs across the three species:</p>
+<pre><code>aov_model &lt;- aov(Sepal.Length ~ Species, data = iris)
+summary(aov_model)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:ci1">14.23</a></strong>:</p>
+<p>A confidence interval is a range of values, derived from sample statistics, that is likely to contain the population parameter with a specified level of confidence (e.g., 95%). It provides an estimated range that is expected to include the true parameter value.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-prep.html#exr:stepwise1">14.24</a></strong>:</p>
+<p>To refit a multiple linear regression model with <code>mpg</code> as the dependent variable and <code>hp</code>, <code>wt</code>, and <code>drat</code> as independent variables, using stepwise regression:</p>
+<pre><code><a href="http://www.stats.ox.ac.uk/pub/MASS4/">library(MASS)
+initial_model &lt;- lm(mpg ~ hp + wt + drat, data = mtcars)
+stepwise_model &lt;- stepAIC(initial_model, direction = "both")
+summary(stepwise_model)</a></code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="anova.html#exr:anova2">12.2</a></strong>:</p>
+<p>To perform a one-way ANOVA using the <code>ToothGrowth</code> dataset to test if the mean tooth length differs across the supplement types and doses:</p>
+<pre><code>data(ToothGrowth)
+aov_model &lt;- aov(len ~ supp * dose, data = ToothGrowth)
+summary(aov_model)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="anova.html#exr:anova3">12.3</a></strong>:</p>
+<p>To plot a boxplot of <code>weight_loss</code> by <code>program</code> and fit a one-way ANOVA to test the difference in weight loss for each program:</p>
+<pre><code># Plot boxplot
+boxplot(weight_loss ~ program, data = data, main = "Boxplot of Weight Loss by Program", xlab = "Program", ylab = "Weight Loss")
+
+# Fit one-way ANOVA
+aov_model &lt;- aov(weight_loss ~ program, data = data)
+summary(aov_model)</code></pre>
+</div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="dummy-vars.html"><span class="header-section-number">13</span> 💻 Dummy Variables</a></div>
+<div class="next"><a href="log-reg.html"><span class="header-section-number">15</span> 💻 Binary Logistic Regression</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#int-prep"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="nav-link" href="#core-concepts-of-t-test"><span class="header-section-number">14.1</span> 🪨 core concepts of T test</a></li>
+<li><a class="nav-link" href="#t.test-function"><span class="header-section-number">14.2</span> t.test() function</a></li>
+<li><a class="nav-link" href="#introduction-1"><span class="header-section-number">14.3</span> Introduction</a></li>
+<li><a class="nav-link" href="#basic-usage"><span class="header-section-number">14.4</span> Basic Usage</a></li>
+<li>
+<a class="nav-link" href="#arguments"><span class="header-section-number">14.5</span> Arguments</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#formula"><span class="header-section-number">14.5.1</span> Formula</a></li>
+<li><a class="nav-link" href="#data"><span class="header-section-number">14.5.2</span> Data</a></li>
+<li><a class="nav-link" href="#subset"><span class="header-section-number">14.5.3</span> Subset</a></li>
+<li><a class="nav-link" href="#weight"><span class="header-section-number">14.5.4</span> Weight</a></li>
+<li><a class="nav-link" href="#na.action"><span class="header-section-number">14.5.5</span> Na.action</a></li>
+<li><a class="nav-link" href="#other-arguments"><span class="header-section-number">14.5.6</span> Other Arguments</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#vif-variance-inflation-factor"><span class="header-section-number">14.6</span> VIF (Variance Inflation Factor)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#calculating-vif"><span class="header-section-number">14.6.1</span> Calculating VIF</a></li>
+<li><a class="nav-link" href="#interpreting-vif"><span class="header-section-number">14.6.2</span> Interpreting VIF</a></li>
+<li><a class="nav-link" href="#addressing-multicollinearity"><span class="header-section-number">14.6.3</span> Addressing Multicollinearity</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#anova-analysis-of-variance"><span class="header-section-number">14.7</span> ANOVA (Analysis of Variance)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#performing-anova-with-aov"><span class="header-section-number">14.7.1</span> Performing ANOVA with aov()</a></li>
+<li><a class="nav-link" href="#anova-tables"><span class="header-section-number">14.7.2</span> ANOVA Tables</a></li>
+<li><a class="nav-link" href="#interpreting-anova"><span class="header-section-number">14.7.3</span> Interpreting ANOVA</a></li>
+<li><a class="nav-link" href="#assumptions-of-anova"><span class="header-section-number">14.7.4</span> Assumptions of ANOVA</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#logistic-regression-with-glm"><span class="header-section-number">14.8</span> Logistic Regression with glm()</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#performing-logistic-regression-with-glm"><span class="header-section-number">14.8.1</span> Performing Logistic Regression with glm()</a></li>
+<li><a class="nav-link" href="#model-summary"><span class="header-section-number">14.8.2</span> Model Summary</a></li>
+<li><a class="nav-link" href="#interpreting-logistic-regression"><span class="header-section-number">14.8.3</span> Interpreting Logistic Regression</a></li>
+<li><a class="nav-link" href="#model-evaluation"><span class="header-section-number">14.8.4</span> Model Evaluation</a></li>
+<li><a class="nav-link" href="#assumptions-of-logistic-regression"><span class="header-section-number">14.8.5</span> Assumptions of Logistic Regression</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#poisson-regression-with-glm"><span class="header-section-number">14.9</span> Poisson Regression with glm()</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#performing-poisson-regression-with-glm"><span class="header-section-number">14.9.1</span> Performing Poisson Regression with glm()</a></li>
+<li><a class="nav-link" href="#model-summary-1"><span class="header-section-number">14.9.2</span> Model Summary</a></li>
+<li><a class="nav-link" href="#interpreting-poisson-regression"><span class="header-section-number">14.9.3</span> Interpreting Poisson Regression</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#class-exercises-do-it-in-groups"><span class="header-section-number">14.10</span> class exercises, do it in groups 👯</a></li>
+<li><a class="nav-link" href="#solutions-6"><span class="header-section-number">14.11</span> solutions</a></li>
+<li><a class="nav-link" href="#tips"><span class="header-section-number">14.12</span> 🍬 tips and tricks</a></li>
+<li><a class="nav-link" href="#further-exercies"><span class="header-section-number">14.13</span> further exercies 🏋️</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/06ter-lab-prep-to-intermediate.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
+          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/06ter-lab-prep-to-intermediate.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 24-25 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2024-10-26.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

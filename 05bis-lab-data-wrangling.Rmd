@@ -1,0 +1,604 @@
+# 💻 Essentials of Data Wrangling and Basic Statistics
+
+Data wrangling, also known as data cleaning, involves the preparation steps prior to fitting any statistical model. This is essential since healthcare data often comes in a raw, messy format, and we usually don't need all the data available. We might only need a subset, such as specific rows or columns.
+
+In this tutorial, we will learn how to clean and wrangle healthcare-related datasets using both base R and the `dplyr` package, along with basic descriptive statistics. Let's start from the basics!
+
+## 1. Basic Operations in R
+
+Let's start with some simple operations:
+
+```{r}
+3 + 5
+12 / 7
+```
+
+You can store the result into objects:
+
+```{r}
+result <- 3 + 5
+result
+```
+
+Print the result:
+
+```{r}
+print(result)
+```
+
+Modify the result:
+
+```{r}
+result <- result * 3.1415
+print(result)
+```
+
+### Exercise 1: Basic Arithmetic
+
+Compute the BMI (Body Mass Index) of a person weighing 70 kg and with a height of 1.75 meters. Use the formula: \( BMI = \frac{weight}{height^2} \).
+
+## 2. Working with Vectors
+
+Vectors are a fundamental data structure in R. Let's create a vector of blood pressure readings:
+
+```{r}
+blood_pressure <- c(120, 135, 142, 130, 125)
+blood_pressure
+```
+
+### Accessing Vector Elements
+
+You can access elements in a vector using square brackets `[]`. For example:
+
+```{r}
+first_reading <- blood_pressure[1]
+first_three <- blood_pressure[1:3]
+
+print(first_reading)  # Output: [1] 120
+print(first_three)    # Output: [1] 120 135 142
+```
+
+### Conditional Subsetting
+
+Let's select only the readings greater than 130:
+
+```{r}
+high_bp <- blood_pressure[blood_pressure > 130]
+print(high_bp)  # Output: [1] 135 142 130
+```
+
+#### Advanced Conditional Subsetting
+
+You can combine multiple conditions to filter more complex subsets. For example, let's select blood pressure readings that are greater than 130 and less than 150:
+
+```{r}
+subset_bp <- blood_pressure[blood_pressure > 130 & blood_pressure < 150]
+print(subset_bp)  # Output: [1] 135 142
+```
+
+You can also use the `|` (or) operator to select readings that are either below 125 or above 160:
+
+```{r}
+extreme_bp <- blood_pressure[blood_pressure < 125 | blood_pressure > 160]
+print(extreme_bp)  # Output: [1] 120 165 170
+```
+
+## 3. Data Frames
+
+Data frames are similar to tables or spreadsheets, making them suitable for storing patient data. Let's create a simple data frame:
+
+```{r}
+patients <- data.frame(
+  ID = c(1, 2, 3),
+  Name = c("John", "Alice", "Bob"),
+  Age = c(30, 25, 28),
+  BloodPressure = c(120, 130, 125)
+)
+
+print(patients)
+```
+
+### Viewing the First Few Rows
+
+To view the first few rows of a data frame, use the `head()` function:
+
+```{r}
+head(patients)
+```
+
+You can specify the number of rows you want to see:
+
+```{r}
+head(patients, n = 2)
+```
+
+### Using Built-in Datasets
+
+R comes with several built-in datasets that can be accessed using the `data()` function. For example, to load the `iris` dataset:
+
+```{r}
+data(iris)
+head(iris)
+```
+
+### Accessing Data Frame Elements
+
+You can access elements in a data frame using the `$` operator:
+
+```{r}
+patient_names <- patients$Name
+print(patient_names)  # Output: [1] "John" "Alice" "Bob"
+```
+
+Or using square brackets:
+
+```{r}
+first_patient <- patients[1, ]
+print(first_patient)
+```
+
+### Creating and Modifying Columns
+
+You can create new columns based on existing ones. For example, let's add a column to categorize patients based on their blood pressure:
+
+```{r}
+patients$BP_Category <- ifelse(patients$BloodPressure > 140, "High", "Normal")
+print(patients)
+```
+
+To remove a column, simply assign `NULL` to it:
+
+```{r}
+patients$BP_Category <- NULL
+print(patients)
+```
+
+## 4. Data Manipulation with `dplyr`
+
+The `dplyr` package provides a more intuitive way to manipulate data. Let's load it and use it to filter and select data:
+
+```{r}
+library(dplyr)
+
+# Filter patients with blood pressure > 125
+high_bp_patients <- patients %>%
+  filter(BloodPressure > 125)
+
+print(high_bp_patients)
+```
+
+### Selecting Columns
+
+You can select specific columns using `select()`:
+
+```{r}
+names_and_age <- patients %>%
+  select(Name, Age)
+
+print(names_and_age)
+```
+
+## 5. Importing and Exporting Data
+
+It is crucial to know how to import and export data, as you'll often work with datasets stored in files.
+
+### Importing Data from a CSV File
+
+To import a CSV file into R, use the `read.csv()` function:
+
+```{r, eval=FALSE}
+# Import a CSV file
+data <- read.csv("path/to/file.csv")
+head(data)  # Display the first few rows
+```
+
+### Exporting Data to a CSV File
+
+To save your data frame as a CSV file:
+
+```{r, eval=FALSE}
+# Export the data frame to a CSV file
+write.csv(patients, "path/to/save_file.csv", row.names = FALSE)
+```
+
+## 6. Data Cleaning
+
+### Handling Missing Data
+
+In healthcare, missing data can occur for several reasons. For example, a nurse might forget to record a patient's temperature during a routine checkup, or a field might be left empty due to lack of information. Missing data can affect the quality of your analysis and may appear in R in different forms, such as `NA` (Not Available) or `NULL` (indicating the absence of an object).
+
+In R, `NA` is used to represent missing values in vectors and data frames. It's important to handle missing data appropriately, as it can bias your results. Common strategies include removing missing data, imputing values, or using statistical models that handle missingness.
+
+### Checking for Missing Values
+
+You can use `is.na()` to check for missing values:
+
+```{r}
+# Check for missing values in the BloodPressure column
+missing_values <- is.na(patients$BloodPressure)
+print(missing_values)  # Output: [1] FALSE FALSE FALSE
+```
+
+### Removing Missing Values
+
+You can remove rows with missing values using `na.omit()`:
+
+```{r}
+# Remove rows with missing values
+cleaned_data <- na.omit(patients)
+print(cleaned_data)
+```
+
+## 7. Working with Factors
+
+In healthcare, many variables are categorical, such as disease type or treatment group. Factors are used in R to handle categorical data.
+
+### Creating and Modifying Factors
+
+```{r}
+# Create a factor for disease type
+patients$Disease <- factor(c("Diabetes", "Hypertension", "None"))
+levels(patients$Disease)
+```
+
+You can also modify factor levels:
+
+```{r}
+# Rename factor levels
+levels(patients$Disease) <- c("DM", "HTN", "Healthy")
+print(patients$Disease)
+```
+
+## 8. Descriptive Statistics
+
+### Measures of Central Tendency
+
+- **Mean**: The mean is the sum of all values divided by the total number of observations.
+
+```{r}
+mean_bp <- mean(patients$BloodPressure)
+print(mean_bp)
+```
+
+- **Median**: The median is the central value in an ordered set of data.
+
+```{r}
+median_bp <- median(patients$BloodPressure)
+print(median_bp)
+```
+
+- **Mode**: In R, there is no built-in function for the mode, but we can calculate it as follows:
+
+```{r}
+# Calculate the mode
+mode <- function(x) {
+  uniq_vals <- unique(x)
+  uniq_vals[which.max(tabulate(match(x, uniq_vals)))]
+}
+
+mode_bp <- mode(patients$BloodPressure)
+print(mode_bp)
+```
+
+### Measures of Variability
+
+- **Variance**: Variance measures the dispersion of data from the mean.
+
+```{r}
+var_bp <- var(patients$BloodPressure)
+print(var_bp)
+```
+
+- **Standard Deviation**: Standard deviation is the square root of the variance and indicates how spread out the data is around the mean.
+
+```{r}
+sd_bp <- sd(patients$BloodPressure)
+print(sd_bp)
+```
+
+### Correlation
+
+Correlation measures the strength and direction of the relationship between two variables. For example, the relationship between age and blood pressure.
+
+```{r}
+correlation <- cor(patients$Age, patients$BloodPressure)
+print(correlation)
+```
+
+### Scatter Plot for Correlation
+
+```{r}
+plot(patients$Age, patients$BloodPressure, 
+     main = "Scatter Plot of Age vs Blood Pressure",
+     xlab
+
+ = "Age",
+     ylab = "Blood Pressure (mm Hg)",
+     pch = 19)
+```
+
+### Interpreting Graphs
+
+- **Histogram**: Shows the distribution of a single numeric variable. The height of each bar represents the frequency of values in each bin.
+
+- **Scatter Plot**: Displays the relationship between two numeric variables. Each point represents an observation, and the pattern of the points shows the nature of the relationship.
+
+- **Boxplot**: Visualizes the distribution of a variable through its quartiles, identifying outliers. Useful for comparing distributions between different groups.
+
+- **Pie Chart**: Represents the proportions of categories within a whole, showing how each category contributes to the total.
+
+## 9. Visualizing Data with Boxplots
+
+A boxplot, or box-and-whisker plot, is a graphical representation used to display the distribution of data based on a five-number summary: minimum, first quartile (Q1), median, third quartile (Q3), and maximum. It helps identify outliers and the spread of the data.
+
+### Clinical Example: Visualizing Blood Pressure
+
+Let's visualize the distribution of systolic blood pressure readings for a group of patients:
+
+```{r}
+blood_pressure <- c(120, 130, 135, 140, 145, 150, 155, 160, 165, 170)
+
+boxplot(blood_pressure, 
+        main = "Boxplot of Systolic Blood Pressure",
+        ylab = "Blood Pressure (mm Hg)",
+        col = "lightblue")
+```
+
+In this example:
+- The box represents the interquartile range (IQR), containing the middle 50% of the data.
+- The line inside the box shows the median value.
+- The "whiskers" extend to the minimum and maximum values within 1.5 * IQR from Q1 and Q3.
+- Data points outside this range are considered outliers, useful in identifying patients with unusually high or low blood pressure.
+
+## 10. Other Basic Plots
+
+### Histogram
+
+An easy way to visualize the distribution of numeric data is by using a histogram. For example:
+
+```{r}
+# Histogram of blood pressure readings
+hist(blood_pressure, 
+     main = "Distribution of Blood Pressure",
+     xlab = "Blood Pressure (mm Hg)",
+     col = "lightgreen")
+```
+
+### Bar Plot
+
+For categorical data, a bar plot can be useful:
+
+```{r}
+# Count of diseases
+barplot(table(patients$Disease), 
+        main = "Count of Diseases",
+        xlab = "Disease",
+        ylab = "Number of Patients",
+        col = "lightcoral")
+```
+
+### Pie Chart
+
+A pie chart can be used to represent the proportions of categories within a whole. For example, let's visualize the proportion of different diseases:
+
+```{r}
+# Pie chart of diseases
+pie(table(patients$Disease), 
+    main = "Proportion of Diseases",
+    col = c("lightblue", "lightgreen", "lightpink"))
+```
+
+## 11. Summarizing Data
+
+### Data Frame Structure
+
+Use `str()` to view the structure of a data frame:
+
+```{r}
+# View structure of data frame
+str(patients)
+```
+
+### Summary Statistics
+
+You can get a quick summary of all columns using `summary()`:
+
+```{r}
+# Summary of the data frame
+summary(patients)
+```
+
+### Using `dplyr` for Summary
+
+```{r}
+# Summary statistics using dplyr
+bp_summary <- patients %>%
+  summarise(
+    mean_bp = mean(BloodPressure, na.rm = TRUE),
+    sd_bp = sd(BloodPressure, na.rm = TRUE)
+  )
+
+print(bp_summary)
+```
+
+## 12. Merging Data Frames
+
+Sometimes, you'll need to combine patient data from different sources. Use the `merge()` function:
+
+```{r}
+# Patient details
+patient_details <- data.frame(
+  ID = c(1, 2, 3),
+  Name = c("John", "Alice", "Bob")
+)
+
+# Patient records
+patient_records <- data.frame(
+  ID = c(1, 3, 4),
+  BloodPressure = c(120, 125, 135)
+)
+
+# Merge on "ID"
+merged_data <- merge(patient_details, patient_records, by = "ID", all = TRUE)
+print(merged_data)
+```
+
+## 13. Data Export
+
+Finally, save your cleaned or modified data back to a file:
+
+```{r}
+# Save the merged data frame to a CSV file
+write.csv(merged_data, "merged_patient_data.csv", row.names = FALSE)
+```
+
+## Exercises
+
+::: {.exercise #dw1}
+
+Given a vector of numeric data representing cholesterol levels, access and print the third and fifth elements.
+
+    cholesterol_levels <- c(180, 220, 195, 250, 205)
+
+:::
+
+::: {.exercise #dw2}
+
+Create a data frame for the following patient data and then print the entire data frame:
+
+- Name: Emma, Oliver, Ava
+- Age: 45, 50, 37
+- BMI: 22.5, 28.7, 25.3
+
+:::
+
+::: {.exercise #dw3}
+
+Using the data frame `patients`, filter and print only the rows where `BloodPressure` is greater than 125.
+
+:::
+
+::: {.exercise #dw4}
+
+From the given data frame, select and print the `Name` and `Age` columns using `dplyr`'s `select()` function.
+
+:::
+
+::: {.exercise #dw5}
+
+Create a data frame with patient IDs and blood pressure readings. Introduce some `NA` values, then use `na.omit()` to remove them and print the cleaned data frame.
+
+:::
+
+::: {.exercise #dw6}
+
+Create two data frames: one with patient IDs and ages, and another with patient IDs and cholesterol levels. Merge them using the `merge()` function.
+
+:::
+
+::: {.exercise #dw7}
+
+Using the data frame `patients`, calculate the mean and standard deviation of the `BloodPressure` column.
+
+:::
+
+::: {.exercise #dw8}
+
+Create a scatter plot of Age vs. BMI using `ggplot2` for the data frame created in Exercise 2.
+
+:::
+
+## Solutions
+
+::: {.answer data-latex=""}
+**Answer to Exercise \@ref(exr:dw1)**:
+
+    element3 <- cholesterol_levels[3]
+    element5 <- cholesterol_levels[5]
+    
+    print(element3)  # Output: [1] 195
+    print(element5)  # Output: [1] 205
+
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise \@ref(exr:dw2)**:
+
+    patient_data <- data.frame(
+        Name = c("Emma", "Oliver", "Ava"),
+        Age = c(45, 50, 37),
+        BMI = c(22.5, 28.7, 25.3)
+    )
+    
+    print(patient_data)
+
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise \@ref(exr:dw3)**:
+
+    high_bp_patients <- subset(patients, BloodPressure > 125)
+    print(high_bp_patients)
+
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise \@ref(exr:dw4)**:
+
+    names_and_ages <- patients %>%
+        select(Name, Age)
+    print(names_and_ages)
+
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise \@ref(exr:dw5)**:
+
+    patient_bp <- data.frame(
+        ID = 1:5,
+        BloodPressure = c(120, 130, NA, 140, NA)
+    )
+    
+    cleaned_bp <- na.omit(patient_bp)
+    print(cleaned_bp)
+
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise \@ref(exr:dw6)**:
+
+    patient_ages <- data.frame(
+        ID = c(1, 2, 3),
+        Age = c(30, 25, 28)
+    )
+    
+    patient_chol <- data.frame(
+        ID = c(2, 3, 4),
+        Cholesterol = c(220, 195, 250)
+    )
+    
+    merged_data <- merge(patient_ages, patient_chol, by = "ID", all = TRUE)
+    print(merged_data)
+
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise \@ref(exr:dw7)**:
+
+    bp_summary <- patients %>%
+        summarise(
+            mean_bp = mean(BloodPressure, na.rm = TRUE),
+            sd_bp = sd(BloodPressure, na.rm = TRUE)
+        )
+    print(bp_summary)
+
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise \@ref(exr:dw8)**:
+
+    ggplot(patient_data, aes(x = Age, y = BMI)) +
+        geom_point() +
+        labs(title = "Age vs. BMI", x = "Age", y = "BMI")
+
+:::

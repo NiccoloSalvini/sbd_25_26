@@ -1,0 +1,18 @@
+bookdown::bs4_book:
+  css: style.css
+  theme:
+    primary: "#002f57"
+    secondary: "#125ea0"
+    heading_font: "'Raleway', sans-serif"
+  repo: https://sbd-labs-22-23.netlify.app
+  includes:
+    in_header:
+    - html/favicon.html
+
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+bookdown::epub_book: default

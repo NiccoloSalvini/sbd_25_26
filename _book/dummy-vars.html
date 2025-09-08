@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 13 💻 Dummy Variables | Statistics &amp; Big Data 24-25 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="Categorical variables (also known as factor or qualitative variables) are variables that classify observations into groups. They have a limited number of different values, called levels. For...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 13 💻 Dummy Variables | Statistics &amp; Big Data 24-25 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Categorical variables (also known as factor or qualitative variables) are variables that classify observations into groups. They have a limited number of different values, called levels. For...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 13 💻 Dummy Variables | Statistics &amp; Big Data 24-25 Labs">
+<meta name="twitter:description" content="Categorical variables (also known as factor or qualitative variables) are variables that classify observations into groups. They have a limited number of different values, called levels. For...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 24-25 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">6</span> 💻 Hypothesis Testing</a></li>
+<li><a class="" href="essentials-of-data-wrangling-and-basic-statistics.html"><span class="header-section-number">7</span> 💻 Essentials of Data Wrangling and Basic Statistics</a></li>
+<li><a class="" href="lin-reg.html"><span class="header-section-number">8</span> Linear Regression</a></li>
+<li><a class="" href="lin-reg-class.html"><span class="header-section-number">9</span> 💻 Linear Regression in class</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">10</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">11</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">12</span> 💻 ANOVA</a></li>
+<li><a class="active" href="dummy-vars.html"><span class="header-section-number">13</span> 💻 Dummy Variables</a></li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="log-reg.html"><span class="header-section-number">15</span> 💻 Binary Logistic Regression</a></li>
+<li><a class="" href="log-reg-ex.html"><span class="header-section-number">16</span> 💻 Binary LogReg exer</a></li>
+<li><a class="" href="pca.html"><span class="header-section-number">17</span> 💻 PCA</a></li>
+<li><a class="" href="poi-reg-ex.html"><span class="header-section-number">18</span> 💻 Poisson regr exer</a></li>
+<li><a class="" href="hier-clust-ex.html"><span class="header-section-number">19</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-mean-ex.html"><span class="header-section-number">20</span> 💻 K-Means Clustering</a></li>
+<li><a class="" href="reg-tree-ex.html"><span class="header-section-number">21</span> 💻 Regression Trees</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">22</span> ⚡ course performance</a></li>
+<li><a class="" href="how-to-ask-for-help.html"><span class="header-section-number">23</span> ✋ How to ask for help!</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">24</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">25</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">26</span> Datasets</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="dummy-vars" class="section level1" number="13">
+<h1>
+<span class="header-section-number">13</span> 💻 Dummy Variables<a class="anchor" aria-label="anchor" href="#dummy-vars"><i class="fas fa-link"></i></a>
+</h1>
+<p>Categorical variables (also known as factor or qualitative variables) are variables that classify observations into groups. They have a limited number of different values, called levels. For example the gender of individuals are a categorical variable that can take two levels: Male or Female.</p>
+<p>Regression analysis requires numerical variables. So, when a researcher wishes to include a categorical variable in a regression model, supplementary steps are required to make the results interpretable.</p>
+<div id="examples-data-from-car-pkg-salaries" class="section level2" number="13.1">
+<h2>
+<span class="header-section-number">13.1</span> examples data from <code>car</code> pkg <code>Salaries</code><a class="anchor" aria-label="anchor" href="#examples-data-from-car-pkg-salaries"><i class="fas fa-link"></i></a>
+</h2>
+<p>We’ll use the <code>Salaries</code> data set from <code>car</code> pkg, which contains 2008/2009 nine-month academic salary for <strong>Assistant Professors</strong>, <strong>Associate Professors</strong> and <strong>Professors</strong> in a college in the U.S.</p>
+<div id="batfwgtgls" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#batfwgtgls table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#batfwgtgls thead, #batfwgtgls tbody, #batfwgtgls tfoot, #batfwgtgls tr, #batfwgtgls td, #batfwgtgls th {
+  border-style: none;
+}
+
+#batfwgtgls p {
+  margin: 0;
+  padding: 0;
+}
+
+#batfwgtgls .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#batfwgtgls .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#batfwgtgls .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#batfwgtgls .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#batfwgtgls .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#batfwgtgls .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#batfwgtgls .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#batfwgtgls .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#batfwgtgls .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#batfwgtgls .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#batfwgtgls .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#batfwgtgls .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#batfwgtgls .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#batfwgtgls .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#batfwgtgls .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#batfwgtgls .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#batfwgtgls .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#batfwgtgls .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#batfwgtgls .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#batfwgtgls .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#batfwgtgls .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#batfwgtgls .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#batfwgtgls .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#batfwgtgls .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#batfwgtgls .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#batfwgtgls .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#batfwgtgls .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#batfwgtgls .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#batfwgtgls .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#batfwgtgls .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#batfwgtgls .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#batfwgtgls .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#batfwgtgls .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#batfwgtgls .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#batfwgtgls .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#batfwgtgls .gt_left {
+  text-align: left;
+}
+
+#batfwgtgls .gt_center {
+  text-align: center;
+}
+
+#batfwgtgls .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#batfwgtgls .gt_font_normal {
+  font-weight: normal;
+}
+
+#batfwgtgls .gt_font_bold {
+  font-weight: bold;
+}
+
+#batfwgtgls .gt_font_italic {
+  font-style: italic;
+}
+
+#batfwgtgls .gt_super {
+  font-size: 65%;
+}
+
+#batfwgtgls .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#batfwgtgls .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#batfwgtgls .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#batfwgtgls .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#batfwgtgls .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#batfwgtgls .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#batfwgtgls .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="rank">rank</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="discipline">discipline</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="yrs.since.phd">yrs.since.phd</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="yrs.service">yrs.service</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="sex">sex</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="salary">salary</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<th id="stub_1_1" scope="row" class="gt_row gt_right gt_stub" style="font-family: Courier;">1</th>
+<td headers="stub_1_1 rank" class="gt_row gt_left">Prof</td>
+<td headers="stub_1_1 discipline" class="gt_row gt_left">B</td>
+<td headers="stub_1_1 yrs.since.phd" class="gt_row gt_right">19</td>
+<td headers="stub_1_1 yrs.service" class="gt_row gt_right">18</td>
+<td headers="stub_1_1 sex" class="gt_row gt_left">Male</td>
+<td headers="stub_1_1 salary" class="gt_row gt_right">139750</td>
+</tr>
+<tr>
+<th id="stub_1_2" scope="row" class="gt_row gt_right gt_stub" style="font-family: Courier;">2</th>
+<td headers="stub_1_2 rank" class="gt_row gt_left">Prof</td>
+<td headers="stub_1_2 discipline" class="gt_row gt_left">B</td>
+<td headers="stub_1_2 yrs.since.phd" class="gt_row gt_right">20</td>
+<td headers="stub_1_2 yrs.service" class="gt_row gt_right">16</td>
+<td headers="stub_1_2 sex" class="gt_row gt_left">Male</td>
+<td headers="stub_1_2 salary" class="gt_row gt_right">173200</td>
+</tr>
+<tr>
+<th id="stub_1_3" scope="row" class="gt_row gt_right gt_stub" style="font-family: Courier;">3</th>
+<td headers="stub_1_3 rank" class="gt_row gt_left">AsstProf</td>
+<td headers="stub_1_3 discipline" class="gt_row gt_left">B</td>
+<td headers="stub_1_3 yrs.since.phd" class="gt_row gt_right">4</td>
+<td headers="stub_1_3 yrs.service" class="gt_row gt_right">3</td>
+<td headers="stub_1_3 sex" class="gt_row gt_left">Male</td>
+<td headers="stub_1_3 salary" class="gt_row gt_right">79750</td>
+</tr>
+<tr>
+<th id="stub_1_4" scope="row" class="gt_row gt_right gt_stub" style="font-family: Courier;">4</th>
+<td headers="stub_1_4 rank" class="gt_row gt_left">Prof</td>
+<td headers="stub_1_4 discipline" class="gt_row gt_left">B</td>
+<td headers="stub_1_4 yrs.since.phd" class="gt_row gt_right">45</td>
+<td headers="stub_1_4 yrs.service" class="gt_row gt_right">39</td>
+<td headers="stub_1_4 sex" class="gt_row gt_left">Male</td>
+<td headers="stub_1_4 salary" class="gt_row gt_right">115000</td>
+</tr>
+<tr>
+<th id="stub_1_5" scope="row" class="gt_row gt_right gt_stub" style="font-family: Courier;">5</th>
+<td headers="stub_1_5 rank" class="gt_row gt_left">Prof</td>
+<td headers="stub_1_5 discipline" class="gt_row gt_left">B</td>
+<td headers="stub_1_5 yrs.since.phd" class="gt_row gt_right">40</td>
+<td headers="stub_1_5 yrs.service" class="gt_row gt_right">41</td>
+<td headers="stub_1_5 sex" class="gt_row gt_left">Male</td>
+<td headers="stub_1_5 salary" class="gt_row gt_right">141500</td>
+</tr>
+<tr>
+<th id="stub_1_6" scope="row" class="gt_row gt_right gt_stub" style="font-family: Courier; font-size: x-small; background-color: #E4E4E4;">6..396</th>
+<td headers="stub_1_6 rank" class="gt_row gt_left" style="background-color: #E4E4E4;"></td>
+<td headers="stub_1_6 discipline" class="gt_row gt_left" style="background-color: #E4E4E4;"></td>
+<td headers="stub_1_6 yrs.since.phd" class="gt_row gt_right" style="background-color: #E4E4E4;"></td>
+<td headers="stub_1_6 yrs.service" class="gt_row gt_right" style="background-color: #E4E4E4;"></td>
+<td headers="stub_1_6 sex" class="gt_row gt_left" style="background-color: #E4E4E4;"></td>
+<td headers="stub_1_6 salary" class="gt_row gt_right" style="background-color: #E4E4E4;"></td>
+</tr>
+<tr>
+<th id="stub_1_7" scope="row" class="gt_row gt_right gt_stub" style="font-family: Courier;">397</th>
+<td headers="stub_1_7 rank" class="gt_row gt_left">AsstProf</td>
+<td headers="stub_1_7 discipline" class="gt_row gt_left">A</td>
+<td headers="stub_1_7 yrs.since.phd" class="gt_row gt_right">8</td>
+<td headers="stub_1_7 yrs.service" class="gt_row gt_right">4</td>
+<td headers="stub_1_7 sex" class="gt_row gt_left">Male</td>
+<td headers="stub_1_7 salary" class="gt_row gt_right">81035</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="categorical-variables-with-two-levels" class="section level2" number="13.2">
+<h2>
+<span class="header-section-number">13.2</span> Categorical variables with two levels<a class="anchor" aria-label="anchor" href="#categorical-variables-with-two-levels"><i class="fas fa-link"></i></a>
+</h2>
+<p>Since now we have pretty much seen regression with only numeric predictors, but the most of the times you are going to deal with categorical predictors like we did for regression in <code>iris</code> dataset.</p>
+<p>Recall that, the regression equation, for predicting an outcome variable <span class="math inline">\(Y\)</span> on the basis of a predictor variable <span class="math inline">\(X\)</span>, can be simply written as <span class="math inline">\(Y = \alpha + \beta_1*X\)</span>.</p>
+<p>Suppose that, we wish to investigate differences in salaries between males and females.</p>
+<p>Based on the gender variable, we can create a new dummy variable that takes the value:</p>
+<ul>
+<li>
+<strong>1</strong> if a person is male</li>
+<li>
+<strong>0</strong> if a person is female</li>
+</ul>
+<p>and use this variable as a predictor in the regression equation, leading to the following the model:</p>
+<ul>
+<li>
+<span class="math inline">\(\alpha + \beta_1\)</span> if person is male</li>
+<li>
+<span class="math inline">\(\alpha\)</span> if person is female</li>
+</ul>
+<p>The coefficients can be interpreted as follow:</p>
+<ul>
+<li>
+<span class="math inline">\(\alpha\)</span> is the average salary among females,</li>
+<li>
+<span class="math inline">\(\alpha + \beta_1\)</span> is the average salary among males,</li>
+<li>and <span class="math inline">\(\beta_1\)</span> is the average difference in salary between males and females.</li>
+</ul>
+<p>For simple demonstration purpose, the following example models the salary difference between males and females by computing a simple linear regression model on the <code>Salaries</code> data set.
+R creates dummy variables automatically:</p>
+<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">salary</span> <span class="op">~</span> <span class="va">sex</span>, data <span class="op">=</span> <span class="va">Salaries</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">$</span><span class="va">coef</span></span>
+<span><span class="co">#&gt;              Estimate Std. Error   t value</span></span>
+<span><span class="co">#&gt; (Intercept) 101002.41   4809.386 21.001103</span></span>
+<span><span class="co">#&gt; sexMale      14088.01   5064.579  2.781674</span></span>
+<span><span class="co">#&gt;                                                                               Pr(&gt;|t|)</span></span>
+<span><span class="co">#&gt; (Intercept) 0.000000000000000000000000000000000000000000000000000000000000000002683482</span></span>
+<span><span class="co">#&gt; sexMale     0.005667106519338906828187063524637778755277395248413085937500000000000000</span></span></code></pre></div>
+<p>From the output above, the average salary for female is estimated to be <strong>101002</strong>, whereas males are estimated a total of <strong>101002</strong> + <strong>14088</strong> = <strong>115090</strong>.</p>
+<p>The p-value for the dummy variable sexMale is very significant, suggesting that there is a statistical evidence of a <strong>difference in average salary between the genders.</strong></p>
+<p>What happened is taht R has created a <code>sexMale</code> dummy variable that takes on a value of 1 if the sex is Male, and 0 otherwise (Females). The decision to code males as <em>1</em> and females as <em>0</em> (baseline) is arbitrary, and has no effect on the regression computation, but does alter the interpretation of the coefficients.</p>
+<p>If you are willign to change the factor orders than you may expect to find a negative coefficient for <code>SexFemale.</code></p>
+</div>
+<div id="categorical-variables-with-more-than-two-levels" class="section level2" number="13.3">
+<h2>
+<span class="header-section-number">13.3</span> Categorical variables with more than <strong>two</strong> levels<a class="anchor" aria-label="anchor" href="#categorical-variables-with-more-than-two-levels"><i class="fas fa-link"></i></a>
+</h2>
+<p>Generally, a categorical variable with <span class="math inline">\(n\)</span> levels will be transformed into n-1 variables each with two levels. These <span class="math inline">\(n-1\)</span> new variables contain the same information than the single variable.</p>
+<p>Lets take for example rank in the Salaries data has three levels: <code>AsstProf</code>, <code>AssocProf</code> and <code>Prof.</code> This variable could be dummy coded into two variables, one called <code>AssocProf</code> and one <code>Prof</code> (i.e. <span class="math inline">\(n-1\)</span>)
+That is to say:</p>
+<ul>
+<li>If rank = <code>AssocProf</code>, then the column <code>AssocProf</code> would be coded with a 1 and <code>Prof</code> with a 0.</li>
+<li>If rank = <code>Prof</code>, then the column <code>AssocProf</code> would be coded with a 0 and <code>Prof</code> would be coded with a 1.</li>
+<li>If rank = <code>AsstProf</code>, then both columns <code>AssocProf</code> and <code>Prof</code> would be coded with a 0.</li>
+</ul>
+<p>This dummy coding is automatically performed by R. For demonstration purpose, you can use the function model.matrix() to create a contrast matrix for a factor variable, this is how it would look like (remember R handles that for you):</p>
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/model.matrix.html">model.matrix</a></span><span class="op">(</span><span class="op">~</span><span class="va">rank</span>, data <span class="op">=</span> <span class="va">Salaries</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">res</span><span class="op">[</span>, <span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   rankAssocProf rankProf</span></span>
+<span><span class="co">#&gt; 1             0        1</span></span>
+<span><span class="co">#&gt; 2             0        1</span></span>
+<span><span class="co">#&gt; 3             0        0</span></span>
+<span><span class="co">#&gt; 4             0        1</span></span>
+<span><span class="co">#&gt; 5             0        1</span></span>
+<span><span class="co">#&gt; 6             1        0</span></span></code></pre></div>
+<p>When building linear model, there are different ways to encode categorical variables, known as contrast coding systems. The default option in R is to use the first level of the factor as a reference and interpret the remaining levels relative to this level.</p>
+<p>Now let’s fit the model and see results:</p>
+<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span>
+<span><span class="va">model2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">salary</span> <span class="op">~</span> <span class="va">yrs.service</span> <span class="op">+</span> <span class="va">rank</span> <span class="op">+</span> <span class="va">discipline</span> <span class="op">+</span> <span class="va">sex</span>,</span>
+<span>             data <span class="op">=</span> <span class="va">Salaries</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; lm(formula = salary ~ yrs.service + rank + discipline + sex, </span></span>
+<span><span class="co">#&gt;     data = Salaries)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Residuals:</span></span>
+<span><span class="co">#&gt;    Min     1Q Median     3Q    Max </span></span>
+<span><span class="co">#&gt; -64202 -14255  -1533  10571  99163 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Coefficients:</span></span>
+<span><span class="co">#&gt;               Estimate Std. Error t value</span></span>
+<span><span class="co">#&gt; (Intercept)   68351.67    4482.20  15.250</span></span>
+<span><span class="co">#&gt; yrs.service     -88.78     111.64  -0.795</span></span>
+<span><span class="co">#&gt; rankAssocProf 14560.40    4098.32   3.553</span></span>
+<span><span class="co">#&gt; rankProf      49159.64    3834.49  12.820</span></span>
+<span><span class="co">#&gt; disciplineB   13473.38    2315.50   5.819</span></span>
+<span><span class="co">#&gt; sexMale        4771.25    3878.00   1.230</span></span>
+<span><span class="co">#&gt;                           Pr(&gt;|t|)    </span></span>
+<span><span class="co">#&gt; (Intercept)   &lt; 0.0000000000000002 ***</span></span>
+<span><span class="co">#&gt; yrs.service               0.426958    </span></span>
+<span><span class="co">#&gt; rankAssocProf             0.000428 ***</span></span>
+<span><span class="co">#&gt; rankProf      &lt; 0.0000000000000002 ***</span></span>
+<span><span class="co">#&gt; disciplineB           0.0000000124 ***</span></span>
+<span><span class="co">#&gt; sexMale                   0.219311    </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Residual standard error: 22650 on 391 degrees of freedom</span></span>
+<span><span class="co">#&gt; Multiple R-squared:  0.4478, Adjusted R-squared:  0.4407 </span></span>
+<span><span class="co">#&gt; F-statistic: 63.41 on 5 and 391 DF,  p-value: &lt; 0.00000000000000022</span></span></code></pre></div>
+<p>For example, it can be seen that being from discipline B (applied departments) is significantly associated with an average increase of 13473.38 in salary compared to discipline A (theoretical departments).</p>
+</div>
+<div id="oh-theres-another-way-to-say-this..-onehoteconding" class="section level2" number="13.4">
+<h2>
+<span class="header-section-number">13.4</span> oh there’s another way to say this.. <strong>OneHotEconding</strong><a class="anchor" aria-label="anchor" href="#oh-theres-another-way-to-say-this..-onehoteconding"><i class="fas fa-link"></i></a>
+</h2>
+<p>One-hot encoding is the process of converting a categorical variable with multiple categories into multiple variables, each with a value of 1 or 0. There are many packages that does that even if R handles that for you.</p>
+<p>For the methods outlined below, the following simple dataframe will be required:</p>
+<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">28</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  Outcome <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">100</span>,by<span class="op">=</span><span class="fl">1</span><span class="op">)</span>,</span>
+<span>  Variable <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Red"</span>,<span class="st">"Green"</span>,<span class="st">"Blue"</span><span class="op">)</span>, <span class="fl">100</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>Now starting from this dataframe you can one hot encode i.e. convert factors to 0s and 1s such as:</p>
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/topepo/caret/">caret</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Loading required package: ggplot2</span></span>
+<span><span class="co">#&gt; Loading required package: lattice</span></span>
+<span></span>
+<span><span class="va">dummy</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/caret/man/dummyVars.html">dummyVars</a></span><span class="op">(</span><span class="st">" ~ ."</span>, data<span class="op">=</span><span class="va">data</span><span class="op">)</span></span>
+<span><span class="va">newdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">dummy</span>, newdata <span class="op">=</span> <span class="va">data</span><span class="op">)</span><span class="op">)</span> </span></code></pre></div>
+</div>
+<div id="handling-factors-in-r" class="section level2" number="13.5">
+<h2>
+<span class="header-section-number">13.5</span> handling factors in R<a class="anchor" aria-label="anchor" href="#handling-factors-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>Factors are used to represent categorical data. Factors can be ordered or unordered and are an important class for statistical analysis and for plotting.</p>
+<p>Factors are stored as integers, and have labels associated with these unique integers. While factors look (and often behave) like character vectors, they are actually integers under the hood, and you need to be careful when treating them like strings.</p>
+<p>Once created, factors can only contain a pre-defined set values, known as levels. By default, R always sorts levels in alphabetical order. For instance, if you have a factor with 2 levels:</p>
+<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"female"</span>, <span class="st">"male"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "female" "male"</span></span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nlevels.html">nlevels</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 2</span></span></code></pre></div>
+<p>now with 3</p>
+<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">food</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"low"</span>, <span class="st">"high"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span>, <span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">food</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "high"   "low"    "medium"</span></span></code></pre></div>
+</div>
+<div id="exercises-3" class="section level2" number="13.6">
+<h2>
+<span class="header-section-number">13.6</span> exercises<a class="anchor" aria-label="anchor" href="#exercises-3"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:dv1" class="exercise"><strong>Exercise 13.1  </strong></span>Suppose you have a dataset with a categorical variable named “color” that has the following levels: “Red,” “Blue,” “Green,” and “Yellow.” Create a set of dummy variables for this categorical variable in R, making sure to use the appropriate method for encoding these levels.</p>
+</div>
+<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a sample dataset</span></span>
+<span><span class="va">your_dataset</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Red"</span>, <span class="st">"Blue"</span>, <span class="st">"Green"</span>, <span class="st">"Yellow"</span>, <span class="st">"Red"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="exercise">
+<p><span id="exr:dv2" class="exercise"><strong>Exercise 13.2  </strong></span>Using the “Salaries” dataset, perform a linear regression analysis to investigate the effect of “discipline” (with levels “A” and “B”) on salary. Interpret the coefficients for each level of “discipline.”</p>
+</div>
+<div class="exercise">
+<p><span id="exr:dv3" class="exercise"><strong>Exercise 13.3  </strong></span>Suppose you have a dataset with two categorical variables, “region” and “language,” and you want to apply one-hot encoding to both variables. Provide R code to perform one-hot encoding for both variables simultaneously.</p>
+</div>
+<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a sample dataset</span></span>
+<span><span class="va">your_dataset</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  region <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"North"</span>, <span class="st">"South"</span>, <span class="st">"East"</span>, <span class="st">"West"</span><span class="op">)</span>,</span>
+<span>  language <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"English"</span>, <span class="st">"Spanish"</span>, <span class="st">"French"</span>, <span class="st">"German"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="exercise">
+<p><span id="exr:dv4" class="exercise"><strong>Exercise 13.4  </strong></span>You have a dataset with an ordered factor variable “size” representing “Small,” “Medium,” and “Large” sizes. How can you change the order of levels to “Large,” “Medium,” and “Small”? Provide R code to modify the factor levels.</p>
+</div>
+<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a sample dataset</span></span>
+<span><span class="va">your_dataset</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Small"</span>, <span class="st">"Medium"</span>, <span class="st">"Large"</span>, <span class="st">"Small"</span>, <span class="st">"Large"</span><span class="op">)</span>, ordered <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="solutions-5" class="section level2" number="13.7">
+<h2>
+<span class="header-section-number">13.7</span> solutions<a class="anchor" aria-label="anchor" href="#solutions-5"><i class="fas fa-link"></i></a>
+</h2>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="dummy-vars.html#exr:dv1">13.1</a>:</p>
+<p>You can create dummy variables for the “color” variable using the <code>model.matrix</code> function as follows:</p>
+<pre><code># Create dummy variables for color
+color_dummies &lt;- model.matrix(~ color - 1, data = your_dataset)
+colnames(color_dummies) &lt;- levels(your_dataset$color)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="dummy-vars.html#exr:dv2">13.2</a>:</p>
+<p>You can perform the linear regression analysis and interpret the coefficients for the “discipline” levels as follows:</p>
+<pre><code># Fit the linear regression model
+model4 &lt;- lm(salary ~ discipline, data = Salaries)
+summary(model4)
+
+# Interpretation of coefficients</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="dummy-vars.html#exr:dv3">13.3</a>:</p>
+<p>You can apply one-hot encoding to multiple categorical variables simultaneously using the <code>dummyVars</code> function from the <code>caret</code> package as follows:</p>
+<pre><code><a href="https://github.com/topepo/caret/"># Load the necessary packages
+library(caret)
+
+# Apply one-hot encoding for "region" and "language"
+dummy &lt;- dummyVars("~ region + language", data = your_dataset)
+newdata &lt;- data.frame(predict(dummy, newdata = your_dataset))</a></code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="dummy-vars.html#exr:dv4">13.4</a>:</p>
+<p>You can change the order of levels in the ordered factor variable “size” as follows:</p>
+<pre><code># Change the order of factor levels
+your_dataset$size &lt;- factor(your_dataset$size, levels = c("Large", "Medium", "Small"), ordered = TRUE)</code></pre>
+<p>This code will reorder the levels of the “size” factor variable as specified.</p>
+</div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="anova.html"><span class="header-section-number">12</span> 💻 ANOVA</a></div>
+<div class="next"><a href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dummy-vars"><span class="header-section-number">13</span> 💻 Dummy Variables</a></li>
+<li><a class="nav-link" href="#examples-data-from-car-pkg-salaries"><span class="header-section-number">13.1</span> examples data from car pkg Salaries</a></li>
+<li><a class="nav-link" href="#categorical-variables-with-two-levels"><span class="header-section-number">13.2</span> Categorical variables with two levels</a></li>
+<li><a class="nav-link" href="#categorical-variables-with-more-than-two-levels"><span class="header-section-number">13.3</span> Categorical variables with more than two levels</a></li>
+<li><a class="nav-link" href="#oh-theres-another-way-to-say-this..-onehoteconding"><span class="header-section-number">13.4</span> oh there’s another way to say this.. OneHotEconding</a></li>
+<li><a class="nav-link" href="#handling-factors-in-r"><span class="header-section-number">13.5</span> handling factors in R</a></li>
+<li><a class="nav-link" href="#exercises-3"><span class="header-section-number">13.6</span> exercises</a></li>
+<li><a class="nav-link" href="#solutions-5"><span class="header-section-number">13.7</span> solutions</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/06sexies-dummy-vars.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
+          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/06sexies-dummy-vars.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 24-25 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2024-10-26.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

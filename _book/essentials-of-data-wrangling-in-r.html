@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 7 💻 Essentials of Data Wrangling in R | Statistics &amp; Big Data 24-25 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="Data wrangling also said data cleaning are the preparation steps prior fitting any statistical procedure. This is needed since data, the most of the times, comes in a raw diry format. Why data...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 7 💻 Essentials of Data Wrangling in R | Statistics &amp; Big Data 24-25 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Data wrangling also said data cleaning are the preparation steps prior fitting any statistical procedure. This is needed since data, the most of the times, comes in a raw diry format. Why data...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 7 💻 Essentials of Data Wrangling in R | Statistics &amp; Big Data 24-25 Labs">
+<meta name="twitter:description" content="Data wrangling also said data cleaning are the preparation steps prior fitting any statistical procedure. This is needed since data, the most of the times, comes in a raw diry format. Why data...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="libs/datatables-binding-0.23/datatables.js"></script><link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 24-25 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li class="book-part">Laboratories</li>
+<li><a class="" href="hypt-test.html"><span class="header-section-number">6</span> Hypothesis Testing</a></li>
+<li><a class="active" href="essentials-of-data-wrangling-in-r.html"><span class="header-section-number">7</span> 💻 Essentials of Data Wrangling in R</a></li>
+<li><a class="" href="lin-reg.html"><span class="header-section-number">8</span> Linear Regression</a></li>
+<li><a class="" href="lin-reg-class.html"><span class="header-section-number">9</span> 💻 Linear Regression in class</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">10</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">11</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">12</span> 💻 ANOVA</a></li>
+<li><a class="" href="dummy-vars.html"><span class="header-section-number">13</span> 💻 Dummy Variables</a></li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="log-reg.html"><span class="header-section-number">15</span> 💻 Binary Logistic Regression</a></li>
+<li><a class="" href="log-reg-ex.html"><span class="header-section-number">16</span> 💻 Binary LogReg exer</a></li>
+<li><a class="" href="pca.html"><span class="header-section-number">17</span> 💻 PCA</a></li>
+<li><a class="" href="poi-reg-ex.html"><span class="header-section-number">18</span> 💻 Poisson regr exer</a></li>
+<li><a class="" href="hier-clust-ex.html"><span class="header-section-number">19</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-mean-ex.html"><span class="header-section-number">20</span> 💻 K-Means Clustering</a></li>
+<li><a class="" href="reg-tree-ex.html"><span class="header-section-number">21</span> 💻 Regression Trees</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">22</span> ⚡ course performance</a></li>
+<li><a class="" href="how-to-ask-for-help.html"><span class="header-section-number">23</span> ✋ How to ask for help!</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">24</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">25</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">26</span> Datasets</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="essentials-of-data-wrangling-in-r" class="section level1" number="7">
+<h1>
+<span class="header-section-number">7</span> 💻 Essentials of Data Wrangling in R<a class="anchor" aria-label="anchor" href="#essentials-of-data-wrangling-in-r"><i class="fas fa-link"></i></a>
+</h1>
+<p>Data wrangling also said data cleaning are the preparation steps prior fitting any statistical procedure. This is needed since data, the most of the times, comes in a raw diry format. Why data come in a raw/dirty format? people organise and treat data badly</p>
+<div id="intro-to-r" class="section level2" number="7.1">
+<h2>
+<span class="header-section-number">7.1</span> Intro to R<a class="anchor" aria-label="anchor" href="#intro-to-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let’s start from the basics!</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fl">3</span><span class="op">+</span><span class="fl">5</span></span>
+<span><span class="co">#&gt; [1] 8</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fl">12</span><span class="op">/</span><span class="fl">7</span></span>
+<span><span class="co">#&gt; [1] 1.714286</span></span></code></pre></div>
+<p>store result into objects</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fl">3</span> <span class="op">+</span> <span class="fl">5</span></span>
+<span><span class="va">result</span></span>
+<span><span class="co">#&gt; [1] 8</span></span></code></pre></div>
+<p>then print them:</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 8</span></span></code></pre></div>
+<p>add operation to R objects</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="va">result</span> <span class="op">*</span> <span class="fl">3.1415</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 25.132</span></span></code></pre></div>
+<p>let’s define a vector (which is an object type)</p>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">vector</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">8</span>, <span class="fl">13</span><span class="op">)</span></span>
+<span><span class="va">vector</span></span>
+<span><span class="co">#&gt; [1]  1  3  8 13</span></span></code></pre></div>
+<p>How can we acccess to vectors? we need square brackets <code>object[]</code>. Dont be confused with dataframes, in that object class (i.e. dataframe are object classes, so R objects with certain characteristics ).</p>
+<p>get first element (paly with it )</p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">vector</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span><span class="co">#&gt; [1] 1</span></span></code></pre></div>
+<p>now to first 3 elements, notice the <code>:</code> that means: “fino a” i.e. da 1 fino a 3, positional arguments</p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">vector</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span>
+<span><span class="co">#&gt; [1] 1 3 8</span></span></code></pre></div>
+<p>Certainly, I can help you continue explaining data cleaning in R for entry-level students in a clear and simple manner. Let’s cover some essential concepts:</p>
+</div>
+<div id="subsetting-vectors" class="section level2" number="7.2">
+<h2>
+<span class="header-section-number">7.2</span> Subsetting Vectors<a class="anchor" aria-label="anchor" href="#subsetting-vectors"><i class="fas fa-link"></i></a>
+</h2>
+<p>You’ve already introduced vectors, but let’s dive deeper into subsetting them. Subsetting means selecting specific elements from a vector.</p>
+<div id="accessing-individual-elements" class="section level3" number="7.2.1">
+<h3>
+<span class="header-section-number">7.2.1</span> Accessing Individual Elements<a class="anchor" aria-label="anchor" href="#accessing-individual-elements"><i class="fas fa-link"></i></a>
+</h3>
+<p>To access individual elements in a vector, use square brackets <code>[]</code> along with the position of the element you want to access. For example:</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">8</span>, <span class="fl">13</span><span class="op">)</span></span>
+<span><span class="va">element1</span> <span class="op">&lt;-</span> <span class="va">vector</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span><span class="va">element3</span> <span class="op">&lt;-</span> <span class="va">vector</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">element1</span><span class="op">)</span>  <span class="co"># Output: [1] 1</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">element3</span><span class="op">)</span>  <span class="co"># Output: [1] 8</span></span>
+<span><span class="co">#&gt; [1] 8</span></span></code></pre></div>
+</div>
+<div id="accessing-multiple-elements" class="section level3" number="7.2.2">
+<h3>
+<span class="header-section-number">7.2.2</span> Accessing Multiple Elements<a class="anchor" aria-label="anchor" href="#accessing-multiple-elements"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can also select multiple elements by specifying a range using the <code>:</code> operator. For example, to get the first three elements:</p>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">first_three</span> <span class="op">&lt;-</span> <span class="va">vector</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">first_three</span><span class="op">)</span>  <span class="co"># Output: [1] 1 3 8</span></span>
+<span><span class="co">#&gt; [1] 1 3 8</span></span></code></pre></div>
+</div>
+<div id="conditional-subsetting" class="section level3" number="7.2.3">
+<h3>
+<span class="header-section-number">7.2.3</span> Conditional Subsetting<a class="anchor" aria-label="anchor" href="#conditional-subsetting"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can subset a vector based on a condition. For example, to select elements greater than 5:</p>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">greater_than_5</span> <span class="op">&lt;-</span> <span class="va">vector</span><span class="op">[</span><span class="va">vector</span> <span class="op">&gt;</span> <span class="fl">5</span><span class="op">]</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">greater_than_5</span><span class="op">)</span>  <span class="co"># Output: [1]  8 13</span></span>
+<span><span class="co">#&gt; [1]  8 13</span></span></code></pre></div>
+</div>
+</div>
+<div id="data-frames" class="section level2" number="7.3">
+<h2>
+<span class="header-section-number">7.3</span> Data Frames<a class="anchor" aria-label="anchor" href="#data-frames"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now, let’s introduce data frames, a fundamental data structure in R.</p>
+<div id="what-are-data-frames" class="section level3" number="7.3.1">
+<h3>
+<span class="header-section-number">7.3.1</span> What are Data Frames?<a class="anchor" aria-label="anchor" href="#what-are-data-frames"><i class="fas fa-link"></i></a>
+</h3>
+<p>Data frames are like spreadsheets or tables where you can store and manipulate data. They consist of rows and columns, making them suitable for working with structured data.</p>
+</div>
+<div id="creating-data-frames" class="section level3" number="7.3.2">
+<h3>
+<span class="header-section-number">7.3.2</span> Creating Data Frames<a class="anchor" aria-label="anchor" href="#creating-data-frames"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can create a data frame by combining vectors of <strong>equal length</strong> into columns. Here’s how you can create a simple data frame:</p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create vectors for data</span></span>
+<span><span class="va">names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span><span class="op">)</span></span>
+<span><span class="va">ages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">30</span>, <span class="fl">22</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Combine vectors into a data frame</span></span>
+<span><span class="va">people_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Name <span class="op">=</span> <span class="va">names</span>, Age <span class="op">=</span> <span class="va">ages</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">people_df</span><span class="op">)</span></span>
+<span><span class="co">#&gt;      Name Age</span></span>
+<span><span class="co">#&gt; 1   Alice  25</span></span>
+<span><span class="co">#&gt; 2     Bob  30</span></span>
+<span><span class="co">#&gt; 3 Charlie  22</span></span></code></pre></div>
+</div>
+<div id="accessing-data-frame-elements" class="section level3" number="7.3.3">
+<h3>
+<span class="header-section-number">7.3.3</span> Accessing Data Frame Elements<a class="anchor" aria-label="anchor" href="#accessing-data-frame-elements"><i class="fas fa-link"></i></a>
+</h3>
+<p>To access elements in a data frame, you can use square brackets <code>[]</code> just like with vectors but with an additional dimension. For example:</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Access the first row and the "Name" column</span></span>
+<span><span class="va">first_name</span> <span class="op">&lt;-</span> <span class="va">people_df</span><span class="op">[</span><span class="fl">1</span>, <span class="st">"Name"</span><span class="op">]</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">first_name</span><span class="op">)</span>  <span class="co"># Output: [1] "Alice"</span></span>
+<span><span class="co">#&gt; [1] "Alice"</span></span></code></pre></div>
+</div>
+</div>
+<div id="data-frame-essentials-data.frame" class="section level2" number="7.4">
+<h2>
+<span class="header-section-number">7.4</span> Data Frame Essentials <code>data.frame()</code><a class="anchor" aria-label="anchor" href="#data-frame-essentials-data.frame"><i class="fas fa-link"></i></a>
+</h2>
+<div id="data-frame-structure" class="section level3" number="7.4.1">
+<h3>
+<span class="header-section-number">7.4.1</span> Data Frame Structure<a class="anchor" aria-label="anchor" href="#data-frame-structure"><i class="fas fa-link"></i></a>
+</h3>
+<p>Data frames are structured as rows and columns, making them a powerful tool for working with structured data. Use the <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> function to display the structure of a data frame.</p>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a sample data frame</span></span>
+<span><span class="va">data_frame</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span><span class="op">)</span>,</span>
+<span>                         Age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">30</span>, <span class="fl">22</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Display the structure</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">data_frame</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'data.frame':    3 obs. of  2 variables:</span></span>
+<span><span class="co">#&gt;  $ Name: chr  "Alice" "Bob" "Charlie"</span></span>
+<span><span class="co">#&gt;  $ Age : num  25 30 22</span></span></code></pre></div>
+</div>
+<div id="summary-statistics" class="section level3" number="7.4.2">
+<h3>
+<span class="header-section-number">7.4.2</span> Summary Statistics<a class="anchor" aria-label="anchor" href="#summary-statistics"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can generate summary statistics for the numerical columns in a data frame using the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function.</p>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a data frame with numeric data</span></span>
+<span><span class="va">data_frame</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">30</span>, <span class="fl">22</span>, <span class="fl">35</span>, <span class="fl">28</span><span class="op">)</span>,</span>
+<span>                         Height <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">165</span>, <span class="fl">175</span>, <span class="fl">160</span>, <span class="fl">180</span>, <span class="fl">170</span><span class="op">)</span>,</span>
+<span>                         Name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Mark"</span>, <span class="st">"Rupert"</span>, <span class="st">"Celine"</span>, <span class="st">"Frank"</span>, <span class="st">"Madison"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Generate summary statistics</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">data_frame</span><span class="op">)</span></span>
+<span><span class="co">#&gt;       Age         Height        Name          </span></span>
+<span><span class="co">#&gt;  Min.   :22   Min.   :160   Length:5          </span></span>
+<span><span class="co">#&gt;  1st Qu.:25   1st Qu.:165   Class :character  </span></span>
+<span><span class="co">#&gt;  Median :28   Median :170   Mode  :character  </span></span>
+<span><span class="co">#&gt;  Mean   :28   Mean   :170                     </span></span>
+<span><span class="co">#&gt;  3rd Qu.:30   3rd Qu.:175                     </span></span>
+<span><span class="co">#&gt;  Max.   :35   Max.   :180</span></span></code></pre></div>
+</div>
+</div>
+<div id="filtering-and-subsetting-data-frames" class="section level2" number="7.5">
+<h2>
+<span class="header-section-number">7.5</span> Filtering and Subsetting Data Frames<a class="anchor" aria-label="anchor" href="#filtering-and-subsetting-data-frames"><i class="fas fa-link"></i></a>
+</h2>
+<div id="filtering-rows" class="section level3" number="7.5.1">
+<h3>
+<span class="header-section-number">7.5.1</span> Filtering Rows<a class="anchor" aria-label="anchor" href="#filtering-rows"><i class="fas fa-link"></i></a>
+</h3>
+<p>To filter rows in a data frame based on a condition, use the subset operation. For example, to select individuals older than 25:</p>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Filter data frame for ages &gt; 25</span></span>
+<span><span class="va">subset_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">data_frame</span>, <span class="va">Age</span> <span class="op">&gt;</span> <span class="fl">25</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="selecting-columns" class="section level3" number="7.5.2">
+<h3>
+<span class="header-section-number">7.5.2</span> Selecting Columns<a class="anchor" aria-label="anchor" href="#selecting-columns"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can select specific columns from a data frame using the <code>$</code> operator or square brackets. For instance, to select the “Name” column:</p>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Select the "Name" column using the $ operator</span></span>
+<span><span class="va">names</span> <span class="op">&lt;-</span> <span class="va">data_frame</span><span class="op">$</span><span class="va">Name</span></span>
+<span></span>
+<span><span class="co"># Select the "Age" column using square brackets</span></span>
+<span><span class="va">ages</span> <span class="op">&lt;-</span> <span class="va">data_frame</span><span class="op">[[</span><span class="st">"Age"</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
+</div>
+<div id="combining-filtering-and-subsetting" class="section level3" number="7.5.3">
+<h3>
+<span class="header-section-number">7.5.3</span> Combining Filtering and Subsetting<a class="anchor" aria-label="anchor" href="#combining-filtering-and-subsetting"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can combine filtering and subsetting to select specific rows and columns simultaneously. For example, to select the “Name” column for individuals older than 25:</p>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Filter for ages &gt; 25 and select the "Name" column</span></span>
+<span><span class="va">subset_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">data_frame</span>, <span class="va">Age</span> <span class="op">&gt;</span> <span class="fl">25</span>, select <span class="op">=</span> <span class="va">Name</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="sorting-data-frames" class="section level3" number="7.5.4">
+<h3>
+<span class="header-section-number">7.5.4</span> Sorting Data Frames<a class="anchor" aria-label="anchor" href="#sorting-data-frames"><i class="fas fa-link"></i></a>
+</h3>
+<p>To sort a data frame by a specific column, use the <code><a href="https://rdrr.io/r/base/order.html">order()</a></code> function. For example, to sort by “Age” in ascending order:</p>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Sort data frame by "Age" in ascending order</span></span>
+<span><span class="va">sorted_data</span> <span class="op">&lt;-</span> <span class="va">data_frame</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">data_frame</span><span class="op">$</span><span class="va">Age</span><span class="op">)</span>, <span class="op">]</span></span></code></pre></div>
+</div>
+</div>
+<div id="merging-data-frames" class="section level2" number="7.6">
+<h2>
+<span class="header-section-number">7.6</span> Merging Data Frames<a class="anchor" aria-label="anchor" href="#merging-data-frames"><i class="fas fa-link"></i></a>
+</h2>
+<p>If you have multiple data frames and want to combine them, you can use functions like <code><a href="https://rdrr.io/r/base/merge.html">merge()</a></code> or <code><a href="https://rdrr.io/r/base/cbind.html">cbind()</a></code>.</p>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create two data frames</span></span>
+<span><span class="va">data_frame1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>ID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, Score <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">85</span>, <span class="fl">92</span>, <span class="fl">78</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">data_frame2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>ID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>, Grade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Merge data frames by a common column (ID)</span></span>
+<span><span class="va">merged_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">data_frame1</span>, <span class="va">data_frame2</span>, by <span class="op">=</span> <span class="st">"ID"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="aggregating-data" class="section level2" number="7.7">
+<h2>
+<span class="header-section-number">7.7</span> Aggregating Data<a class="anchor" aria-label="anchor" href="#aggregating-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>You can aggregate data to calculate summary statistics based on one or more columns. The <code><a href="https://rdrr.io/r/stats/aggregate.html">aggregate()</a></code> function is useful for this purpose.</p>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Calculate the mean score by grade</span></span>
+<span><span class="va">agg_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">Score</span> <span class="op">~</span> <span class="va">Grade</span>, data <span class="op">=</span> <span class="va">merged_data</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="data-cleaning" class="section level2" number="7.8">
+<h2>
+<span class="header-section-number">7.8</span> Data Cleaning<a class="anchor" aria-label="anchor" href="#data-cleaning"><i class="fas fa-link"></i></a>
+</h2>
+<p>Data cleaning is a crucial step in data analysis, ensuring that your data is accurate and ready for analysis. Here are some common data cleaning operations:</p>
+<div id="dealing-with-missing-values" class="section level3" number="7.8.1">
+<h3>
+<span class="header-section-number">7.8.1</span> Dealing with Missing Values<a class="anchor" aria-label="anchor" href="#dealing-with-missing-values"><i class="fas fa-link"></i></a>
+</h3>
+<p>Handling missing data is a common challenge in data cleaning. R represents missing values as “NA.” You can identify and deal with missing values using functions like <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> and <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code>.</p>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a vector with missing values</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="cn">NA</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="cn">NA</span>, <span class="fl">6</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check for missing values</span></span>
+<span><span class="va">missing_values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Remove missing values</span></span>
+<span><span class="va">clean_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">missing_values</span><span class="op">)</span>  <span class="co"># Output: [1] FALSE  TRUE FALSE FALSE  TRUE FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE  TRUE FALSE FALSE  TRUE FALSE</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">clean_data</span><span class="op">)</span>      <span class="co"># Output: [1] 1 3 4 6</span></span>
+<span><span class="co">#&gt; [1] 1 3 4 6</span></span>
+<span><span class="co">#&gt; attr(,"na.action")</span></span>
+<span><span class="co">#&gt; [1] 2 5</span></span>
+<span><span class="co">#&gt; attr(,"class")</span></span>
+<span><span class="co">#&gt; [1] "omit"</span></span></code></pre></div>
+</div>
+<div id="removing-duplicates" class="section level3" number="7.8.2">
+<h3>
+<span class="header-section-number">7.8.2</span> Removing Duplicates<a class="anchor" aria-label="anchor" href="#removing-duplicates"><i class="fas fa-link"></i></a>
+</h3>
+<p>Sometimes, your data may contain duplicate records that need to be removed. You can use the <code><a href="https://rdrr.io/r/base/duplicated.html">duplicated()</a></code> and <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> functions for this.</p>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a vector with duplicates</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Find and remove duplicates</span></span>
+<span><span class="va">duplicates</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/duplicated.html">duplicated</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
+<span><span class="va">unique_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">duplicates</span><span class="op">)</span>   <span class="co"># Output: [1] FALSE  FALSE   TRUE FALSE FALSE  TRUE FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">unique_data</span><span class="op">)</span>  <span class="co"># Output: [1] 1 2 3 4 5</span></span>
+<span><span class="co">#&gt; [1] 1 2 3 4 5</span></span></code></pre></div>
+</div>
+<div id="renaming-columns" class="section level3" number="7.8.3">
+<h3>
+<span class="header-section-number">7.8.3</span> Renaming Columns<a class="anchor" aria-label="anchor" href="#renaming-columns"><i class="fas fa-link"></i></a>
+</h3>
+<p>If you’re working with data frames, you may need to rename columns to make them more descriptive or concise. You can use the <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code> function for this purpose.</p>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a data frame</span></span>
+<span><span class="va">data_frame</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span><span class="op">)</span>, Age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">30</span>, <span class="fl">22</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Rename columns</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">data_frame</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Full_Name"</span>, <span class="st">"Years"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">data_frame</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Full_Name Years</span></span>
+<span><span class="co">#&gt; 1     Alice    25</span></span>
+<span><span class="co">#&gt; 2       Bob    30</span></span>
+<span><span class="co">#&gt; 3   Charlie    22</span></span></code></pre></div>
+</div>
+<div id="data-type-conversion" class="section level3" number="7.8.4">
+<h3>
+<span class="header-section-number">7.8.4</span> Data Type Conversion<a class="anchor" aria-label="anchor" href="#data-type-conversion"><i class="fas fa-link"></i></a>
+</h3>
+<p>Data often needs to be converted from one data type to another. For example, converting character data to numeric data. You can use functions like <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code>, <code><a href="https://rdrr.io/r/base/character.html">as.character()</a></code>, etc.</p>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a character vector</span></span>
+<span><span class="va">char_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Convert to numeric</span></span>
+<span><span class="va">num_vector</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">char_vector</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">num_vector</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 1 2 3</span></span></code></pre></div>
+</div>
+</div>
+<div id="string-manipulation" class="section level2" number="7.9">
+<h2>
+<span class="header-section-number">7.9</span> String Manipulation<a class="anchor" aria-label="anchor" href="#string-manipulation"><i class="fas fa-link"></i></a>
+</h2>
+<p>Data cleaning often involves working with text data. You may need to clean and manipulate strings in various ways. Here are some common string operations in R:</p>
+<div id="combining-strings" class="section level3" number="7.9.1">
+<h3>
+<span class="header-section-number">7.9.1</span> Combining Strings<a class="anchor" aria-label="anchor" href="#combining-strings"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can concatenate strings using the <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code> function. This is useful for creating new variables or labels in your data.</p>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">first_name</span> <span class="op">&lt;-</span> <span class="st">"John"</span></span>
+<span><span class="va">last_name</span> <span class="op">&lt;-</span> <span class="st">"Doe"</span></span>
+<span><span class="va">full_name</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">first_name</span>, <span class="va">last_name</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">full_name</span><span class="op">)</span>  <span class="co"># Output: [1] "John Doe"</span></span>
+<span><span class="co">#&gt; [1] "John Doe"</span></span></code></pre></div>
+</div>
+<div id="splitting-strings" class="section level3" number="7.9.2">
+<h3>
+<span class="header-section-number">7.9.2</span> Splitting Strings<a class="anchor" aria-label="anchor" href="#splitting-strings"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code><a href="https://rdrr.io/r/base/strsplit.html">strsplit()</a></code> function allows you to split a string into multiple parts based on a delimiter.</p>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">text</span> <span class="op">&lt;-</span> <span class="st">"apple,banana,cherry"</span></span>
+<span><span class="va">split_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span><span class="op">(</span><span class="va">text</span>, <span class="st">","</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">split_text</span><span class="op">)</span>  <span class="co"># Output: [[1]]</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; [1] "apple"  "banana" "cherry"</span></span>
+<span><span class="co"># [1] "apple"  "banana" "cherry"</span></span></code></pre></div>
+</div>
+<div id="removing-whitespace" class="section level3" number="7.9.3">
+<h3>
+<span class="header-section-number">7.9.3</span> Removing Whitespace<a class="anchor" aria-label="anchor" href="#removing-whitespace"><i class="fas fa-link"></i></a>
+</h3>
+<p>To clean up extra whitespace in a string, you can use the <code><a href="https://rdrr.io/r/base/grep.html">gsub()</a></code> function with regular expressions.</p>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">text</span> <span class="op">&lt;-</span> <span class="st">"   This is a messy text.   "</span></span>
+<span><span class="va">cleaned_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">"\\s+"</span>, <span class="st">" "</span>, <span class="va">text</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">cleaned_text</span><span class="op">)</span>  <span class="co"># Output: [1] " This is a messy text. "</span></span>
+<span><span class="co">#&gt; [1] " This is a messy text. "</span></span></code></pre></div>
+</div>
+</div>
+<div id="date-and-time-handling" class="section level2" number="7.10">
+<h2>
+<span class="header-section-number">7.10</span> Date and Time Handling<a class="anchor" aria-label="anchor" href="#date-and-time-handling"><i class="fas fa-link"></i></a>
+</h2>
+<p>If your data includes dates and times, you’ll need to understand how to manipulate them:</p>
+<div id="date-conversion" class="section level3" number="7.10.1">
+<h3>
+<span class="header-section-number">7.10.1</span> Date Conversion<a class="anchor" aria-label="anchor" href="#date-conversion"><i class="fas fa-link"></i></a>
+</h3>
+<p>To work with dates, you can use the <code><a href="https://rdrr.io/r/base/as.Date.html">as.Date()</a></code> function to convert strings into date objects.</p>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">date_string</span> <span class="op">&lt;-</span> <span class="st">"2023-10-18"</span></span>
+<span><span class="va">date_object</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">date_string</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">date_object</span><span class="op">)</span>  <span class="co"># Output: [1] "2023-10-18"</span></span>
+<span><span class="co">#&gt; [1] "2023-10-18"</span></span></code></pre></div>
+</div>
+<div id="date-arithmetic" class="section level3" number="7.10.2">
+<h3>
+<span class="header-section-number">7.10.2</span> Date Arithmetic<a class="anchor" aria-label="anchor" href="#date-arithmetic"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can perform arithmetic operations with dates. For example, to calculate the difference between two dates:</p>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">date1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2023-10-18"</span><span class="op">)</span></span>
+<span><span class="va">date2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2023-10-25"</span><span class="op">)</span></span>
+<span><span class="va">date_diff</span> <span class="op">&lt;-</span> <span class="va">date2</span> <span class="op">-</span> <span class="va">date1</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">date_diff</span><span class="op">)</span>  <span class="co"># Output: Time difference of 7 days</span></span>
+<span><span class="co">#&gt; Time difference of 7 days</span></span></code></pre></div>
+</div>
+</div>
+<div id="handling-categorical-data" class="section level2" number="7.11">
+<h2>
+<span class="header-section-number">7.11</span> Handling Categorical Data<a class="anchor" aria-label="anchor" href="#handling-categorical-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>When dealing with categorical data, you may want to create dummy variables for analysis. The <code><a href="https://rdrr.io/r/base/factor.html">factor()</a></code> function is used to represent categorical data.</p>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a vector of categorical data</span></span>
+<span><span class="va">categories</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Red"</span>, <span class="st">"Green"</span>, <span class="st">"Blue"</span>, <span class="st">"Red"</span>, <span class="st">"Green"</span><span class="op">)</span></span>
+<span><span class="va">factor_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">categories</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">factor_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] Red   Green Blue  Red   Green</span></span>
+<span><span class="co">#&gt; Levels: Blue Green Red</span></span></code></pre></div>
+</div>
+<div id="exercises" class="section level2" number="7.12">
+<h2>
+<span class="header-section-number">7.12</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:dw1" class="exercise"><strong>Exercise 7.1  </strong></span>Given a vector of numeric data, access and print the third and fifth elements.</p>
+<pre><code>numeric_vector &lt;- c(10, 20, 30, 40, 50, 60)</code></pre>
+</div>
+<div class="exercise">
+<p><span id="exr:dw2" class="exercise"><strong>Exercise 7.2  </strong></span>Create a data frame for the following information and then print the entire data frame:</p>
+<ul>
+<li>Name: Alice, Bob, Charlie</li>
+<li>Age: 25, 30, 22</li>
+</ul>
+</div>
+<div class="exercise">
+<p><span id="exr:dw3" class="exercise"><strong>Exercise 7.3  </strong></span>Given a data frame with columns named “First_Name” and “Last_Name,” rename them to “First” and “Last.”</p>
+<pre><code>data_frame &lt;- data.frame(First_Name = c("Alice", "Bob", "Charlie"),
+                         Last_Name = c("Smith", "Johnson", "Brown"))</code></pre>
+</div>
+<div class="exercise">
+<p><span id="exr:dw4" class="exercise"><strong>Exercise 7.4  </strong></span>From the given data frame, filter and print only the rows where “Age” is greater than 25.</p>
+<pre><code># Create a data frame
+data_frame &lt;- data.frame(Name = c("Alice", "Bob", "Charlie"),
+                         Age = c(25, 30, 22))
+
+# Your code here to filter and print rows where Age &gt; 25</code></pre>
+</div>
+<div class="exercise">
+<p><span id="exr:dw5" class="exercise"><strong>Exercise 7.5  </strong></span>From the given data frame, select and print the “Name” column.</p>
+<pre><code>data_frame &lt;- data.frame(Name = c("Alice", "Bob", "Charlie"),
+                         Age = c(25, 30, 22))</code></pre>
+</div>
+</div>
+<div id="solutions" class="section level2" number="7.13">
+<h2>
+<span class="header-section-number">7.13</span> Solutions<a class="anchor" aria-label="anchor" href="#solutions"><i class="fas fa-link"></i></a>
+</h2>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="essentials-of-data-wrangling-in-r.html#exr:dw1">7.1</a></strong>:</p>
+<pre><code>element3 &lt;- numeric_vector[3]
+element5 &lt;- numeric_vector[5]
+
+print(element3)  # Output: [1] 30
+print(element5)  # Output: [1] 50</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="essentials-of-data-wrangling-in-r.html#exr:dw2">7.2</a></strong>:</p>
+<pre><code># Create a data frame
+data_frame &lt;- data.frame(Name = c("Alice", "Bob", "Charlie"),
+                         Age = c(25, 30, 22))
+
+print(data_frame)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="essentials-of-data-wrangling-in-r.html#exr:dw3">7.3</a></strong>:</p>
+<pre><code>colnames(data_frame) &lt;- c("First", "Last")
+print(data_frame)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="essentials-of-data-wrangling-in-r.html#exr:dw4">7.4</a></strong>:</p>
+<pre><code>filtered_data &lt;- subset(data_frame, Age &gt; 25)
+print(filtered_data)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="essentials-of-data-wrangling-in-r.html#exr:dw5">7.5</a></strong>:</p>
+<pre><code>names &lt;- data_frame$Name
+print(names)</code></pre>
+</div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="hypt-test.html"><span class="header-section-number">6</span> Hypothesis Testing</a></div>
+<div class="next"><a href="lin-reg.html"><span class="header-section-number">8</span> Linear Regression</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#essentials-of-data-wrangling-in-r"><span class="header-section-number">7</span> 💻 Essentials of Data Wrangling in R</a></li>
+<li><a class="nav-link" href="#intro-to-r"><span class="header-section-number">7.1</span> Intro to R</a></li>
+<li>
+<a class="nav-link" href="#subsetting-vectors"><span class="header-section-number">7.2</span> Subsetting Vectors</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#accessing-individual-elements"><span class="header-section-number">7.2.1</span> Accessing Individual Elements</a></li>
+<li><a class="nav-link" href="#accessing-multiple-elements"><span class="header-section-number">7.2.2</span> Accessing Multiple Elements</a></li>
+<li><a class="nav-link" href="#conditional-subsetting"><span class="header-section-number">7.2.3</span> Conditional Subsetting</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#data-frames"><span class="header-section-number">7.3</span> Data Frames</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#what-are-data-frames"><span class="header-section-number">7.3.1</span> What are Data Frames?</a></li>
+<li><a class="nav-link" href="#creating-data-frames"><span class="header-section-number">7.3.2</span> Creating Data Frames</a></li>
+<li><a class="nav-link" href="#accessing-data-frame-elements"><span class="header-section-number">7.3.3</span> Accessing Data Frame Elements</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#data-frame-essentials-data.frame"><span class="header-section-number">7.4</span> Data Frame Essentials data.frame()</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-frame-structure"><span class="header-section-number">7.4.1</span> Data Frame Structure</a></li>
+<li><a class="nav-link" href="#summary-statistics"><span class="header-section-number">7.4.2</span> Summary Statistics</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#filtering-and-subsetting-data-frames"><span class="header-section-number">7.5</span> Filtering and Subsetting Data Frames</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#filtering-rows"><span class="header-section-number">7.5.1</span> Filtering Rows</a></li>
+<li><a class="nav-link" href="#selecting-columns"><span class="header-section-number">7.5.2</span> Selecting Columns</a></li>
+<li><a class="nav-link" href="#combining-filtering-and-subsetting"><span class="header-section-number">7.5.3</span> Combining Filtering and Subsetting</a></li>
+<li><a class="nav-link" href="#sorting-data-frames"><span class="header-section-number">7.5.4</span> Sorting Data Frames</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#merging-data-frames"><span class="header-section-number">7.6</span> Merging Data Frames</a></li>
+<li><a class="nav-link" href="#aggregating-data"><span class="header-section-number">7.7</span> Aggregating Data</a></li>
+<li>
+<a class="nav-link" href="#data-cleaning"><span class="header-section-number">7.8</span> Data Cleaning</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dealing-with-missing-values"><span class="header-section-number">7.8.1</span> Dealing with Missing Values</a></li>
+<li><a class="nav-link" href="#removing-duplicates"><span class="header-section-number">7.8.2</span> Removing Duplicates</a></li>
+<li><a class="nav-link" href="#renaming-columns"><span class="header-section-number">7.8.3</span> Renaming Columns</a></li>
+<li><a class="nav-link" href="#data-type-conversion"><span class="header-section-number">7.8.4</span> Data Type Conversion</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#string-manipulation"><span class="header-section-number">7.9</span> String Manipulation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#combining-strings"><span class="header-section-number">7.9.1</span> Combining Strings</a></li>
+<li><a class="nav-link" href="#splitting-strings"><span class="header-section-number">7.9.2</span> Splitting Strings</a></li>
+<li><a class="nav-link" href="#removing-whitespace"><span class="header-section-number">7.9.3</span> Removing Whitespace</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#date-and-time-handling"><span class="header-section-number">7.10</span> Date and Time Handling</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#date-conversion"><span class="header-section-number">7.10.1</span> Date Conversion</a></li>
+<li><a class="nav-link" href="#date-arithmetic"><span class="header-section-number">7.10.2</span> Date Arithmetic</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#handling-categorical-data"><span class="header-section-number">7.11</span> Handling Categorical Data</a></li>
+<li><a class="nav-link" href="#exercises"><span class="header-section-number">7.12</span> Exercises</a></li>
+<li><a class="nav-link" href="#solutions"><span class="header-section-number">7.13</span> Solutions</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/05bis-lab-data-wrangling.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
+          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/05bis-lab-data-wrangling.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 24-25 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2024-09-22.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

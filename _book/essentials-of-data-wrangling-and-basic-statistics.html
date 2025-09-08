@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 7 💻 Essentials of Data Wrangling and Basic Statistics | Statistics &amp; Big Data 24-25 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="Data wrangling, also known as data cleaning, involves the preparation steps prior to fitting any statistical model. This is essential since healthcare data often comes in a raw, messy format, and...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 7 💻 Essentials of Data Wrangling and Basic Statistics | Statistics &amp; Big Data 24-25 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Data wrangling, also known as data cleaning, involves the preparation steps prior to fitting any statistical model. This is essential since healthcare data often comes in a raw, messy format, and...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 7 💻 Essentials of Data Wrangling and Basic Statistics | Statistics &amp; Big Data 24-25 Labs">
+<meta name="twitter:description" content="Data wrangling, also known as data cleaning, involves the preparation steps prior to fitting any statistical model. This is essential since healthcare data often comes in a raw, messy format, and...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 24-25 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">6</span> 💻 Hypothesis Testing</a></li>
+<li><a class="active" href="essentials-of-data-wrangling-and-basic-statistics.html"><span class="header-section-number">7</span> 💻 Essentials of Data Wrangling and Basic Statistics</a></li>
+<li><a class="" href="lin-reg.html"><span class="header-section-number">8</span> Linear Regression</a></li>
+<li><a class="" href="lin-reg-class.html"><span class="header-section-number">9</span> 💻 Linear Regression in class</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">10</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">11</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">12</span> 💻 ANOVA</a></li>
+<li><a class="" href="dummy-vars.html"><span class="header-section-number">13</span> 💻 Dummy Variables</a></li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="log-reg.html"><span class="header-section-number">15</span> 💻 Binary Logistic Regression</a></li>
+<li><a class="" href="log-reg-ex.html"><span class="header-section-number">16</span> 💻 Binary LogReg exer</a></li>
+<li><a class="" href="pca.html"><span class="header-section-number">17</span> 💻 PCA</a></li>
+<li><a class="" href="poi-reg-ex.html"><span class="header-section-number">18</span> 💻 Poisson regr exer</a></li>
+<li><a class="" href="hier-clust-ex.html"><span class="header-section-number">19</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-mean-ex.html"><span class="header-section-number">20</span> 💻 K-Means Clustering</a></li>
+<li><a class="" href="reg-tree-ex.html"><span class="header-section-number">21</span> 💻 Regression Trees</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">22</span> ⚡ course performance</a></li>
+<li><a class="" href="how-to-ask-for-help.html"><span class="header-section-number">23</span> ✋ How to ask for help!</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">24</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">25</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">26</span> Datasets</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="essentials-of-data-wrangling-and-basic-statistics" class="section level1" number="7">
+<h1>
+<span class="header-section-number">7</span> 💻 Essentials of Data Wrangling and Basic Statistics<a class="anchor" aria-label="anchor" href="#essentials-of-data-wrangling-and-basic-statistics"><i class="fas fa-link"></i></a>
+</h1>
+<p>Data wrangling, also known as data cleaning, involves the preparation steps prior to fitting any statistical model. This is essential since healthcare data often comes in a raw, messy format, and we usually don’t need all the data available. We might only need a subset, such as specific rows or columns.</p>
+<p>In this tutorial, we will learn how to clean and wrangle healthcare-related datasets using both base R and the <code>dplyr</code> package, along with basic descriptive statistics. Let’s start from the basics!</p>
+<div id="basic-operations-in-r" class="section level2" number="7.1">
+<h2>
+<span class="header-section-number">7.1</span> 1. Basic Operations in R<a class="anchor" aria-label="anchor" href="#basic-operations-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let’s start with some simple operations:</p>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fl">3</span> <span class="op">+</span> <span class="fl">5</span></span>
+<span><span class="co">#&gt; [1] 8</span></span>
+<span><span class="fl">12</span> <span class="op">/</span> <span class="fl">7</span></span>
+<span><span class="co">#&gt; [1] 1.714286</span></span></code></pre></div>
+<p>You can store the result into objects:</p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fl">3</span> <span class="op">+</span> <span class="fl">5</span></span>
+<span><span class="va">result</span></span>
+<span><span class="co">#&gt; [1] 8</span></span></code></pre></div>
+<p>Print the result:</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 8</span></span></code></pre></div>
+<p>Modify the result:</p>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="va">result</span> <span class="op">*</span> <span class="fl">3.1415</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 25.132</span></span></code></pre></div>
+<div id="exercise-1-basic-arithmetic" class="section level3" number="7.1.1">
+<h3>
+<span class="header-section-number">7.1.1</span> Exercise 1: Basic Arithmetic<a class="anchor" aria-label="anchor" href="#exercise-1-basic-arithmetic"><i class="fas fa-link"></i></a>
+</h3>
+<p>Compute the BMI (Body Mass Index) of a person weighing 70 kg and with a height of 1.75 meters. Use the formula: <span class="math inline">\(BMI = \frac{weight}{height^2}\)</span>.</p>
+</div>
+</div>
+<div id="working-with-vectors" class="section level2" number="7.2">
+<h2>
+<span class="header-section-number">7.2</span> 2. Working with Vectors<a class="anchor" aria-label="anchor" href="#working-with-vectors"><i class="fas fa-link"></i></a>
+</h2>
+<p>Vectors are a fundamental data structure in R. Let’s create a vector of blood pressure readings:</p>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">blood_pressure</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">120</span>, <span class="fl">135</span>, <span class="fl">142</span>, <span class="fl">130</span>, <span class="fl">125</span><span class="op">)</span></span>
+<span><span class="va">blood_pressure</span></span>
+<span><span class="co">#&gt; [1] 120 135 142 130 125</span></span></code></pre></div>
+<div id="accessing-vector-elements" class="section level3" number="7.2.1">
+<h3>
+<span class="header-section-number">7.2.1</span> Accessing Vector Elements<a class="anchor" aria-label="anchor" href="#accessing-vector-elements"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can access elements in a vector using square brackets <code>[]</code>. For example:</p>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">first_reading</span> <span class="op">&lt;-</span> <span class="va">blood_pressure</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span><span class="va">first_three</span> <span class="op">&lt;-</span> <span class="va">blood_pressure</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">first_reading</span><span class="op">)</span>  <span class="co"># Output: [1] 120</span></span>
+<span><span class="co">#&gt; [1] 120</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">first_three</span><span class="op">)</span>    <span class="co"># Output: [1] 120 135 142</span></span>
+<span><span class="co">#&gt; [1] 120 135 142</span></span></code></pre></div>
+</div>
+<div id="conditional-subsetting" class="section level3" number="7.2.2">
+<h3>
+<span class="header-section-number">7.2.2</span> Conditional Subsetting<a class="anchor" aria-label="anchor" href="#conditional-subsetting"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let’s select only the readings greater than 130:</p>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">high_bp</span> <span class="op">&lt;-</span> <span class="va">blood_pressure</span><span class="op">[</span><span class="va">blood_pressure</span> <span class="op">&gt;</span> <span class="fl">130</span><span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">high_bp</span><span class="op">)</span>  <span class="co"># Output: [1] 135 142 130</span></span>
+<span><span class="co">#&gt; [1] 135 142</span></span></code></pre></div>
+<div id="advanced-conditional-subsetting" class="section level4" number="7.2.2.1">
+<h4>
+<span class="header-section-number">7.2.2.1</span> Advanced Conditional Subsetting<a class="anchor" aria-label="anchor" href="#advanced-conditional-subsetting"><i class="fas fa-link"></i></a>
+</h4>
+<p>You can combine multiple conditions to filter more complex subsets. For example, let’s select blood pressure readings that are greater than 130 and less than 150:</p>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">subset_bp</span> <span class="op">&lt;-</span> <span class="va">blood_pressure</span><span class="op">[</span><span class="va">blood_pressure</span> <span class="op">&gt;</span> <span class="fl">130</span> <span class="op">&amp;</span> <span class="va">blood_pressure</span> <span class="op">&lt;</span> <span class="fl">150</span><span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">subset_bp</span><span class="op">)</span>  <span class="co"># Output: [1] 135 142</span></span>
+<span><span class="co">#&gt; [1] 135 142</span></span></code></pre></div>
+<p>You can also use the <code>|</code> (or) operator to select readings that are either below 125 or above 160:</p>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">extreme_bp</span> <span class="op">&lt;-</span> <span class="va">blood_pressure</span><span class="op">[</span><span class="va">blood_pressure</span> <span class="op">&lt;</span> <span class="fl">125</span> <span class="op">|</span> <span class="va">blood_pressure</span> <span class="op">&gt;</span> <span class="fl">160</span><span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">extreme_bp</span><span class="op">)</span>  <span class="co"># Output: [1] 120 165 170</span></span>
+<span><span class="co">#&gt; [1] 120</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="data-frames" class="section level2" number="7.3">
+<h2>
+<span class="header-section-number">7.3</span> 3. Data Frames<a class="anchor" aria-label="anchor" href="#data-frames"><i class="fas fa-link"></i></a>
+</h2>
+<p>Data frames are similar to tables or spreadsheets, making them suitable for storing patient data. Let’s create a simple data frame:</p>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">patients</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  ID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>  Name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"John"</span>, <span class="st">"Alice"</span>, <span class="st">"Bob"</span><span class="op">)</span>,</span>
+<span>  Age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">25</span>, <span class="fl">28</span><span class="op">)</span>,</span>
+<span>  BloodPressure <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">120</span>, <span class="fl">130</span>, <span class="fl">125</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">patients</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   ID  Name Age BloodPressure</span></span>
+<span><span class="co">#&gt; 1  1  John  30           120</span></span>
+<span><span class="co">#&gt; 2  2 Alice  25           130</span></span>
+<span><span class="co">#&gt; 3  3   Bob  28           125</span></span></code></pre></div>
+<div id="viewing-the-first-few-rows" class="section level3" number="7.3.1">
+<h3>
+<span class="header-section-number">7.3.1</span> Viewing the First Few Rows<a class="anchor" aria-label="anchor" href="#viewing-the-first-few-rows"><i class="fas fa-link"></i></a>
+</h3>
+<p>To view the first few rows of a data frame, use the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function:</p>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">patients</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   ID  Name Age BloodPressure</span></span>
+<span><span class="co">#&gt; 1  1  John  30           120</span></span>
+<span><span class="co">#&gt; 2  2 Alice  25           130</span></span>
+<span><span class="co">#&gt; 3  3   Bob  28           125</span></span></code></pre></div>
+<p>You can specify the number of rows you want to see:</p>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">patients</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   ID  Name Age BloodPressure</span></span>
+<span><span class="co">#&gt; 1  1  John  30           120</span></span>
+<span><span class="co">#&gt; 2  2 Alice  25           130</span></span></code></pre></div>
+</div>
+<div id="using-built-in-datasets" class="section level3" number="7.3.2">
+<h3>
+<span class="header-section-number">7.3.2</span> Using Built-in Datasets<a class="anchor" aria-label="anchor" href="#using-built-in-datasets"><i class="fas fa-link"></i></a>
+</h3>
+<p>R comes with several built-in datasets that can be accessed using the <code><a href="https://rdrr.io/r/utils/data.html">data()</a></code> function. For example, to load the <code>iris</code> dataset:</p>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
+<span><span class="co">#&gt; 1          5.1         3.5          1.4         0.2  setosa</span></span>
+<span><span class="co">#&gt; 2          4.9         3.0          1.4         0.2  setosa</span></span>
+<span><span class="co">#&gt; 3          4.7         3.2          1.3         0.2  setosa</span></span>
+<span><span class="co">#&gt; 4          4.6         3.1          1.5         0.2  setosa</span></span>
+<span><span class="co">#&gt; 5          5.0         3.6          1.4         0.2  setosa</span></span>
+<span><span class="co">#&gt; 6          5.4         3.9          1.7         0.4  setosa</span></span></code></pre></div>
+</div>
+<div id="accessing-data-frame-elements" class="section level3" number="7.3.3">
+<h3>
+<span class="header-section-number">7.3.3</span> Accessing Data Frame Elements<a class="anchor" aria-label="anchor" href="#accessing-data-frame-elements"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can access elements in a data frame using the <code>$</code> operator:</p>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">patient_names</span> <span class="op">&lt;-</span> <span class="va">patients</span><span class="op">$</span><span class="va">Name</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">patient_names</span><span class="op">)</span>  <span class="co"># Output: [1] "John" "Alice" "Bob"</span></span>
+<span><span class="co">#&gt; [1] "John"  "Alice" "Bob"</span></span></code></pre></div>
+<p>Or using square brackets:</p>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">first_patient</span> <span class="op">&lt;-</span> <span class="va">patients</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">first_patient</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   ID Name Age BloodPressure</span></span>
+<span><span class="co">#&gt; 1  1 John  30           120</span></span></code></pre></div>
+</div>
+<div id="creating-and-modifying-columns" class="section level3" number="7.3.4">
+<h3>
+<span class="header-section-number">7.3.4</span> Creating and Modifying Columns<a class="anchor" aria-label="anchor" href="#creating-and-modifying-columns"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can create new columns based on existing ones. For example, let’s add a column to categorize patients based on their blood pressure:</p>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">patients</span><span class="op">$</span><span class="va">BP_Category</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">patients</span><span class="op">$</span><span class="va">BloodPressure</span> <span class="op">&gt;</span> <span class="fl">140</span>, <span class="st">"High"</span>, <span class="st">"Normal"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">patients</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   ID  Name Age BloodPressure BP_Category</span></span>
+<span><span class="co">#&gt; 1  1  John  30           120      Normal</span></span>
+<span><span class="co">#&gt; 2  2 Alice  25           130      Normal</span></span>
+<span><span class="co">#&gt; 3  3   Bob  28           125      Normal</span></span></code></pre></div>
+<p>To remove a column, simply assign <code>NULL</code> to it:</p>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">patients</span><span class="op">$</span><span class="va">BP_Category</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">patients</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   ID  Name Age BloodPressure</span></span>
+<span><span class="co">#&gt; 1  1  John  30           120</span></span>
+<span><span class="co">#&gt; 2  2 Alice  25           130</span></span>
+<span><span class="co">#&gt; 3  3   Bob  28           125</span></span></code></pre></div>
+</div>
+</div>
+<div id="data-manipulation-with-dplyr" class="section level2" number="7.4">
+<h2>
+<span class="header-section-number">7.4</span> 4. Data Manipulation with <code>dplyr</code><a class="anchor" aria-label="anchor" href="#data-manipulation-with-dplyr"><i class="fas fa-link"></i></a>
+</h2>
+<p>The <code>dplyr</code> package provides a more intuitive way to manipulate data. Let’s load it and use it to filter and select data:</p>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Filter patients with blood pressure &gt; 125</span></span>
+<span><span class="va">high_bp_patients</span> <span class="op">&lt;-</span> <span class="va">patients</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">BloodPressure</span> <span class="op">&gt;</span> <span class="fl">125</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">high_bp_patients</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   ID  Name Age BloodPressure</span></span>
+<span><span class="co">#&gt; 1  2 Alice  25           130</span></span></code></pre></div>
+<div id="selecting-columns" class="section level3" number="7.4.1">
+<h3>
+<span class="header-section-number">7.4.1</span> Selecting Columns<a class="anchor" aria-label="anchor" href="#selecting-columns"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can select specific columns using <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>:</p>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">names_and_age</span> <span class="op">&lt;-</span> <span class="va">patients</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Name</span>, <span class="va">Age</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">names_and_age</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    Name Age</span></span>
+<span><span class="co">#&gt; 1  John  30</span></span>
+<span><span class="co">#&gt; 2 Alice  25</span></span>
+<span><span class="co">#&gt; 3   Bob  28</span></span></code></pre></div>
+</div>
+</div>
+<div id="importing-and-exporting-data" class="section level2" number="7.5">
+<h2>
+<span class="header-section-number">7.5</span> 5. Importing and Exporting Data<a class="anchor" aria-label="anchor" href="#importing-and-exporting-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>It is crucial to know how to import and export data, as you’ll often work with datasets stored in files.</p>
+<div id="importing-data-from-a-csv-file" class="section level3" number="7.5.1">
+<h3>
+<span class="header-section-number">7.5.1</span> Importing Data from a CSV File<a class="anchor" aria-label="anchor" href="#importing-data-from-a-csv-file"><i class="fas fa-link"></i></a>
+</h3>
+<p>To import a CSV file into R, use the <code><a href="https://rdrr.io/r/utils/read.table.html">read.csv()</a></code> function:</p>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Import a CSV file</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"path/to/file.csv"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>  <span class="co"># Display the first few rows</span></span></code></pre></div>
+</div>
+<div id="exporting-data-to-a-csv-file" class="section level3" number="7.5.2">
+<h3>
+<span class="header-section-number">7.5.2</span> Exporting Data to a CSV File<a class="anchor" aria-label="anchor" href="#exporting-data-to-a-csv-file"><i class="fas fa-link"></i></a>
+</h3>
+<p>To save your data frame as a CSV file:</p>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Export the data frame to a CSV file</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">patients</span>, <span class="st">"path/to/save_file.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div id="data-cleaning" class="section level2" number="7.6">
+<h2>
+<span class="header-section-number">7.6</span> 6. Data Cleaning<a class="anchor" aria-label="anchor" href="#data-cleaning"><i class="fas fa-link"></i></a>
+</h2>
+<div id="handling-missing-data" class="section level3" number="7.6.1">
+<h3>
+<span class="header-section-number">7.6.1</span> Handling Missing Data<a class="anchor" aria-label="anchor" href="#handling-missing-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>In healthcare, missing data can occur for several reasons. For example, a nurse might forget to record a patient’s temperature during a routine checkup, or a field might be left empty due to lack of information. Missing data can affect the quality of your analysis and may appear in R in different forms, such as <code>NA</code> (Not Available) or <code>NULL</code> (indicating the absence of an object).</p>
+<p>In R, <code>NA</code> is used to represent missing values in vectors and data frames. It’s important to handle missing data appropriately, as it can bias your results. Common strategies include removing missing data, imputing values, or using statistical models that handle missingness.</p>
+</div>
+<div id="checking-for-missing-values" class="section level3" number="7.6.2">
+<h3>
+<span class="header-section-number">7.6.2</span> Checking for Missing Values<a class="anchor" aria-label="anchor" href="#checking-for-missing-values"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can use <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> to check for missing values:</p>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Check for missing values in the BloodPressure column</span></span>
+<span><span class="va">missing_values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">patients</span><span class="op">$</span><span class="va">BloodPressure</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">missing_values</span><span class="op">)</span>  <span class="co"># Output: [1] FALSE FALSE FALSE</span></span>
+<span><span class="co">#&gt; [1] FALSE FALSE FALSE</span></span></code></pre></div>
+</div>
+<div id="removing-missing-values" class="section level3" number="7.6.3">
+<h3>
+<span class="header-section-number">7.6.3</span> Removing Missing Values<a class="anchor" aria-label="anchor" href="#removing-missing-values"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can remove rows with missing values using <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code>:</p>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Remove rows with missing values</span></span>
+<span><span class="va">cleaned_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">patients</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">cleaned_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   ID  Name Age BloodPressure</span></span>
+<span><span class="co">#&gt; 1  1  John  30           120</span></span>
+<span><span class="co">#&gt; 2  2 Alice  25           130</span></span>
+<span><span class="co">#&gt; 3  3   Bob  28           125</span></span></code></pre></div>
+</div>
+</div>
+<div id="working-with-factors" class="section level2" number="7.7">
+<h2>
+<span class="header-section-number">7.7</span> 7. Working with Factors<a class="anchor" aria-label="anchor" href="#working-with-factors"><i class="fas fa-link"></i></a>
+</h2>
+<p>In healthcare, many variables are categorical, such as disease type or treatment group. Factors are used in R to handle categorical data.</p>
+<div id="creating-and-modifying-factors" class="section level3" number="7.7.1">
+<h3>
+<span class="header-section-number">7.7.1</span> Creating and Modifying Factors<a class="anchor" aria-label="anchor" href="#creating-and-modifying-factors"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a factor for disease type</span></span>
+<span><span class="va">patients</span><span class="op">$</span><span class="va">Disease</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Diabetes"</span>, <span class="st">"Hypertension"</span>, <span class="st">"None"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">patients</span><span class="op">$</span><span class="va">Disease</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Diabetes"     "Hypertension" "None"</span></span></code></pre></div>
+<p>You can also modify factor levels:</p>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Rename factor levels</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">patients</span><span class="op">$</span><span class="va">Disease</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"DM"</span>, <span class="st">"HTN"</span>, <span class="st">"Healthy"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">patients</span><span class="op">$</span><span class="va">Disease</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] DM      HTN     Healthy</span></span>
+<span><span class="co">#&gt; Levels: DM HTN Healthy</span></span></code></pre></div>
+</div>
+</div>
+<div id="descriptive-statistics" class="section level2" number="7.8">
+<h2>
+<span class="header-section-number">7.8</span> 8. Descriptive Statistics<a class="anchor" aria-label="anchor" href="#descriptive-statistics"><i class="fas fa-link"></i></a>
+</h2>
+<div id="measures-of-central-tendency" class="section level3" number="7.8.1">
+<h3>
+<span class="header-section-number">7.8.1</span> Measures of Central Tendency<a class="anchor" aria-label="anchor" href="#measures-of-central-tendency"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>Mean</strong>: The mean is the sum of all values divided by the total number of observations.</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mean_bp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">patients</span><span class="op">$</span><span class="va">BloodPressure</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">mean_bp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 125</span></span></code></pre></div>
+<ul>
+<li>
+<strong>Median</strong>: The median is the central value in an ordered set of data.</li>
+</ul>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">median_bp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">patients</span><span class="op">$</span><span class="va">BloodPressure</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">median_bp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 125</span></span></code></pre></div>
+<ul>
+<li>
+<strong>Mode</strong>: In R, there is no built-in function for the mode, but we can calculate it as follows:</li>
+</ul>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Calculate the mode</span></span>
+<span><span class="va">mode</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">uniq_vals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span>  <span class="va">uniq_vals</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tabulate.html">tabulate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/match.html">match</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">uniq_vals</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">mode_bp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mode.html">mode</a></span><span class="op">(</span><span class="va">patients</span><span class="op">$</span><span class="va">BloodPressure</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">mode_bp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 120</span></span></code></pre></div>
+</div>
+<div id="measures-of-variability" class="section level3" number="7.8.2">
+<h3>
+<span class="header-section-number">7.8.2</span> Measures of Variability<a class="anchor" aria-label="anchor" href="#measures-of-variability"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>Variance</strong>: Variance measures the dispersion of data from the mean.</li>
+</ul>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">var_bp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">patients</span><span class="op">$</span><span class="va">BloodPressure</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">var_bp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 25</span></span></code></pre></div>
+<ul>
+<li>
+<strong>Standard Deviation</strong>: Standard deviation is the square root of the variance and indicates how spread out the data is around the mean.</li>
+</ul>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">sd_bp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">patients</span><span class="op">$</span><span class="va">BloodPressure</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sd_bp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 5</span></span></code></pre></div>
+</div>
+<div id="correlation" class="section level3" number="7.8.3">
+<h3>
+<span class="header-section-number">7.8.3</span> Correlation<a class="anchor" aria-label="anchor" href="#correlation"><i class="fas fa-link"></i></a>
+</h3>
+<p>Correlation measures the strength and direction of the relationship between two variables. For example, the relationship between age and blood pressure.</p>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">correlation</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">patients</span><span class="op">$</span><span class="va">Age</span>, <span class="va">patients</span><span class="op">$</span><span class="va">BloodPressure</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">correlation</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] -0.9933993</span></span></code></pre></div>
+</div>
+<div id="scatter-plot-for-correlation" class="section level3" number="7.8.4">
+<h3>
+<span class="header-section-number">7.8.4</span> Scatter Plot for Correlation<a class="anchor" aria-label="anchor" href="#scatter-plot-for-correlation"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">patients</span><span class="op">$</span><span class="va">Age</span>, <span class="va">patients</span><span class="op">$</span><span class="va">BloodPressure</span>, </span>
+<span>     main <span class="op">=</span> <span class="st">"Scatter Plot of Age vs Blood Pressure"</span>,</span>
+<span>     xlab</span>
+<span></span>
+<span> <span class="op">=</span> <span class="st">"Age"</span>,</span>
+<span>     ylab <span class="op">=</span> <span class="st">"Blood Pressure (mm Hg)"</span>,</span>
+<span>     pch <span class="op">=</span> <span class="fl">19</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05bis-lab-data-wrangling_files/figure-html/unnamed-chunk-32-1.png" width="100%"></div>
+</div>
+<div id="interpreting-graphs" class="section level3" number="7.8.5">
+<h3>
+<span class="header-section-number">7.8.5</span> Interpreting Graphs<a class="anchor" aria-label="anchor" href="#interpreting-graphs"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p><strong>Histogram</strong>: Shows the distribution of a single numeric variable. The height of each bar represents the frequency of values in each bin.</p></li>
+<li><p><strong>Scatter Plot</strong>: Displays the relationship between two numeric variables. Each point represents an observation, and the pattern of the points shows the nature of the relationship.</p></li>
+<li><p><strong>Boxplot</strong>: Visualizes the distribution of a variable through its quartiles, identifying outliers. Useful for comparing distributions between different groups.</p></li>
+<li><p><strong>Pie Chart</strong>: Represents the proportions of categories within a whole, showing how each category contributes to the total.</p></li>
+</ul>
+</div>
+</div>
+<div id="visualizing-data-with-boxplots" class="section level2" number="7.9">
+<h2>
+<span class="header-section-number">7.9</span> 9. Visualizing Data with Boxplots<a class="anchor" aria-label="anchor" href="#visualizing-data-with-boxplots"><i class="fas fa-link"></i></a>
+</h2>
+<p>A boxplot, or box-and-whisker plot, is a graphical representation used to display the distribution of data based on a five-number summary: minimum, first quartile (Q1), median, third quartile (Q3), and maximum. It helps identify outliers and the spread of the data.</p>
+<div id="clinical-example-visualizing-blood-pressure" class="section level3" number="7.9.1">
+<h3>
+<span class="header-section-number">7.9.1</span> Clinical Example: Visualizing Blood Pressure<a class="anchor" aria-label="anchor" href="#clinical-example-visualizing-blood-pressure"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let’s visualize the distribution of systolic blood pressure readings for a group of patients:</p>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">blood_pressure</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">120</span>, <span class="fl">130</span>, <span class="fl">135</span>, <span class="fl">140</span>, <span class="fl">145</span>, <span class="fl">150</span>, <span class="fl">155</span>, <span class="fl">160</span>, <span class="fl">165</span>, <span class="fl">170</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">blood_pressure</span>, </span>
+<span>        main <span class="op">=</span> <span class="st">"Boxplot of Systolic Blood Pressure"</span>,</span>
+<span>        ylab <span class="op">=</span> <span class="st">"Blood Pressure (mm Hg)"</span>,</span>
+<span>        col <span class="op">=</span> <span class="st">"lightblue"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05bis-lab-data-wrangling_files/figure-html/unnamed-chunk-33-1.png" width="100%"></div>
+<p>In this example:
+- The box represents the interquartile range (IQR), containing the middle 50% of the data.
+- The line inside the box shows the median value.
+- The “whiskers” extend to the minimum and maximum values within 1.5 * IQR from Q1 and Q3.
+- Data points outside this range are considered outliers, useful in identifying patients with unusually high or low blood pressure.</p>
+</div>
+</div>
+<div id="other-basic-plots" class="section level2" number="7.10">
+<h2>
+<span class="header-section-number">7.10</span> 10. Other Basic Plots<a class="anchor" aria-label="anchor" href="#other-basic-plots"><i class="fas fa-link"></i></a>
+</h2>
+<div id="histogram" class="section level3" number="7.10.1">
+<h3>
+<span class="header-section-number">7.10.1</span> Histogram<a class="anchor" aria-label="anchor" href="#histogram"><i class="fas fa-link"></i></a>
+</h3>
+<p>An easy way to visualize the distribution of numeric data is by using a histogram. For example:</p>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Histogram of blood pressure readings</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">blood_pressure</span>, </span>
+<span>     main <span class="op">=</span> <span class="st">"Distribution of Blood Pressure"</span>,</span>
+<span>     xlab <span class="op">=</span> <span class="st">"Blood Pressure (mm Hg)"</span>,</span>
+<span>     col <span class="op">=</span> <span class="st">"lightgreen"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05bis-lab-data-wrangling_files/figure-html/unnamed-chunk-34-1.png" width="100%"></div>
+</div>
+<div id="bar-plot" class="section level3" number="7.10.2">
+<h3>
+<span class="header-section-number">7.10.2</span> Bar Plot<a class="anchor" aria-label="anchor" href="#bar-plot"><i class="fas fa-link"></i></a>
+</h3>
+<p>For categorical data, a bar plot can be useful:</p>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Count of diseases</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">patients</span><span class="op">$</span><span class="va">Disease</span><span class="op">)</span>, </span>
+<span>        main <span class="op">=</span> <span class="st">"Count of Diseases"</span>,</span>
+<span>        xlab <span class="op">=</span> <span class="st">"Disease"</span>,</span>
+<span>        ylab <span class="op">=</span> <span class="st">"Number of Patients"</span>,</span>
+<span>        col <span class="op">=</span> <span class="st">"lightcoral"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05bis-lab-data-wrangling_files/figure-html/unnamed-chunk-35-1.png" width="100%"></div>
+</div>
+<div id="pie-chart" class="section level3" number="7.10.3">
+<h3>
+<span class="header-section-number">7.10.3</span> Pie Chart<a class="anchor" aria-label="anchor" href="#pie-chart"><i class="fas fa-link"></i></a>
+</h3>
+<p>A pie chart can be used to represent the proportions of categories within a whole. For example, let’s visualize the proportion of different diseases:</p>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Pie chart of diseases</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/pie.html">pie</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">patients</span><span class="op">$</span><span class="va">Disease</span><span class="op">)</span>, </span>
+<span>    main <span class="op">=</span> <span class="st">"Proportion of Diseases"</span>,</span>
+<span>    col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lightblue"</span>, <span class="st">"lightgreen"</span>, <span class="st">"lightpink"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="05bis-lab-data-wrangling_files/figure-html/unnamed-chunk-36-1.png" width="100%"></div>
+</div>
+</div>
+<div id="summarizing-data" class="section level2" number="7.11">
+<h2>
+<span class="header-section-number">7.11</span> 11. Summarizing Data<a class="anchor" aria-label="anchor" href="#summarizing-data"><i class="fas fa-link"></i></a>
+</h2>
+<div id="data-frame-structure" class="section level3" number="7.11.1">
+<h3>
+<span class="header-section-number">7.11.1</span> Data Frame Structure<a class="anchor" aria-label="anchor" href="#data-frame-structure"><i class="fas fa-link"></i></a>
+</h3>
+<p>Use <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> to view the structure of a data frame:</p>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># View structure of data frame</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">patients</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'data.frame':    3 obs. of  5 variables:</span></span>
+<span><span class="co">#&gt;  $ ID           : num  1 2 3</span></span>
+<span><span class="co">#&gt;  $ Name         : chr  "John" "Alice" "Bob"</span></span>
+<span><span class="co">#&gt;  $ Age          : num  30 25 28</span></span>
+<span><span class="co">#&gt;  $ BloodPressure: num  120 130 125</span></span>
+<span><span class="co">#&gt;  $ Disease      : Factor w/ 3 levels "DM","HTN","Healthy": 1 2 3</span></span></code></pre></div>
+</div>
+<div id="summary-statistics" class="section level3" number="7.11.2">
+<h3>
+<span class="header-section-number">7.11.2</span> Summary Statistics<a class="anchor" aria-label="anchor" href="#summary-statistics"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can get a quick summary of all columns using <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>:</p>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Summary of the data frame</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">patients</span><span class="op">)</span></span>
+<span><span class="co">#&gt;        ID          Name                Age       </span></span>
+<span><span class="co">#&gt;  Min.   :1.0   Length:3           Min.   :25.00  </span></span>
+<span><span class="co">#&gt;  1st Qu.:1.5   Class :character   1st Qu.:26.50  </span></span>
+<span><span class="co">#&gt;  Median :2.0   Mode  :character   Median :28.00  </span></span>
+<span><span class="co">#&gt;  Mean   :2.0                      Mean   :27.67  </span></span>
+<span><span class="co">#&gt;  3rd Qu.:2.5                      3rd Qu.:29.00  </span></span>
+<span><span class="co">#&gt;  Max.   :3.0                      Max.   :30.00  </span></span>
+<span><span class="co">#&gt;  BloodPressure      Disease </span></span>
+<span><span class="co">#&gt;  Min.   :120.0   DM     :1  </span></span>
+<span><span class="co">#&gt;  1st Qu.:122.5   HTN    :1  </span></span>
+<span><span class="co">#&gt;  Median :125.0   Healthy:1  </span></span>
+<span><span class="co">#&gt;  Mean   :125.0              </span></span>
+<span><span class="co">#&gt;  3rd Qu.:127.5              </span></span>
+<span><span class="co">#&gt;  Max.   :130.0</span></span></code></pre></div>
+</div>
+<div id="using-dplyr-for-summary" class="section level3" number="7.11.3">
+<h3>
+<span class="header-section-number">7.11.3</span> Using <code>dplyr</code> for Summary<a class="anchor" aria-label="anchor" href="#using-dplyr-for-summary"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Summary statistics using dplyr</span></span>
+<span><span class="va">bp_summary</span> <span class="op">&lt;-</span> <span class="va">patients</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
+<span>    mean_bp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">BloodPressure</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>    sd_bp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">BloodPressure</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">bp_summary</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   mean_bp sd_bp</span></span>
+<span><span class="co">#&gt; 1     125     5</span></span></code></pre></div>
+</div>
+</div>
+<div id="merging-data-frames" class="section level2" number="7.12">
+<h2>
+<span class="header-section-number">7.12</span> 12. Merging Data Frames<a class="anchor" aria-label="anchor" href="#merging-data-frames"><i class="fas fa-link"></i></a>
+</h2>
+<p>Sometimes, you’ll need to combine patient data from different sources. Use the <code><a href="https://rdrr.io/r/base/merge.html">merge()</a></code> function:</p>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Patient details</span></span>
+<span><span class="va">patient_details</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  ID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>  Name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"John"</span>, <span class="st">"Alice"</span>, <span class="st">"Bob"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Patient records</span></span>
+<span><span class="va">patient_records</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  ID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>,</span>
+<span>  BloodPressure <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">120</span>, <span class="fl">125</span>, <span class="fl">135</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Merge on "ID"</span></span>
+<span><span class="va">merged_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">patient_details</span>, <span class="va">patient_records</span>, by <span class="op">=</span> <span class="st">"ID"</span>, all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">merged_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   ID  Name BloodPressure</span></span>
+<span><span class="co">#&gt; 1  1  John           120</span></span>
+<span><span class="co">#&gt; 2  2 Alice            NA</span></span>
+<span><span class="co">#&gt; 3  3   Bob           125</span></span>
+<span><span class="co">#&gt; 4  4  &lt;NA&gt;           135</span></span></code></pre></div>
+</div>
+<div id="data-export" class="section level2" number="7.13">
+<h2>
+<span class="header-section-number">7.13</span> 13. Data Export<a class="anchor" aria-label="anchor" href="#data-export"><i class="fas fa-link"></i></a>
+</h2>
+<p>Finally, save your cleaned or modified data back to a file:</p>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Save the merged data frame to a CSV file</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">merged_data</span>, <span class="st">"merged_patient_data.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="exercises-1" class="section level2" number="7.14">
+<h2>
+<span class="header-section-number">7.14</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:dw1" class="exercise"><strong>Exercise 6.1  </strong></span>Given a vector of numeric data representing cholesterol levels, access and print the third and fifth elements.</p>
+<pre><code>cholesterol_levels &lt;- c(180, 220, 195, 250, 205)</code></pre>
+</div>
+<div class="exercise">
+<p><span id="exr:dw2" class="exercise"><strong>Exercise 6.2  </strong></span>Create a data frame for the following patient data and then print the entire data frame:</p>
+<ul>
+<li>Name: Emma, Oliver, Ava</li>
+<li>Age: 45, 50, 37</li>
+<li>BMI: 22.5, 28.7, 25.3</li>
+</ul>
+</div>
+<div class="exercise">
+<p><span id="exr:dw3" class="exercise"><strong>Exercise 6.3  </strong></span>Using the data frame <code>patients</code>, filter and print only the rows where <code>BloodPressure</code> is greater than 125.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:dw4" class="exercise"><strong>Exercise 6.4  </strong></span>From the given data frame, select and print the <code>Name</code> and <code>Age</code> columns using <code>dplyr</code>’s <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:dw5" class="exercise"><strong>Exercise 7.1  </strong></span>Create a data frame with patient IDs and blood pressure readings. Introduce some <code>NA</code> values, then use <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> to remove them and print the cleaned data frame.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:dw6" class="exercise"><strong>Exercise 7.2  </strong></span>Create two data frames: one with patient IDs and ages, and another with patient IDs and cholesterol levels. Merge them using the <code><a href="https://rdrr.io/r/base/merge.html">merge()</a></code> function.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:dw7" class="exercise"><strong>Exercise 7.3  </strong></span>Using the data frame <code>patients</code>, calculate the mean and standard deviation of the <code>BloodPressure</code> column.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:dw8" class="exercise"><strong>Exercise 7.4  </strong></span>Create a scatter plot of Age vs. BMI using <code>ggplot2</code> for the data frame created in Exercise 2.</p>
+</div>
+</div>
+<div id="solutions" class="section level2" number="7.15">
+<h2>
+<span class="header-section-number">7.15</span> Solutions<a class="anchor" aria-label="anchor" href="#solutions"><i class="fas fa-link"></i></a>
+</h2>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="hypothesis-testing.html#exr:dw1">6.1</a></strong>:</p>
+<pre><code>element3 &lt;- cholesterol_levels[3]
+element5 &lt;- cholesterol_levels[5]
+
+print(element3)  # Output: [1] 195
+print(element5)  # Output: [1] 205</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="hypothesis-testing.html#exr:dw2">6.2</a></strong>:</p>
+<pre><code>patient_data &lt;- data.frame(
+    Name = c("Emma", "Oliver", "Ava"),
+    Age = c(45, 50, 37),
+    BMI = c(22.5, 28.7, 25.3)
+)
+
+print(patient_data)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="hypothesis-testing.html#exr:dw3">6.3</a></strong>:</p>
+<pre><code>high_bp_patients &lt;- subset(patients, BloodPressure &gt; 125)
+print(high_bp_patients)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="hypothesis-testing.html#exr:dw4">6.4</a></strong>:</p>
+<pre><code>names_and_ages &lt;- patients %&gt;%
+    select(Name, Age)
+print(names_and_ages)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="essentials-of-data-wrangling-and-basic-statistics.html#exr:dw5">7.1</a></strong>:</p>
+<pre><code>patient_bp &lt;- data.frame(
+    ID = 1:5,
+    BloodPressure = c(120, 130, NA, 140, NA)
+)
+
+cleaned_bp &lt;- na.omit(patient_bp)
+print(cleaned_bp)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="essentials-of-data-wrangling-and-basic-statistics.html#exr:dw6">7.2</a></strong>:</p>
+<pre><code>patient_ages &lt;- data.frame(
+    ID = c(1, 2, 3),
+    Age = c(30, 25, 28)
+)
+
+patient_chol &lt;- data.frame(
+    ID = c(2, 3, 4),
+    Cholesterol = c(220, 195, 250)
+)
+
+merged_data &lt;- merge(patient_ages, patient_chol, by = "ID", all = TRUE)
+print(merged_data)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="essentials-of-data-wrangling-and-basic-statistics.html#exr:dw7">7.3</a></strong>:</p>
+<pre><code>bp_summary &lt;- patients %&gt;%
+    summarise(
+        mean_bp = mean(BloodPressure, na.rm = TRUE),
+        sd_bp = sd(BloodPressure, na.rm = TRUE)
+    )
+print(bp_summary)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="essentials-of-data-wrangling-and-basic-statistics.html#exr:dw8">7.4</a></strong>:</p>
+<pre><code>ggplot(patient_data, aes(x = Age, y = BMI)) +
+    geom_point() +
+    labs(title = "Age vs. BMI", x = "Age", y = "BMI")</code></pre>
+</div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="hypothesis-testing.html"><span class="header-section-number">6</span> 💻 Hypothesis Testing</a></div>
+<div class="next"><a href="lin-reg.html"><span class="header-section-number">8</span> Linear Regression</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#essentials-of-data-wrangling-and-basic-statistics"><span class="header-section-number">7</span> 💻 Essentials of Data Wrangling and Basic Statistics</a></li>
+<li>
+<a class="nav-link" href="#basic-operations-in-r"><span class="header-section-number">7.1</span> 1. Basic Operations in R</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-1-basic-arithmetic"><span class="header-section-number">7.1.1</span> Exercise 1: Basic Arithmetic</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#working-with-vectors"><span class="header-section-number">7.2</span> 2. Working with Vectors</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#accessing-vector-elements"><span class="header-section-number">7.2.1</span> Accessing Vector Elements</a></li>
+<li><a class="nav-link" href="#conditional-subsetting"><span class="header-section-number">7.2.2</span> Conditional Subsetting</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#data-frames"><span class="header-section-number">7.3</span> 3. Data Frames</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#viewing-the-first-few-rows"><span class="header-section-number">7.3.1</span> Viewing the First Few Rows</a></li>
+<li><a class="nav-link" href="#using-built-in-datasets"><span class="header-section-number">7.3.2</span> Using Built-in Datasets</a></li>
+<li><a class="nav-link" href="#accessing-data-frame-elements"><span class="header-section-number">7.3.3</span> Accessing Data Frame Elements</a></li>
+<li><a class="nav-link" href="#creating-and-modifying-columns"><span class="header-section-number">7.3.4</span> Creating and Modifying Columns</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#data-manipulation-with-dplyr"><span class="header-section-number">7.4</span> 4. Data Manipulation with dplyr</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#selecting-columns"><span class="header-section-number">7.4.1</span> Selecting Columns</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#importing-and-exporting-data"><span class="header-section-number">7.5</span> 5. Importing and Exporting Data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#importing-data-from-a-csv-file"><span class="header-section-number">7.5.1</span> Importing Data from a CSV File</a></li>
+<li><a class="nav-link" href="#exporting-data-to-a-csv-file"><span class="header-section-number">7.5.2</span> Exporting Data to a CSV File</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#data-cleaning"><span class="header-section-number">7.6</span> 6. Data Cleaning</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#handling-missing-data"><span class="header-section-number">7.6.1</span> Handling Missing Data</a></li>
+<li><a class="nav-link" href="#checking-for-missing-values"><span class="header-section-number">7.6.2</span> Checking for Missing Values</a></li>
+<li><a class="nav-link" href="#removing-missing-values"><span class="header-section-number">7.6.3</span> Removing Missing Values</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#working-with-factors"><span class="header-section-number">7.7</span> 7. Working with Factors</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#creating-and-modifying-factors"><span class="header-section-number">7.7.1</span> Creating and Modifying Factors</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#descriptive-statistics"><span class="header-section-number">7.8</span> 8. Descriptive Statistics</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#measures-of-central-tendency"><span class="header-section-number">7.8.1</span> Measures of Central Tendency</a></li>
+<li><a class="nav-link" href="#measures-of-variability"><span class="header-section-number">7.8.2</span> Measures of Variability</a></li>
+<li><a class="nav-link" href="#correlation"><span class="header-section-number">7.8.3</span> Correlation</a></li>
+<li><a class="nav-link" href="#scatter-plot-for-correlation"><span class="header-section-number">7.8.4</span> Scatter Plot for Correlation</a></li>
+<li><a class="nav-link" href="#interpreting-graphs"><span class="header-section-number">7.8.5</span> Interpreting Graphs</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#visualizing-data-with-boxplots"><span class="header-section-number">7.9</span> 9. Visualizing Data with Boxplots</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#clinical-example-visualizing-blood-pressure"><span class="header-section-number">7.9.1</span> Clinical Example: Visualizing Blood Pressure</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#other-basic-plots"><span class="header-section-number">7.10</span> 10. Other Basic Plots</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#histogram"><span class="header-section-number">7.10.1</span> Histogram</a></li>
+<li><a class="nav-link" href="#bar-plot"><span class="header-section-number">7.10.2</span> Bar Plot</a></li>
+<li><a class="nav-link" href="#pie-chart"><span class="header-section-number">7.10.3</span> Pie Chart</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#summarizing-data"><span class="header-section-number">7.11</span> 11. Summarizing Data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-frame-structure"><span class="header-section-number">7.11.1</span> Data Frame Structure</a></li>
+<li><a class="nav-link" href="#summary-statistics"><span class="header-section-number">7.11.2</span> Summary Statistics</a></li>
+<li><a class="nav-link" href="#using-dplyr-for-summary"><span class="header-section-number">7.11.3</span> Using dplyr for Summary</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#merging-data-frames"><span class="header-section-number">7.12</span> 12. Merging Data Frames</a></li>
+<li><a class="nav-link" href="#data-export"><span class="header-section-number">7.13</span> 13. Data Export</a></li>
+<li><a class="nav-link" href="#exercises-1"><span class="header-section-number">7.14</span> Exercises</a></li>
+<li><a class="nav-link" href="#solutions"><span class="header-section-number">7.15</span> Solutions</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/05bis-lab-data-wrangling.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
+          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/05bis-lab-data-wrangling.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 24-25 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2024-10-26.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

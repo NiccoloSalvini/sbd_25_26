@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 17 💻 PCA | Statistics &amp; Big Data 24-25 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="17.1 Principal Components Analysis We will use the following packages ‘FactoMineR’, ‘factoextra’, ‘ISRL2’  17.1.1 PCA using ‘FactoMineR’, ‘factoextra’ #&gt; Loading required package: ggplot2 #&gt;...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 17 💻 PCA | Statistics &amp; Big Data 24-25 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="17.1 Principal Components Analysis We will use the following packages ‘FactoMineR’, ‘factoextra’, ‘ISRL2’  17.1.1 PCA using ‘FactoMineR’, ‘factoextra’ #&gt; Loading required package: ggplot2 #&gt;...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 17 💻 PCA | Statistics &amp; Big Data 24-25 Labs">
+<meta name="twitter:description" content="17.1 Principal Components Analysis We will use the following packages ‘FactoMineR’, ‘factoextra’, ‘ISRL2’  17.1.1 PCA using ‘FactoMineR’, ‘factoextra’ #&gt; Loading required package: ggplot2 #&gt;...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 24-25 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">6</span> 💻 Hypothesis Testing</a></li>
+<li><a class="" href="essentials-of-data-wrangling-and-basic-statistics.html"><span class="header-section-number">7</span> 💻 Essentials of Data Wrangling and Basic Statistics</a></li>
+<li><a class="" href="lin-reg.html"><span class="header-section-number">8</span> Linear Regression</a></li>
+<li><a class="" href="lin-reg-class.html"><span class="header-section-number">9</span> 💻 Linear Regression in class</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">10</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">11</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">12</span> 💻 ANOVA</a></li>
+<li><a class="" href="dummy-vars.html"><span class="header-section-number">13</span> 💻 Dummy Variables</a></li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="log-reg.html"><span class="header-section-number">15</span> 💻 Binary Logistic Regression</a></li>
+<li><a class="" href="log-reg-ex.html"><span class="header-section-number">16</span> 💻 Binary LogReg exer</a></li>
+<li><a class="active" href="pca.html"><span class="header-section-number">17</span> 💻 PCA</a></li>
+<li><a class="" href="poi-reg-ex.html"><span class="header-section-number">18</span> 💻 Poisson regr exer</a></li>
+<li><a class="" href="hier-clust-ex.html"><span class="header-section-number">19</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-mean-ex.html"><span class="header-section-number">20</span> 💻 K-Means Clustering</a></li>
+<li><a class="" href="reg-tree-ex.html"><span class="header-section-number">21</span> 💻 Regression Trees</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">22</span> ⚡ course performance</a></li>
+<li><a class="" href="how-to-ask-for-help.html"><span class="header-section-number">23</span> ✋ How to ask for help!</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">24</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">25</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">26</span> Datasets</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="pca" class="section level1" number="17">
+<h1>
+<span class="header-section-number">17</span> 💻 PCA<a class="anchor" aria-label="anchor" href="#pca"><i class="fas fa-link"></i></a>
+</h1>
+<div id="principal-components-analysis" class="section level2" number="17.1">
+<h2>
+<span class="header-section-number">17.1</span> Principal Components Analysis<a class="anchor" aria-label="anchor" href="#principal-components-analysis"><i class="fas fa-link"></i></a>
+</h2>
+<p>We will use the following packages ‘FactoMineR’, ‘factoextra’, ‘ISRL2’</p>
+<div id="pca-using-factominer-factoextra" class="section level3" number="17.1.1">
+<h3>
+<span class="header-section-number">17.1.1</span> PCA using ‘FactoMineR’, ‘factoextra’<a class="anchor" aria-label="anchor" href="#pca-using-factominer-factoextra"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt; Loading required package: ggplot2
+#&gt; Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa</code></pre>
+</div>
+<div id="exercise-1-read-the-data" class="section level3" number="17.1.2">
+<h3>
+<span class="header-section-number">17.1.2</span> Exercise 1 : read the data<a class="anchor" aria-label="anchor" href="#exercise-1-read-the-data"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt;    Var1 Var2
+#&gt; i1    2    2
+#&gt; i2    1   -1
+#&gt; i3   -1    1
+#&gt; i4   -2   -2</code></pre>
+<p>Covariance matrix</p>
+<div class="sourceCode" id="cb288"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">X</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="co"># mean of Var1</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">X</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span> <span class="co"># mean of Var2</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
+<span></span>
+<span><span class="co">##variance and inertia </span></span>
+<span><span class="va">S</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span><span class="op">*</span><span class="op">(</span><span class="fl">3</span><span class="op">/</span><span class="fl">4</span><span class="op">)</span>  <span class="co"># the constant (n-1)/n is have the variance-covariance matrix used in the lecture</span></span>
+<span><span class="va">S</span></span>
+<span><span class="co">#&gt;      Var1 Var2</span></span>
+<span><span class="co">#&gt; Var1  2.5  1.5</span></span>
+<span><span class="co">#&gt; Var2  1.5  2.5</span></span>
+<span><span class="co">#inertia</span></span>
+<span><span class="va">Inertia</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">S</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">Inertia</span></span>
+<span><span class="co">#&gt; [1] 5</span></span>
+<span><span class="co">## eigen-analysis</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/eigen.html">eigen</a></span><span class="op">(</span><span class="va">S</span><span class="op">)</span> <span class="co"># gives the eigen-values and eigen-vectors</span></span>
+<span><span class="co">#&gt; eigen() decomposition</span></span>
+<span><span class="co">#&gt; $values</span></span>
+<span><span class="co">#&gt; [1] 4 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $vectors</span></span>
+<span><span class="co">#&gt;           [,1]       [,2]</span></span>
+<span><span class="co">#&gt; [1,] 0.7071068 -0.7071068</span></span>
+<span><span class="co">#&gt; [2,] 0.7071068  0.7071068</span></span></code></pre></div>
+<p>Eigen-analysis on the correlation matrix</p>
+<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">R</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span>
+<span><span class="va">eigenan</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/eigen.html">eigen</a></span><span class="op">(</span><span class="va">R</span><span class="op">)</span> <span class="co">##eigen analysis of R</span></span>
+<span><span class="va">eigenan</span></span>
+<span><span class="co">#&gt; eigen() decomposition</span></span>
+<span><span class="co">#&gt; $values</span></span>
+<span><span class="co">#&gt; [1] 1.6 0.4</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $vectors</span></span>
+<span><span class="co">#&gt;           [,1]       [,2]</span></span>
+<span><span class="co">#&gt; [1,] 0.7071068 -0.7071068</span></span>
+<span><span class="co">#&gt; [2,] 0.7071068  0.7071068</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">eigenan</span><span class="op">$</span><span class="va">values</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 2</span></span>
+<span><span class="co">#Inertia is p=2</span></span>
+<span></span>
+<span><span class="co">#normalized the data</span></span>
+<span><span class="va">Z</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">Z</span><span class="op">)</span> <span class="co">## is teh correlation matrix </span></span>
+<span><span class="co">#&gt;      Var1 Var2</span></span>
+<span><span class="co">#&gt; Var1  1.0  0.6</span></span>
+<span><span class="co">#&gt; Var2  0.6  1.0</span></span></code></pre></div>
+</div>
+<div id="pca-function" class="section level3" number="17.1.3">
+<h3>
+<span class="header-section-number">17.1.3</span> PCA function<a class="anchor" aria-label="anchor" href="#pca-function"><i class="fas fa-link"></i></a>
+</h3>
+<p>PCA with the covariance matrix (using only centered data). For PCA on the correlation matrix (normed PCA), use scale.unit = TRUE (default option).</p>
+<p>Correlation between two variables <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span></p>
+<p><span class="math display">\[\rho=\frac{cov(X_1,X_2)}{\sigma_{X_1}\sigma_{X_2}}\]</span>
+where <span class="math inline">\(cov(X_1,X_2)\)</span> is the covariance, <span class="math inline">\(\sigma_{X_1}=\sqrt{Var(X_1)}\)</span> is the standard deviation of <span class="math inline">\(X_1\)</span>.</p>
+<p>Eigen-analysis on the covariance matrix (‘scale.unit=FALSE’)</p>
+<pre><code>#&gt; **Results for the Principal Component Analysis (PCA)**
+#&gt; The analysis was performed on 4 individuals, described by 2 variables
+#&gt; *The results are available in the following objects:
+#&gt; 
+#&gt;    name               description                          
+#&gt; 1  "$eig"             "eigenvalues"                        
+#&gt; 2  "$var"             "results for the variables"          
+#&gt; 3  "$var$coord"       "coord. for the variables"           
+#&gt; 4  "$var$cor"         "correlations variables - dimensions"
+#&gt; 5  "$var$cos2"        "cos2 for the variables"             
+#&gt; 6  "$var$contrib"     "contributions of the variables"     
+#&gt; 7  "$ind"             "results for the individuals"        
+#&gt; 8  "$ind$coord"       "coord. for the individuals"         
+#&gt; 9  "$ind$cos2"        "cos2 for the individuals"           
+#&gt; 10 "$ind$contrib"     "contributions of the individuals"   
+#&gt; 11 "$call"            "summary statistics"                 
+#&gt; 12 "$call$centre"     "mean of the variables"              
+#&gt; 13 "$call$ecart.type" "standard error of the variables"    
+#&gt; 14 "$call$row.w"      "weights for the individuals"        
+#&gt; 15 "$call$col.w"      "weights for the variables"</code></pre>
+</div>
+<div id="eigen-values" class="section level3" number="17.1.4">
+<h3>
+<span class="header-section-number">17.1.4</span> Eigen-values<a class="anchor" aria-label="anchor" href="#eigen-values"><i class="fas fa-link"></i></a>
+</h3>
+<p>We have <span class="math inline">\(p=2=min(n-1,p)= min(3,2)\)</span> eigen-values, 4 and 1, <span class="math inline">\(Inertia=4+1=4\)</span> is the sum of the variances of the variables.</p>
+<pre><code>#&gt;        eigenvalue percentage of variance
+#&gt; comp 1          4                     80
+#&gt; comp 2          1                     20
+#&gt;        cumulative percentage of variance
+#&gt; comp 1                                80
+#&gt; comp 2                               100</code></pre>
+</div>
+<div id="the-variables" class="section level3" number="17.1.5">
+<h3>
+<span class="header-section-number">17.1.5</span> The variables<a class="anchor" aria-label="anchor" href="#the-variables"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt; $coord
+#&gt;         Dim.1      Dim.2
+#&gt; Var1 1.414214 -0.7071068
+#&gt; Var2 1.414214  0.7071068
+#&gt; 
+#&gt; $cor
+#&gt;          Dim.1      Dim.2
+#&gt; Var1 0.8944272 -0.4472136
+#&gt; Var2 0.8944272  0.4472136
+#&gt; 
+#&gt; $cos2
+#&gt;      Dim.1 Dim.2
+#&gt; Var1   0.8   0.2
+#&gt; Var2   0.8   0.2
+#&gt; 
+#&gt; $contrib
+#&gt;      Dim.1 Dim.2
+#&gt; Var1    50    50
+#&gt; Var2    50    50</code></pre>
+</div>
+<div id="the-inviduals" class="section level3" number="17.1.6">
+<h3>
+<span class="header-section-number">17.1.6</span> The inviduals<a class="anchor" aria-label="anchor" href="#the-inviduals"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt; $coord
+#&gt;                         Dim.1                       Dim.2
+#&gt; i1  2.82842712474619073503845 -0.000000000000000006357668
+#&gt; i2  0.00000000000000001271534 -1.414213562373095367519227
+#&gt; i3 -0.00000000000000040992080  1.414213562373094923430017
+#&gt; i4 -2.82842712474619029094924  0.000000000000000204960400
+#&gt; 
+#&gt; $cos2
+#&gt;                                          Dim.1
+#&gt; i1 1.00000000000000044408920985006261616945267
+#&gt; i2 0.00000000000000000000000000000000008083988
+#&gt; i3 0.00000000000000000000000000000008401753104
+#&gt; i4 1.00000000000000022204460492503130808472633
+#&gt;                                           Dim.2
+#&gt; i1 0.000000000000000000000000000000000005052492
+#&gt; i2 1.000000000000000444089209850062616169452667
+#&gt; i3 0.999999999999999777955395074968691915273666
+#&gt; i4 0.000000000000000000000000000000005251095690
+#&gt; 
+#&gt; $contrib
+#&gt;                                         Dim.1
+#&gt; i1 50.000000000000021316282072803005576133728
+#&gt; i2  0.000000000000000000000000000000001010498
+#&gt; i3  0.000000000000000000000000000001050219138
+#&gt; i4 50.000000000000014210854715202003717422485
+#&gt;                                         Dim.2
+#&gt; i1  0.000000000000000000000000000000001010498
+#&gt; i2 50.000000000000021316282072803005576133728
+#&gt; i3 49.999999999999985789145284797996282577515
+#&gt; i4  0.000000000000000000000000000001050219138
+#&gt; 
+#&gt; $dist
+#&gt;       i1       i2       i3       i4 
+#&gt; 2.828427 1.414214 1.414214 2.828427</code></pre>
+</div>
+<div id="another-example" class="section level3" number="17.1.7">
+<h3>
+<span class="header-section-number">17.1.7</span> Another example<a class="anchor" aria-label="anchor" href="#another-example"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">A</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9</span>,<span class="fl">12</span>,<span class="fl">10</span>,<span class="fl">15</span>,<span class="fl">9</span>,<span class="fl">10</span>,<span class="fl">5</span>,<span class="fl">10</span>,<span class="fl">8</span>,<span class="fl">11</span>,<span class="fl">13</span>,<span class="fl">14</span>,<span class="fl">11</span>,<span class="fl">13</span>,<span class="fl">8</span>,<span class="fl">3</span>,<span class="fl">15</span>,<span class="fl">10</span><span class="op">)</span>,nrow<span class="op">=</span><span class="fl">6</span>, byrow<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">A</span></span>
+<span><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span><span class="co">#&gt; [1,]    9   12   10</span></span>
+<span><span class="co">#&gt; [2,]   15    9   10</span></span>
+<span><span class="co">#&gt; [3,]    5   10    8</span></span>
+<span><span class="co">#&gt; [4,]   11   13   14</span></span>
+<span><span class="co">#&gt; [5,]   11   13    8</span></span>
+<span><span class="co">#&gt; [6,]    3   15   10</span></span>
+<span><span class="va">Nframe</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span>
+<span><span class="va">m1</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Alex"</span>, <span class="st">"Bea"</span>, <span class="st">"Claudio"</span>,<span class="st">"Damien"</span>, <span class="st">"Emilie"</span>, <span class="st">"Fran"</span><span class="op">)</span></span>
+<span><span class="va">m2</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Biostatistics"</span>, <span class="st">"Economics"</span>, <span class="st">"English"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span><span class="op">=</span><span class="va">m1</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span><span class="op">=</span><span class="va">m2</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span>
+<span><span class="co">#&gt;         Biostatistics Economics English</span></span>
+<span><span class="co">#&gt; Alex                9        12      10</span></span>
+<span><span class="co">#&gt; Bea                15         9      10</span></span>
+<span><span class="co">#&gt; Claudio             5        10       8</span></span>
+<span><span class="co">#&gt; Damien             11        13      14</span></span>
+<span><span class="co">#&gt; Emilie             11        13       8</span></span>
+<span><span class="co">#&gt; Fran                3        15      10</span></span></code></pre></div>
+</div>
+<div id="pca-on-the-correlation-matrix" class="section level3" number="17.1.8">
+<h3>
+<span class="header-section-number">17.1.8</span> PCA on the correlation matrix<a class="anchor" aria-label="anchor" href="#pca-on-the-correlation-matrix"><i class="fas fa-link"></i></a>
+</h3>
+<p><img src="07quater-pca_files/figure-html/unnamed-chunk-10-1.png" width="100%"><img src="07quater-pca_files/figure-html/unnamed-chunk-10-2.png" width="100%"></p>
+<pre><code>#&gt; **Results for the Principal Component Analysis (PCA)**
+#&gt; The analysis was performed on 6 individuals, described by 3 variables
+#&gt; *The results are available in the following objects:
+#&gt; 
+#&gt;    name               description                          
+#&gt; 1  "$eig"             "eigenvalues"                        
+#&gt; 2  "$var"             "results for the variables"          
+#&gt; 3  "$var$coord"       "coord. for the variables"           
+#&gt; 4  "$var$cor"         "correlations variables - dimensions"
+#&gt; 5  "$var$cos2"        "cos2 for the variables"             
+#&gt; 6  "$var$contrib"     "contributions of the variables"     
+#&gt; 7  "$ind"             "results for the individuals"        
+#&gt; 8  "$ind$coord"       "coord. for the individuals"         
+#&gt; 9  "$ind$cos2"        "cos2 for the individuals"           
+#&gt; 10 "$ind$contrib"     "contributions of the individuals"   
+#&gt; 11 "$call"            "summary statistics"                 
+#&gt; 12 "$call$centre"     "mean of the variables"              
+#&gt; 13 "$call$ecart.type" "standard error of the variables"    
+#&gt; 14 "$call$row.w"      "weights for the individuals"        
+#&gt; 15 "$call$col.w"      "weights for the variables"</code></pre>
+</div>
+<div id="eigen-values-1" class="section level3" number="17.1.9">
+<h3>
+<span class="header-section-number">17.1.9</span> Eigen-values<a class="anchor" aria-label="anchor" href="#eigen-values-1"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt;        eigenvalue percentage of variance
+#&gt; comp 1  1.5000000               50.00000
+#&gt; comp 2  1.1830127               39.43376
+#&gt; comp 3  0.3169873               10.56624
+#&gt;        cumulative percentage of variance
+#&gt; comp 1                          50.00000
+#&gt; comp 2                          89.43376
+#&gt; comp 3                         100.00000
+#&gt;       eigenvalue variance.percent
+#&gt; Dim.1  1.5000000         50.00000
+#&gt; Dim.2  1.1830127         39.43376
+#&gt; Dim.3  0.3169873         10.56624
+#&gt;       cumulative.variance.percent
+#&gt; Dim.1                    50.00000
+#&gt; Dim.2                    89.43376
+#&gt; Dim.3                   100.00000</code></pre>
+<p>Kaiser rule suggests <span class="math inline">\(q=2\)</span> components because the eigen-value mean is 1 (with 89% of explained variance). The rule of Thumb gives <span class="math inline">\(q=2\)</span> because the first 2 dimensions explain 89% of the variance/inertia.</p>
+<div class="inline-figure"><img src="07quater-pca_files/figure-html/unnamed-chunk-12-1.png" width="100%"></div>
+</div>
+<div id="variables" class="section level3" number="17.1.10">
+<h3>
+<span class="header-section-number">17.1.10</span> Variables<a class="anchor" aria-label="anchor" href="#variables"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt; Principal Component Analysis Results for variables
+#&gt;  ===================================================
+#&gt;   Name      
+#&gt; 1 "$coord"  
+#&gt; 2 "$cor"    
+#&gt; 3 "$cos2"   
+#&gt; 4 "$contrib"
+#&gt;   Description                                    
+#&gt; 1 "Coordinates for the variables"                
+#&gt; 2 "Correlations between variables and dimensions"
+#&gt; 3 "Cos2 for the variables"                       
+#&gt; 4 "contributions of the variables"</code></pre>
+</div>
+<div id="correlations-of-variables-and-componentsdimensions" class="section level3" number="17.1.11">
+<h3>
+<span class="header-section-number">17.1.11</span> Correlations of variables and components/dimensions<a class="anchor" aria-label="anchor" href="#correlations-of-variables-and-componentsdimensions"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt;                                  Dim.1     Dim.2      Dim.3
+#&gt; Biostatistics -0.866025403784438041477 0.3535534  0.3535534
+#&gt; Economics      0.866025403784439151700 0.3535534  0.3535534
+#&gt; English        0.000000000000001047394 0.9659258 -0.2588190</code></pre>
+<p>The first axis is correlated with Biostatistics (+0.86) and Economics (-0.86). The second axis is correlated to English (0.96).</p>
+<p>The two components (or dimensions) are correlated with at least one variable. Then <span class="math inline">\(q=2\)</span> may be considered to reduce the dimension (<span class="math inline">\(p=3\)</span>).</p>
+</div>
+<div id="coordinates-of-variables" class="section level3" number="17.1.12">
+<h3>
+<span class="header-section-number">17.1.12</span> Coordinates of variables<a class="anchor" aria-label="anchor" href="#coordinates-of-variables"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt;                                  Dim.1     Dim.2      Dim.3
+#&gt; Biostatistics -0.866025403784438041477 0.3535534  0.3535534
+#&gt; Economics      0.866025403784439040678 0.3535534  0.3535534
+#&gt; English        0.000000000000001047394 0.9659258 -0.2588190</code></pre>
+</div>
+<div id="quality-of-representation-of-variables" class="section level3" number="17.1.13">
+<h3>
+<span class="header-section-number">17.1.13</span> Quality of representation of variables<a class="anchor" aria-label="anchor" href="#quality-of-representation-of-variables"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt;                                                Dim.1
+#&gt; Biostatistics 0.749999999999999000799277837359113619
+#&gt; Economics     0.750000000000000888178419700125232339
+#&gt; English       0.000000000000000000000000000001097035
+#&gt;                   Dim.2     Dim.3
+#&gt; Biostatistics 0.1250000 0.1250000
+#&gt; Economics     0.1250000 0.1250000
+#&gt; English       0.9330127 0.0669873</code></pre>
+<p>Biostatistics and Economics are well represented in the first dimension (75%), while English is very well represented in the second axis (93%). In the first plane (Dim.1 and Dim.2) Biostatistics and Economics are well represented (75%+12.5%=87.5%), English
+is very represented in the first plane (93%+0%=93%)</p>
+</div>
+<div id="contributions-of-variables" class="section level3" number="17.1.14">
+<h3>
+<span class="header-section-number">17.1.14</span> Contributions of variables<a class="anchor" aria-label="anchor" href="#contributions-of-variables"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt;                                                Dim.1
+#&gt; Biostatistics 49.99999999999993605115378159098327160
+#&gt; Economics     50.00000000000005684341886080801486969
+#&gt; English        0.00000000000000000000000000007313567
+#&gt;                  Dim.2    Dim.3
+#&gt; Biostatistics 10.56624 39.43376
+#&gt; Economics     10.56624 39.43376
+#&gt; English       78.86751 21.13249</code></pre>
+<p>Biostatistics and Economics contribute to the construction of the first dimension (50%), while English contribute highy to the construction of the second axis (78.8%). In the first plane (Dim.1 and Dim.2) the contribution of Biostatistics and Economics is 50%+10.5%=65.5%, that of English is 78.8%.</p>
+<p>Description of the first dimension</p>
+<pre><code>#&gt; 
+#&gt; Link between the variable and the continuous variables (R-square)
+#&gt; =================================================================================
+#&gt;               correlation    p.value
+#&gt; Economics       0.8660254 0.02572142
+#&gt; Biostatistics  -0.8660254 0.02572142</code></pre>
+</div>
+<div id="contributions-of-first-two-variables" class="section level3" number="17.1.15">
+<h3>
+<span class="header-section-number">17.1.15</span> Contributions of first two variables<a class="anchor" aria-label="anchor" href="#contributions-of-first-two-variables"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt;               Dim.1    Dim.2    Dim.3
+#&gt; Biostatistics    50 10.56624 39.43376
+#&gt; Economics        50 10.56624 39.43376</code></pre>
+</div>
+<div id="representation-of-variables" class="section level3" number="17.1.16">
+<h3>
+<span class="header-section-number">17.1.16</span> Representation of variables<a class="anchor" aria-label="anchor" href="#representation-of-variables"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure"><img src="07quater-pca_files/figure-html/unnamed-chunk-20-1.png" width="100%"></div>
+</div>
+<div id="with-the-quality-of-representation" class="section level3" number="17.1.17">
+<h3>
+<span class="header-section-number">17.1.17</span> With the quality of representation<a class="anchor" aria-label="anchor" href="#with-the-quality-of-representation"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure"><img src="07quater-pca_files/figure-html/unnamed-chunk-21-1.png" width="100%"></div>
+</div>
+<div id="with-the-quality-of-representation-1" class="section level3" number="17.1.18">
+<h3>
+<span class="header-section-number">17.1.18</span> With the quality of representation<a class="anchor" aria-label="anchor" href="#with-the-quality-of-representation-1"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure"><img src="07quater-pca_files/figure-html/unnamed-chunk-22-1.png" width="100%"></div>
+</div>
+<div id="variables-with-quality-of-representation-larger-than-0.6" class="section level3" number="17.1.19">
+<h3>
+<span class="header-section-number">17.1.19</span> Variables with quality of representation larger than 0.6<a class="anchor" aria-label="anchor" href="#variables-with-quality-of-representation-larger-than-0.6"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure"><img src="07quater-pca_files/figure-html/unnamed-chunk-23-1.png" width="100%"></div>
+</div>
+<div id="with-contribution" class="section level3" number="17.1.20">
+<h3>
+<span class="header-section-number">17.1.20</span> With contribution<a class="anchor" aria-label="anchor" href="#with-contribution"><i class="fas fa-link"></i></a>
+</h3>
+<p><img src="07quater-pca_files/figure-html/unnamed-chunk-24-1.png" width="100%"><img src="07quater-pca_files/figure-html/unnamed-chunk-24-2.png" width="100%"></p>
+<div class="inline-figure"><img src="07quater-pca_files/figure-html/unnamed-chunk-25-1.png" width="100%"></div>
+</div>
+<div id="variables-and-individus-with-largest-quality-of-representation" class="section level3" number="17.1.21">
+<h3>
+<span class="header-section-number">17.1.21</span> Variables and individus with largest quality of representation<a class="anchor" aria-label="anchor" href="#variables-and-individus-with-largest-quality-of-representation"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure"><img src="07quater-pca_files/figure-html/unnamed-chunk-26-1.png" width="100%"></div>
+</div>
+<div id="the-individuals" class="section level3" number="17.1.22">
+<h3>
+<span class="header-section-number">17.1.22</span> The individuals<a class="anchor" aria-label="anchor" href="#the-individuals"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt; Principal Component Analysis Results for individuals
+#&gt;  ===================================================
+#&gt;   Name       Description                       
+#&gt; 1 "$coord"   "Coordinates for the individuals" 
+#&gt; 2 "$cos2"    "Cos2 for the individuals"        
+#&gt; 3 "$contrib" "contributions of the individuals"</code></pre>
+</div>
+<div id="individuals-coordinates" class="section level3" number="17.1.23">
+<h3>
+<span class="header-section-number">17.1.23</span> Individuals: coordinates<a class="anchor" aria-label="anchor" href="#individuals-coordinates"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt;                             Dim.1                    Dim.2
+#&gt; Alex     0.0000000000000002653034 -0.000000000000000941663
+#&gt; Bea     -2.1213203435596423851450  0.000000000000001237395
+#&gt; Claudio -0.0000000000000022171779 -1.538189001320852344890
+#&gt; Damien   0.0000000000000026937746  2.101205251626097503248
+#&gt; Emilie   0.0000000000000001895371 -0.563016250305248155961
+#&gt; Fran     2.1213203435596428292342 -0.000000000000002975084
+#&gt;                              Dim.3
+#&gt; Alex    -0.00000000000000007994654
+#&gt; Bea      0.00000000000000015526499
+#&gt; Claudio -0.79622521701812609684623
+#&gt; Damien  -0.29143865656241157990891
+#&gt; Emilie   1.08766387358053817635550
+#&gt; Fran     0.00000000000000002468473
+#&gt;                             Dim.1                    Dim.2
+#&gt; Alex     0.0000000000000002653034 -0.000000000000000941663
+#&gt; Bea     -2.1213203435596423851450  0.000000000000001237395
+#&gt; Claudio -0.0000000000000022171779 -1.538189001320852344890
+#&gt; Damien   0.0000000000000026937746  2.101205251626097503248
+#&gt; Emilie   0.0000000000000001895371 -0.563016250305248155961
+#&gt; Fran     2.1213203435596428292342 -0.000000000000002975084
+#&gt;                              Dim.3
+#&gt; Alex    -0.00000000000000007994654
+#&gt; Bea      0.00000000000000015526499
+#&gt; Claudio -0.79622521701812609684623
+#&gt; Damien  -0.29143865656241157990891
+#&gt; Emilie   1.08766387358053817635550
+#&gt; Fran     0.00000000000000002468473</code></pre>
+</div>
+<div id="quality-of-representation" class="section level3" number="17.1.24">
+<h3>
+<span class="header-section-number">17.1.24</span> Quality of representation<a class="anchor" aria-label="anchor" href="#quality-of-representation"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt;                                            Dim.1
+#&gt; Alex    0.07137976857538211317155685264879139140
+#&gt; Bea     1.00000000000000022204460492503130808473
+#&gt; Claudio 0.00000000000000000000000000000163862588
+#&gt; Damien  0.00000000000000000000000000000161253810
+#&gt; Emilie  0.00000000000000000000000000000002394954
+#&gt; Fran    0.99999999999999977795539507496869191527
+#&gt;                                           Dim.2
+#&gt; Alex    0.8992501752497785716400358069222420454
+#&gt; Bea     0.0000000000000000000000000000003402549
+#&gt; Claudio 0.7886751345948129765517364830884616822
+#&gt; Damien  0.9811252243246878501636842884181533009
+#&gt; Emilie  0.2113248654051877173376539076343760826
+#&gt; Fran    0.0000000000000000000000000000019669168
+#&gt;                                             Dim.3
+#&gt; Alex    0.006481699860810073883510273873298501712
+#&gt; Bea     0.000000000000000000000000000000005357159
+#&gt; Claudio 0.211324865405187134470565979427192360163
+#&gt; Damien  0.018874775675311854933324795524640649091
+#&gt; Emilie  0.788675134594813309618643870635423809290
+#&gt; Fran    0.000000000000000000000000000000000135408</code></pre>
+</div>
+<div id="contributions" class="section level3" number="17.1.25">
+<h3>
+<span class="header-section-number">17.1.25</span> Contributions<a class="anchor" aria-label="anchor" href="#contributions"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt;                                            Dim.1
+#&gt; Alex     0.0000000000000000000000000000007820654
+#&gt; Bea     50.0000000000000000000000000000000000000
+#&gt; Claudio  0.0000000000000000000000000000546208628
+#&gt; Damien   0.0000000000000000000000000000806269052
+#&gt; Emilie   0.0000000000000000000000000000003991590
+#&gt; Fran    50.0000000000000213162820728030055761337
+#&gt;                                          Dim.2
+#&gt; Alex     0.00000000000000000000000000001249253
+#&gt; Bea      0.00000000000000000000000000002157130
+#&gt; Claudio 33.33333333333337833437326480634510517
+#&gt; Damien  62.20084679281458051036679535172879696
+#&gt; Emilie   4.46581987385206335972043234505690634
+#&gt; Fran     0.00000000000000000000000000012469753
+#&gt;                                             Dim.3
+#&gt; Alex     0.00000000000000000000000000000033605182
+#&gt; Bea      0.00000000000000000000000000000126751744
+#&gt; Claudio 33.33333333333333570180911920033395290375
+#&gt; Damien   4.46581987385203582618942164117470383644
+#&gt; Emilie  62.20084679281465867006772896274924278259
+#&gt; Fran     0.00000000000000000000000000000003203788</code></pre>
+</div>
+<div id="contributions-on-the-first-two-axes" class="section level3" number="17.1.26">
+<h3>
+<span class="header-section-number">17.1.26</span> Contributions on the first two axes<a class="anchor" aria-label="anchor" href="#contributions-on-the-first-two-axes"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure"><img src="07quater-pca_files/figure-html/unnamed-chunk-31-1.png" width="100%"></div>
+</div>
+<div id="representation-of-individuals-with-respect-to-quality-of-projection" class="section level3" number="17.1.27">
+<h3>
+<span class="header-section-number">17.1.27</span> Representation of individuals with respect to quality of projection<a class="anchor" aria-label="anchor" href="#representation-of-individuals-with-respect-to-quality-of-projection"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure"><img src="07quater-pca_files/figure-html/unnamed-chunk-32-1.png" width="100%"></div>
+</div>
+<div id="save-the-figures-in-pdf" class="section level3" number="17.1.28">
+<h3>
+<span class="header-section-number">17.1.28</span> Save the figures in pdf<a class="anchor" aria-label="anchor" href="#save-the-figures-in-pdf"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="save-in-png" class="section level3" number="17.1.29">
+<h3>
+<span class="header-section-number">17.1.29</span> Save in png<a class="anchor" aria-label="anchor" href="#save-in-png"><i class="fas fa-link"></i></a>
+</h3>
+<p><img src="07quater-pca_files/figure-html/unnamed-chunk-34-1.png" width="100%"><img src="07quater-pca_files/figure-html/unnamed-chunk-34-2.png" width="100%"><img src="07quater-pca_files/figure-html/unnamed-chunk-34-3.png" width="100%"></p>
+</div>
+<div id="another-saving" class="section level3" number="17.1.30">
+<h3>
+<span class="header-section-number">17.1.30</span> Another saving<a class="anchor" aria-label="anchor" href="#another-saving"><i class="fas fa-link"></i></a>
+</h3>
+<pre><code>#&gt; file saved to PCA.pdf
+#&gt; file saved to PCA.pdf
+#&gt; [1] "PCA%03d.png"
+#&gt; file saved to PCA%03d.png</code></pre>
+</div>
+<div id="export-the-results-in-txt-fimes" class="section level3" number="17.1.31">
+<h3>
+<span class="header-section-number">17.1.31</span> Export the results in txt fimes<a class="anchor" aria-label="anchor" href="#export-the-results-in-txt-fimes"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="pca-with-prcomp-function-of-the-base-r-package" class="section level2" number="17.2">
+<h2>
+<span class="header-section-number">17.2</span> PCA with prcomp function of the base <code>R</code> package<a class="anchor" aria-label="anchor" href="#pca-with-prcomp-function-of-the-base-r-package"><i class="fas fa-link"></i></a>
+</h2>
+<p>Here we perform PCA on the <code>USArrests</code>, the rows of the data set contain the 50 states, in alphabetical order.</p>
+<p>?USArrests will give details on the dataframe
+View(USArrests) to see the whole dataframe</p>
+<pre><code>#&gt;  [1] "Alabama"        "Alaska"         "Arizona"       
+#&gt;  [4] "Arkansas"       "California"     "Colorado"      
+#&gt;  [7] "Connecticut"    "Delaware"       "Florida"       
+#&gt; [10] "Georgia"        "Hawaii"         "Idaho"         
+#&gt; [13] "Illinois"       "Indiana"        "Iowa"          
+#&gt; [16] "Kansas"         "Kentucky"       "Louisiana"     
+#&gt; [19] "Maine"          "Maryland"       "Massachusetts" 
+#&gt; [22] "Michigan"       "Minnesota"      "Mississippi"   
+#&gt; [25] "Missouri"       "Montana"        "Nebraska"      
+#&gt; [28] "Nevada"         "New Hampshire"  "New Jersey"    
+#&gt; [31] "New Mexico"     "New York"       "North Carolina"
+#&gt; [34] "North Dakota"   "Ohio"           "Oklahoma"      
+#&gt; [37] "Oregon"         "Pennsylvania"   "Rhode Island"  
+#&gt; [40] "South Carolina" "South Dakota"   "Tennessee"     
+#&gt; [43] "Texas"          "Utah"           "Vermont"       
+#&gt; [46] "Virginia"       "Washington"     "West Virginia" 
+#&gt; [49] "Wisconsin"      "Wyoming"</code></pre>
+<p>The columns of the data set contain four variables:</p>
+<p>-Murder: Murder arrests (per 100,000)
+-Assault: Assault arrests (per 100,000)
+-UrbanPop: Percent urban population
+-Rape: Rape arrests (per 100,000)</p>
+<pre><code>#&gt; [1] "Murder"   "Assault"  "UrbanPop" "Rape"</code></pre>
+<p>Notice that the variables have vastly different means (of variables in columns), with the <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code> function.
+‘apply(USArrests, 2, mean)’ permits to calculate the means of each column, the option ‘1’ will do the calculation by row</p>
+<pre><code>#&gt;   Murder  Assault UrbanPop     Rape 
+#&gt;    7.788  170.760   65.540   21.232</code></pre>
+<p>There are on average three times as many rapes as murders, and more than eight times as many assaults as rapes. Let us also examine the variances of the variables</p>
+<pre><code>#&gt;     Murder    Assault   UrbanPop       Rape 
+#&gt;   18.97047 6945.16571  209.51878   87.72916</code></pre>
+<p>The variables have very different variances:
+the <code>UrbanPop</code> variable measuring the percentage of the population in each state living in an urban area, is not a comparable number to the number of rapes
+in each state per 100,000 individuals.
+If we do not scale the variables before performing PCA, then most of the principal components that we observed would be driven by the <code>Assault</code> variable, since it has the largest mean and variance.
+Here, it is important to standardize the variables to have mean zero and standard deviation one before performing PCA.</p>
+<p>The option <code>scale = TRUE</code>, does a scaling of the
+variables to have standard deviation one.</p>
+<pre><code>#&gt; [1] "sdev"     "rotation" "center"   "scale"    "x"</code></pre>
+<p>The <code>center</code> and <code>scale</code> components correspond to the means and standard deviations of the variables that were used for scaling prior to implementing PCA.</p>
+<pre><code>#&gt;   Murder  Assault UrbanPop     Rape 
+#&gt;    7.788  170.760   65.540   21.232
+#&gt;    Murder   Assault  UrbanPop      Rape 
+#&gt;  4.355510 83.337661 14.474763  9.366385</code></pre>
+<p>The <code>rotation</code> matrix provides the principal component loadings;
+each column of <code>pr.out$rotation</code> contains the corresponding
+principal component loading vector.</p>
+<pre><code>#&gt;                 PC1        PC2        PC3         PC4
+#&gt; Murder   -0.5358995  0.4181809 -0.3412327  0.64922780
+#&gt; Assault  -0.5831836  0.1879856 -0.2681484 -0.74340748
+#&gt; UrbanPop -0.2781909 -0.8728062 -0.3780158  0.13387773
+#&gt; Rape     -0.5434321 -0.1673186  0.8177779  0.08902432</code></pre>
+<p>We see that there are four distinct principal components. This is to
+be expected because there are in general <span class="math inline">\(\min(n-1,p)\)</span> informative
+principal components in a data set with <span class="math inline">\(n\)</span> observations and <span class="math inline">\(p\)</span>
+variables.</p>
+<p>Using the <code>pr.out$x</code> we have the <span class="math inline">\(50 \times 4\)</span> matrix <code>x</code> principal component score vectors. That is, the <span class="math inline">\(k\)</span>th column is the <span class="math inline">\(k\)</span>th principal component score vector.</p>
+<pre><code>#&gt; [1] 50  4
+#&gt;                   PC1        PC2         PC3          PC4
+#&gt; Alabama    -0.9756604  1.1220012 -0.43980366  0.154696581
+#&gt; Alaska     -1.9305379  1.0624269  2.01950027 -0.434175454
+#&gt; Arizona    -1.7454429 -0.7384595  0.05423025 -0.826264240
+#&gt; Arkansas    0.1399989  1.1085423  0.11342217 -0.180973554
+#&gt; California -2.4986128 -1.5274267  0.59254100 -0.338559240
+#&gt; Colorado   -1.4993407 -0.9776297  1.08400162  0.001450164</code></pre>
+<p>We can plot the first two principal components as follows:</p>
+<div class="inline-figure"><img src="07quater-pca_files/figure-html/unnamed-chunk-47-1.png" width="100%"></div>
+<p>The <code>scale = 0</code> argument to <code><a href="https://rdrr.io/r/stats/biplot.html">biplot()</a></code> ensures that the arrows are scaled to represent the loadings; other values for <code>scale</code> give slightly different biplots with different interpretations.</p>
+<p>The principal components are only unique up to a sign change, so we can reproduce the above figure by making a small changes:</p>
+<div class="inline-figure"><img src="07quater-pca_files/figure-html/unnamed-chunk-48-1.png" width="100%"></div>
+<p>The standard deviation (square root of the corresponding eigen-value) of each principal component is as follows:</p>
+<pre><code>#&gt; [1] 1.5748783 0.9948694 0.5971291 0.4164494</code></pre>
+<p>The variance explained by each principal component (corresponding eigen-value) is obtained by squaring these:</p>
+<pre><code>#&gt; [1] 2.4802416 0.9897652 0.3565632 0.1734301</code></pre>
+<p>Compute the proportion of variance explained by each principal component as follows</p>
+<pre><code>#&gt; [1] 0.62006039 0.24744129 0.08914080 0.04335752</code></pre>
+<p>We see that the first principal component explains <span class="math inline">\(62.0 \%\)</span> of the variance in the data, the next principal component explains <span class="math inline">\(24.7 \%\)</span> of the variance.
+Plot the PVE (Proportion of Variance Explained) explained by each component, and the cumulative PVE, as follows:</p>
+<div class="inline-figure"><img src="07quater-pca_files/figure-html/unnamed-chunk-52-1.png" width="100%"></div>
+<p>The function <code><a href="https://rdrr.io/r/base/cumsum.html">cumsum()</a></code> computes the cumulative sum of the elements of a numeric vector.</p>
+</div>
+<div id="exercise-1-nutritional-and-marketing-information-on-us-cereals" class="section level2" number="17.3">
+<h2>
+<span class="header-section-number">17.3</span> Exercise 1: Nutritional and Marketing Information on US Cereals<a class="anchor" aria-label="anchor" href="#exercise-1-nutritional-and-marketing-information-on-us-cereals"><i class="fas fa-link"></i></a>
+</h2>
+<p>Consider the UScereal data (65 rows and 11 columns, package ‘MASS’) from the 1993 ASA Statistical Graphics Exposition and taken from the mandatory F&amp;DA food label. The data have been normalized here to a portion of one American cup.</p>
+<pre><code>#&gt; 
+#&gt; Attaching package: 'MASS'
+#&gt; The following object is masked from 'package:dplyr':
+#&gt; 
+#&gt;     select</code></pre>
+<p><img src="07quater-pca_files/figure-html/unnamed-chunk-53-1.png" width="100%"><img src="07quater-pca_files/figure-html/unnamed-chunk-53-2.png" width="100%"></p>
+<pre><code>#&gt; Error in PCA(UScereal): 
+#&gt; The following variables are not quantitative:  mfr
+#&gt; The following variables are not quantitative:  vitamins</code></pre>
+</div>
+<div id="exercise-2" class="section level2" number="17.4">
+<h2>
+<span class="header-section-number">17.4</span> Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Consider the <code>NCI</code> cancer cell line microarray data, which consists of <span class="math inline">\(6{,}830\)</span> gene expression measurements on <span class="math inline">\(64\)</span> cancer cell lines.</p>
+<pre><code>#&gt; 
+#&gt; Attaching package: 'ISLR2'
+#&gt; The following object is masked from 'package:MASS':
+#&gt; 
+#&gt;     Boston</code></pre>
+Each cell line is labeled with a cancer type, given in <code>nci.labs</code>.
+<div id="exercise-3-wine-quality-analysis" class="section level3" number="17.4.1">
+<h3>
+<span class="header-section-number">17.4.1</span> Exercise 3: Wine Quality Analysis<a class="anchor" aria-label="anchor" href="#exercise-3-wine-quality-analysis"><i class="fas fa-link"></i></a>
+</h3>
+<p>Consider the <code>wine</code> dataset available in the <code>gclus</code> package, which contains chemical analyses of wines grown in the same region in Italy but derived from three different cultivars. The dataset has 13 variables and over 170 observations.</p>
+<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gclus</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Loading required package: cluster</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">wine</span><span class="op">)</span></span></code></pre></div>
+<div id="tasks" class="section level4" number="17.4.1.1">
+<h4>
+<span class="header-section-number">17.4.1.1</span> Tasks:<a class="anchor" aria-label="anchor" href="#tasks"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong>(a)</strong> Perform PCA on the <code>wine</code> dataset. Remember to standardize the variables if necessary, as they might be on different scales.</p>
+<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Example code snippet</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://factominer.free.fr">FactoMineR</a></span><span class="op">)</span></span>
+<span><span class="va">res.pca.wine</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/FactoMineR/man/PCA.html">PCA</a></span><span class="op">(</span><span class="va">wine</span>, scale.unit <span class="op">=</span> <span class="cn">TRUE</span>, graph <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+</li>
+<li><p><strong>(b)</strong> Interpret the PCA results. Focus on understanding which chemical properties contribute most to the variance in the dataset and if the wines cluster by cultivar.</p></li>
+</ol>
+</div>
+</div>
+<div id="exercise-4-boston-housing-data-analysis" class="section level3" number="17.4.2">
+<h3>
+<span class="header-section-number">17.4.2</span> Exercise 4: Boston Housing Data Analysis<a class="anchor" aria-label="anchor" href="#exercise-4-boston-housing-data-analysis"><i class="fas fa-link"></i></a>
+</h3>
+<p>Consider the <code>Boston</code> dataset from the <code>MASS</code> package, which contains information collected by the U.S Census Service concerning housing in the area of Boston Mass. It has 506 rows and 14 columns.</p>
+<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">Boston</span><span class="op">)</span></span></code></pre></div>
+<div id="tasks-1" class="section level4" number="17.4.2.1">
+<h4>
+<span class="header-section-number">17.4.2.1</span> Tasks:<a class="anchor" aria-label="anchor" href="#tasks-1"><i class="fas fa-link"></i></a>
+</h4>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong>(a)</strong> Conduct PCA on the <code>Boston</code> housing dataset. Before performing PCA, assess which variables are most suitable for the analysis and preprocess the data accordingly.</p>
+<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Example code snippet</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://factominer.free.fr">FactoMineR</a></span><span class="op">)</span></span>
+<span><span class="va">res.pca.boston</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/FactoMineR/man/PCA.html">PCA</a></span><span class="op">(</span><span class="va">Boston</span>, scale.unit <span class="op">=</span> <span class="cn">TRUE</span>, graph <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+</li>
+<li><p><strong>(b)</strong> Interpret the results of the PCA. Look for patterns that might indicate relationships between different aspects of the housing data, such as crime rates, property tax, and median value of owner-occupied homes.</p></li>
+</ol>
+</div>
+</div>
+<div id="notes-for-solving" class="section level3" number="17.4.3">
+<h3>
+<span class="header-section-number">17.4.3</span> Notes for Solving:<a class="anchor" aria-label="anchor" href="#notes-for-solving"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>Data Preprocessing</strong>: Before performing PCA, it’s crucial to preprocess the data. This may include handling missing values, standardizing the data, and selecting relevant variables.</li>
+<li>
+<strong>PCA Interpretation</strong>: When interpreting the results, focus on the eigenvalues, the proportion of variance explained by the principal components, and the loadings of the variables on the principal components.</li>
+<li>
+<strong>Visualization</strong>: Use plots like scree plots, biplots, or individual component plots to aid in your interpretation, use packages that do that for you!</li>
+<li>
+<strong>Contextual Understanding</strong>: Each dataset has its context. Understanding the domain can significantly help in interpreting the results meaningfully.</li>
+</ul>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="log-reg-ex.html"><span class="header-section-number">16</span> 💻 Binary LogReg exer</a></div>
+<div class="next"><a href="poi-reg-ex.html"><span class="header-section-number">18</span> 💻 Poisson regr exer</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pca"><span class="header-section-number">17</span> 💻 PCA</a></li>
+<li>
+<a class="nav-link" href="#principal-components-analysis"><span class="header-section-number">17.1</span> Principal Components Analysis</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pca-using-factominer-factoextra"><span class="header-section-number">17.1.1</span> PCA using ‘FactoMineR’, ‘factoextra’</a></li>
+<li><a class="nav-link" href="#exercise-1-read-the-data"><span class="header-section-number">17.1.2</span> Exercise 1 : read the data</a></li>
+<li><a class="nav-link" href="#pca-function"><span class="header-section-number">17.1.3</span> PCA function</a></li>
+<li><a class="nav-link" href="#eigen-values"><span class="header-section-number">17.1.4</span> Eigen-values</a></li>
+<li><a class="nav-link" href="#the-variables"><span class="header-section-number">17.1.5</span> The variables</a></li>
+<li><a class="nav-link" href="#the-inviduals"><span class="header-section-number">17.1.6</span> The inviduals</a></li>
+<li><a class="nav-link" href="#another-example"><span class="header-section-number">17.1.7</span> Another example</a></li>
+<li><a class="nav-link" href="#pca-on-the-correlation-matrix"><span class="header-section-number">17.1.8</span> PCA on the correlation matrix</a></li>
+<li><a class="nav-link" href="#eigen-values-1"><span class="header-section-number">17.1.9</span> Eigen-values</a></li>
+<li><a class="nav-link" href="#variables"><span class="header-section-number">17.1.10</span> Variables</a></li>
+<li><a class="nav-link" href="#correlations-of-variables-and-componentsdimensions"><span class="header-section-number">17.1.11</span> Correlations of variables and components/dimensions</a></li>
+<li><a class="nav-link" href="#coordinates-of-variables"><span class="header-section-number">17.1.12</span> Coordinates of variables</a></li>
+<li><a class="nav-link" href="#quality-of-representation-of-variables"><span class="header-section-number">17.1.13</span> Quality of representation of variables</a></li>
+<li><a class="nav-link" href="#contributions-of-variables"><span class="header-section-number">17.1.14</span> Contributions of variables</a></li>
+<li><a class="nav-link" href="#contributions-of-first-two-variables"><span class="header-section-number">17.1.15</span> Contributions of first two variables</a></li>
+<li><a class="nav-link" href="#representation-of-variables"><span class="header-section-number">17.1.16</span> Representation of variables</a></li>
+<li><a class="nav-link" href="#with-the-quality-of-representation"><span class="header-section-number">17.1.17</span> With the quality of representation</a></li>
+<li><a class="nav-link" href="#with-the-quality-of-representation-1"><span class="header-section-number">17.1.18</span> With the quality of representation</a></li>
+<li><a class="nav-link" href="#variables-with-quality-of-representation-larger-than-0.6"><span class="header-section-number">17.1.19</span> Variables with quality of representation larger than 0.6</a></li>
+<li><a class="nav-link" href="#with-contribution"><span class="header-section-number">17.1.20</span> With contribution</a></li>
+<li><a class="nav-link" href="#variables-and-individus-with-largest-quality-of-representation"><span class="header-section-number">17.1.21</span> Variables and individus with largest quality of representation</a></li>
+<li><a class="nav-link" href="#the-individuals"><span class="header-section-number">17.1.22</span> The individuals</a></li>
+<li><a class="nav-link" href="#individuals-coordinates"><span class="header-section-number">17.1.23</span> Individuals: coordinates</a></li>
+<li><a class="nav-link" href="#quality-of-representation"><span class="header-section-number">17.1.24</span> Quality of representation</a></li>
+<li><a class="nav-link" href="#contributions"><span class="header-section-number">17.1.25</span> Contributions</a></li>
+<li><a class="nav-link" href="#contributions-on-the-first-two-axes"><span class="header-section-number">17.1.26</span> Contributions on the first two axes</a></li>
+<li><a class="nav-link" href="#representation-of-individuals-with-respect-to-quality-of-projection"><span class="header-section-number">17.1.27</span> Representation of individuals with respect to quality of projection</a></li>
+<li><a class="nav-link" href="#save-the-figures-in-pdf"><span class="header-section-number">17.1.28</span> Save the figures in pdf</a></li>
+<li><a class="nav-link" href="#save-in-png"><span class="header-section-number">17.1.29</span> Save in png</a></li>
+<li><a class="nav-link" href="#another-saving"><span class="header-section-number">17.1.30</span> Another saving</a></li>
+<li><a class="nav-link" href="#export-the-results-in-txt-fimes"><span class="header-section-number">17.1.31</span> Export the results in txt fimes</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#pca-with-prcomp-function-of-the-base-r-package"><span class="header-section-number">17.2</span> PCA with prcomp function of the base R package</a></li>
+<li><a class="nav-link" href="#exercise-1-nutritional-and-marketing-information-on-us-cereals"><span class="header-section-number">17.3</span> Exercise 1: Nutritional and Marketing Information on US Cereals</a></li>
+<li>
+<a class="nav-link" href="#exercise-2"><span class="header-section-number">17.4</span> Exercise 2</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-3-wine-quality-analysis"><span class="header-section-number">17.4.1</span> Exercise 3: Wine Quality Analysis</a></li>
+<li><a class="nav-link" href="#exercise-4-boston-housing-data-analysis"><span class="header-section-number">17.4.2</span> Exercise 4: Boston Housing Data Analysis</a></li>
+<li><a class="nav-link" href="#notes-for-solving"><span class="header-section-number">17.4.3</span> Notes for Solving:</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/07quater-pca.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
+          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/07quater-pca.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 24-25 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2024-10-26.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

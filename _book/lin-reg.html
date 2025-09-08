@@ -1,0 +1,2310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 8 Linear Regression | Statistics &amp; Big Data 24-25 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="8.1 Introduction  8.1.1 Background Linear regression 8 is one of the most common statistical analyses in medical and health sciences. Linear regression 8 models the linear (i.e. straight line)...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 8 Linear Regression | Statistics &amp; Big Data 24-25 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="8.1 Introduction  8.1.1 Background Linear regression 8 is one of the most common statistical analyses in medical and health sciences. Linear regression 8 models the linear (i.e. straight line)...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 8 Linear Regression | Statistics &amp; Big Data 24-25 Labs">
+<meta name="twitter:description" content="8.1 Introduction  8.1.1 Background Linear regression 8 is one of the most common statistical analyses in medical and health sciences. Linear regression 8 models the linear (i.e. straight line)...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 24-25 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">6</span> 💻 Hypothesis Testing</a></li>
+<li><a class="" href="essentials-of-data-wrangling-and-basic-statistics.html"><span class="header-section-number">7</span> 💻 Essentials of Data Wrangling and Basic Statistics</a></li>
+<li><a class="active" href="lin-reg.html"><span class="header-section-number">8</span> Linear Regression</a></li>
+<li><a class="" href="lin-reg-class.html"><span class="header-section-number">9</span> 💻 Linear Regression in class</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">10</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">11</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">12</span> 💻 ANOVA</a></li>
+<li><a class="" href="dummy-vars.html"><span class="header-section-number">13</span> 💻 Dummy Variables</a></li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="log-reg.html"><span class="header-section-number">15</span> 💻 Binary Logistic Regression</a></li>
+<li><a class="" href="log-reg-ex.html"><span class="header-section-number">16</span> 💻 Binary LogReg exer</a></li>
+<li><a class="" href="pca.html"><span class="header-section-number">17</span> 💻 PCA</a></li>
+<li><a class="" href="poi-reg-ex.html"><span class="header-section-number">18</span> 💻 Poisson regr exer</a></li>
+<li><a class="" href="hier-clust-ex.html"><span class="header-section-number">19</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-mean-ex.html"><span class="header-section-number">20</span> 💻 K-Means Clustering</a></li>
+<li><a class="" href="reg-tree-ex.html"><span class="header-section-number">21</span> 💻 Regression Trees</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">22</span> ⚡ course performance</a></li>
+<li><a class="" href="how-to-ask-for-help.html"><span class="header-section-number">23</span> ✋ How to ask for help!</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">24</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">25</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">26</span> Datasets</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="lin-reg" class="section level1" number="8">
+<h1>
+<span class="header-section-number">8</span> Linear Regression<a class="anchor" aria-label="anchor" href="#lin-reg"><i class="fas fa-link"></i></a>
+</h1>
+<div id="introduction" class="section level2" number="8.1">
+<h2>
+<span class="header-section-number">8.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction"><i class="fas fa-link"></i></a>
+</h2>
+<div id="background" class="section level3" number="8.1.1">
+<h3>
+<span class="header-section-number">8.1.1</span> Background<a class="anchor" aria-label="anchor" href="#background"><i class="fas fa-link"></i></a>
+</h3>
+<p>Linear regression <a href="lin-reg.html#lin-reg">8</a> is one of the most common statistical analyses in medical and health sciences. Linear regression <a href="lin-reg.html#lin-reg">8</a> models the linear (i.e. straight line) relationship between:</p>
+<ul>
+<li>
+<strong>outcome</strong>: numerical variable (e.g. blood pressure, BMI, cholesterol level).</li>
+<li>
+<strong>predictors/independent variables</strong>: numerical variables and categorical variables (e.g. gender, race, education level).</li>
+</ul>
+<p>In simple words, we might be interested in knowing the relationship between the cholesterol level and its associated factors, for example gender, age, BMI and lifestyle. This can be explored by a Linear regression analysis.</p>
+<p>Linear regression is a type of Generalized linear models (GLMs), which also includes other outcome types, for example categorical and count. In subsequent chapters, we will cover these outcome types in form of logistic regression and Poisson regression. Basically, the relationship between the outcome and predictors in a linear regression is structured as follows,</p>
+<p><span class="math display">\[\begin{aligned}
+numerical\ outcome = &amp;\ numerical\ predictors \\
+&amp; + categorical\ predictors
+\end{aligned}\]</span></p>
+<p>More appropriate forms of this relationship will explained later under simple and multiple linear regressions sections.</p>
+</div>
+<div id="objectives" class="section level3" number="8.1.2">
+<h3>
+<span class="header-section-number">8.1.2</span> Objectives<a class="anchor" aria-label="anchor" href="#objectives"><i class="fas fa-link"></i></a>
+</h3>
+<p>After completing this chapter, the readers are expected to</p>
+<ul>
+<li>understand the concept of simple and multiple linear regression</li>
+<li>perform simple linear regression</li>
+<li>perform multiple linear regression</li>
+<li>perform model fit assessment of linear regression models</li>
+<li>present and interpret the results of linear regression analyses</li>
+</ul>
+</div>
+</div>
+<div id="prepare-r-environment-for-analysis" class="section level2" number="8.2">
+<h2>
+<span class="header-section-number">8.2</span> Prepare R Environment for Analysis<a class="anchor" aria-label="anchor" href="#prepare-r-environment-for-analysis"><i class="fas fa-link"></i></a>
+</h2>
+<div id="libraries" class="section level3" number="8.2.1">
+<h3>
+<span class="header-section-number">8.2.1</span> Libraries<a class="anchor" aria-label="anchor" href="#libraries"><i class="fas fa-link"></i></a>
+</h3>
+<p>For this chapter, we will be using the following packages:</p>
+<ul>
+<li>
+<strong>foreign</strong>: for reading SPSS and STATA datasets</li>
+<li>
+<strong>tidyverse</strong>: a general and powerful package for data transformation</li>
+<li>
+<strong>psych</strong>: for descriptive statistics</li>
+<li>
+<strong>gtsummary</strong>: for coming up with nice tables for results and plotting the graphs</li>
+<li>
+<strong>ggplot2</strong>, <strong>ggpubr</strong>, <strong>GGally</strong>: for plotting the graphs</li>
+<li>
+<strong>rsq</strong>: for getting <span class="math inline">\(R^2\)</span> value from a GLM model</li>
+<li>
+<strong>broom</strong>: for tidying up the results</li>
+<li>
+<strong>car</strong>: for <code><a href="https://rdrr.io/pkg/car/man/vif.html">vif()</a></code> function</li>
+</ul>
+<p>These are loaded as follows using the function <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>,</p>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://svn.r-project.org/R-packages/trunk/foreign/">foreign</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ddsjoberg/gtsummary">gtsummary</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggobi.github.io/ggally/">GGally</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">rsq</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="dataset" class="section level3" number="8.2.2">
+<h3>
+<span class="header-section-number">8.2.2</span> Dataset<a class="anchor" aria-label="anchor" href="#dataset"><i class="fas fa-link"></i></a>
+</h3>
+<p>We will use the <code>coronary.dta</code> dataset in STATA format. The dataset contains the total cholesterol level, their individual characteristics and intervention groups in a hypothetical clinical trial. The dataset contains 200 observations for nine variables:</p>
+<ol style="list-style-type: decimal">
+<li>
+<em>id</em>: Subjects’ ID.</li>
+<li>
+<em>cad</em>: Coronary artery disease status (categorical) {no cad, cad}.</li>
+<li>
+<em>sbp</em> : Systolic blood pressure in mmHg (numerical).</li>
+<li>
+<em>dbp</em> : Diastolic blood pressure in mmHg (numerical).</li>
+<li>
+<em>chol</em>: Total cholesterol level in mmol/L (numerical).</li>
+<li>
+<em>age</em>: Age in years (numerical).</li>
+<li>
+<em>bmi</em>: Body mass index (numerical).</li>
+<li>
+<em>race</em>: Race of the subjects (categorical) {malay, chinese, indian}.</li>
+<li>
+<em>gender</em>: Gender of the subjects (categorical) {woman, man}.</li>
+</ol>
+<p>The dataset is loaded as follows,</p>
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">coronary</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/foreign/man/read.dta.html">read.dta</a></span><span class="op">(</span><span class="st">"data/coronary.dta"</span><span class="op">)</span></span></code></pre></div>
+<p>We then look at the basic structure of the dataset,</p>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">coronary</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'data.frame':    200 obs. of  9 variables:</span></span>
+<span><span class="co">#&gt;  $ id    : num  1 14 56 61 62 64 69 108 112 134 ...</span></span>
+<span><span class="co">#&gt;  $ cad   : Factor w/ 2 levels "no cad","cad": 1 1 1 1 1 1 2 1 1 1 ...</span></span>
+<span><span class="co">#&gt;  $ sbp   : num  106 130 136 138 115 124 110 112 138 104 ...</span></span>
+<span><span class="co">#&gt;  $ dbp   : num  68 78 84 100 85 72 80 70 85 70 ...</span></span>
+<span><span class="co">#&gt;  $ chol  : num  6.57 6.33 5.97 7.04 6.66 ...</span></span>
+<span><span class="co">#&gt;  $ age   : num  60 34 36 45 53 43 44 50 43 48 ...</span></span>
+<span><span class="co">#&gt;  $ bmi   : num  38.9 37.8 40.5 37.6 40.3 ...</span></span>
+<span><span class="co">#&gt;  $ race  : Factor w/ 3 levels "malay","chinese",..: 3 1 1 1 3 1 1 2 2 2 ...</span></span>
+<span><span class="co">#&gt;  $ gender: Factor w/ 2 levels "woman","man": 1 1 1 1 2 2 2 1 1 2 ...</span></span>
+<span><span class="co">#&gt;  - attr(*, "datalabel")= chr "Written by R.              "</span></span>
+<span><span class="co">#&gt;  - attr(*, "time.stamp")= chr ""</span></span>
+<span><span class="co">#&gt;  - attr(*, "formats")= chr [1:9] "%9.0g" "%9.0g" "%9.0g" "%9.0g" ...</span></span>
+<span><span class="co">#&gt;  - attr(*, "types")= int [1:9] 100 108 100 100 100 100 100 108 108</span></span>
+<span><span class="co">#&gt;  - attr(*, "val.labels")= chr [1:9] "" "cad" "" "" ...</span></span>
+<span><span class="co">#&gt;  - attr(*, "var.labels")= chr [1:9] "id" "cad" "sbp" "dbp" ...</span></span>
+<span><span class="co">#&gt;  - attr(*, "version")= int 7</span></span>
+<span><span class="co">#&gt;  - attr(*, "label.table")=List of 3</span></span>
+<span><span class="co">#&gt;   ..$ cad   : Named int [1:2] 1 2</span></span>
+<span><span class="co">#&gt;   .. ..- attr(*, "names")= chr [1:2] "no cad" "cad"</span></span>
+<span><span class="co">#&gt;   ..$ race  : Named int [1:3] 1 2 3</span></span>
+<span><span class="co">#&gt;   .. ..- attr(*, "names")= chr [1:3] "malay" "chinese" "indian"</span></span>
+<span><span class="co">#&gt;   ..$ gender: Named int [1:2] 1 2</span></span>
+<span><span class="co">#&gt;   .. ..- attr(*, "names")= chr [1:2] "woman" "man"</span></span></code></pre></div>
+</div>
+</div>
+<div id="simple-linear-regression" class="section level2" number="8.3">
+<h2>
+<span class="header-section-number">8.3</span> Simple Linear Regression<a class="anchor" aria-label="anchor" href="#simple-linear-regression"><i class="fas fa-link"></i></a>
+</h2>
+<div id="about-simple-linear-regression" class="section level3" number="8.3.1">
+<h3>
+<span class="header-section-number">8.3.1</span> About Simple Linear Regression<a class="anchor" aria-label="anchor" href="#about-simple-linear-regression"><i class="fas fa-link"></i></a>
+</h3>
+<p>Simple linear regression (SLR) models <em>linear</em> (straight line) relationship between:</p>
+<ul>
+<li>
+<strong>outcome</strong>: numerical variable.</li>
+<li>
+<strong>ONE predictor</strong>: numerical/categorical variable.</li>
+</ul>
+<p><em>Note</em>: When the predictor is a categorical variable, this is typically analyzed by one-way ANOVA. However, SLR can also handle a categorical variable in the GLM framework.</p>
+<p>We may formally represent SLR in form of an equation as follows,</p>
+<p><span class="math display">\[numerical\ outcome = intercept + coefficient \times predictor\]</span>
+or in a shorter form using mathematical notations,</p>
+<p><span class="math display">\[\hat y = b_0 + b_1x_1\]</span>
+where <span class="math inline">\(\hat y\)</span> (pronounced y hat) is the predicted value of the outcome y.</p>
+</div>
+<div id="data-exploration" class="section level3" number="8.3.2">
+<h3>
+<span class="header-section-number">8.3.2</span> Data exploration<a class="anchor" aria-label="anchor" href="#data-exploration"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let say, for the SLR we are interested in knowing whether diastolic blood pressure (predictor) is associated with the cholesterol level (outcome). We explore the variables by obtaining the descriptive statistics and plotting the data distribution.</p>
+<p>We obtain the descriptive statistics of the variables,</p>
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">coronary</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">chol</span>, <span class="va">dbp</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;      vars   n  mean    sd median trimmed   mad min    max</span></span>
+<span><span class="co">#&gt; chol    1 200  6.20  1.18   6.19    6.18  1.18   4   9.35</span></span>
+<span><span class="co">#&gt; dbp     2 200 82.31 12.90  80.00   81.68 14.83  56 120.00</span></span>
+<span><span class="co">#&gt;      range skew kurtosis   se</span></span>
+<span><span class="co">#&gt; chol  5.35 0.18    -0.31 0.08</span></span>
+<span><span class="co">#&gt; dbp  64.00 0.42    -0.33 0.91</span></span></code></pre></div>
+<p>and the histograms and box-and-whiskers plots,</p>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">hist_chol</span> <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">coronary</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">chol</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"blue"</span>, fill <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span>
+<span><span class="va">hist_dbp</span> <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">coronary</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">dbp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span>, fill <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span>
+<span><span class="va">bplot_chol</span> <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">coronary</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">chol</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"blue"</span>, <span class="op">)</span></span>
+<span><span class="va">bplot_dbp</span> <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">coronary</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">dbp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="op">(</span><span class="va">hist_chol</span> <span class="op">+</span> <span class="va">hist_dbp</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">bplot_chol</span> <span class="op">+</span> <span class="va">bplot_dbp</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="06-lab-linearreg_files/figure-html/unnamed-chunk-5-1.png" width="100%"></div>
+</div>
+<div id="univariable-analysis" class="section level3" number="8.3.3">
+<h3>
+<span class="header-section-number">8.3.3</span> Univariable analysis<a class="anchor" aria-label="anchor" href="#univariable-analysis"><i class="fas fa-link"></i></a>
+</h3>
+<p>For the analysis, we fit the SLR model, which consists of only one predictor (univariable). Here, <code>chol</code> is specified as the outcome, and <code>dbp</code> as the predictor. In <code>glm</code>, the formula is specified as <code>outcome ~ predictor</code>. Here, we specify <code>chol ~ dbp</code> as the formula in <code>glm</code>.</p>
+<p>We fit and view the summary information of the model as,</p>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">slr_chol</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">chol</span> <span class="op">~</span> <span class="va">dbp</span>, data <span class="op">=</span> <span class="va">coronary</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">slr_chol</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; glm(formula = chol ~ dbp, data = coronary)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Deviance Residuals: </span></span>
+<span><span class="co">#&gt;     Min       1Q   Median       3Q      Max  </span></span>
+<span><span class="co">#&gt; -1.9967  -0.8304  -0.1292   0.7734   2.8470  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Coefficients:</span></span>
+<span><span class="co">#&gt;             Estimate Std. Error t value       Pr(&gt;|t|)    </span></span>
+<span><span class="co">#&gt; (Intercept) 2.995134   0.492092   6.087 0.000000005876 ***</span></span>
+<span><span class="co">#&gt; dbp         0.038919   0.005907   6.589 0.000000000392 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; (Dispersion parameter for gaussian family taken to be 1.154763)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     Null deviance: 278.77  on 199  degrees of freedom</span></span>
+<span><span class="co">#&gt; Residual deviance: 228.64  on 198  degrees of freedom</span></span>
+<span><span class="co">#&gt; AIC: 600.34</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Number of Fisher Scoring iterations: 2</span></span></code></pre></div>
+<p>We can tidy up the glm output and obtain the 95% confidence interval (CI) using <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> from the <code>broom</code> package,</p>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">slr_chol</span>, conf.int <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 2 × 7</span></span>
+<span><span class="co">#&gt;   term        estimate std.error statistic  p.value conf.low</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 (Intercept)   3.00     0.492        6.09 5.88e- 9   2.03  </span></span>
+<span><span class="co">#&gt; 2 dbp           0.0389   0.00591      6.59 3.92e-10   0.0273</span></span>
+<span><span class="co">#&gt; # ℹ 1 more variable: conf.high &lt;dbl&gt;</span></span></code></pre></div>
+<p>From the output above, we pay attention at these results:</p>
+<ul>
+<li>coefficients, <span class="math inline">\(b\)</span> – column <code>estimate</code>.</li>
+<li>95% CI – columns <code>conf.low</code> and <code>conf.high</code>.</li>
+<li>
+<em>P</em>-value – column <code>p.value</code>.</li>
+</ul>
+</div>
+<div id="model-fit-assessment" class="section level3" number="8.3.4">
+<h3>
+<span class="header-section-number">8.3.4</span> Model fit assessment<a class="anchor" aria-label="anchor" href="#model-fit-assessment"><i class="fas fa-link"></i></a>
+</h3>
+<p>It is important to assess to what extend the SLR model reflects the data. First, we can assess this by <span class="math inline">\(R^2\)</span>, which is the percentage of the variance for the outcome that is explained by the predictor. In simpler words, to what extend the variation in the values of the outcome is caused/explained by the predictor. This ranges from 0% (the predictor does not explain the outcome at all) to 100% (the predictor explains the outcome perfectly). Here, we obtain the <span class="math inline">\(R^2\)</span> values,</p>
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/rsq/man/rsq.html">rsq</a></span><span class="op">(</span><span class="va">slr_chol</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.1798257</span></span></code></pre></div>
+<p>Next, we can assess the model fit by a scatter plot,</p>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">plot_slr</span> <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">coronary</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">dbp</span>, y <span class="op">=</span> <span class="va">chol</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span><span class="op">)</span></span>
+<span><span class="va">plot_slr</span></span></code></pre></div>
+<p><img src="06-lab-linearreg_files/figure-html/unnamed-chunk-9-1.png" width="100%">
+This plot allows the assessment of normality, linearity and equal variance assumptions. We expect an elliptical/oval shape (normality) and equal scatter of dots above and below the prediction line (equal variance). These aspects indicate a linear relationship between <code>chol</code> and <code>dbp</code> (linearity).</p>
+</div>
+<div id="presentation-and-interpretation" class="section level3" number="8.3.5">
+<h3>
+<span class="header-section-number">8.3.5</span> Presentation and interpretation<a class="anchor" aria-label="anchor" href="#presentation-and-interpretation"><i class="fas fa-link"></i></a>
+</h3>
+<p>To present the result, we can use <code><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html">tbl_regression()</a></code> to come up with a nice table. We use <code>slr_chol</code> of the <code>glm</code> output with <code><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html">tbl_regression()</a></code> in the <code>gtsummary</code> package.</p>
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html">tbl_regression</a></span><span class="op">(</span><span class="va">slr_chol</span>, intercept <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<div id="kehribeowf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kehribeowf table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#kehribeowf thead, #kehribeowf tbody, #kehribeowf tfoot, #kehribeowf tr, #kehribeowf td, #kehribeowf th {
+  border-style: none;
+}
+
+#kehribeowf p {
+  margin: 0;
+  padding: 0;
+}
+
+#kehribeowf .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#kehribeowf .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#kehribeowf .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#kehribeowf .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#kehribeowf .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kehribeowf .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kehribeowf .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kehribeowf .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#kehribeowf .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#kehribeowf .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#kehribeowf .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#kehribeowf .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#kehribeowf .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#kehribeowf .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#kehribeowf .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#kehribeowf .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#kehribeowf .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#kehribeowf .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#kehribeowf .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kehribeowf .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#kehribeowf .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#kehribeowf .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#kehribeowf .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kehribeowf .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#kehribeowf .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#kehribeowf .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kehribeowf .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kehribeowf .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#kehribeowf .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kehribeowf .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#kehribeowf .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kehribeowf .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kehribeowf .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kehribeowf .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kehribeowf .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kehribeowf .gt_left {
+  text-align: left;
+}
+
+#kehribeowf .gt_center {
+  text-align: center;
+}
+
+#kehribeowf .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#kehribeowf .gt_font_normal {
+  font-weight: normal;
+}
+
+#kehribeowf .gt_font_bold {
+  font-weight: bold;
+}
+
+#kehribeowf .gt_font_italic {
+  font-style: italic;
+}
+
+#kehribeowf .gt_super {
+  font-size: 65%;
+}
+
+#kehribeowf .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#kehribeowf .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#kehribeowf .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#kehribeowf .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#kehribeowf .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#kehribeowf .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#kehribeowf .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Beta&lt;/strong&gt;"><strong>Beta</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id='&lt;strong&gt;95% CI&lt;/strong&gt;&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;'>
+<strong>95% CI</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span>
+</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;p-value&lt;/strong&gt;"><strong>p-value</strong></th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="label" class="gt_row gt_left">(Intercept)</td>
+<td headers="estimate" class="gt_row gt_center">3.0</td>
+<td headers="ci" class="gt_row gt_center">2.0, 4.0</td>
+<td headers="p.value" class="gt_row gt_center"></td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">dbp</td>
+<td headers="estimate" class="gt_row gt_center">0.04</td>
+<td headers="ci" class="gt_row gt_center">0.03, 0.05</td>
+<td headers="p.value" class="gt_row gt_center"></td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="4">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> CI = Confidence Interval</td>
+    </tr></tfoot>
+</table></div>
+</div>
+<p>Here, we use <code>intercept = TRUE</code> to include the intercept value in the table. By default, this is omitted by the <code><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html">tbl_regression()</a></code>.</p>
+<p>It is also very informative to present the model equation,</p>
+<p><span class="math display">\[chol = 3.0 + 0.04\times dbp\]</span></p>
+<p>Based on the <span class="math inline">\(R^2\)</span> (which was 0.18), table and model equation, we may interpret the results as follows:</p>
+<ul>
+<li>1mmHg increase in DBP causes 0.04mmol/L increase in cholesterol level.</li>
+<li>DBP explains 18% of the variance in cholesterol level.</li>
+</ul>
+</div>
+</div>
+<div id="multiple-linear-regression" class="section level2" number="8.4">
+<h2>
+<span class="header-section-number">8.4</span> Multiple Linear Regression<a class="anchor" aria-label="anchor" href="#multiple-linear-regression"><i class="fas fa-link"></i></a>
+</h2>
+<div id="about-multiple-linear-regression" class="section level3" number="8.4.1">
+<h3>
+<span class="header-section-number">8.4.1</span> About Multiple Linear Regression<a class="anchor" aria-label="anchor" href="#about-multiple-linear-regression"><i class="fas fa-link"></i></a>
+</h3>
+<p>Multiple linear regression (MLR) models <em>linear</em> relationship between:</p>
+<ul>
+<li>
+<strong>outcome</strong>: numerical variable.</li>
+<li>
+<strong>MORE than one predictors</strong>: numerical and categorical variables.</li>
+</ul>
+<p>We may formally represent MLR in form of an equation,</p>
+<p><span class="math display">\[\begin{aligned}
+numerical\ outcome = &amp;\ intercept \\
+&amp; + coefficients \times numerical\ predictors \\
+&amp; + coefficients \times categorical\ predictors
+\end{aligned}\]</span>
+or in a shorter form,</p>
+<p><span class="math display">\[\hat y = b_0 + b_1x_1 + b_2x_2 + ... + b_px_p\]</span>
+where we have <em>p</em> predictors.</p>
+<p>Whenever the predictor is a categorical variable with more than two levels, we use dummy variable(s). There is no issue with binary categorical variable. For the variable with more than two levels, the number of dummy variables (i.e. once turned into several binary variables) equals number of levels minus one. For example, whenever we have four levels, we will obtain three dummy (binary) variables. As we will see later, <code>glm</code> will automatically do this for <code>factor</code> variable and provide separate estimates for each dummy variable.</p>
+</div>
+<div id="data-exploration-1" class="section level3" number="8.4.2">
+<h3>
+<span class="header-section-number">8.4.2</span> Data exploration<a class="anchor" aria-label="anchor" href="#data-exploration-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Now, for the MLR we are no longer restricted to one predictor. Let say, we are interested in knowing the relationship between blood pressure (SBP and DBP), age, BMI, race and render as the predictors and the cholesterol level (outcome). As before, we explore the variables by the descriptive statistics,</p>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># numerical</span></span>
+<span><span class="va">coronary</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">id</span>, <span class="op">-</span><span class="va">cad</span>, <span class="op">-</span><span class="va">race</span>, <span class="op">-</span><span class="va">gender</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt;      vars   n   mean    sd median trimmed   mad   min</span></span>
+<span><span class="co">#&gt; sbp     1 200 130.18 19.81 126.00  128.93 17.79 88.00</span></span>
+<span><span class="co">#&gt; dbp     2 200  82.31 12.90  80.00   81.68 14.83 56.00</span></span>
+<span><span class="co">#&gt; chol    3 200   6.20  1.18   6.19    6.18  1.18  4.00</span></span>
+<span><span class="co">#&gt; age     4 200  47.33  7.34  47.00   47.28  8.15 32.00</span></span>
+<span><span class="co">#&gt; bmi     5 200  37.45  2.68  37.80   37.65  2.37 28.99</span></span>
+<span><span class="co">#&gt;         max range  skew kurtosis   se</span></span>
+<span><span class="co">#&gt; sbp  187.00 99.00  0.53    -0.37 1.40</span></span>
+<span><span class="co">#&gt; dbp  120.00 64.00  0.42    -0.33 0.91</span></span>
+<span><span class="co">#&gt; chol   9.35  5.35  0.18    -0.31 0.08</span></span>
+<span><span class="co">#&gt; age   62.00 30.00  0.05    -0.78 0.52</span></span>
+<span><span class="co">#&gt; bmi   45.03 16.03 -0.55     0.42 0.19</span></span>
+<span><span class="co"># categorical</span></span>
+<span><span class="va">coronary</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">race</span>, <span class="va">gender</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html">tbl_summary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div id="spnrbjqllx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#spnrbjqllx table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#spnrbjqllx thead, #spnrbjqllx tbody, #spnrbjqllx tfoot, #spnrbjqllx tr, #spnrbjqllx td, #spnrbjqllx th {
+  border-style: none;
+}
+
+#spnrbjqllx p {
+  margin: 0;
+  padding: 0;
+}
+
+#spnrbjqllx .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#spnrbjqllx .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#spnrbjqllx .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#spnrbjqllx .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#spnrbjqllx .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#spnrbjqllx .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#spnrbjqllx .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#spnrbjqllx .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#spnrbjqllx .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#spnrbjqllx .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#spnrbjqllx .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#spnrbjqllx .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#spnrbjqllx .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#spnrbjqllx .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#spnrbjqllx .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#spnrbjqllx .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#spnrbjqllx .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#spnrbjqllx .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#spnrbjqllx .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#spnrbjqllx .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#spnrbjqllx .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#spnrbjqllx .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#spnrbjqllx .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#spnrbjqllx .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#spnrbjqllx .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#spnrbjqllx .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#spnrbjqllx .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#spnrbjqllx .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#spnrbjqllx .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#spnrbjqllx .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#spnrbjqllx .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#spnrbjqllx .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#spnrbjqllx .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#spnrbjqllx .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#spnrbjqllx .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#spnrbjqllx .gt_left {
+  text-align: left;
+}
+
+#spnrbjqllx .gt_center {
+  text-align: center;
+}
+
+#spnrbjqllx .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#spnrbjqllx .gt_font_normal {
+  font-weight: normal;
+}
+
+#spnrbjqllx .gt_font_bold {
+  font-weight: bold;
+}
+
+#spnrbjqllx .gt_font_italic {
+  font-style: italic;
+}
+
+#spnrbjqllx .gt_super {
+  font-size: 65%;
+}
+
+#spnrbjqllx .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#spnrbjqllx .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#spnrbjqllx .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#spnrbjqllx .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#spnrbjqllx .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#spnrbjqllx .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#spnrbjqllx .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id='&lt;strong&gt;N = 200&lt;/strong&gt;&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;'>
+<strong>N = 200</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span>
+</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="label" class="gt_row gt_left">race</td>
+<td headers="stat_0" class="gt_row gt_center"><br></td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    malay</td>
+<td headers="stat_0" class="gt_row gt_center">73 (37%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    chinese</td>
+<td headers="stat_0" class="gt_row gt_center">64 (32%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    indian</td>
+<td headers="stat_0" class="gt_row gt_center">63 (32%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">gender</td>
+<td headers="stat_0" class="gt_row gt_center"><br></td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    woman</td>
+<td headers="stat_0" class="gt_row gt_center">100 (50%)</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    man</td>
+<td headers="stat_0" class="gt_row gt_center">100 (50%)</td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="2">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> n (%)</td>
+    </tr></tfoot>
+</table></div>
+</div>
+<p>and the pairs plot, where we focus on the distribution of the data by histograms and box-and-whiskers plots. The pairs plot also includes information on the bivariate correlation statistics between the numerical variables.</p>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">coronary</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">id</span>, <span class="op">-</span><span class="va">cad</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://ggobi.github.io/ggally/reference/ggpairs.html">ggpairs</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="06-lab-linearreg_files/figure-html/unnamed-chunk-12-1.png" width="100%"></div>
+</div>
+<div id="univariable-analysis-1" class="section level3" number="8.4.3">
+<h3>
+<span class="header-section-number">8.4.3</span> Univariable analysis<a class="anchor" aria-label="anchor" href="#univariable-analysis-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>For the univariable analysis in the context of MLR, we aim to select variables that are worthwhile to be included in the multivariable model.</p>
+<p>In the context of <strong>exploratory research</strong>, we want to choose only variables with <em>P</em>-values &lt; 0.25 to be included in MLR. To obtain the <em>P</em>-values, you may perform separate SLRs for each of the predictors (on your own). However, obtaining <em>P</em>-value for each predictor is easy by <code><a href="https://rdrr.io/r/stats/add1.html">add1()</a></code> function. Here, we use likelihood ratio test (LRT) using <code>test = "LRT"</code> option to obtain the <em>P</em>-values. We start with an intercept only model <code>slr_chol0</code> using <code>chol ~ 1</code> formula specification in the <code>glm</code> followed by <code><a href="https://rdrr.io/r/stats/add1.html">add1()</a></code>. <code><a href="https://rdrr.io/r/stats/add1.html">add1()</a></code> will test each predictor one by one.</p>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">slr_chol0</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">chol</span> <span class="op">~</span> <span class="fl">1</span>, data <span class="op">=</span> <span class="va">coronary</span><span class="op">)</span>  <span class="co"># intercept only model</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/add1.html">add1</a></span><span class="op">(</span><span class="va">slr_chol0</span>, scope <span class="op">=</span> <span class="op">~</span> <span class="va">sbp</span> <span class="op">+</span> <span class="va">dbp</span> <span class="op">+</span> <span class="va">age</span> <span class="op">+</span> <span class="va">bmi</span> <span class="op">+</span> <span class="va">race</span> <span class="op">+</span> <span class="va">gender</span>, </span>
+<span>     test <span class="op">=</span> <span class="st">"LRT"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Single term additions</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Model:</span></span>
+<span><span class="co">#&gt; chol ~ 1</span></span>
+<span><span class="co">#&gt;        Df Deviance    AIC scaled dev.        Pr(&gt;Chi)    </span></span>
+<span><span class="co">#&gt; &lt;none&gt;      278.77 637.99                                </span></span>
+<span><span class="co">#&gt; sbp     1   235.36 606.14      33.855 0.0000000059384 ***</span></span>
+<span><span class="co">#&gt; dbp     1   228.64 600.34      39.648 0.0000000003042 ***</span></span>
+<span><span class="co">#&gt; age     1   243.68 613.08      26.911 0.0000002130129 ***</span></span>
+<span><span class="co">#&gt; bmi     1   272.17 635.20       4.792         0.02859 *  </span></span>
+<span><span class="co">#&gt; race    2   241.68 613.43      28.561 0.0000006280216 ***</span></span>
+<span><span class="co">#&gt; gender  1   277.45 639.04       0.952         0.32933    </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
+<p>From the output, all variables are important with <em>P</em> &lt; .25 except <code>gender</code>. These variables, excluding <code>gender</code>, are candidates in this variable selection step.</p>
+<p>However, please keep in mind that in the context of <strong>confirmatory research</strong>, the variables that we want to include are not merely based on <em>P</em>-values alone. It is important to consider expert judgement as well.</p>
+</div>
+<div id="multivariable-analysis" class="section level3" number="8.4.4">
+<h3>
+<span class="header-section-number">8.4.4</span> Multivariable analysis<a class="anchor" aria-label="anchor" href="#multivariable-analysis"><i class="fas fa-link"></i></a>
+</h3>
+<p>Multivariable analysis involves more than one predictors. In the univariable variable selection, we decided on several potential predictors. For MLR, we (judiciously) included these variables in an MLR model. In the present dataset, we have the following considerations:</p>
+<ul>
+<li>including both SBP and DBP is redundant, because both represent the blood pressure. These variables are also highly correlated. This is indicated by the correlation value, <em>r</em> = 0.828 and scatter plot for the SBP-DBP pair in the pairs plot in the data exploration step.</li>
+<li>
+<code>gender</code> was not sigficant, thus we may exclude the variable.</li>
+<li>let say, as advised by experts in the field, we should exclude <code>age</code> in the modelling.</li>
+</ul>
+<p>Now, given these considerations, we perform MLR with the selected variables,</p>
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mlr_chol</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">chol</span> <span class="op">~</span> <span class="va">dbp</span> <span class="op">+</span> <span class="va">bmi</span> <span class="op">+</span> <span class="va">race</span>, data <span class="op">=</span> <span class="va">coronary</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mlr_chol</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; glm(formula = chol ~ dbp + bmi + race, data = coronary)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Deviance Residuals: </span></span>
+<span><span class="co">#&gt;      Min        1Q    Median        3Q       Max  </span></span>
+<span><span class="co">#&gt; -2.18698  -0.73076  -0.01935   0.63476   2.91524  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Coefficients:</span></span>
+<span><span class="co">#&gt;              Estimate Std. Error t value   Pr(&gt;|t|)    </span></span>
+<span><span class="co">#&gt; (Intercept)  4.870859   1.245373   3.911   0.000127 ***</span></span>
+<span><span class="co">#&gt; dbp          0.029500   0.006203   4.756 0.00000383 ***</span></span>
+<span><span class="co">#&gt; bmi         -0.038530   0.028099  -1.371   0.171871    </span></span>
+<span><span class="co">#&gt; racechinese  0.356642   0.181757   1.962   0.051164 .  </span></span>
+<span><span class="co">#&gt; raceindian   0.724716   0.190625   3.802   0.000192 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; (Dispersion parameter for gaussian family taken to be 1.083909)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     Null deviance: 278.77  on 199  degrees of freedom</span></span>
+<span><span class="co">#&gt; Residual deviance: 211.36  on 195  degrees of freedom</span></span>
+<span><span class="co">#&gt; AIC: 590.63</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Number of Fisher Scoring iterations: 2</span></span></code></pre></div>
+<p>From the output above, for each variable, we focus these results:</p>
+<ul>
+<li>coefficients, <span class="math inline">\(b\)</span>s – column <code>estimate</code>.</li>
+<li>95% CIs – columns <code>conf.low</code> and <code>conf.high</code>.</li>
+<li>
+<em>P</em>-values – column <code>p.value</code>.</li>
+</ul>
+<p>Note that for a categorical variable with more than two categories, the estimates are obtained for each dummy variable. In our case, <code>race</code> consists of Malay, Chinese and Indian. From the output, the dummy variables are <code>racechinese</code> representing Chinese vs Malay and <code>raceindian</code> representing Indian vs Malay dummy variables, where Malay is set as the baseline comparison group.</p>
+<p>We also notice that some variables are not significant at significance level of 0.05, namely <code>bmi</code> and <code>racechinese</code>. As for <code>racechinese</code> dummy variable, because this forms part of the <code>race</code> variable, we accept the variable because it is marginally insignificant (0.0512 vs 0.05) and the other dummy variable <code>raceindian</code> is significant.</p>
+<div id="stepwise-automatic-variable-selection" class="section level4 unnumbered">
+<h4>Stepwise automatic variable selection<a class="anchor" aria-label="anchor" href="#stepwise-automatic-variable-selection"><i class="fas fa-link"></i></a>
+</h4>
+<p>We noted that not all variables included in the model are significant. In our case, we may remove <code>bmi</code> because it is not statistically significant. But in exploratory research where we have hundreds of variables, it is impossible to select variables by eye-ball judgement. So, in this case, how to perform the variable selection? To explore the significance of the variables, we may perform stepwise automatic selection. It is important to know stepwise selection is meant for exploratory research. For confirmatory analysis, it is important to rely on expert opinion for the variable selection. We may perform forward, backward or both forward and backward selection combined.</p>
+<p><em>Forward selection</em> starts with an intercept only or empty model without variable. It proceeds by adding one variable after another. In R, Akaike information criterion (AIC) is used as the comparative goodness-of-fit measure and model quality. In the stepwise selection, it seeks to find the model with the lowest AIC iteratively and the steps are shown in the output. More information about AIC can be referred to <span class="citation">Shuhua Hu<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;span&gt;“Akaike Information Criterion,”&lt;/span&gt; &lt;em&gt;Center for Research in Scientific Computation&lt;/em&gt; 93 (2007).&lt;/p&gt;"><sup>3</sup></a></span> and <span class="citation">Wikipedia<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“&lt;span class="nocase"&gt;Akaike information criterion&lt;/span&gt; — &lt;span&gt;W&lt;/span&gt;ikipedia&lt;span&gt;,&lt;/span&gt; the Free Encyclopedia”&lt;/span&gt; (&lt;a href="https://en.wikipedia.org/wiki/Akaike_information_criterion" class="uri"&gt;https://en.wikipedia.org/wiki/Akaike_information_criterion&lt;/a&gt;, 2022).&lt;/p&gt;'><sup>4</sup></a></span>.</p>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># forward</span></span>
+<span><span class="va">mlr_chol_stepforward</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/step.html">step</a></span><span class="op">(</span><span class="va">slr_chol0</span>, scope <span class="op">=</span> <span class="op">~</span> <span class="va">dbp</span> <span class="op">+</span> <span class="va">bmi</span> <span class="op">+</span> <span class="va">race</span>, </span>
+<span>                            direction <span class="op">=</span> <span class="st">"forward"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Start:  AIC=637.99</span></span>
+<span><span class="co">#&gt; chol ~ 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;        Df Deviance    AIC</span></span>
+<span><span class="co">#&gt; + dbp   1   228.64 600.34</span></span>
+<span><span class="co">#&gt; + race  2   241.68 613.43</span></span>
+<span><span class="co">#&gt; + bmi   1   272.17 635.20</span></span>
+<span><span class="co">#&gt; &lt;none&gt;      278.77 637.99</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Step:  AIC=600.34</span></span>
+<span><span class="co">#&gt; chol ~ dbp</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;        Df Deviance    AIC</span></span>
+<span><span class="co">#&gt; + race  2   213.40 590.55</span></span>
+<span><span class="co">#&gt; &lt;none&gt;      228.64 600.34</span></span>
+<span><span class="co">#&gt; + bmi   1   227.04 600.94</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Step:  AIC=590.55</span></span>
+<span><span class="co">#&gt; chol ~ dbp + race</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;        Df Deviance    AIC</span></span>
+<span><span class="co">#&gt; &lt;none&gt;      213.40 590.55</span></span>
+<span><span class="co">#&gt; + bmi   1   211.36 590.63</span></span></code></pre></div>
+<p><em>Backward selection</em> starts with a model containing all variables. Then, it proceeds by removing one variable after another, of which it aims to find the model with the lowest AIC.</p>
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># backward</span></span>
+<span><span class="va">mlr_chol_stepback</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/step.html">step</a></span><span class="op">(</span><span class="va">mlr_chol</span>, direction <span class="op">=</span> <span class="st">"backward"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Start:  AIC=590.63</span></span>
+<span><span class="co">#&gt; chol ~ dbp + bmi + race</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;        Df Deviance    AIC</span></span>
+<span><span class="co">#&gt; - bmi   1   213.40 590.55</span></span>
+<span><span class="co">#&gt; &lt;none&gt;      211.36 590.63</span></span>
+<span><span class="co">#&gt; - race  2   227.04 600.94</span></span>
+<span><span class="co">#&gt; - dbp   1   235.88 610.58</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Step:  AIC=590.55</span></span>
+<span><span class="co">#&gt; chol ~ dbp + race</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;        Df Deviance    AIC</span></span>
+<span><span class="co">#&gt; &lt;none&gt;      213.40 590.55</span></span>
+<span><span class="co">#&gt; - race  2   228.64 600.34</span></span>
+<span><span class="co">#&gt; - dbp   1   241.68 613.43</span></span></code></pre></div>
+<p><em>Bidirectional selection</em>, as implemented in R, starts as with the model with all variables. Then, it proceeds with removing or adding variables, which combines both forward and backward selection methods. It stops once it finds the model with the lowest AIC.</p>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># both</span></span>
+<span><span class="va">mlr_chol_stepboth</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/step.html">step</a></span><span class="op">(</span><span class="va">mlr_chol</span>, direction <span class="op">=</span> <span class="st">"both"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Start:  AIC=590.63</span></span>
+<span><span class="co">#&gt; chol ~ dbp + bmi + race</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;        Df Deviance    AIC</span></span>
+<span><span class="co">#&gt; - bmi   1   213.40 590.55</span></span>
+<span><span class="co">#&gt; &lt;none&gt;      211.36 590.63</span></span>
+<span><span class="co">#&gt; - race  2   227.04 600.94</span></span>
+<span><span class="co">#&gt; - dbp   1   235.88 610.58</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Step:  AIC=590.55</span></span>
+<span><span class="co">#&gt; chol ~ dbp + race</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;        Df Deviance    AIC</span></span>
+<span><span class="co">#&gt; &lt;none&gt;      213.40 590.55</span></span>
+<span><span class="co">#&gt; + bmi   1   211.36 590.63</span></span>
+<span><span class="co">#&gt; - race  2   228.64 600.34</span></span>
+<span><span class="co">#&gt; - dbp   1   241.68 613.43</span></span></code></pre></div>
+</div>
+<div id="preliminary-model" class="section level4 unnumbered">
+<h4>Preliminary model<a class="anchor" aria-label="anchor" href="#preliminary-model"><i class="fas fa-link"></i></a>
+</h4>
+<p>Let say, after considering the <em>P</em>-value, stepwise selection (in exploratory research) and expert opinion, we decided that our preliminary model is,</p>
+<p><code>chol ~ dbp + race</code></p>
+<p>and we fit the model again to view basic information of the model,</p>
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mlr_chol_sel</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">chol</span> <span class="op">~</span> <span class="va">dbp</span> <span class="op">+</span> <span class="va">race</span>, data <span class="op">=</span> <span class="va">coronary</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mlr_chol_sel</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; glm(formula = chol ~ dbp + race, data = coronary)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Deviance Residuals: </span></span>
+<span><span class="co">#&gt;     Min       1Q   Median       3Q      Max  </span></span>
+<span><span class="co">#&gt; -2.1378  -0.7068  -0.0289   0.5997   2.7778  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Coefficients:</span></span>
+<span><span class="co">#&gt;             Estimate Std. Error t value       Pr(&gt;|t|)    </span></span>
+<span><span class="co">#&gt; (Intercept) 3.298028   0.486213   6.783 0.000000000136 ***</span></span>
+<span><span class="co">#&gt; dbp         0.031108   0.006104   5.096 0.000000813502 ***</span></span>
+<span><span class="co">#&gt; racechinese 0.359964   0.182149   1.976       0.049534 *  </span></span>
+<span><span class="co">#&gt; raceindian  0.713690   0.190883   3.739       0.000243 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; (Dispersion parameter for gaussian family taken to be 1.088777)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     Null deviance: 278.77  on 199  degrees of freedom</span></span>
+<span><span class="co">#&gt; Residual deviance: 213.40  on 196  degrees of freedom</span></span>
+<span><span class="co">#&gt; AIC: 590.55</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Number of Fisher Scoring iterations: 2</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/rsq/man/rsq.html">rsq</a></span><span class="op">(</span><span class="va">mlr_chol_sel</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.2345037</span></span></code></pre></div>
+</div>
+</div>
+<div id="interaction" class="section level3" number="8.4.5">
+<h3>
+<span class="header-section-number">8.4.5</span> Interaction<a class="anchor" aria-label="anchor" href="#interaction"><i class="fas fa-link"></i></a>
+</h3>
+<p>Interaction is the combination of predictors that requires interpretation of their regression coefficients separately based on the levels of the predictor. For example, we need separate interpretation of the coefficient for <code>dbp</code> depending on <code>race</code> group: Malay, Chinese or Indian. This makes interpreting our analysis complicated as we can no longer interpret each coefficient on its own. So, most of the time, we pray not to have interaction in our regression model. We fit the model with a two-way interaction term,</p>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">chol</span> <span class="op">~</span> <span class="va">dbp</span> <span class="op">*</span> <span class="va">race</span>, data <span class="op">=</span> <span class="va">coronary</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; glm(formula = chol ~ dbp * race, data = coronary)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Deviance Residuals: </span></span>
+<span><span class="co">#&gt;      Min        1Q    Median        3Q       Max  </span></span>
+<span><span class="co">#&gt; -2.10485  -0.77524  -0.02423   0.58059   2.74380  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Coefficients:</span></span>
+<span><span class="co">#&gt;                 Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span><span class="co">#&gt; (Intercept)      2.11114    0.92803   2.275 0.024008 *  </span></span>
+<span><span class="co">#&gt; dbp              0.04650    0.01193   3.897 0.000134 ***</span></span>
+<span><span class="co">#&gt; racechinese      1.95576    1.28477   1.522 0.129572    </span></span>
+<span><span class="co">#&gt; raceindian       2.41530    1.25766   1.920 0.056266 .  </span></span>
+<span><span class="co">#&gt; dbp:racechinese -0.02033    0.01596  -1.273 0.204376    </span></span>
+<span><span class="co">#&gt; dbp:raceindian  -0.02126    0.01529  -1.391 0.165905    </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; (Dispersion parameter for gaussian family taken to be 1.087348)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     Null deviance: 278.77  on 199  degrees of freedom</span></span>
+<span><span class="co">#&gt; Residual deviance: 210.95  on 194  degrees of freedom</span></span>
+<span><span class="co">#&gt; AIC: 592.23</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Number of Fisher Scoring iterations: 2</span></span></code></pre></div>
+<p>From the output, there is no evidence that suggests the presence of interaction because the included interaction term was insignificant. In R, it is easy to fit interaction by <code>*</code>, e.g. <code>dbp * race</code> will automatically includes all variables involved. This is equal to specifiying <code>glm(chol ~ dbp + race + dbp:race, data = coronary)</code>, where we can use <code>:</code> to include the interaction.</p>
+</div>
+<div id="model-fit-assessment-1" class="section level3" number="8.4.6">
+<h3>
+<span class="header-section-number">8.4.6</span> Model fit assessment<a class="anchor" aria-label="anchor" href="#model-fit-assessment-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>For MLR, we assess the model fit by <span class="math inline">\(R^2\)</span> and histogram and scatter plots of residuals. Residuals, in simple term, are the discrepancies between the observed values (dots) and the predicted values (by the fit MLR model). So, the lesser the discrepancies, the better is the model fit.</p>
+<div id="percentage-of-variance-explained-r2" class="section level4 unnumbered">
+<h4>Percentage of variance explained, <span class="math inline">\(R^2\)</span><a class="anchor" aria-label="anchor" href="#percentage-of-variance-explained-r2"><i class="fas fa-link"></i></a>
+</h4>
+<p>First, we obtain the <span class="math inline">\(R^2\)</span> values. In comparison to the <span class="math inline">\(R^2\)</span> obtained for the SLR, we include <code>adj = TRUE</code> here to obtain an adjusted <span class="math inline">\(R^2\)</span>. The adjusted <span class="math inline">\(R^2\)</span> here is the <span class="math inline">\(R^2\)</span> with penalty for the number of predictors <em>p</em>. This discourages including too many variables, which might be unnecessary.</p>
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/rsq/man/rsq.html">rsq</a></span><span class="op">(</span><span class="va">mlr_chol_sel</span>, adj <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.2227869</span></span></code></pre></div>
+</div>
+<div id="histogram-and-box-and-whiskers-plot" class="section level4 unnumbered">
+<h4>Histogram and box-and-whiskers plot<a class="anchor" aria-label="anchor" href="#histogram-and-box-and-whiskers-plot"><i class="fas fa-link"></i></a>
+</h4>
+<p>Second, we plot a histogram and a box-and-whiskers plot to assess the normality of raw/unstandardized residuals of the MLR model. We expect normally distributed residuals to indicate a good fit of the MLR model. Here, we have a normally distributed residuals.</p>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">rraw_chol</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">resid</a></span><span class="op">(</span><span class="va">mlr_chol_sel</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">rraw_chol</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="06-lab-linearreg_files/figure-html/unnamed-chunk-21-1.png" width="100%"></div>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">rraw_chol</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="06-lab-linearreg_files/figure-html/unnamed-chunk-21-2.png" width="100%"></div>
+</div>
+<div id="scatter-plots" class="section level4 unnumbered">
+<h4>Scatter plots<a class="anchor" aria-label="anchor" href="#scatter-plots"><i class="fas fa-link"></i></a>
+</h4>
+<p>Third, we plot a standardized residuals (Y-axis) vs standardized predicted values (X-axis). Similar to the one for SLR, this plot allows assessment of normality, linearity and equal variance assumptions. The dots should form elliptical/oval shape (normality) and scattered roughly equal above and below the zero line (equal variance). Both these indicate linearity. Our plot below shows that the assumptions are met.</p>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">rstd_chol</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/influence.measures.html">rstandard</a></span><span class="op">(</span><span class="va">mlr_chol_sel</span><span class="op">)</span>  <span class="co"># standardized residuals</span></span>
+<span><span class="va">pstd_chol</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">mlr_chol_sel</span><span class="op">)</span><span class="op">)</span>  <span class="co"># standardized predicted values</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">rstd_chol</span> <span class="op">~</span> <span class="va">pstd_chol</span>, xlab <span class="op">=</span> <span class="st">"Std predicted"</span>, ylab <span class="op">=</span> <span class="st">"Std residuals"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>  <span class="co"># normal, linear, equal variance</span></span></code></pre></div>
+<div class="inline-figure"><img src="06-lab-linearreg_files/figure-html/unnamed-chunk-22-1.png" width="100%"></div>
+<p>In addition to the standardized residuals vs standardized predicted values plot, for numerical predictors, we assess the linear relationship between the raw residuals and the observed values of the numerical predictors. We plot the raw residuals vs numerical predictor below. The plot interpreted in similar way to the standardized residuals vs standardized predicted values plot. The plot shows good linearity between the residuals and the numerical predictor.</p>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">rraw_chol</span> <span class="op">~</span> <span class="va">coronary</span><span class="op">$</span><span class="va">dbp</span>, xlab <span class="op">=</span> <span class="st">"DBP"</span>, ylab <span class="op">=</span> <span class="st">"Raw Residuals"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="06-lab-linearreg_files/figure-html/unnamed-chunk-23-1.png" width="100%"></div>
+</div>
+</div>
+<div id="presentation-and-interpretation-1" class="section level3" number="8.4.7">
+<h3>
+<span class="header-section-number">8.4.7</span> Presentation and interpretation<a class="anchor" aria-label="anchor" href="#presentation-and-interpretation-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>After passing all the assumption checks, we may now decide on our final model. We may rename the preliminary model <code>mlr_chol_sel</code> to <code>mlr_chol_final</code> for easier reference.</p>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mlr_chol_final</span> <span class="op">=</span> <span class="va">mlr_chol_sel</span></span></code></pre></div>
+<p>Similar to SLR, we use <code><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html">tbl_regression()</a></code> to come up with a nice table to present the results.</p>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_regression.html">tbl_regression</a></span><span class="op">(</span><span class="va">mlr_chol_final</span>, intercept <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<div id="huoxboortw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#huoxboortw table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#huoxboortw thead, #huoxboortw tbody, #huoxboortw tfoot, #huoxboortw tr, #huoxboortw td, #huoxboortw th {
+  border-style: none;
+}
+
+#huoxboortw p {
+  margin: 0;
+  padding: 0;
+}
+
+#huoxboortw .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#huoxboortw .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#huoxboortw .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#huoxboortw .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#huoxboortw .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#huoxboortw .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#huoxboortw .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#huoxboortw .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#huoxboortw .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#huoxboortw .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#huoxboortw .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#huoxboortw .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#huoxboortw .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#huoxboortw .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#huoxboortw .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#huoxboortw .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#huoxboortw .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#huoxboortw .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#huoxboortw .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#huoxboortw .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#huoxboortw .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#huoxboortw .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#huoxboortw .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#huoxboortw .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#huoxboortw .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#huoxboortw .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#huoxboortw .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#huoxboortw .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#huoxboortw .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#huoxboortw .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#huoxboortw .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#huoxboortw .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#huoxboortw .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#huoxboortw .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#huoxboortw .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#huoxboortw .gt_left {
+  text-align: left;
+}
+
+#huoxboortw .gt_center {
+  text-align: center;
+}
+
+#huoxboortw .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#huoxboortw .gt_font_normal {
+  font-weight: normal;
+}
+
+#huoxboortw .gt_font_bold {
+  font-weight: bold;
+}
+
+#huoxboortw .gt_font_italic {
+  font-style: italic;
+}
+
+#huoxboortw .gt_super {
+  font-size: 65%;
+}
+
+#huoxboortw .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#huoxboortw .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#huoxboortw .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#huoxboortw .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#huoxboortw .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#huoxboortw .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#huoxboortw .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<div class="inline-table"><table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Beta&lt;/strong&gt;"><strong>Beta</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id='&lt;strong&gt;95% CI&lt;/strong&gt;&lt;span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;'>
+<strong>95% CI</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span>
+</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;p-value&lt;/strong&gt;"><strong>p-value</strong></th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="label" class="gt_row gt_left">(Intercept)</td>
+<td headers="estimate" class="gt_row gt_center">3.3</td>
+<td headers="ci" class="gt_row gt_center">2.3, 4.3</td>
+<td headers="p.value" class="gt_row gt_center"></td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">dbp</td>
+<td headers="estimate" class="gt_row gt_center">0.03</td>
+<td headers="ci" class="gt_row gt_center">0.02, 0.04</td>
+<td headers="p.value" class="gt_row gt_center"></td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">race</td>
+<td headers="estimate" class="gt_row gt_center"><br></td>
+<td headers="ci" class="gt_row gt_center"><br></td>
+<td headers="p.value" class="gt_row gt_center"><br></td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    malay</td>
+<td headers="estimate" class="gt_row gt_center">—</td>
+<td headers="ci" class="gt_row gt_center">—</td>
+<td headers="p.value" class="gt_row gt_center"><br></td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    chinese</td>
+<td headers="estimate" class="gt_row gt_center">0.36</td>
+<td headers="ci" class="gt_row gt_center">0.00, 0.72</td>
+<td headers="p.value" class="gt_row gt_center">0.050</td>
+</tr>
+<tr>
+<td headers="label" class="gt_row gt_left">    indian</td>
+<td headers="estimate" class="gt_row gt_center">0.71</td>
+<td headers="ci" class="gt_row gt_center">0.34, 1.1</td>
+<td headers="p.value" class="gt_row gt_center"></td>
+</tr>
+</tbody>
+<tfoot class="gt_footnotes"><tr>
+<td class="gt_footnote" colspan="4">
+<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> CI = Confidence Interval</td>
+    </tr></tfoot>
+</table></div>
+</div>
+<p>It will be useful to be able to save the output in the spreadsheet format for later use. We can use <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> function in this case and export it to a .csv file,</p>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tib_mlr</span> <span class="op">=</span> <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">mlr_chol_final</span>, conf.int <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tib_mlr</span>, <span class="st">"mlr_final.csv"</span><span class="op">)</span></span></code></pre></div>
+<p>Then, we present the model equation. Cholesterol level in mmol/L can be predicted by its predictors as given by,</p>
+<p><span class="math display">\[chol = 3.30 + 0.03\times dbp + 0.36\times race\ (chinese) + 0.71\times race\ (indian)\]</span>
+Based on the adjusted <span class="math inline">\(R^2\)</span>, table and model equation, we may interpret the results as follows:</p>
+<ul>
+<li>1mmHg increase in DBP causes 0.03mmol/L increase in cholesterol, while controlling for the effect of race.</li>
+<li>Likewise, 10mmHg increase in DBP causes 0.03 x 10 = 0.3mmol/L increase in cholesterol, while controlling for the effect of race.</li>
+<li>Being Chinese causes 0.36mmol/L increase in cholesterol in comparison to Malay, while controlling for the effect of DBP.</li>
+<li>Being Indian causes 0.71mmol/L increase in cholesterol in comparison to Malay, while controlling for the effect of DBP.</li>
+<li>DBP and race explains 22.3% variance in cholesterol.</li>
+</ul>
+<p>For each of this interpretation, please keep in mind to also consider the 95% CI of each of coefficient. For example, being Indian causes 0.71mmol/L increase in cholesterol in comparison to Malay, where this may range from 0.34mmol/L to 1.1mmol/L based on the 95% CI.</p>
+</div>
+</div>
+<div id="prediction" class="section level2" number="8.5">
+<h2>
+<span class="header-section-number">8.5</span> Prediction<a class="anchor" aria-label="anchor" href="#prediction"><i class="fas fa-link"></i></a>
+</h2>
+<p>In some situations, it is useful to use the SLR/MLR model for prediction. For example, we may want to predict the cholesterol level of a patient given some clinical characteristics. We can use the final model above for prediction. For starter, let us view the predicted values for our sample,</p>
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">coronary</span><span class="op">$</span><span class="va">pred_chol</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">mlr_chol_final</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">coronary</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   id    cad sbp dbp   chol age  bmi   race gender pred_chol</span></span>
+<span><span class="co">#&gt; 1  1 no cad 106  68 6.5725  60 38.9 indian  woman  6.127070</span></span>
+<span><span class="co">#&gt; 2 14 no cad 130  78 6.3250  34 37.8  malay  woman  5.724461</span></span>
+<span><span class="co">#&gt; 3 56 no cad 136  84 5.9675  36 40.5  malay  woman  5.911109</span></span>
+<span><span class="co">#&gt; 4 61 no cad 138 100 7.0400  45 37.6  malay  woman  6.408839</span></span>
+<span><span class="co">#&gt; 5 62 no cad 115  85 6.6550  53 40.3 indian    man  6.655908</span></span>
+<span><span class="co">#&gt; 6 64 no cad 124  72 5.9675  43 37.6  malay    man  5.537812</span></span></code></pre></div>
+<p>Compare the predicted values with the observed cholesterol level. Recall that we already checked this for the model fit assessment before.</p>
+<p>It is more useful to predict for newly observed data. Let us try predicting the cholesterol level for an Indian patient with DBP = 90mmHg,</p>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">mlr_chol_final</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>dbp <span class="op">=</span> <span class="fl">90</span>, race <span class="op">=</span> <span class="st">"indian"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;        1 </span></span>
+<span><span class="co">#&gt; 6.811448</span></span></code></pre></div>
+<p>Now, we also do so the data with many more patients,</p>
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">new_data</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>dbp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">90</span>, <span class="fl">90</span>, <span class="fl">90</span><span class="op">)</span>, </span>
+<span>                      race <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"malay"</span>, <span class="st">"chinese"</span>, <span class="st">"indian"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">mlr_chol_final</span>, <span class="va">new_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt;        1        2        3 </span></span>
+<span><span class="co">#&gt; 6.097758 6.457722 6.811448</span></span>
+<span><span class="va">new_data</span><span class="op">$</span><span class="va">pred_chol</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">mlr_chol_final</span>, <span class="va">new_data</span><span class="op">)</span></span>
+<span><span class="va">new_data</span></span>
+<span><span class="co">#&gt;   dbp    race pred_chol</span></span>
+<span><span class="co">#&gt; 1  90   malay  6.097758</span></span>
+<span><span class="co">#&gt; 2  90 chinese  6.457722</span></span>
+<span><span class="co">#&gt; 3  90  indian  6.811448</span></span></code></pre></div>
+</div>
+<div id="summary" class="section level2" number="8.6">
+<h2>
+<span class="header-section-number">8.6</span> Summary<a class="anchor" aria-label="anchor" href="#summary"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this chapter, we went through the basics about SLR and MLR. We performed the analysis for each and learned how to assess the model fit for the regression models. We learned how to nicely present and interpret the results. In addition, we also learned how to utilize the model for prediction.</p>
+
+</div>
+</div>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="essentials-of-data-wrangling-and-basic-statistics.html"><span class="header-section-number">7</span> 💻 Essentials of Data Wrangling and Basic Statistics</a></div>
+<div class="next"><a href="lin-reg-class.html"><span class="header-section-number">9</span> 💻 Linear Regression in class</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#lin-reg"><span class="header-section-number">8</span> Linear Regression</a></li>
+<li>
+<a class="nav-link" href="#introduction"><span class="header-section-number">8.1</span> Introduction</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#background"><span class="header-section-number">8.1.1</span> Background</a></li>
+<li><a class="nav-link" href="#objectives"><span class="header-section-number">8.1.2</span> Objectives</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#prepare-r-environment-for-analysis"><span class="header-section-number">8.2</span> Prepare R Environment for Analysis</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#libraries"><span class="header-section-number">8.2.1</span> Libraries</a></li>
+<li><a class="nav-link" href="#dataset"><span class="header-section-number">8.2.2</span> Dataset</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#simple-linear-regression"><span class="header-section-number">8.3</span> Simple Linear Regression</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#about-simple-linear-regression"><span class="header-section-number">8.3.1</span> About Simple Linear Regression</a></li>
+<li><a class="nav-link" href="#data-exploration"><span class="header-section-number">8.3.2</span> Data exploration</a></li>
+<li><a class="nav-link" href="#univariable-analysis"><span class="header-section-number">8.3.3</span> Univariable analysis</a></li>
+<li><a class="nav-link" href="#model-fit-assessment"><span class="header-section-number">8.3.4</span> Model fit assessment</a></li>
+<li><a class="nav-link" href="#presentation-and-interpretation"><span class="header-section-number">8.3.5</span> Presentation and interpretation</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#multiple-linear-regression"><span class="header-section-number">8.4</span> Multiple Linear Regression</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#about-multiple-linear-regression"><span class="header-section-number">8.4.1</span> About Multiple Linear Regression</a></li>
+<li><a class="nav-link" href="#data-exploration-1"><span class="header-section-number">8.4.2</span> Data exploration</a></li>
+<li><a class="nav-link" href="#univariable-analysis-1"><span class="header-section-number">8.4.3</span> Univariable analysis</a></li>
+<li><a class="nav-link" href="#multivariable-analysis"><span class="header-section-number">8.4.4</span> Multivariable analysis</a></li>
+<li><a class="nav-link" href="#interaction"><span class="header-section-number">8.4.5</span> Interaction</a></li>
+<li><a class="nav-link" href="#model-fit-assessment-1"><span class="header-section-number">8.4.6</span> Model fit assessment</a></li>
+<li><a class="nav-link" href="#presentation-and-interpretation-1"><span class="header-section-number">8.4.7</span> Presentation and interpretation</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#prediction"><span class="header-section-number">8.5</span> Prediction</a></li>
+<li><a class="nav-link" href="#summary"><span class="header-section-number">8.6</span> Summary</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/06-lab-linearreg.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
+          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/06-lab-linearreg.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 24-25 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2024-10-26.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

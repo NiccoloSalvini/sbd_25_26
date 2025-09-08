@@ -1,0 +1,50 @@
+## react table
+
+
+```{css, echo = FALSE}
+
+.status-scheduled {
+  background: hsl(116, 60%, 90%);
+  color: hsl(116, 30%, 25%);
+}
+
+.status-pending {
+  background: hsl(230, 70%, 90%);
+  color: hsl(230, 45%, 30%);
+}
+
+.status-canceled {
+  background: hsl(350, 70%, 90%);
+  color: hsl(350, 45%, 30%);
+}
+```
+
+
+
+```{r gentab, echo=FALSE, warning = FALSE, message = FALSE}
+library(reactable)
+library(googlesheets4)
+library(dplyr)
+
+syllabus <- read_sheet("https://docs.google.com/spreadsheets/d/1J4VAFUhskHjTXF_zJMgnPlMH9dr8vSXAt2K5lBi0vyg/edit?usp=sharing") %>% 
+  mutate(Status = "Scheduled")
+
+
+reactable(
+  syllabus,
+  sortable =TRUE,
+  columns = list(
+    # Or using raw HTML
+    Materials = colDef(html = TRUE, cell = function(value, index) {
+      sprintf('<a href="%s" target="_blank">%s</a>', syllabus$Links[index], value)
+    }), 
+    Status = colDef(cell = function(value) {
+      class <- paste0("tag status-", tolower(value))
+      htmltools::div(class = class, value)
+    }),
+    Links = colDef( show = F,)
+  )
+)
+
+
+```

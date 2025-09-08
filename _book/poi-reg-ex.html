@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 18 💻 Poisson regr exer | Statistics &amp; Big Data 24-25 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="This is a brief into with a collection of exercises concerning Poisson regression stuff! Some of them are actually (noised changing data) samples from the exam, so dig into it! Some of them will...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 18 💻 Poisson regr exer | Statistics &amp; Big Data 24-25 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="This is a brief into with a collection of exercises concerning Poisson regression stuff! Some of them are actually (noised changing data) samples from the exam, so dig into it! Some of them will...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 18 💻 Poisson regr exer | Statistics &amp; Big Data 24-25 Labs">
+<meta name="twitter:description" content="This is a brief into with a collection of exercises concerning Poisson regression stuff! Some of them are actually (noised changing data) samples from the exam, so dig into it! Some of them will...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 24-25 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">6</span> 💻 Hypothesis Testing</a></li>
+<li><a class="" href="essentials-of-data-wrangling-and-basic-statistics.html"><span class="header-section-number">7</span> 💻 Essentials of Data Wrangling and Basic Statistics</a></li>
+<li><a class="" href="lin-reg.html"><span class="header-section-number">8</span> Linear Regression</a></li>
+<li><a class="" href="lin-reg-class.html"><span class="header-section-number">9</span> 💻 Linear Regression in class</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">10</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">11</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">12</span> 💻 ANOVA</a></li>
+<li><a class="" href="dummy-vars.html"><span class="header-section-number">13</span> 💻 Dummy Variables</a></li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="log-reg.html"><span class="header-section-number">15</span> 💻 Binary Logistic Regression</a></li>
+<li><a class="" href="log-reg-ex.html"><span class="header-section-number">16</span> 💻 Binary LogReg exer</a></li>
+<li><a class="" href="pca.html"><span class="header-section-number">17</span> 💻 PCA</a></li>
+<li><a class="active" href="poi-reg-ex.html"><span class="header-section-number">18</span> 💻 Poisson regr exer</a></li>
+<li><a class="" href="hier-clust-ex.html"><span class="header-section-number">19</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-mean-ex.html"><span class="header-section-number">20</span> 💻 K-Means Clustering</a></li>
+<li><a class="" href="reg-tree-ex.html"><span class="header-section-number">21</span> 💻 Regression Trees</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">22</span> ⚡ course performance</a></li>
+<li><a class="" href="how-to-ask-for-help.html"><span class="header-section-number">23</span> ✋ How to ask for help!</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">24</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">25</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">26</span> Datasets</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="poi-reg-ex" class="section level1" number="18">
+<h1>
+<span class="header-section-number">18</span> 💻 Poisson regr exer<a class="anchor" aria-label="anchor" href="#poi-reg-ex"><i class="fas fa-link"></i></a>
+</h1>
+<p>This is a brief into with a collection of exercises concerning <strong>Poisson</strong> regression stuff! Some of them are actually (noised changing data) samples from the exam, so dig into it! Some of them will be done in class during lecture, some others are left to you as a to-do-at-home exercise.</p>
+<div id="what-about-poisson-regression" class="section level2" number="18.1">
+<h2>
+<span class="header-section-number">18.1</span> What about Poisson regression<a class="anchor" aria-label="anchor" href="#what-about-poisson-regression"><i class="fas fa-link"></i></a>
+</h2>
+<p>Poisson Regression involves regression models in which the response variable is in the form of counts and not fractional numbers. For example, the count of number of births or number of wins in a football match series. Also the values of the response variables follow a Poisson distribution.</p>
+<p>The general mathematical equation for Poisson regression is:</p>
+<p>$$</p>
+<p>log(y) = _0 + _1x_1 + _2x_2 … _Nx_N</p>
+<p>$$</p>
+<p>The basic syntax for <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> function in Poisson regression is :</p>
+<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">formula</span>, <span class="va">data</span>, <span class="va">family</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="walkthrough" class="section level2" number="18.2">
+<h2>
+<span class="header-section-number">18.2</span> Walkthrough 🚶<a class="anchor" aria-label="anchor" href="#walkthrough"><i class="fas fa-link"></i></a>
+</h2>
+<p>We have the in-built data set <code>warpbreaks</code> which describes the effect of wool type (A or B) and tension (low, medium or high) on the number of warp breaks per loom. Let’s consider <code>breaks</code> as the response variable which is a count of number of breaks. The wool <code>type</code> and <code>tension</code> are taken as predictor variables.</p>
+<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">poisson_regression</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">breaks</span> <span class="op">~</span> <span class="va">wool</span><span class="op">+</span><span class="va">tension</span>, data <span class="op">=</span> <span class="va">warpbreaks</span>,family <span class="op">=</span> <span class="st">"poisson"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">poisson_regression</span><span class="op">)</span></span></code></pre></div>
+<p>In the summary we look for the p-value in the last column to be less than 0.05 to consider an impact of the predictor variable on the response variable. As seen the <code>wooltype</code> B having tension type M and H have impact on the count of breaks.</p>
+</div>
+<div id="mixed-exercises-1" class="section level2" number="18.3">
+<h2>
+<span class="header-section-number">18.3</span> mixed Exercises 👨‍💻<a class="anchor" aria-label="anchor" href="#mixed-exercises-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>In class if you are stuck either ask to the teacher or assemble a group to work with! Collaboration in key 👯‍♂️!</p>
+<p>Let’s go 🎬</p>
+<div class="exercise">
+<p><span id="exr:poireg" class="exercise"><strong>Exercise 18.1  </strong></span>In Sweden all motor insurance companies apply identical risk arguments to classify customers, and thus their portfolios and their claims statistics can be combined. The Committee was asked to look into the problem of analyzing the real influence on claims of the risk arguments and to compare this structure with the actual tariff.
+The dataset <code>motorins</code> is contained into the package <code>faraway</code>. Fit a poisson regression with <code>Claims</code> being the dependent and all the others being the independent variables</p>
+</div>
+<p>As you do with linear regression and logistic regression you just specify first the model formula, then data and the end the link. The link is actually the poisson. The patter should look familiar to you. This is happening because each of the models we have been doing so far fall under the umbrella of Generalized Linear Models, i.e. GLM which share a common worflow.</p>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="poi-reg-ex.html#exr:poireg">18.1</a>:</p>
+<pre><code><a href="https://github.com/julianfaraway/faraway">library(faraway)
+data(motorins)
+
+poisson_model &lt;- glm(Claims ~ Payment, family = poisson, data = motorins)
+
+summary(poisson_model)</a></code></pre>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:poireg2" class="exercise"><strong>Exercise 18.2  </strong></span>Within the library <code>faraway</code>, the <code>gala</code> dataset records the counts of the numbers of species of tortoise found on 30 Galapagos Islands. The relationship between the number of plant species and several geographic variables is of interest.</p>
+<ol style="list-style-type: decimal">
+<li>check teh distribution of the variablw <code>Species</code>
+</li>
+<li>fit a poisson model on <code>Species</code> given all the others.</li>
+<li>Which of them are statistically significant with <span class="math inline">\(\alpha = 0.05\)</span>
+</li>
+</ol>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="poi-reg-ex.html#exr:poireg2">18.2</a>:</p>
+<p>you need to load the same library as before and data.</p>
+<pre><code><a href="https://github.com/julianfaraway/faraway">library(faraway)
+data("gala")</a></code></pre>
+<p>then check the distribution of Species</p>
+<pre><code>hist(gala$Species)</code></pre>
+<p>in the end fit the model:</p>
+<pre><code>poisson_regression_2 = glm(Species~., data = gala, family = "poisson")
+summary(poisson_regression_2)</code></pre>
+<p>by looking at the pvalues you see that: <code>Endemics</code>, <code>Area</code> and <code>Nearest</code> are the most significant ones.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:poireg3" class="exercise"><strong>Exercise 18.3  </strong></span>the <code>fishing</code> data set in the <code>stats4nr</code> package contains data on the number of fish caught by visitors to a state park. It includes the following variables:</p>
+<ul>
+<li>
+<code>livebait</code>: whether or not the group used live bait (0/1),</li>
+<li>
+<code>camper</code>: whether or not the group brought a camper on their visit (0/1),</li>
+<li>
+<code>persons</code>: the number of people in the group,</li>
+<li>
+<code>child</code>: the number of children in the group, and</li>
+<li>
+<code>count</code>: number of fish caugh</li>
+</ul>
+<p>do:</p>
+<ol style="list-style-type: decimal">
+<li>plot the histogram, the mean and the variance of <code>count</code>, is it normally distributed?</li>
+<li>fit a poisson regression on <code>count</code> with <code>person</code>, <code>child</code> and <code>camper</code>, are those coefficients significant?</li>
+</ol>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="poi-reg-ex.html#exr:poireg3">18.3</a>:</p>
+<p>install.packages(“stats4nr”)
+data(“fishing”)</p>
+<p>then check the variable <code>count</code>:</p>
+<pre><code>hist(fishing$count)
+mean(fishing$count)
+var(fishing$count)</code></pre>
+<p>then fit the model:</p>
+<pre><code>fish_model = glm(count ~ persons + child + camper, data = fishing, family = "poisson")
+summary(fish_model)</code></pre>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:poireg4" class="exercise"><strong>Exercise 18.4  </strong></span>You hypothesize that as forests become older, their canopies become dominated by only a few species, which limits light availability for other species growing in the understory. Data to examine this hypothesis were acquired from the <strong>Hubachek Wilderness Research Center</strong>, an experimental forest located in northern <strong>Minnesota</strong> (Gill et al. 2019). Data were collected from 36 forest inventory plots with at least one tree larger than 12.7 cm in diameter. The number of species (<code>num_spp</code>), number of standing dead trees (<code>num_dead</code>), and average height of the trees in the plot (<code>ht_m</code>, <code>meters</code>) are the variables of interest.</p>
+<p>Run the code below to create the data set sp_ht to use in this analysis</p>
+<pre><code>sp_ht &lt;- tibble(
+  num_spp = c(4, 3, 2, 4, 2, 4, 2, 3, 2, 2, 
+              5, 1, 7, 4, 4, 7, 4, 6, 4, 5, 
+              3, 5, 5, 3, 7, 2, 5, 5, 3, 5, 
+              3, 5, 2, 4, 5, 4),
+  num_dead= c(1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 
+              2, 0, 0, 3, 0, 0, 0, 0, 0, 0, 
+              0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 
+              0, 2, 0, 0, 0, 0),
+  ht_m = c(17.6, 19.8, 26.0, 17.4, 19.8, 20.7, 
+           14.7, 17.6, 11.6, 19.4, 12.7, 16.4, 
+           12.6, 17.9, 23.2, 14.5, 18.6, 15.0, 
+           11.5, 15.1, 13.8, 9.9, 20.2, 7.3, 
+           6.2, 11.4, 16.5, 8.7, 9.8, 6.9, 
+           18.0, 10.0, 12.8, 13.7, 12.8, 16.7)
+  )</code></pre>
+<ol style="list-style-type: decimal">
+<li>Does the count variable of interest <code>num_spp</code> display characteristics? Comment on the usefulness of using the Poisson distribution for this variable?</li>
+<li>Create a histogram for the <code>num_spp</code> variable and comment on its distribution?</li>
+<li>Fit two count regression models predicting the number of species based average height. One model should assume the Poisson and the other a negative model distribution. Based on their AIC values, which model would you prefer and why?</li>
+</ol>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="poi-reg-ex.html#exr:poireg4">18.4</a>:</p>
+</div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="pca.html"><span class="header-section-number">17</span> 💻 PCA</a></div>
+<div class="next"><a href="hier-clust-ex.html"><span class="header-section-number">19</span> 💻 Hierarchical Clustering</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#poi-reg-ex"><span class="header-section-number">18</span> 💻 Poisson regr exer</a></li>
+<li><a class="nav-link" href="#what-about-poisson-regression"><span class="header-section-number">18.1</span> What about Poisson regression</a></li>
+<li><a class="nav-link" href="#walkthrough"><span class="header-section-number">18.2</span> Walkthrough 🚶</a></li>
+<li><a class="nav-link" href="#mixed-exercises-1"><span class="header-section-number">18.3</span> mixed Exercises 👨‍💻</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/07ter-poisson-reg.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
+          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/07ter-poisson-reg.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 24-25 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2024-10-26.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

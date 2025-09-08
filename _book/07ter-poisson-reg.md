@@ -1,0 +1,196 @@
+# 💻 Poisson regr exer {#poi-reg-ex}
+
+This is a brief into with a collection of exercises concerning **Poisson** regression stuff! Some of them are actually  (noised changing data) samples from the exam, so dig into it! Some of them will be done in class during lecture, some others are left to you as a to-do-at-home exercise.
+
+
+## What about Poisson regression
+
+Poisson Regression involves regression models in which the response variable is in the form of counts and not fractional numbers. For example, the count of number of births or number of wins in a football match series. Also the values of the response variables follow a Poisson distribution.
+
+The general mathematical equation for Poisson regression is:
+
+$$
+
+log(y) = \beta_0 + \beta_1x_1 + \beta_2x_2 ... \beta_Nx_N
+
+$$
+
+The basic syntax for `glm()` function in Poisson regression is :
+
+
+```r
+
+glm(formula, data, family)
+
+```
+
+
+## Walkthrough 🚶
+
+We have the in-built data set `warpbreaks` which describes the effect of wool type (A or B) and tension (low, medium or high) on the number of warp breaks per loom. Let's consider `breaks` as the response variable which is a count of number of breaks. The wool `type` and `tension` are taken as predictor variables.
+
+
+
+```r
+poisson_regression <-glm(formula = breaks ~ wool+tension, data = warpbreaks,family = "poisson")
+
+summary(poisson_regression)
+```
+
+In the summary we look for the p-value in the last column to be less than 0.05 to consider an impact of the predictor variable on the response variable. As seen the `wooltype` B having tension type M and H have impact on the count of breaks.
+
+
+
+
+
+
+## mixed Exercises 👨‍💻
+
+In class if you are stuck either ask to the teacher or assemble a group to work with! Collaboration in key 👯‍♂️!
+
+Let's go 🎬
+
+::: {#poireg .exercise}
+
+In Sweden all motor insurance companies apply identical risk arguments to classify customers, and thus their portfolios and their claims statistics can be combined.  The Committee was asked to look into the problem of analyzing the real influence on claims of the risk arguments and to compare this structure with the actual tariff.
+The dataset `motorins` is contained into the package `faraway`. Fit a poisson regression with `Claims` being the dependent and all the others being the independent variables
+
+
+:::
+
+As you do with linear regression and logistic regression you just specify first the model formula, then data and the end the link. The link is actually the poisson. The patter should look familiar to you. This is happening because each of the models we have been doing so far fall under the umbrella of Generalized Linear Models, i.e. GLM which share a common worflow. 
+
+::: {.answer data-latex=""}
+**Answer to Question** \@ref(exr:poireg):
+
+    library(faraway)
+    data(motorins)
+    
+    poisson_model <- glm(Claims ~ Payment, family = poisson, data = motorins)
+    
+    summary(poisson_model)
+ 
+
+:::
+
+
+----
+
+
+
+::: {#poireg2 .exercise}
+
+Within the library `faraway`, the `gala` dataset records the counts of the numbers of species of tortoise found on 30 Galapagos Islands. The relationship between the number of plant species and several geographic variables is of interest. 
+
+1. check teh distribution of the variablw `Species`
+1. fit a poisson model on `Species` given all the others.
+1. Which of them are statistically significant with $\alpha = 0.05$
+
+:::
+
+
+::: {.answer data-latex=""}
+**Answer to Question** \@ref(exr:poireg2):
+
+you need to load the same library as before and data.
+
+    library(faraway)
+    data("gala")
+
+then check the distribution of Species
+
+    hist(gala$Species)
+
+in the end fit the model:
+
+    poisson_regression_2 = glm(Species~., data = gala, family = "poisson")
+    summary(poisson_regression_2)
+
+by looking at the pvalues you see that: `Endemics`, `Area` and `Nearest` are the most significant ones.
+
+:::
+
+
+----
+
+
+::: {#poireg3 .exercise}
+
+
+the `fishing` data set in the `stats4nr` package contains data on the number of fish caught by visitors to a state park. It includes the following variables:
+
+- `livebait`: whether or not the group used live bait (0/1),
+- `camper`: whether or not the group brought a camper on their visit (0/1),
+- `persons`: the number of people in the group,
+- `child`: the number of children in the group, and
+- `count`: number of fish caugh
+
+do:
+
+1. plot the histogram, the mean and the variance of `count`, is it normally distributed?
+2. fit a poisson regression on `count` with `person`, `child` and `camper`, are those coefficients significant? 
+
+:::
+
+
+::: {.answer data-latex=""}
+**Answer to Question** \@ref(exr:poireg3):
+
+install.packages("stats4nr")
+data("fishing")
+
+then check the variable `count`:
+
+    hist(fishing$count)
+    mean(fishing$count)
+    var(fishing$count)
+
+then fit the model:
+
+    fish_model = glm(count ~ persons + child + camper, data = fishing, family = "poisson")
+    summary(fish_model)
+
+:::
+
+
+-----
+
+::: {#poireg4 .exercise}
+
+You hypothesize that as forests become older, their canopies become dominated by only a few species, which limits light availability for other species growing in the understory. Data to examine this hypothesis were acquired from the **Hubachek Wilderness Research Center**, an experimental forest located in northern **Minnesota** (Gill et al. 2019). Data were collected from 36 forest inventory plots with at least one tree larger than 12.7 cm in diameter. The number of species (`num_spp`), number of standing dead trees (`num_dead`), and average height of the trees in the plot (`ht_m`, `meters`) are the variables of interest.
+
+Run the code below to create the data set sp_ht to use in this analysis
+
+    sp_ht <- tibble(
+      num_spp = c(4, 3, 2, 4, 2, 4, 2, 3, 2, 2, 
+                  5, 1, 7, 4, 4, 7, 4, 6, 4, 5, 
+                  3, 5, 5, 3, 7, 2, 5, 5, 3, 5, 
+                  3, 5, 2, 4, 5, 4),
+      num_dead= c(1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 
+                  2, 0, 0, 3, 0, 0, 0, 0, 0, 0, 
+                  0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 
+                  0, 2, 0, 0, 0, 0),
+      ht_m = c(17.6, 19.8, 26.0, 17.4, 19.8, 20.7, 
+               14.7, 17.6, 11.6, 19.4, 12.7, 16.4, 
+               12.6, 17.9, 23.2, 14.5, 18.6, 15.0, 
+               11.5, 15.1, 13.8, 9.9, 20.2, 7.3, 
+               6.2, 11.4, 16.5, 8.7, 9.8, 6.9, 
+               18.0, 10.0, 12.8, 13.7, 12.8, 16.7)
+      )
+
+1. Does the count variable of interest `num_spp` display characteristics? Comment on the usefulness of using the Poisson distribution for this variable?
+2. Create a histogram for the `num_spp` variable and comment on its distribution?
+3. Fit two count regression models predicting the number of species based average height. One model should assume the Poisson and the other a negative model distribution. Based on their AIC values, which model would you prefer and why?
+
+
+:::
+
+
+::: {.answer data-latex=""}
+**Answer to Question** \@ref(exr:poireg4):
+
+
+
+:::
+
+

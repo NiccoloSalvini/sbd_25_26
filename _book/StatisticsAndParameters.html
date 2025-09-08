@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 25 Symbols, formulas, statistics and parameters | Statistics &amp; Big Data 24-25 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="25.1 Symbols and standard errors   Table 25.1: Some sample statistics used to estimate population parameters. Empty table cells means that these are not studied in this textbook. The dashes means...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 25 Symbols, formulas, statistics and parameters | Statistics &amp; Big Data 24-25 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="25.1 Symbols and standard errors   Table 25.1: Some sample statistics used to estimate population parameters. Empty table cells means that these are not studied in this textbook. The dashes means...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 25 Symbols, formulas, statistics and parameters | Statistics &amp; Big Data 24-25 Labs">
+<meta name="twitter:description" content="25.1 Symbols and standard errors   Table 25.1: Some sample statistics used to estimate population parameters. Empty table cells means that these are not studied in this textbook. The dashes means...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 24-25 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">6</span> 💻 Hypothesis Testing</a></li>
+<li><a class="" href="essentials-of-data-wrangling-and-basic-statistics.html"><span class="header-section-number">7</span> 💻 Essentials of Data Wrangling and Basic Statistics</a></li>
+<li><a class="" href="lin-reg.html"><span class="header-section-number">8</span> Linear Regression</a></li>
+<li><a class="" href="lin-reg-class.html"><span class="header-section-number">9</span> 💻 Linear Regression in class</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">10</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">11</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="anova.html"><span class="header-section-number">12</span> 💻 ANOVA</a></li>
+<li><a class="" href="dummy-vars.html"><span class="header-section-number">13</span> 💻 Dummy Variables</a></li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="log-reg.html"><span class="header-section-number">15</span> 💻 Binary Logistic Regression</a></li>
+<li><a class="" href="log-reg-ex.html"><span class="header-section-number">16</span> 💻 Binary LogReg exer</a></li>
+<li><a class="" href="pca.html"><span class="header-section-number">17</span> 💻 PCA</a></li>
+<li><a class="" href="poi-reg-ex.html"><span class="header-section-number">18</span> 💻 Poisson regr exer</a></li>
+<li><a class="" href="hier-clust-ex.html"><span class="header-section-number">19</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-mean-ex.html"><span class="header-section-number">20</span> 💻 K-Means Clustering</a></li>
+<li><a class="" href="reg-tree-ex.html"><span class="header-section-number">21</span> 💻 Regression Trees</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">22</span> ⚡ course performance</a></li>
+<li><a class="" href="how-to-ask-for-help.html"><span class="header-section-number">23</span> ✋ How to ask for help!</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">24</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="active" href="StatisticsAndParameters.html"><span class="header-section-number">25</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">26</span> Datasets</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="StatisticsAndParameters" class="section level1" number="25">
+<h1>
+<span class="header-section-number">25</span> Symbols, formulas, statistics and parameters<a class="anchor" aria-label="anchor" href="#StatisticsAndParameters"><i class="fas fa-link"></i></a>
+</h1>
+<div id="symbols-and-standard-errors" class="section level2" number="25.1">
+<h2>
+<span class="header-section-number">25.1</span> Symbols and standard errors<a class="anchor" aria-label="anchor" href="#symbols-and-standard-errors"><i class="fas fa-link"></i></a>
+</h2>
+
+
+
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:ParametersStatistics">Table 25.1: </span>Some sample statistics used to estimate population parameters. Empty table cells means that these are not studied in this textbook. The dashes means that no formula is given in this textbook.
+</caption>
+<thead><tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:center;font-weight: bold;">
+Parameter
+</th>
+<th style="text-align:center;font-weight: bold;">
+Statistic
+</th>
+<th style="text-align:center;font-weight: bold;">
+Standard error
+</th>
+<th style="text-align:center;font-weight: bold;">
+S.E. formula reference
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Proportion
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(p\)</span>
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\hat{p}\)</span>
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\displaystyle\text{s.e.}(\hat{p}) = \sqrt{\frac{ \hat{p} \times (1 - \hat{p})}{n}}\)</span>
+</td>
+<td style="text-align:center;">
+Def. <a href="#def:DEFSamplingDistributionPhat"><strong>??</strong></a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mean
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\mu\)</span>
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\bar{x}\)</span>
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\displaystyle\text{s.e.}(\bar{x}) = \frac{s}{\sqrt{n}}\)</span>
+</td>
+<td style="text-align:center;">
+Def. <a href="#def:DEFSamplingDistributionXbar"><strong>??</strong></a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Standard deviation
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\sigma\)</span>
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(s\)</span>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mean difference
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\mu_d\)</span>
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\bar{d}\)</span>
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\displaystyle\text{s.e.}(\bar{d}) = \frac{s_d}{\sqrt{n}}\)</span>
+</td>
+<td style="text-align:center;">
+Def. <a href="#def:DEFSamplingDistributionDbar"><strong>??</strong></a>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Diff. between means
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\mu_1 - \mu_2\)</span>
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\bar{x}_1 - \bar{x}_2\)</span>
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\displaystyle\text{s.e.}(\bar{x}_1 - \bar{x}_2)\)</span>
+</td>
+<td style="text-align:center;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Odds ratio
+</td>
+<td style="text-align:center;">
+Pop. OR
+</td>
+<td style="text-align:center;">
+Sample OR
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\displaystyle\text{s.e.}(\text{sample OR})\)</span>
+</td>
+<td style="text-align:center;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Correlation
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\rho\)</span>
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(r\)</span>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Slope of regression line
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\beta_1\)</span>
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(b_1\)</span>
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\text{s.e.}(b_1)\)</span>
+</td>
+<td style="text-align:center;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Intercept of regression line
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\beta_0\)</span>
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(b_0\)</span>
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(\text{s.e.}(b_0)\)</span>
+</td>
+<td style="text-align:center;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R-squared
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+<span class="math inline">\(R^2\)</span>
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="confidence-intervals" class="section level2" number="25.2">
+<h2>
+<span class="header-section-number">25.2</span> Confidence intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"><i class="fas fa-link"></i></a>
+</h2>
+<p>Almost all <strong>confidence intervals</strong> have the form</p>
+<p><span class="math display">\[
+    \text{statistic} \pm ( \text{multiplier} \times \text{s.e.}(\text{statistic})).
+\]</span></p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>The multiplier is <em>approximately</em> 2 for an <em>approximate</em> 95% CI (based on the 68–95–99.7 rule).</li>
+<li>
+<span class="math inline">\(\text{multiplier} \times \text{s.e.}(\text{statistic})\)</span> is called the <em>margin of error</em>.</li>
+<li>Confidence intervals for <em>odds ratios</em> are slightly different, so <strong>this formula does not apply for odds ratios</strong>.
+For the same reason, a standard error for ORs is not given.</li>
+</ul>
+</div>
+<div id="hypothesis-testing-1" class="section level2" number="25.3">
+<h2>
+<span class="header-section-number">25.3</span> Hypothesis testing<a class="anchor" aria-label="anchor" href="#hypothesis-testing-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>For many <strong>hypothesis tests</strong>, the <em>test statistic</em> is a <span class="math inline">\(t\)</span>-score, which has the form:</p>
+<p><span class="math display">\[
+  t = \frac{\text{statistic} - \text{parameter}}{\text{s.e.}(\text{statistic})}.
+\]</span></p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Since <span class="math inline">\(t\)</span>-scores are a little like <span class="math inline">\(z\)</span>-scores, the 68–95–99.7 rule can be used to <em>approximate</em> <span class="math inline">\(P\)</span>-values.</li>
+<li>Tests involving <em>odds ratios</em> do not use <span class="math inline">\(t\)</span>-scores, so <strong>this formula does not apply for tests involving odds ratios</strong>.</li>
+<li>For tests involving odds ratios, the <em>test statistic</em>
+is a <span class="math inline">\(\chi^2\)</span> score and not <span class="math inline">\(t\)</span>-score.
+For the same reason, a standard error for ORs is not given.</li>
+<li>The <span class="math inline">\(\chi^2\)</span> statistic is approximately like a <span class="math inline">\(z\)</span>-score with a value of (where <span class="math inline">\(\text{df}\)</span> is the ‘degrees of freedom’ given in the software output):</li>
+</ul>
+<p><span class="math display">\[
+   \sqrt{\frac{\chi^2}{\text{df}}}.
+\]</span></p>
+
+
+
+
+</div>
+<div id="other-formulas" class="section level2" number="25.4">
+<h2>
+<span class="header-section-number">25.4</span> Other formulas<a class="anchor" aria-label="anchor" href="#other-formulas"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>To <a href="#EstimatingSampleSize">estimate the sample size needed</a> when <strong>estimating a proportion</strong>: <span class="math inline">\(\displaystyle n = \frac{1}{(\text{Margin of error})^2}\)</span>.</li>
+<li>To <a href="#EstimatingSampleSize">estimate the sample size needed</a> when <strong>estimating a mean</strong>: <span class="math inline">\(\displaystyle n = \left( \frac{2\times s}{\text{Margin of error}}\right)^2\)</span>.</li>
+<li>To <a href="#z-scores">calculate <span class="math inline">\(z\)</span>-scores</a>: <span class="math inline">\(\displaystyle z = \frac{x - \mu}{\sigma}\)</span> or, more generally, <span class="math inline">\(\displaystyle z = \frac{\text{specific value of variable} - \text{mean of variable}}{\text{measure of variable's variation}}\)</span>.</li>
+<li>The <a href="#Unstandardising"><strong>unstandardizing formula</strong></a>: <span class="math inline">\(x = \mu + (z\times \sigma)\)</span>.</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>In <strong>sample size calculations</strong>, always <strong>round up</strong> the sample size found from the above formulas.</li>
+</ul>
+</div>
+<div id="other-symbols-used" class="section level2" number="25.5">
+<h2>
+<span class="header-section-number">25.5</span> Other symbols used<a class="anchor" aria-label="anchor" href="#other-symbols-used"><i class="fas fa-link"></i></a>
+</h2>
+<div class="inline-table"><table class="table table-sm">
+<caption>
+<span id="tab:OtherSymbols">Table 25.2: </span>Some symbols used
+</caption>
+<thead><tr>
+<th style="text-align:center;font-weight: bold;">
+Symbol
+</th>
+<th style="text-align:left;font-weight: bold;">
+Meaning
+</th>
+<th style="text-align:center;font-weight: bold;">
+Reference
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<span class="math inline">\(H_0\)</span>
+</td>
+<td style="text-align:left;">
+Null hypothesis
+</td>
+<td style="text-align:center;">
+Sect. <a href="#AboutHypotheses"><strong>??</strong></a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<span class="math inline">\(H_1\)</span>
+</td>
+<td style="text-align:left;">
+Alternative hypothesis
+</td>
+<td style="text-align:center;">
+Sect. <a href="#AboutHypotheses"><strong>??</strong></a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+df
+</td>
+<td style="text-align:left;">
+Degrees of freedom
+</td>
+<td style="text-align:center;">
+Sect. <a href="#TestStatObs"><strong>??</strong></a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+CI
+</td>
+<td style="text-align:left;">
+Confidence interval
+</td>
+<td style="text-align:center;">
+Chap. <a href="#AboutCIs"><strong>??</strong></a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+s.e.
+</td>
+<td style="text-align:left;">
+Standard error
+</td>
+<td style="text-align:center;">
+Def. <a href="#def:StandardError"><strong>??</strong></a>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<span class="math inline">\(n\)</span>
+</td>
+<td style="text-align:left;">
+Sample size
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<span class="math inline">\(\chi^2\)</span>
+</td>
+<td style="text-align:left;">
+The chi-squared test statistic
+</td>
+<td style="text-align:center;">
+Sect. <a href="#TestStatObs"><strong>??</strong></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="frequently-asked-questions.html"><span class="header-section-number">24</span> ❓ Frequently Asked Questions</a></div>
+<div class="next"><a href="appendixdatasets.html"><span class="header-section-number">26</span> Datasets</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#StatisticsAndParameters"><span class="header-section-number">25</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="nav-link" href="#symbols-and-standard-errors"><span class="header-section-number">25.1</span> Symbols and standard errors</a></li>
+<li><a class="nav-link" href="#confidence-intervals"><span class="header-section-number">25.2</span> Confidence intervals</a></li>
+<li><a class="nav-link" href="#hypothesis-testing-1"><span class="header-section-number">25.3</span> Hypothesis testing</a></li>
+<li><a class="nav-link" href="#other-formulas"><span class="header-section-number">25.4</span> Other formulas</a></li>
+<li><a class="nav-link" href="#other-symbols-used"><span class="header-section-number">25.5</span> Other symbols used</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/97-symbols-formulas-statistics-parameters.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
+          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/97-symbols-formulas-statistics-parameters.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 24-25 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2024-10-26.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

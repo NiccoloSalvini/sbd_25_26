@@ -1,0 +1,593 @@
+# 💻 PCA {#pca}
+
+```{r setup, echo = FALSE}
+knitr::opts_chunk$set(error = TRUE, echo = TRUE)
+```
+
+## Principal Components Analysis
+
+We will use the following packages 'FactoMineR', 'factoextra', 'ISRL2'
+
+### PCA using 'FactoMineR', 'factoextra'
+
+
+```{r include = TRUE, echo=FALSE}
+#install.packages(c("FactoMineR","factoextra"))
+library("FactoMineR")
+library("factoextra")
+```
+
+### Exercise 1 : read the data
+
+```{r echo=FALSE,  include = TRUE}
+X=matrix(c(2,2,1,-1,-1,1,-2,-2),nrow=4, byrow=TRUE)
+Nframe=as.data.frame(X)
+m1=c("i1", "i2", "i3","i4")
+m2=c("Var1", "Var2")
+row.names(X)=m1
+colnames(X)=m2
+head(X)
+```
+
+Covariance matrix 
+
+```{r,  include = TRUE}
+mean(X[,1]) # mean of Var1
+mean(X[,2]) # mean of Var2
+
+##variance and inertia 
+S=var(X)*(3/4)  # the constant (n-1)/n is have the variance-covariance matrix used in the lecture
+S
+#inertia
+Inertia=sum(diag(S))
+Inertia
+## eigen-analysis
+eigen(S) # gives the eigen-values and eigen-vectors
+```
+
+Eigen-analysis on the correlation matrix 
+
+```{r,  include = TRUE}
+R=cor(X)
+eigenan=eigen(R) ##eigen analysis of R
+eigenan
+sum(eigenan$values)
+#Inertia is p=2
+
+#normalized the data
+Z=scale(X)
+var(Z) ## is teh correlation matrix 
+```
+
+### PCA function 
+
+PCA with the covariance matrix (using only centered data). For PCA on the correlation matrix (normed PCA), use  scale.unit = TRUE (default option).
+
+Correlation between two variables $X_1$, $X_2$
+
+$$\rho=\frac{cov(X_1,X_2)}{\sigma_{X_1}\sigma_{X_2}}$$
+where $cov(X_1,X_2)$ is the covariance, $\sigma_{X_1}=\sqrt{Var(X_1)}$ is the standard deviation of $X_1$.
+
+Eigen-analysis on the covariance matrix ('scale.unit=FALSE')
+
+```{r echo=FALSE,  include = TRUE}
+res.pca <- PCA(X, graph = FALSE, scale.unit = FALSE)
+print(res.pca)
+```
+
+### Eigen-values
+
+We have $p=2=min(n-1,p)= min(3,2)$ eigen-values, 4 and 1, $Inertia=4+1=4$ is the sum of the variances of the variables.
+
+```{r echo=FALSE,  include = TRUE}
+eig.val=res.pca$eig
+eig.val
+```
+
+### The variables
+
+```{r echo=FALSE,  include = TRUE}
+resvar=res.pca$var
+resvar
+```
+
+### The inviduals
+
+```{r echo=FALSE, include = TRUE}
+resind=res.pca$ind
+resind
+```
+
+### Another example
+
+```{r include = TRUE}
+A=matrix(c(9,12,10,15,9,10,5,10,8,11,13,14,11,13,8,3,15,10),nrow=6, byrow=TRUE)
+A
+Nframe=as.data.frame(A)
+m1=c("Alex", "Bea", "Claudio","Damien", "Emilie", "Fran")
+m2=c("Biostatistics", "Economics", "English")
+row.names(A)=m1
+colnames(A)=m2
+head(A)
+```
+
+
+### PCA on the correlation matrix
+
+
+```{r echo=FALSE,  include = TRUE}
+#res.pca <- PCA(A, graph = TRUE, scale.unit = FALSE) # un-normed PCA, the data are only centered, we use work on the covariance matrix
+res.pca <- PCA(A) # normed PCA, the data are reduced/standardized, we use work on the correlation matrix
+print(res.pca)
+```
+
+### Eigen-values
+
+```{r echo=FALSE,  include = TRUE}
+eig.val <- get_eigenvalue(res.pca)
+#or 
+res.pca$eig
+eig.val
+```
+
+Kaiser rule suggests $q=2$ components because the eigen-value mean is 1 (with 89% of explained variance). The rule of Thumb gives $q=2$ because the first 2 dimensions explain 89% of the variance/inertia.
+
+
+```{r echo=FALSE,  include = TRUE}
+fviz_eig(res.pca, addlabels = TRUE, ylim = c(0, 50))
+```
+
+### Variables
+
+```{r echo=FALSE,  include = TRUE}
+var <- get_pca_var(res.pca)
+var
+```
+
+### Correlations of variables and components/dimensions
+
+```{r echo=FALSE,  include = TRUE}
+head(var$cor)
+#or 
+#head(res.pca$var$coord)
+```
+The first axis is correlated  with Biostatistics (+0.86) and  Economics (-0.86). The second axis is correlated to English (0.96).
+
+The two components (or dimensions) are correlated with at least one variable. Then $q=2$ may be considered to reduce the dimension ($p=3$).
+
+### Coordinates of variables
+
+```{r echo=FALSE,  include = TRUE}
+head(var$coord)
+```
+
+### Quality of representation of  variables
+
+```{r echo=FALSE,  include = TRUE}
+head(var$cos2)
+```
+Biostatistics and Economics are well represented in the first dimension (75%), while English is very well represented in the second axis (93%). In the first plane (Dim.1 and Dim.2) Biostatistics and Economics are well represented (75%+12.5%=87.5%), English
+is very represented in the first plane (93%+0%=93%)
+
+### Contributions of variables
+
+```{r echo=FALSE,  include = TRUE}
+
+head(var$contrib)
+
+```
+
+Biostatistics and Economics contribute to the construction of the first dimension (50%), while English contribute highy to the construction of the second axis (78.8%). In the first plane (Dim.1 and Dim.2) the contribution of Biostatistics and Economics is 50%+10.5%=65.5%, that of English is 78.8%.
+
+
+
+Description of the first dimension
+
+```{r echo=FALSE,  include = TRUE}
+# Description of dimension 1
+res.desc <- dimdesc(res.pca, axes = c(1,2), proba = 0.05)
+res.desc$Dim.1
+```
+
+
+
+### Contributions of first two variables
+
+```{r echo=FALSE,  include = TRUE}
+head(var$contrib,2)
+```
+
+### Representation of variables
+
+```{r echo=FALSE,  include = TRUE}
+fviz_pca_var(res.pca, col.var = "black")
+```
+
+### With the quality of representation
+
+```{r echo=FALSE,  include = TRUE}
+fviz_pca_var(res.pca, col.var = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+             repel = TRUE # to produce clear outputs
+             )
+```
+
+### With the quality of representation
+
+```{r echo=FALSE,  include = TRUE}
+fviz_pca_var(res.pca, alpha.var = "cos2")
+```
+
+
+### Variables with quality of representation larger than 0.6 
+
+```{r include=TRUE,echo=FALSE,  include = TRUE}
+fviz_pca_var(res.pca, select.var = list(cos2 = 0.6))
+```
+
+
+### With contribution
+
+```{r echo=FALSE, include = TRUE}
+# Contributions des variables à la première composante 
+fviz_contrib(res.pca, choice = "var", axes = 1, top = 10)
+# Contributions of variables à la deuxième composante 
+fviz_contrib(res.pca, choice = "var", axes = 2, top = 10)
+```
+
+```{r echo=FALSE,  include = TRUE}
+# Most contributed variables 
+
+fviz_pca_var(res.pca, col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07")
+             )
+```
+
+
+
+### Variables and individus with largest quality of representation
+
+```{r include=TRUE,echo=FALSE,  include = TRUE}
+fviz_pca_biplot(res.pca, select.ind = list(contrib = 2), select.var = list(contrib = 3),ggtheme = theme_minimal())
+```
+
+
+
+### The individuals
+
+```{r echo=FALSE,  include = TRUE}
+#res.desc$Dim.2
+ind <- get_pca_ind(res.pca)
+ind
+```
+
+
+
+### Individuals: coordinates
+
+```{r echo=FALSE,  include = TRUE}
+head(ind$coord)
+#or
+res.pca$ind$coord
+# cov(ind$coord)*(5/6) # to have the eigen-values=var(components)
+# #cov gives the un-biased estimate while PCA is done on the biased estimate
+# res.pca$eig
+# # zero-mean of the first three components 
+# 
+# mean(ind$coord[,1])
+# mean(ind$coord[,2])
+# mean(ind$coord[,3])
+```
+
+### Quality of representation
+
+```{r echo=FALSE,  include = TRUE}
+# Quality of representation
+head(ind$cos2)
+```
+
+###  Contributions
+
+```{r echo=FALSE,  include = TRUE}
+head(ind$contrib)
+```
+
+### Contributions on the first two axes
+
+```{r include=TRUE, echo=FALSE,  include = TRUE}
+fviz_contrib(res.pca, choice = "ind", axes = 1:2)
+```
+
+### Representation of individuals with respect to quality of projection
+
+```{r include=TRUE,echo=FALSE, include = TRUE}
+fviz_pca_ind(res.pca, col.ind = "cos2",gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),repel = TRUE)
+```
+
+
+
+### Save the figures in pdf
+
+```{r echo=FALSE,  include = TRUE}
+# Figure in pdf
+# Scree plot
+scree.plot <- fviz_eig(res.pca)
+# Figure of variables
+ind.plot <- fviz_pca_ind(res.pca)
+# Figure of variables
+var.plot <- fviz_pca_var(res.pca)
+
+```
+
+### Save in png
+
+```{r echo=FALSE,  include = TRUE}
+# png figure
+print(scree.plot)
+print(var.plot)
+print(ind.plot)
+```
+
+### Another saving
+
+
+```{r include=FALSE, echo=FALSE,  include = TRUE}
+#install.packages("ggpubr")
+library(ggpubr)
+```
+
+
+
+```{r echo=FALSE,  include = TRUE}
+ggexport(plotlist = list(scree.plot, ind.plot, var.plot), 
+         filename = "PCA.pdf")
+#Export
+ggexport(plotlist = list(scree.plot, ind.plot, var.plot), 
+         nrow = 2, ncol = 2,
+         filename = "PCA.pdf")
+#Export
+ggexport(plotlist = list(scree.plot, ind.plot, var.plot),
+         filename = "PCA.png")
+```
+
+### Export the results in txt fimes
+
+
+```{r echo=FALSE, eval=F,  include = TRUE}
+# Export in TXT
+write.infile(res.pca, "PCA.txt", sep = "\t")
+# Exporter in  CSV
+write.infile(res.pca, "PCA.csv", sep = ";")
+```
+
+
+## PCA with prcomp function of the base `R` package 
+
+Here we perform PCA on the `USArrests`, the rows of the data set contain the 50 states, in alphabetical order.
+
+?USArrests will give details on the dataframe 
+View(USArrests) to see the whole dataframe
+
+```{r echo=FALSE,  include = TRUE}
+states <- row.names(USArrests)
+states
+```
+
+The columns of the data set contain four variables:
+
+-Murder:	Murder arrests (per 100,000)
+-Assault:	Assault arrests (per 100,000)
+-UrbanPop: Percent urban population
+-Rape: Rape arrests (per 100,000)
+
+```{r echo=FALSE,  include = TRUE}
+names(USArrests)
+```
+
+Notice that the variables have vastly different means (of variables in columns), with the `apply()` function.
+'apply(USArrests, 2, mean)' permits to calculate the means of each column, the option '1' will do the calculation by row
+
+```{r echo=FALSE,  include = TRUE}
+apply(USArrests, 2, mean)
+```
+
+There are on average three times as many rapes as murders, and more than eight times as many assaults as rapes. Let us also examine the variances of the variables
+
+```{r echo=FALSE,  include = TRUE}
+apply(USArrests, 2, var)
+```
+
+The variables have very different variances:
+ the `UrbanPop` variable measuring the percentage of the population in each state living in an urban area, is not a comparable number to the number of rapes
+in each state per 100,000 individuals.
+If we do not scale the variables before performing PCA, then most of the principal components that we observed would be driven by the `Assault` variable, since it has the largest mean and variance.
+Here, it is important to standardize the variables to have mean zero and standard deviation one before performing PCA.
+
+
+```{r echo=FALSE,  include = TRUE}
+pr.out <- prcomp(USArrests, scale = TRUE)
+```
+
+The option `scale = TRUE`, does a scaling of the
+variables to have standard deviation one. 
+
+```{r echo=FALSE,  include = TRUE}
+names(pr.out)
+```
+
+The `center` and `scale` components correspond to the means and standard deviations of the variables that were used for scaling prior to implementing PCA.
+
+```{r echo=FALSE,  include = TRUE}
+pr.out$center
+pr.out$scale
+```
+
+The `rotation` matrix provides the principal component loadings;
+each column of `pr.out$rotation` contains the corresponding
+principal component loading vector.
+
+
+```{r echo=FALSE,  include = TRUE}
+pr.out$rotation
+```
+
+We see that there are four distinct principal components. This is to
+be expected because there are in general $\min(n-1,p)$ informative
+principal components in a data set with $n$ observations and $p$
+variables.
+
+Using the `pr.out$x` we have the $50 \times 4$ matrix `x` principal component score vectors. That is, the $k$th column is the $k$th principal component score vector.
+
+```{r echo=FALSE}
+dim(pr.out$x) # dimension of pr.out$x
+head(pr.out$x)# to see the first 6 observations
+```
+
+We can plot the first two principal components as follows:
+
+```{r echo=FALSE}
+biplot(pr.out, scale = 0)
+```
+
+The `scale = 0` argument to `biplot()` ensures that the arrows are scaled to represent the loadings; other values for `scale` give slightly different biplots with different interpretations.
+
+The principal components are only unique up to a sign change, so we can reproduce the above figure by making a small changes:
+
+```{r echo=FALSE}
+pr.out$rotation = -pr.out$rotation
+pr.out$x = -pr.out$x
+biplot(pr.out, scale = 0)
+```
+
+
+
+The standard deviation (square root of the corresponding eigen-value) of each principal component is as follows:
+
+```{r echo=FALSE}
+pr.out$sdev
+```
+
+The variance explained by each principal component (corresponding eigen-value) is obtained by squaring these:
+
+```{r echo=FALSE}
+pr.var <- pr.out$sdev^2
+pr.var
+```
+
+Compute the proportion of variance explained by each principal component as follows
+
+```{r echo=FALSE}
+pve <- pr.var / sum(pr.var)
+pve
+```
+
+We see that the first principal component explains $62.0 \%$ of the variance in the data, the next principal component explains $24.7 \%$ of the variance.
+Plot the PVE (Proportion of Variance Explained) explained by each component, and the cumulative PVE, as follows:
+
+```{r echo=FALSE}
+par(mfrow = c(1, 2))
+plot(pve, xlab = "Principal Component",
+    ylab = "Proportion of Variance Explained", ylim = c(0, 1),
+    type = "b")
+plot(cumsum(pve), xlab = "Principal Component",
+    ylab = "Cumulative Proportion of Variance Explained",
+    ylim = c(0, 1), type = "b")
+```
+
+
+The function `cumsum()` computes the cumulative sum of the elements of  a numeric vector. 
+
+
+## Exercise 1: Nutritional and Marketing Information on US Cereals 
+
+Consider the UScereal data  (65 rows and 11 columns, package 'MASS') from the 1993 ASA Statistical Graphics Exposition and taken from the mandatory F&DA food label. The data have been normalized here to a portion of one American cup.
+
+
+
+```{r echo=FALSE}
+library(MASS)
+?UScereal
+UScereal <- UScereal
+
+res.pca=PCA(UScereal,quali.sup = c(1,9,11))
+#or
+UScereal2=UScereal[,-c(1,9,11)]
+
+res.pca=PCA(UScereal)
+```
+
+ \begin{enumerate}
+\item [(a)] Do the PCA of the UScerea dataset (select the relevant variables to include into the PCA)
+ \item [(b)] Interpret the results
+ \end{enumerate}
+
+## Exercise 2
+
+Consider the `NCI` cancer cell line microarray data, which consists of $6{,}830$ gene expression measurements on $64$ cancer cell lines.
+
+```{r echo=FALSE}
+library(ISLR2)
+nci.labs <- NCI60$labs
+nci.data <- NCI60$data
+```
+
+Each cell line is labeled with a cancer type, given in `nci.labs`. 
+\begin{enumerate}
+\item [(a)] Do PCA on  the microarray data (select the relevant variables to include into the PCA)
+ \item [(b)]  Interpret the results
+ \end{enumerate}
+ 
+
+### Exercise 3: Wine Quality Analysis
+
+Consider the `wine` dataset available in the `gclus` package, which contains chemical analyses of wines grown in the same region in Italy but derived from three different cultivars. The dataset has 13 variables and over 170 observations.
+
+```{r}
+library(gclus)
+data(wine)
+```
+
+#### Tasks:
+
+1. **(a)** Perform PCA on the `wine` dataset. Remember to standardize the variables if necessary, as they might be on different scales.
+   
+   ```{r}
+   # Example code snippet
+   library(FactoMineR)
+   res.pca.wine <- PCA(wine, scale.unit = TRUE, graph = FALSE)
+   ```
+
+2. **(b)** Interpret the PCA results. Focus on understanding which chemical properties contribute most to the variance in the dataset and if the wines cluster by cultivar.
+
+### Exercise 4: Boston Housing Data Analysis
+
+Consider the `Boston` dataset from the `MASS` package, which contains information collected by the U.S Census Service concerning housing in the area of Boston Mass. It has 506 rows and 14 columns.
+
+```{r}
+library(MASS)
+data(Boston)
+```
+
+#### Tasks:
+
+1. **(a)** Conduct PCA on the `Boston` housing dataset. Before performing PCA, assess which variables are most suitable for the analysis and preprocess the data accordingly.
+
+   ```{r}
+   # Example code snippet
+   library(FactoMineR)
+   res.pca.boston <- PCA(Boston, scale.unit = TRUE, graph = FALSE)
+   ```
+
+2. **(b)** Interpret the results of the PCA. Look for patterns that might indicate relationships between different aspects of the housing data, such as crime rates, property tax, and median value of owner-occupied homes.
+
+### Notes for Solving:
+
+- **Data Preprocessing**: Before performing PCA, it's crucial to preprocess the data. This may include handling missing values, standardizing the data, and selecting relevant variables.
+- **PCA Interpretation**: When interpreting the results, focus on the eigenvalues, the proportion of variance explained by the principal components, and the loadings of the variables on the principal components.
+- **Visualization**: Use plots like scree plots, biplots, or individual component plots to aid in your interpretation, use packages that do that for you!
+- **Contextual Understanding**: Each dataset has its context. Understanding the domain can significantly help in interpreting the results meaningfully.
+
+
+
+
+

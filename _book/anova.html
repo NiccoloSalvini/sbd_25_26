@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 12 💻 ANOVA | Statistics &amp; Big Data 24-25 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="ANOVA (ANalysis Of VAriance) is a statistical test to determine whether two or more population means are different. In other words, it is used to compare two or more groups to see if they are...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 12 💻 ANOVA | Statistics &amp; Big Data 24-25 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="ANOVA (ANalysis Of VAriance) is a statistical test to determine whether two or more population means are different. In other words, it is used to compare two or more groups to see if they are...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 12 💻 ANOVA | Statistics &amp; Big Data 24-25 Labs">
+<meta name="twitter:description" content="ANOVA (ANalysis Of VAriance) is a statistical test to determine whether two or more population means are different. In other words, it is used to compare two or more groups to see if they are...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 24-25 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">6</span> 💻 Hypothesis Testing</a></li>
+<li><a class="" href="essentials-of-data-wrangling-and-basic-statistics.html"><span class="header-section-number">7</span> 💻 Essentials of Data Wrangling and Basic Statistics</a></li>
+<li><a class="" href="lin-reg.html"><span class="header-section-number">8</span> Linear Regression</a></li>
+<li><a class="" href="lin-reg-class.html"><span class="header-section-number">9</span> 💻 Linear Regression in class</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">10</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">11</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="active" href="anova.html"><span class="header-section-number">12</span> 💻 ANOVA</a></li>
+<li><a class="" href="dummy-vars.html"><span class="header-section-number">13</span> 💻 Dummy Variables</a></li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="log-reg.html"><span class="header-section-number">15</span> 💻 Binary Logistic Regression</a></li>
+<li><a class="" href="log-reg-ex.html"><span class="header-section-number">16</span> 💻 Binary LogReg exer</a></li>
+<li><a class="" href="pca.html"><span class="header-section-number">17</span> 💻 PCA</a></li>
+<li><a class="" href="poi-reg-ex.html"><span class="header-section-number">18</span> 💻 Poisson regr exer</a></li>
+<li><a class="" href="hier-clust-ex.html"><span class="header-section-number">19</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-mean-ex.html"><span class="header-section-number">20</span> 💻 K-Means Clustering</a></li>
+<li><a class="" href="reg-tree-ex.html"><span class="header-section-number">21</span> 💻 Regression Trees</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">22</span> ⚡ course performance</a></li>
+<li><a class="" href="how-to-ask-for-help.html"><span class="header-section-number">23</span> ✋ How to ask for help!</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">24</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">25</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">26</span> Datasets</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="anova" class="section level1" number="12">
+<h1>
+<span class="header-section-number">12</span> 💻 ANOVA<a class="anchor" aria-label="anchor" href="#anova"><i class="fas fa-link"></i></a>
+</h1>
+<p><strong>ANOVA</strong> (ANalysis Of VAriance) is a statistical test to determine whether two or more population means are different. In other words, it is used to compare two or more groups to see if they are significantly different.</p>
+<p>In practice, however, the:</p>
+<ul>
+<li>Student t-test is used to compare 2 groups;</li>
+<li>ANOVA generalizes the t-test beyond 2 groups, so it is used to compare 3 or more groups.</li>
+</ul>
+<p>Although ANOVA is used to make inference about means of different groups, the method is called “analysis of variance.” It is called like this because it compares the “between” variance (the variance between the different groups) and the variance “within” (the variance within each group). If the between variance is significantly larger than the within variance, the group means are declared to be different. Otherwise, we cannot conclude one way or the other. The two variances are compared to each other by taking the ratio:</p>
+<p><span class="math inline">\(\frac{var(between)}{var(within)}\)</span></p>
+<p>Below are the assumptions of the ANOVA, how to test them and which other tests exist if an assumption is not met:</p>
+<ul>
+<li>
+<strong>variable type</strong>: ANOVA requires a mix of one continuous quantitative dependent variable (which corresponds to the measurements to which the question relates) and one qualitative independent variable (with at least 2 levels which will determine the groups to compare).</li>
+<li>
+<strong>Independence</strong>: the data, collected from a representative and randomly selected portion of the total population, should be independent between groups and within each group.</li>
+<li><strong>Normality</strong></li>
+<li>
+<strong>Equality of variances</strong>: the variances of the different groups should be equal in the populations (an assumption called homogeneity of the variances, or even sometimes referred as homoscedasticity, as opposed to heteroscedasticity if variances are different across groups)</li>
+<li>
+<strong>Outliers</strong>: there should not be significant outliers in different groups.</li>
+</ul>
+<p>There are a bunch of cases you should be dealing with, here they are:</p>
+<ul>
+<li>Check that your observations are independent.</li>
+<li>Sample sizes:
+<ul>
+<li>In case of small samples, test the normality of residuals:
+<ul>
+<li>If normality is assumed, test the homogeneity of the variances:
+<ul>
+<li>If variances are equal, use ANOVA.</li>
+<li>If variances are not equal, use the Welch ANOVA.</li>
+</ul>
+</li>
+<li>If normality is not assumed, use the Kruskal-Wallis test.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In case of large samples normality is assumed, so test the homogeneity of the variances:
+<ul>
+<li>If variances are equal, use ANOVA.</li>
+<li>If variances are not equal, use the Welch ANOVA.</li>
+</ul>
+</li>
+</ul>
+<div id="aov-function" class="section level2" number="12.1">
+<h2>
+<span class="header-section-number">12.1</span> <code>aov()</code> function<a class="anchor" aria-label="anchor" href="#aov-function"><i class="fas fa-link"></i></a>
+</h2>
+<p>Data for this exercise is the penguins dataset (an alternative to the well-known iris dataset), accessible via the <a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a> package:</p>
+<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("palmerpenguins")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">pinguini</span> <span class="op">=</span> <span class="va">penguins</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"species"</span>, <span class="st">"flipper_length_mm"</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
+<p>The dataset contains data for 344 penguins of 3 different species (Adelie, Chinstrap and Gentoo). The dataset contains 8 variables, but we focus only on the flipper length i.e. <code>flipper_length_mm</code> and the species i.e. <code>species</code>, so we keep only those 2 variables.</p>
+<p>We may want to give a quick check to the groups for a visual inspection:</p>
+<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span> <span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">flipper_length_mm</span> <span class="op">~</span> <span class="va">species</span>,</span>
+<span>  data <span class="op">=</span> <span class="va">pinguini</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="06sept-anova_files/figure-html/unnamed-chunk-2-1.png" width="100%"></div>
+<p>then <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code>. the fuction take <strong>2</strong> arguments:</p>
+<ul>
+<li>
+<code>formula</code>: left side the numeric variable, right side groups i.e. <code>var ~ groups</code> (much like linear regression)</li>
+<li>
+<code>data</code>: your data</li>
+</ul>
+<p>Please refer to (tips) to undestand why data needs to come to longer format to be able to use that.</p>
+<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">anova_pinguini</span> <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">flipper_length_mm</span> <span class="op">~</span> <span class="va">species</span>,</span>
+<span>  data <span class="op">=</span> <span class="va">pinguini</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">anova_pinguini</span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt;    aov(formula = flipper_length_mm ~ species, data = pinguini)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Terms:</span></span>
+<span><span class="co">#&gt;                  species Residuals</span></span>
+<span><span class="co">#&gt; Sum of Squares  52473.28  14953.26</span></span>
+<span><span class="co">#&gt; Deg. of Freedom        2       339</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Residual standard error: 6.641529</span></span>
+<span><span class="co">#&gt; Estimated effects may be unbalanced</span></span>
+<span><span class="co">#&gt; 2 observations deleted due to missingness</span></span></code></pre></div>
+</div>
+<div id="exercises-2" class="section level2" number="12.2">
+<h2>
+<span class="header-section-number">12.2</span> exercises<a class="anchor" aria-label="anchor" href="#exercises-2"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:anova1" class="exercise"><strong>Exercise 12.1  </strong></span>Let’s assume to have a sample with this data and respective belonging group:</p>
+<pre><code>x&lt;-c(12,23,12,13,14,21,23,24,30,21,12,13,14,15,16)
+
+z&lt;-c(1,1,1,1,1,2,2,2,2,2,3,3,3,3,3)</code></pre>
+<p>perform anova test with <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code> function testing if there is significant differences between group <strong>1</strong>, <strong>2</strong> and <strong>3</strong>.</p>
+</div>
+<p>You specify the formula, where <code>x</code> is the continous variable and <code>y</code> is the group variable.
+This is how you solve it.</p>
+<hr>
+<div class="exercise">
+<p><span id="exr:anova2" class="exercise"><strong>Exercise 12.2  </strong></span>Let’s consider the <code>diet</code> dataset in <a href="https://www.kaggle.com/code/evitaginiyatullina/one-way-anova-comparison/data">this link here</a> The data set contains information on 76 people who undertook one of three diets (referred to as diet A, B and C). There is background information such as age, gender, and height. The aim of the study was to see which diet was best for losing weight.</p>
+<p>to read data first dowload it from the link, then move data inside your R project. then run these commands:</p>
+<pre><code>diet = read.csv("&lt; the dataset name&gt;.csv")</code></pre>
+<p>We will be using variable <code>Diet</code>, <code>pre.weight</code> and <code>weight6weeks</code></p>
+<ol style="list-style-type: decimal">
+<li>read data from kaggle</li>
+<li>compute mean weights for each group</li>
+<li>calculate anova on Diet against the weight cut</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:anova3" class="exercise"><strong>Exercise 12.3  </strong></span>We recruit 90 people to participate in an experiment in which we randomly assign 30 people to follow either program A, program B, or program C for one month.</p>
+<pre><code>#make this example reproducible
+set.seed(0)
+
+#create data frame
+data &lt;- data.frame(program = rep(c("A", "B", "C"), each = 30),
+                   weight_loss = c(runif(30, 0, 3),
+                                   runif(30, 0, 5),
+                                   runif(30, 1, 7)))
+                                   </code></pre>
+<ol style="list-style-type: decimal">
+<li>plot boxplot of weight_loss ~ program Hint: use <code><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot()</a></code> function specifying the formula.</li>
+<li>fit 1 way anova to test difference in weight loss for each program.</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:anova4" class="exercise"><strong>Exercise 12.4  </strong></span>Consider the maximum size of 4 fish each from 3 populations (n=12). We want to use a model that will help us examine the question of whether the mean maximum fish size differs among populations.</p>
+<pre><code>size &lt;- c(3,4,5,6,4,5,6,7,7,8,9,10)
+pop &lt;- c("A","A","A","A","B","B","B","B","C","C","C","C")</code></pre>
+<ol style="list-style-type: decimal">
+<li>visualize it through boxplot</li>
+<li>Using ANOVA model test whether any group means differ from another.</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:anova5" class="exercise"><strong>Exercise 12.5  </strong></span>Let’s consider 6 different insect sprays in <code>InsectSprays</code> contained in R. Let’s assume we are interested in testing if there was a difference in the number of insects found in the field after each spraying, use varibales <code>count</code> and <code>spray</code>.</p>
+</div>
+</div>
+<div id="solutions-4" class="section level2" number="12.3">
+<h2>
+<span class="header-section-number">12.3</span> solutions<a class="anchor" aria-label="anchor" href="#solutions-4"><i class="fas fa-link"></i></a>
+</h2>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="anova.html#exr:anova1">12.1</a></strong>:</p>
+<pre><code>x &lt;- c(12,23,12,13,14,21,23,24,30,21,12,13,14,15,16) 
+z &lt;- c(1,1,1,1,1,2,2,2,2,2,3,3,3,3,3)
+anova &lt;- aov( x ~ z ) 
+summary(anova)
+
+        Df Sum Sq Mean Sq F value Pr(&gt;F)
+z            1    1.6    1.60   0.047  **0.832**
+Residuals   13  446.1   34.32</code></pre>
+<p>The ANOVA (formula: x ~ z) suggests that the main effect of z is statistically not significant and very small
+(F(1, 13) = 0.05, p = 0.832; Eta2 = 3.57e-03, 95% CI [0.00, 1.00]). That means that group means are not that different
+one from the other</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="anova.html#exr:anova2">12.2</a></strong>:</p>
+<p>At first you have to download data from <a href="https://www.kaggle.com/code/evitaginiyatullina/one-way-anova-comparison/data" class="uri">https://www.kaggle.com/code/evitaginiyatullina/one-way-anova-comparison/data</a>, then read data with:</p>
+<pre><code>diet &lt;- read.csv("&lt;your_dataset_name&gt;.csv")</code></pre>
+<p>then you have to compute mean weights for each group</p>
+<pre><code># Compute mean weights for each group
+mean_weights &lt;- tapply(diet$weight6weeks, diet$Diet, mean)
+
+# Calculate one-way ANOVA on Diet against weight cut
+anova_result &lt;- aov(weight6weeks ~ Diet, data = diet)
+
+# Summary of ANOVA
+summary(anova_result)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="anova.html#exr:anova3">12.3</a></strong>:</p>
+<p>Plot a boxplot of weight_loss by program</p>
+<pre><code>boxplot(weight_loss ~ program, data = data, xlab = "Program", ylab = "Weight Loss", main = "Weight Loss by Program")</code></pre>
+<p>Perform one-way ANOVA to test differences in weight loss by program</p>
+<pre><code>anova_result &lt;- aov(weight_loss ~ program, data = data)
+summary(anova_result)</code></pre>
+<p>The boxplot will provide a visual representation of the weight loss distribution by program, and the ANOVA will test if there are statistically significant differences in weight loss among the programs.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="anova.html#exr:anova4">12.4</a></strong>:</p>
+<p>at first you need a dataframe right?</p>
+<pre><code># Create a data frame
+data &lt;- data.frame(size, pop)</code></pre>
+<p>Visualize the data through a boxplot</p>
+<pre><code>boxplot(size ~ pop, data = data, xlab = "Population", ylab = "Maximum Fish Size", main = "Boxplot of Maximum Fish Size by Population")</code></pre>
+<p>Perform one-way ANOVA to test for differences among group means</p>
+<pre><code>anova_result &lt;- aov(size ~ pop, data = data)</code></pre>
+<p>Summary of ANOVA</p>
+<pre><code>summary(anova_result)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="anova.html#exr:anova5">12.5</a></strong>:</p>
+<p>First, load the dataset if it’s not already loaded:</p>
+<pre><code>data(InsectSprays)</code></pre>
+<p>Visualize the data through a boxplot to get an initial understanding of the distribution of counts for each type of insect spray:</p>
+<pre><code>boxplot(count ~ spray, data = InsectSprays, xlab = "Insect Spray", ylab = "Number of Insects",
+        main = "Number of Insects by Insect Spray")</code></pre>
+<p>Perform a one-way ANOVA to test for differences in the number of insects found among the different insect sprays:</p>
+<pre><code>anova_result &lt;- aov(count ~ spray, data = InsectSprays)
+
+# Summary of ANOVA
+summary(anova_result)</code></pre>
+<p>The boxplot will provide a visual representation of the distribution of counts by insect spray, and the ANOVA analysis will help you determine if there are statistically significant differences in the means of insect counts among the different sprays.</p>
+</div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="int-samp-q.html"><span class="header-section-number">11</span> 💻 Intermediate Sample Questions</a></div>
+<div class="next"><a href="dummy-vars.html"><span class="header-section-number">13</span> 💻 Dummy Variables</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#anova"><span class="header-section-number">12</span> 💻 ANOVA</a></li>
+<li><a class="nav-link" href="#aov-function"><span class="header-section-number">12.1</span> aov() function</a></li>
+<li><a class="nav-link" href="#exercises-2"><span class="header-section-number">12.2</span> exercises</a></li>
+<li><a class="nav-link" href="#solutions-4"><span class="header-section-number">12.3</span> solutions</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/06sept-anova.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
+          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/06sept-anova.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 24-25 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2024-10-26.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+# 💻 Hypothesis Testing
+
+Hypothesis testing is a statistical method used to make decisions or inferences about a population parameter based on a sample statistic. It involves formulating two competing hypotheses—the null hypothesis (H₀) and the alternative hypothesis (H₁)—and using sample data to determine which hypothesis is supported by the evidence.
+
+### 1. Understanding Hypothesis Testing
+
+1. **Null Hypothesis (H₀)**: This is the hypothesis that there is no effect or no difference. It is the status quo that we assume to be true unless there is strong evidence against it. For example, "The mean body temperature of humans is 37°C."
+
+2. **Alternative Hypothesis (H₁)**: This is the hypothesis that there is an effect or a difference. It represents what we are trying to find evidence for. For example, "The mean body temperature of humans is not 37°C."
+
+3. **Test Statistic**: A value calculated from the sample data that is used to evaluate the null hypothesis. For example, the t-statistic in a t-test.
+
+4. **p-Value**: The probability of obtaining a test statistic at least as extreme as the one observed, given that the null hypothesis is true. A small p-value (typically ≤ 0.05) indicates strong evidence against the null hypothesis.
+
+5. **Decision Rule**: Based on the p-value, we either reject the null hypothesis (if p ≤ 0.05) or fail to reject it (if p > 0.05).
+
+### 2. Hypothesis Testing on One Mean
+
+#### 2.1 `t.test()` for One Mean
+
+The `t.test()` function in R is used to test whether the sample mean is significantly different from a hypothesized population mean. Here’s the general syntax:
+
+```r
+t.test(x, mu = 0, alternative = "two.sided", conf.level = 0.95)
+```
+
+- `x`: A numeric vector of data values.
+- `mu`: The hypothesized value of the population mean (default is 0).
+- `alternative`: Specifies the alternative hypothesis. It can be `"two.sided"`, `"greater"`, or `"less"`.
+- `conf.level`: Confidence level for the confidence interval (default is 0.95).
+
+#### 2.2 Example: Testing Average Body Temperature
+
+Let's test whether the average body temperature of a sample of patients is significantly different from 37°C.
+
+```{r bodytemponemean, echo=TRUE}
+# Sample data: body temperatures in degrees Celsius
+body_temp <- c(36.7, 36.9, 37.1, 37.2, 37.3, 36.8, 37.0, 36.6)
+
+# Perform one-sample t-test
+t.test(body_temp, mu = 37)
+```
+
+In this example, we are testing if the mean body temperature is significantly different from 37°C.
+
+### 3. Hypothesis Testing on Two Means
+
+When comparing the means of two independent groups, we use a two-sample t-test.
+
+#### 3.1 `t.test()` for Two Independent Means
+
+The `t.test()` function can also be used to compare two means. Here’s the syntax:
+
+```r
+t.test(x, y, alternative = "two.sided", var.equal = FALSE, conf.level = 0.95)
+```
+
+- `x`, `y`: Numeric vectors of data values representing the two groups.
+- `var.equal`: Logical value indicating whether to assume equal variances (default is `FALSE`).
+
+#### 3.2 Example: Comparing Treatment and Control Groups
+
+Suppose we have data on the weight loss of patients in two groups: a treatment group and a control group.
+
+```{r weightlosstwomean, echo=TRUE}
+# Sample data: weight loss in kg
+treatment <- c(4.5, 5.0, 4.7, 6.2, 5.1)
+control <- c(2.1, 2.4, 2.3, 2.0, 1.9)
+
+# Perform two-sample t-test
+t.test(treatment, control)
+```
+
+In this example, we are testing if the average weight loss in the treatment group is significantly different from that in the control group.
+
+### 4. Parameters of `t.test()` in Detail
+
+The `t.test()` function in R has several parameters that can be adjusted depending on the specific hypothesis being tested:
+
+- **x**: The sample data for a one-sample test or the first group for a two-sample test.
+- **y**: The second group for a two-sample test. This parameter is left blank for one-sample tests.
+- **alternative**: Specifies the alternative hypothesis. Options are:
+  - `"two.sided"`: The default option. Tests if the sample mean is different from the hypothesized mean.
+  - `"greater"`: Tests if the sample mean is greater than the hypothesized mean.
+  - `"less"`: Tests if the sample mean is less than the hypothesized mean.
+- **mu**: The hypothesized population mean.
+- **paired**: A logical value indicating whether to perform a paired t-test. Defaults to `FALSE`.
+- **var.equal**: A logical value indicating whether to assume equal variances in the two-sample test. Defaults to `FALSE`.
+- **conf.level**: The confidence level for the confidence interval, usually set to 0.95.
+
+### 5. Exercises
+
+### Exercise 1: One-Sample t-Test
+Given the following blood pressure measurements, test if the average systolic blood pressure is significantly different from 120.
+
+```{r bloodpressuredata}
+blood_pressure <- c(118, 122, 121, 119, 123, 125, 117, 124, 122, 120)
+```
+
+::: {.exercise #dw1}
+Test the hypothesis that the mean blood pressure is different from 120.
+
+**Hint:** Use `t.test()` function with `mu = 120`.
+
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise \@ref(exr:dw1)**:
+
+```{r bloodpressuresolution}
+t.test(blood_pressure, mu = 120)
+```
+
+:::
+
+### Exercise 2: Two-Sample t-Test
+Compare the cholesterol levels of two different diets.
+
+```{r cholesteroldata}
+diet_A <- c(180, 190, 200, 195, 185)
+diet_B <- c(210, 220, 215, 225, 230)
+```
+
+::: {.exercise #dw2}
+Test if the mean cholesterol level is different between the two diets.
+
+**Hint:** Use `t.test()` function with `x = diet_A` and `y = diet_B`.
+
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise \@ref(exr:dw2)**:
+
+```{r cholesterolsolution}
+t.test(diet_A, diet_B)
+```
+
+:::
+
+### Exercise 3: One-Sample t-Test (Greater)
+A new drug claims to lower blood sugar levels to below 100 mg/dL. Test this claim with the following blood sugar levels after the drug administration.
+
+```{r bloodsugar_data}
+blood_sugar <- c(95, 99, 102, 98, 97, 96, 100, 99)
+```
+
+::: {.exercise #dw3}
+Test the hypothesis that the mean blood sugar level is less than 100.
+
+**Hint:** Use `t.test()` function with `mu = 100` and `alternative = "less"`.
+
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise \@ref(exr:dw3)**:
+
+```{r bloodsugarsolution}
+t.test(blood_sugar, mu = 100, alternative = "less")
+```
+
+:::
+
+### Exercise 4: Two-Sample t-Test (Paired)
+A dietitian wants to know if a new diet plan significantly reduces weight. The weights of 5 individuals before and after following the diet are recorded below:
+
+```{r dietbeforeafter}
+before <- c(72, 68, 74, 70, 76)
+after <- c(70, 65, 72, 67, 73)
+```
+
+::: {.exercise #dw4}
+Test the hypothesis that there is a significant difference in weight before and after the diet.
+
+**Hint:** Use `t.test()` function with `paired = TRUE`.
+
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise \@ref(exr:dw4)**:
+
+```{r pairedttestsolution}
+t.test(before, after, paired = TRUE)
+```
+
+:::
