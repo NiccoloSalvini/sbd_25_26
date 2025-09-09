@@ -1,3 +1,5 @@
+# (PART\*) Additional Resources {.unnumbered}
+
 # 💻 Intermediate preparation {#int-prep}
 
 Intermediate test topics should include:

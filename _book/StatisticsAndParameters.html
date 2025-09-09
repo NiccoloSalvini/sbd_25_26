@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 25 Symbols, formulas, statistics and parameters | Statistics &amp; Big Data 24-25 Labs</title>
+<title>Chapter 15 Symbols, formulas, statistics and parameters | Statistics &amp; Big Data 25-26 Labs</title>
 <meta name="author" content="Dr. Niccolò Salvini">
-<meta name="description" content="25.1 Symbols and standard errors   Table 25.1: Some sample statistics used to estimate population parameters. Empty table cells means that these are not studied in this textbook. The dashes means...">
+<meta name="description" content="15.1 Symbols and standard errors   Table 15.1: Some sample statistics used to estimate population parameters. Empty table cells means that these are not studied in this textbook. The dashes means...">
 <meta name="generator" content="bookdown 0.29 with bs4_book()">
-<meta property="og:title" content="Chapter 25 Symbols, formulas, statistics and parameters | Statistics &amp; Big Data 24-25 Labs">
+<meta property="og:title" content="Chapter 15 Symbols, formulas, statistics and parameters | Statistics &amp; Big Data 25-26 Labs">
 <meta property="og:type" content="book">
-<meta property="og:description" content="25.1 Symbols and standard errors   Table 25.1: Some sample statistics used to estimate population parameters. Empty table cells means that these are not studied in this textbook. The dashes means...">
+<meta property="og:description" content="15.1 Symbols and standard errors   Table 15.1: Some sample statistics used to estimate population parameters. Empty table cells means that these are not studied in this textbook. The dashes means...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 25 Symbols, formulas, statistics and parameters | Statistics &amp; Big Data 24-25 Labs">
-<meta name="twitter:description" content="25.1 Symbols and standard errors   Table 25.1: Some sample statistics used to estimate population parameters. Empty table cells means that these are not studied in this textbook. The dashes means...">
+<meta name="twitter:title" content="Chapter 15 Symbols, formulas, statistics and parameters | Statistics &amp; Big Data 25-26 Labs">
+<meta name="twitter:description" content="15.1 Symbols and standard errors   Table 15.1: Some sample statistics used to estimate population parameters. Empty table cells means that these are not studied in this textbook. The dashes means...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -22,28 +22,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  </style>
-<style type="text/css">
-    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-        }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
   </style>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -55,7 +33,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Statistics &amp; Big Data 24-25 Labs</a>
+        <a href="index.html" title="">Statistics &amp; Big Data 25-26 Labs</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -73,29 +51,22 @@
 <li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
 <li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
 <li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
-<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">6</span> 💻 Hypothesis Testing</a></li>
-<li><a class="" href="essentials-of-data-wrangling-and-basic-statistics.html"><span class="header-section-number">7</span> 💻 Essentials of Data Wrangling and Basic Statistics</a></li>
-<li><a class="" href="lin-reg.html"><span class="header-section-number">8</span> Linear Regression</a></li>
-<li><a class="" href="lin-reg-class.html"><span class="header-section-number">9</span> 💻 Linear Regression in class</a></li>
-<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">10</span> 💻 Second Intermediate Sample Questions</a></li>
-<li><a class="" href="int-samp-q.html"><span class="header-section-number">11</span> 💻 Intermediate Sample Questions</a></li>
-<li><a class="" href="anova.html"><span class="header-section-number">12</span> 💻 ANOVA</a></li>
-<li><a class="" href="dummy-vars.html"><span class="header-section-number">13</span> 💻 Dummy Variables</a></li>
-<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
-<li><a class="" href="log-reg.html"><span class="header-section-number">15</span> 💻 Binary Logistic Regression</a></li>
-<li><a class="" href="log-reg-ex.html"><span class="header-section-number">16</span> 💻 Binary LogReg exer</a></li>
-<li><a class="" href="pca.html"><span class="header-section-number">17</span> 💻 PCA</a></li>
-<li><a class="" href="poi-reg-ex.html"><span class="header-section-number">18</span> 💻 Poisson regr exer</a></li>
-<li><a class="" href="hier-clust-ex.html"><span class="header-section-number">19</span> 💻 Hierarchical Clustering</a></li>
-<li><a class="" href="k-mean-ex.html"><span class="header-section-number">20</span> 💻 K-Means Clustering</a></li>
-<li><a class="" href="reg-tree-ex.html"><span class="header-section-number">21</span> 💻 Regression Trees</a></li>
-<li><a class="" href="course-performance.html"><span class="header-section-number">22</span> ⚡ course performance</a></li>
-<li><a class="" href="how-to-ask-for-help.html"><span class="header-section-number">23</span> ✋ How to ask for help!</a></li>
-<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">24</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Part 1: The Foundations</li>
+<li><a class="" href="hypothesis-testing-fundamentals.html"><span class="header-section-number">6</span> 🧪 Hypothesis Testing Fundamentals</a></li>
+<li><a class="" href="linear-regression-analysis.html"><span class="header-section-number">7</span> 📈 Linear Regression Analysis</a></li>
+<li><a class="" href="advanced-statistical-methods.html"><span class="header-section-number">8</span> 🔬 Advanced Statistical Methods</a></li>
+<li class="book-part">Part 2: Advanced Modeling</li>
+<li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
+<li class="book-part">Additional Resources</li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">10</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">11</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">12</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">13</span> ⚡ Course Performance</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">14</span> ❓ Frequently Asked Questions</a></li>
 <li class="book-part">Appendix</li>
-<li><a class="active" href="StatisticsAndParameters.html"><span class="header-section-number">25</span> Symbols, formulas, statistics and parameters</a></li>
-<li><a class="" href="appendixdatasets.html"><span class="header-section-number">26</span> Datasets</a></li>
-<li><a class="" href="references.html">References</a></li>
+<li><a class="active" href="StatisticsAndParameters.html"><span class="header-section-number">15</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">16</span> Datasets</a></li>
+<li><a class="" href="references-4.html">References</a></li>
 </ul>
 
         <div class="book-extra">
@@ -103,20 +74,20 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="StatisticsAndParameters" class="section level1" number="25">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="StatisticsAndParameters" class="section level1" number="15">
 <h1>
-<span class="header-section-number">25</span> Symbols, formulas, statistics and parameters<a class="anchor" aria-label="anchor" href="#StatisticsAndParameters"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15</span> Symbols, formulas, statistics and parameters<a class="anchor" aria-label="anchor" href="#StatisticsAndParameters"><i class="fas fa-link"></i></a>
 </h1>
-<div id="symbols-and-standard-errors" class="section level2" number="25.1">
+<div id="symbols-and-standard-errors" class="section level2" number="15.1">
 <h2>
-<span class="header-section-number">25.1</span> Symbols and standard errors<a class="anchor" aria-label="anchor" href="#symbols-and-standard-errors"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.1</span> Symbols and standard errors<a class="anchor" aria-label="anchor" href="#symbols-and-standard-errors"><i class="fas fa-link"></i></a>
 </h2>
 
 
 
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:ParametersStatistics">Table 25.1: </span>Some sample statistics used to estimate population parameters. Empty table cells means that these are not studied in this textbook. The dashes means that no formula is given in this textbook.
+<span id="tab:ParametersStatistics">Table 15.1: </span>Some sample statistics used to estimate population parameters. Empty table cells means that these are not studied in this textbook. The dashes means that no formula is given in this textbook.
 </caption>
 <thead><tr>
 <th style="text-align:left;font-weight: bold;">
@@ -301,9 +272,9 @@ R-squared
 </tbody>
 </table></div>
 </div>
-<div id="confidence-intervals" class="section level2" number="25.2">
+<div id="confidence-intervals" class="section level2" number="15.2">
 <h2>
-<span class="header-section-number">25.2</span> Confidence intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.2</span> Confidence intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"><i class="fas fa-link"></i></a>
 </h2>
 <p>Almost all <strong>confidence intervals</strong> have the form</p>
 <p><span class="math display">\[
@@ -318,9 +289,9 @@ R-squared
 For the same reason, a standard error for ORs is not given.</li>
 </ul>
 </div>
-<div id="hypothesis-testing-1" class="section level2" number="25.3">
+<div id="hypothesis-testing" class="section level2" number="15.3">
 <h2>
-<span class="header-section-number">25.3</span> Hypothesis testing<a class="anchor" aria-label="anchor" href="#hypothesis-testing-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.3</span> Hypothesis testing<a class="anchor" aria-label="anchor" href="#hypothesis-testing"><i class="fas fa-link"></i></a>
 </h2>
 <p>For many <strong>hypothesis tests</strong>, the <em>test statistic</em> is a <span class="math inline">\(t\)</span>-score, which has the form:</p>
 <p><span class="math display">\[
@@ -343,9 +314,9 @@ For the same reason, a standard error for ORs is not given.</li>
 
 
 </div>
-<div id="other-formulas" class="section level2" number="25.4">
+<div id="other-formulas" class="section level2" number="15.4">
 <h2>
-<span class="header-section-number">25.4</span> Other formulas<a class="anchor" aria-label="anchor" href="#other-formulas"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.4</span> Other formulas<a class="anchor" aria-label="anchor" href="#other-formulas"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li>To <a href="#EstimatingSampleSize">estimate the sample size needed</a> when <strong>estimating a proportion</strong>: <span class="math inline">\(\displaystyle n = \frac{1}{(\text{Margin of error})^2}\)</span>.</li>
@@ -358,13 +329,13 @@ For the same reason, a standard error for ORs is not given.</li>
 <li>In <strong>sample size calculations</strong>, always <strong>round up</strong> the sample size found from the above formulas.</li>
 </ul>
 </div>
-<div id="other-symbols-used" class="section level2" number="25.5">
+<div id="other-symbols-used" class="section level2" number="15.5">
 <h2>
-<span class="header-section-number">25.5</span> Other symbols used<a class="anchor" aria-label="anchor" href="#other-symbols-used"><i class="fas fa-link"></i></a>
+<span class="header-section-number">15.5</span> Other symbols used<a class="anchor" aria-label="anchor" href="#other-symbols-used"><i class="fas fa-link"></i></a>
 </h2>
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:OtherSymbols">Table 25.2: </span>Some symbols used
+<span id="tab:OtherSymbols">Table 15.2: </span>Some symbols used
 </caption>
 <thead><tr>
 <th style="text-align:center;font-weight: bold;">
@@ -459,17 +430,17 @@ Sect. <a href="#TestStatObs"><strong>??</strong></a>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="frequently-asked-questions.html"><span class="header-section-number">24</span> ❓ Frequently Asked Questions</a></div>
-<div class="next"><a href="appendixdatasets.html"><span class="header-section-number">26</span> Datasets</a></div>
+<div class="prev"><a href="frequently-asked-questions.html"><span class="header-section-number">14</span> ❓ Frequently Asked Questions</a></div>
+<div class="next"><a href="appendixdatasets.html"><span class="header-section-number">16</span> Datasets</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#StatisticsAndParameters"><span class="header-section-number">25</span> Symbols, formulas, statistics and parameters</a></li>
-<li><a class="nav-link" href="#symbols-and-standard-errors"><span class="header-section-number">25.1</span> Symbols and standard errors</a></li>
-<li><a class="nav-link" href="#confidence-intervals"><span class="header-section-number">25.2</span> Confidence intervals</a></li>
-<li><a class="nav-link" href="#hypothesis-testing-1"><span class="header-section-number">25.3</span> Hypothesis testing</a></li>
-<li><a class="nav-link" href="#other-formulas"><span class="header-section-number">25.4</span> Other formulas</a></li>
-<li><a class="nav-link" href="#other-symbols-used"><span class="header-section-number">25.5</span> Other symbols used</a></li>
+<li><a class="nav-link" href="#StatisticsAndParameters"><span class="header-section-number">15</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="nav-link" href="#symbols-and-standard-errors"><span class="header-section-number">15.1</span> Symbols and standard errors</a></li>
+<li><a class="nav-link" href="#confidence-intervals"><span class="header-section-number">15.2</span> Confidence intervals</a></li>
+<li><a class="nav-link" href="#hypothesis-testing"><span class="header-section-number">15.3</span> Hypothesis testing</a></li>
+<li><a class="nav-link" href="#other-formulas"><span class="header-section-number">15.4</span> Other formulas</a></li>
+<li><a class="nav-link" href="#other-symbols-used"><span class="header-section-number">15.5</span> Other symbols used</a></li>
 </ul>
 
       <div class="book-extra">
@@ -487,7 +458,7 @@ Sect. <a href="#TestStatObs"><strong>??</strong></a>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Statistics &amp; Big Data 24-25 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2024-10-26.</p>
+    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-09-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

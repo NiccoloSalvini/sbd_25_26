@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 4 🔥 Nice warm-up | Statistics &amp; Big Data 24-25 Labs</title>
+<title>Chapter 4 🔥 Nice warm-up | Statistics &amp; Big Data 25-26 Labs</title>
 <meta name="author" content="Dr. Niccolò Salvini">
 <meta name="description" content="Now we are going to cover some very basic operations and computer science concepts with R. Hopefully this will get you with a really cool starter pack of function that you might reuse throughout...">
 <meta name="generator" content="bookdown 0.29 with bs4_book()">
-<meta property="og:title" content="Chapter 4 🔥 Nice warm-up | Statistics &amp; Big Data 24-25 Labs">
+<meta property="og:title" content="Chapter 4 🔥 Nice warm-up | Statistics &amp; Big Data 25-26 Labs">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Now we are going to cover some very basic operations and computer science concepts with R. Hopefully this will get you with a really cool starter pack of function that you might reuse throughout...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 4 🔥 Nice warm-up | Statistics &amp; Big Data 24-25 Labs">
+<meta name="twitter:title" content="Chapter 4 🔥 Nice warm-up | Statistics &amp; Big Data 25-26 Labs">
 <meta name="twitter:description" content="Now we are going to cover some very basic operations and computer science concepts with R. Hopefully this will get you with a really cool starter pack of function that you might reuse throughout...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -22,28 +22,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  </style>
-<style type="text/css">
-    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-        }
-    .hanging div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }
   </style>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -55,7 +33,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Statistics &amp; Big Data 24-25 Labs</a>
+        <a href="index.html" title="">Statistics &amp; Big Data 25-26 Labs</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -73,29 +51,22 @@
 <li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
 <li><a class="active" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
 <li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
-<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">6</span> 💻 Hypothesis Testing</a></li>
-<li><a class="" href="essentials-of-data-wrangling-and-basic-statistics.html"><span class="header-section-number">7</span> 💻 Essentials of Data Wrangling and Basic Statistics</a></li>
-<li><a class="" href="lin-reg.html"><span class="header-section-number">8</span> Linear Regression</a></li>
-<li><a class="" href="lin-reg-class.html"><span class="header-section-number">9</span> 💻 Linear Regression in class</a></li>
-<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">10</span> 💻 Second Intermediate Sample Questions</a></li>
-<li><a class="" href="int-samp-q.html"><span class="header-section-number">11</span> 💻 Intermediate Sample Questions</a></li>
-<li><a class="" href="anova.html"><span class="header-section-number">12</span> 💻 ANOVA</a></li>
-<li><a class="" href="dummy-vars.html"><span class="header-section-number">13</span> 💻 Dummy Variables</a></li>
-<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
-<li><a class="" href="log-reg.html"><span class="header-section-number">15</span> 💻 Binary Logistic Regression</a></li>
-<li><a class="" href="log-reg-ex.html"><span class="header-section-number">16</span> 💻 Binary LogReg exer</a></li>
-<li><a class="" href="pca.html"><span class="header-section-number">17</span> 💻 PCA</a></li>
-<li><a class="" href="poi-reg-ex.html"><span class="header-section-number">18</span> 💻 Poisson regr exer</a></li>
-<li><a class="" href="hier-clust-ex.html"><span class="header-section-number">19</span> 💻 Hierarchical Clustering</a></li>
-<li><a class="" href="k-mean-ex.html"><span class="header-section-number">20</span> 💻 K-Means Clustering</a></li>
-<li><a class="" href="reg-tree-ex.html"><span class="header-section-number">21</span> 💻 Regression Trees</a></li>
-<li><a class="" href="course-performance.html"><span class="header-section-number">22</span> ⚡ course performance</a></li>
-<li><a class="" href="how-to-ask-for-help.html"><span class="header-section-number">23</span> ✋ How to ask for help!</a></li>
-<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">24</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Part 1: The Foundations</li>
+<li><a class="" href="hypothesis-testing-fundamentals.html"><span class="header-section-number">6</span> 🧪 Hypothesis Testing Fundamentals</a></li>
+<li><a class="" href="linear-regression-analysis.html"><span class="header-section-number">7</span> 📈 Linear Regression Analysis</a></li>
+<li><a class="" href="advanced-statistical-methods.html"><span class="header-section-number">8</span> 🔬 Advanced Statistical Methods</a></li>
+<li class="book-part">Part 2: Advanced Modeling</li>
+<li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
+<li class="book-part">Additional Resources</li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">10</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">11</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">12</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">13</span> ⚡ Course Performance</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">14</span> ❓ Frequently Asked Questions</a></li>
 <li class="book-part">Appendix</li>
-<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">25</span> Symbols, formulas, statistics and parameters</a></li>
-<li><a class="" href="appendixdatasets.html"><span class="header-section-number">26</span> Datasets</a></li>
-<li><a class="" href="references.html">References</a></li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">15</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">16</span> Datasets</a></li>
+<li><a class="" href="references-4.html">References</a></li>
 </ul>
 
         <div class="book-extra">
@@ -207,9 +178,9 @@ To understrand which directory R is using as your working directory, run:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"here"</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">## "/Users/niccolo/Desktop/r_projects/sbd_22-23"</span></span></code></pre></div>
-<p><code><a href="https://here.r-lib.org//reference/here.html">here()</a></code> is going to look for the <code>.RProj</code> file and will the Working Directory exactly where it is placed.</p>
+<p><code><a href="https://here.r-lib.org/reference/here.html">here()</a></code> is going to look for the <code>.RProj</code> file and will the Working Directory exactly where it is placed.</p>
 </div>
 <div id="creating-an-r-script" class="section level2" number="4.4">
 <h2>
@@ -281,7 +252,7 @@ Figure 4.7: Open an R Script and write some on it
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Statistics &amp; Big Data 24-25 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2024-10-26.</p>
+    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-09-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 9 🚀 Advanced Modeling Techniques | Statistics &amp; Big Data 25-26 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="This chapter covers advanced modeling techniques taught by Prof. Sophie Dabo-Niang during the intensive session. These methods extend beyond basic statistical analysis to include sophisticated...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 9 🚀 Advanced Modeling Techniques | Statistics &amp; Big Data 25-26 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="This chapter covers advanced modeling techniques taught by Prof. Sophie Dabo-Niang during the intensive session. These methods extend beyond basic statistical analysis to include sophisticated...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 9 🚀 Advanced Modeling Techniques | Statistics &amp; Big Data 25-26 Labs">
+<meta name="twitter:description" content="This chapter covers advanced modeling techniques taught by Prof. Sophie Dabo-Niang during the intensive session. These methods extend beyond basic statistical analysis to include sophisticated...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 25-26 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li class="book-part">Part 1: The Foundations</li>
+<li><a class="" href="hypothesis-testing-fundamentals.html"><span class="header-section-number">6</span> 🧪 Hypothesis Testing Fundamentals</a></li>
+<li><a class="" href="linear-regression-analysis.html"><span class="header-section-number">7</span> 📈 Linear Regression Analysis</a></li>
+<li><a class="" href="advanced-statistical-methods.html"><span class="header-section-number">8</span> 🔬 Advanced Statistical Methods</a></li>
+<li class="book-part">Part 2: Advanced Modeling</li>
+<li><a class="active" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
+<li class="book-part">Additional Resources</li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">10</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">11</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">12</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">13</span> ⚡ Course Performance</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">14</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">15</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">16</span> Datasets</a></li>
+<li><a class="" href="references-4.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="advanced-modeling-techniques" class="section level1" number="9">
+<h1>
+<span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques<a class="anchor" aria-label="anchor" href="#advanced-modeling-techniques"><i class="fas fa-link"></i></a>
+</h1>
+<p>This chapter covers advanced modeling techniques taught by Prof. Sophie Dabo-Niang during the intensive session. These methods extend beyond basic statistical analysis to include sophisticated machine learning and modeling approaches.</p>
+<div id="learning-objectives-3" class="section level2" number="9.1">
+<h2>
+<span class="header-section-number">9.1</span> Learning Objectives<a class="anchor" aria-label="anchor" href="#learning-objectives-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+<li>Understand and apply factor analysis techniques</li>
+<li>Perform cluster analysis for data segmentation</li>
+<li>Implement discrimination and classification methods</li>
+<li>Use binomial and multinomial logistic regression</li>
+<li>Apply kernel methods for non-linear relationships</li>
+<li>Work with general additive models</li>
+<li>Explore other supervised learning models</li>
+</ul>
+</div>
+<div id="course-structure-1" class="section level2" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> Course Structure<a class="anchor" aria-label="anchor" href="#course-structure-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>This part of the course consists of <strong>5 hours of intensive sessions</strong> held during the week of November 17th. The sessions are designed to provide hands-on experience with advanced modeling techniques that build upon the foundations covered in Part 1.</p>
+</div>
+<div id="factor-analysis-1" class="section level2" number="9.3">
+<h2>
+<span class="header-section-number">9.3</span> Factor Analysis<a class="anchor" aria-label="anchor" href="#factor-analysis-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Factor analysis is a statistical method used to identify underlying latent factors that explain the correlations among observed variables.</p>
+<div id="key-concepts" class="section level3" number="9.3.1">
+<h3>
+<span class="header-section-number">9.3.1</span> Key Concepts<a class="anchor" aria-label="anchor" href="#key-concepts"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>Exploratory Factor Analysis (EFA)</strong>: Discovering the underlying structure</li>
+<li>
+<strong>Confirmatory Factor Analysis (CFA)</strong>: Testing hypothesized structures</li>
+<li>
+<strong>Factor Loadings</strong>: Relationships between variables and factors</li>
+<li>
+<strong>Eigenvalues</strong>: Amount of variance explained by each factor</li>
+</ul>
+</div>
+<div id="applications" class="section level3" number="9.3.2">
+<h3>
+<span class="header-section-number">9.3.2</span> Applications<a class="anchor" aria-label="anchor" href="#applications"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Psychometric testing</li>
+<li>Market research</li>
+<li>Social science research</li>
+<li>Data reduction</li>
+</ul>
+</div>
+</div>
+<div id="cluster-analysis-1" class="section level2" number="9.4">
+<h2>
+<span class="header-section-number">9.4</span> Cluster Analysis<a class="anchor" aria-label="anchor" href="#cluster-analysis-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Cluster analysis groups similar observations together based on their characteristics, without prior knowledge of group membership.</p>
+<div id="methods-covered" class="section level3" number="9.4.1">
+<h3>
+<span class="header-section-number">9.4.1</span> Methods Covered<a class="anchor" aria-label="anchor" href="#methods-covered"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>K-means clustering</strong>: Partitioning data into k clusters</li>
+<li>
+<strong>Hierarchical clustering</strong>: Building clusters in a tree-like structure</li>
+<li>
+<strong>Density-based clustering</strong>: Finding clusters of arbitrary shape</li>
+<li>
+<strong>Model-based clustering</strong>: Using statistical models</li>
+</ul>
+</div>
+<div id="applications-1" class="section level3" number="9.4.2">
+<h3>
+<span class="header-section-number">9.4.2</span> Applications<a class="anchor" aria-label="anchor" href="#applications-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Customer segmentation</li>
+<li>Market research</li>
+<li>Image segmentation</li>
+<li>Gene expression analysis</li>
+</ul>
+</div>
+</div>
+<div id="discrimination-classification" class="section level2" number="9.5">
+<h2>
+<span class="header-section-number">9.5</span> Discrimination &amp; Classification<a class="anchor" aria-label="anchor" href="#discrimination-classification"><i class="fas fa-link"></i></a>
+</h2>
+<p>These methods aim to classify observations into predefined categories based on their characteristics.</p>
+<div id="techniques" class="section level3" number="9.5.1">
+<h3>
+<span class="header-section-number">9.5.1</span> Techniques<a class="anchor" aria-label="anchor" href="#techniques"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>Linear Discriminant Analysis (LDA)</strong>: Linear boundaries between classes</li>
+<li>
+<strong>Quadratic Discriminant Analysis (QDA)</strong>: Quadratic boundaries</li>
+<li>
+<strong>Naive Bayes</strong>: Probabilistic classification</li>
+<li>
+<strong>Support Vector Machines (SVM)</strong>: Finding optimal separating hyperplanes</li>
+</ul>
+</div>
+</div>
+<div id="logistic-regression-1" class="section level2" number="9.6">
+<h2>
+<span class="header-section-number">9.6</span> Logistic Regression<a class="anchor" aria-label="anchor" href="#logistic-regression-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Logistic regression models the probability of categorical outcomes.</p>
+<div id="types-covered" class="section level3" number="9.6.1">
+<h3>
+<span class="header-section-number">9.6.1</span> Types Covered<a class="anchor" aria-label="anchor" href="#types-covered"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>Binomial Logistic Regression</strong>: Binary outcomes (0/1, Yes/No)</li>
+<li>
+<strong>Multinomial Logistic Regression</strong>: Multiple categories</li>
+<li>
+<strong>Ordinal Logistic Regression</strong>: Ordered categories</li>
+</ul>
+</div>
+<div id="key-concepts-1" class="section level3" number="9.6.2">
+<h3>
+<span class="header-section-number">9.6.2</span> Key Concepts<a class="anchor" aria-label="anchor" href="#key-concepts-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>Odds and Odds Ratios</strong>: Interpreting coefficients</li>
+<li>
+<strong>Maximum Likelihood Estimation</strong>: Parameter estimation</li>
+<li>
+<strong>Model Diagnostics</strong>: Assessing model fit</li>
+<li>
+<strong>Model Selection</strong>: Choosing appropriate predictors</li>
+</ul>
+</div>
+</div>
+<div id="kernel-methods" class="section level2" number="9.7">
+<h2>
+<span class="header-section-number">9.7</span> Kernel Methods<a class="anchor" aria-label="anchor" href="#kernel-methods"><i class="fas fa-link"></i></a>
+</h2>
+<p>Kernel methods extend linear algorithms to handle non-linear relationships by mapping data to higher-dimensional spaces.</p>
+<div id="applications-2" class="section level3" number="9.7.1">
+<h3>
+<span class="header-section-number">9.7.1</span> Applications<a class="anchor" aria-label="anchor" href="#applications-2"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>Kernel SVM</strong>: Non-linear classification</li>
+<li>
+<strong>Kernel PCA</strong>: Non-linear dimensionality reduction</li>
+<li>
+<strong>Kernel Ridge Regression</strong>: Non-linear regression</li>
+</ul>
+</div>
+</div>
+<div id="general-additive-models-gams" class="section level2" number="9.8">
+<h2>
+<span class="header-section-number">9.8</span> General Additive Models (GAMs)<a class="anchor" aria-label="anchor" href="#general-additive-models-gams"><i class="fas fa-link"></i></a>
+</h2>
+<p>GAMs extend linear models by allowing non-linear relationships between predictors and the response variable.</p>
+<div id="features" class="section level3" number="9.8.1">
+<h3>
+<span class="header-section-number">9.8.1</span> Features<a class="anchor" aria-label="anchor" href="#features"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>Smooth functions</strong>: Flexible non-linear relationships</li>
+<li>
+<strong>Additive structure</strong>: Sum of smooth functions</li>
+<li>
+<strong>Interpretability</strong>: Maintains model interpretability</li>
+<li>
+<strong>Flexibility</strong>: Handles various data types</li>
+</ul>
+</div>
+</div>
+<div id="other-supervised-models" class="section level2" number="9.9">
+<h2>
+<span class="header-section-number">9.9</span> Other Supervised Models<a class="anchor" aria-label="anchor" href="#other-supervised-models"><i class="fas fa-link"></i></a>
+</h2>
+<p>Additional supervised learning techniques for classification and regression.</p>
+<div id="methods-covered-1" class="section level3" number="9.9.1">
+<h3>
+<span class="header-section-number">9.9.1</span> Methods Covered<a class="anchor" aria-label="anchor" href="#methods-covered-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>Random Forest</strong>: Ensemble of decision trees</li>
+<li>
+<strong>Gradient Boosting</strong>: Sequential ensemble method</li>
+<li>
+<strong>Neural Networks</strong>: Multi-layer perceptrons</li>
+<li>
+<strong>Ensemble Methods</strong>: Combining multiple models</li>
+</ul>
+</div>
+</div>
+<div id="practical-implementation" class="section level2" number="9.10">
+<h2>
+<span class="header-section-number">9.10</span> Practical Implementation<a class="anchor" aria-label="anchor" href="#practical-implementation"><i class="fas fa-link"></i></a>
+</h2>
+<p>All methods will be implemented using R with appropriate packages:</p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load required packages for advanced modeling</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.sthda.com/english/rpkgs/factoextra">factoextra</a></span><span class="op">)</span>      <span class="co"># Factor analysis</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://svn.r-project.org/R-packages/trunk/cluster/">cluster</a></span><span class="op">)</span>         <span class="co"># Cluster analysis</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span>           <span class="co"># LDA, QDA</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">e1071</span><span class="op">)</span>          <span class="co"># SVM</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">mgcv</span><span class="op">)</span>           <span class="co"># GAMs</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.stat.berkeley.edu/~breiman/RandomForests/">randomForest</a></span><span class="op">)</span>   <span class="co"># Random Forest</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gbm-developers/gbm">gbm</a></span><span class="op">)</span>            <span class="co"># Gradient Boosting</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">nnet</a></span><span class="op">)</span>           <span class="co"># Neural Networks</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/topepo/caret/">caret</a></span><span class="op">)</span>          <span class="co"># Model training and validation</span></span></code></pre></div>
+</div>
+<div id="assessment-and-evaluation" class="section level2" number="9.11">
+<h2>
+<span class="header-section-number">9.11</span> Assessment and Evaluation<a class="anchor" aria-label="anchor" href="#assessment-and-evaluation"><i class="fas fa-link"></i></a>
+</h2>
+<div id="model-evaluation-metrics-1" class="section level3" number="9.11.1">
+<h3>
+<span class="header-section-number">9.11.1</span> Model Evaluation Metrics<a class="anchor" aria-label="anchor" href="#model-evaluation-metrics-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>Classification</strong>: Accuracy, Precision, Recall, F1-score</li>
+<li>
+<strong>Regression</strong>: RMSE, MAE, R-squared</li>
+<li>
+<strong>Clustering</strong>: Silhouette score, Within-cluster sum of squares</li>
+<li>
+<strong>Cross-validation</strong>: Ensuring model generalizability</li>
+</ul>
+</div>
+<div id="best-practices-3" class="section level3" number="9.11.2">
+<h3>
+<span class="header-section-number">9.11.2</span> Best Practices<a class="anchor" aria-label="anchor" href="#best-practices-3"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Data Preprocessing</strong>: Handle missing values and outliers</li>
+<li>
+<strong>Feature Selection</strong>: Choose relevant predictors</li>
+<li>
+<strong>Model Validation</strong>: Use cross-validation techniques</li>
+<li>
+<strong>Hyperparameter Tuning</strong>: Optimize model parameters</li>
+<li>
+<strong>Model Comparison</strong>: Compare different approaches</li>
+<li>
+<strong>Interpretation</strong>: Understand and communicate results</li>
+</ol>
+</div>
+</div>
+<div id="intensive-session-schedule" class="section level2" number="9.12">
+<h2>
+<span class="header-section-number">9.12</span> Intensive Session Schedule<a class="anchor" aria-label="anchor" href="#intensive-session-schedule"><i class="fas fa-link"></i></a>
+</h2>
+<p>The intensive session will cover:</p>
+<p><strong>Day 1</strong>: Factor Analysis and Cluster Analysis
+- Morning: Theory and concepts
+- Afternoon: Hands-on implementation</p>
+<p><strong>Day 2</strong>: Classification and Logistic Regression
+- Morning: Discrimination methods
+- Afternoon: Logistic regression applications</p>
+<p><strong>Day 3</strong>: Advanced Methods
+- Morning: Kernel methods and GAMs
+- Afternoon: Ensemble methods and model comparison</p>
+</div>
+<div id="prerequisites" class="section level2" number="9.13">
+<h2>
+<span class="header-section-number">9.13</span> Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"><i class="fas fa-link"></i></a>
+</h2>
+<p>Students should be familiar with:
+- Basic statistical concepts from Part 1
+- R programming fundamentals
+- Linear regression concepts
+- Hypothesis testing</p>
+</div>
+<div id="resources" class="section level2" number="9.14">
+<h2>
+<span class="header-section-number">9.14</span> Resources<a class="anchor" aria-label="anchor" href="#resources"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Course slides and materials will be provided during the intensive session</li>
+<li>Additional resources available in the course drive</li>
+<li>R documentation for specific packages</li>
+<li>Practice datasets for hands-on exercises</li>
+</ul>
+</div>
+<div id="summary-3" class="section level2" number="9.15">
+<h2>
+<span class="header-section-number">9.15</span> Summary<a class="anchor" aria-label="anchor" href="#summary-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>This intensive session provides students with advanced modeling techniques essential for modern data analysis. The focus is on practical implementation and interpretation of results, building upon the statistical foundations established in Part 1 of the course.</p>
+</div>
+<div id="references-3" class="section level2" number="9.16">
+<h2>
+<span class="header-section-number">9.16</span> References<a class="anchor" aria-label="anchor" href="#references-3"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Slides and materials provided by Prof. Sophie Dabo-Niang</li>
+<li>Additional resources available in the course drive</li>
+<li>R documentation for advanced modeling packages</li>
+</ul>
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="advanced-statistical-methods.html"><span class="header-section-number">8</span> 🔬 Advanced Statistical Methods</a></div>
+<div class="next"><a href="int-prep.html"><span class="header-section-number">10</span> 💻 Intermediate preparation</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#advanced-modeling-techniques"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
+<li><a class="nav-link" href="#learning-objectives-3"><span class="header-section-number">9.1</span> Learning Objectives</a></li>
+<li><a class="nav-link" href="#course-structure-1"><span class="header-section-number">9.2</span> Course Structure</a></li>
+<li>
+<a class="nav-link" href="#factor-analysis-1"><span class="header-section-number">9.3</span> Factor Analysis</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#key-concepts"><span class="header-section-number">9.3.1</span> Key Concepts</a></li>
+<li><a class="nav-link" href="#applications"><span class="header-section-number">9.3.2</span> Applications</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#cluster-analysis-1"><span class="header-section-number">9.4</span> Cluster Analysis</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#methods-covered"><span class="header-section-number">9.4.1</span> Methods Covered</a></li>
+<li><a class="nav-link" href="#applications-1"><span class="header-section-number">9.4.2</span> Applications</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#discrimination-classification"><span class="header-section-number">9.5</span> Discrimination &amp; Classification</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#techniques"><span class="header-section-number">9.5.1</span> Techniques</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#logistic-regression-1"><span class="header-section-number">9.6</span> Logistic Regression</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#types-covered"><span class="header-section-number">9.6.1</span> Types Covered</a></li>
+<li><a class="nav-link" href="#key-concepts-1"><span class="header-section-number">9.6.2</span> Key Concepts</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#kernel-methods"><span class="header-section-number">9.7</span> Kernel Methods</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#applications-2"><span class="header-section-number">9.7.1</span> Applications</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#general-additive-models-gams"><span class="header-section-number">9.8</span> General Additive Models (GAMs)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#features"><span class="header-section-number">9.8.1</span> Features</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#other-supervised-models"><span class="header-section-number">9.9</span> Other Supervised Models</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#methods-covered-1"><span class="header-section-number">9.9.1</span> Methods Covered</a></li></ul>
+</li>
+<li><a class="nav-link" href="#practical-implementation"><span class="header-section-number">9.10</span> Practical Implementation</a></li>
+<li>
+<a class="nav-link" href="#assessment-and-evaluation"><span class="header-section-number">9.11</span> Assessment and Evaluation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#model-evaluation-metrics-1"><span class="header-section-number">9.11.1</span> Model Evaluation Metrics</a></li>
+<li><a class="nav-link" href="#best-practices-3"><span class="header-section-number">9.11.2</span> Best Practices</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#intensive-session-schedule"><span class="header-section-number">9.12</span> Intensive Session Schedule</a></li>
+<li><a class="nav-link" href="#prerequisites"><span class="header-section-number">9.13</span> Prerequisites</a></li>
+<li><a class="nav-link" href="#resources"><span class="header-section-number">9.14</span> Resources</a></li>
+<li><a class="nav-link" href="#summary-3"><span class="header-section-number">9.15</span> Summary</a></li>
+<li><a class="nav-link" href="#references-3"><span class="header-section-number">9.16</span> References</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/08-advanced-modeling-techniques.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
+          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/08-advanced-modeling-techniques.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-09-10.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

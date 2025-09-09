@@ -1,3 +1,5 @@
+# (PART\*) Additional Resources {.unnumbered}
+
 # 💻 Intermediate preparation {#int-prep}
 
 Intermediate test topics should include:
@@ -638,10 +640,10 @@ report(test)
 #> recommendations.
 #> 
 #> The One Sample t-test testing the difference between x
-#> (mean = 66.99) and mu = 65 suggests that the effect is
-#> positive, statistically not significant, and small
-#> (difference = 1.99, 95% CI [-Inf, 67.86], t(63) = 3.83, p >
-#> .999; Cohen's d = 0.48, 95% CI [-Inf, 0.69])
+#> (mean = 65.65) and mu = 65 suggests that the effect is
+#> positive, statistically not significant, and very small
+#> (difference = 0.65, 95% CI [-Inf, 66.59], t(63) = 1.15, p =
+#> 0.874; Cohen's d = 0.14, 95% CI [-Inf, 0.35])
 ```
 
 
@@ -673,6 +675,7 @@ wider = tribble(
    75,       98,
    8,        62
   )
+
 ```
 
 Those are exaclty the same dataset but arranged in a different format. We are used to the _wider_ format but iut might happen that we bump into the _longer_ one. What do we do? There'sa trick for that, let's say you want to test if the mean are statistically different with a 95% confidence level, the instead of supplying `x` and `y` to `t.test()` you would follow pretty much the syntax for linear models `lm()`:

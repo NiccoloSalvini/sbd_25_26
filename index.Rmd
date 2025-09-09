@@ -1,5 +1,5 @@
 --- 
-title: "Statistics & Big Data 24-25 Labs"
+title: "Statistics & Big Data 25-26 Labs"
 author: "Dr. Niccolò Salvini"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -15,17 +15,18 @@ csl: chicago-fullnote-bibliography.csl
 
 # 🫶 About
 
-<img src="images/cattolica-logo.png" class= "cover" width="250" height="250"/> This is the official course website for Statistics & Big data @UCSC 2024 - 2025 for laboratories. This website augments lecture topics and provides exercises for home and class assignments. Additional theory wrt slides and textbook will not be part of the exam, indeed they are for your growth and hopefully in the future as quicksilver resource to recover R proficiency from lethargy. 
+<img src="images/cattolica-logo.png" class= "cover" width="250" height="250"/> This is the official course website for Statistics & Big data @UCSC 2025 - 2026 for laboratories. This website augments lecture topics and provides exercises for home and class assignments. Additional theory wrt slides and textbook will not be part of the exam, indeed they are for your growth and hopefully in the future as quicksilver resource to recover R proficiency from lethargy. 
 
 
 ## 🔧 Logistics {#logistics}
 
-- **Lectures**: Mon 14:00 - 14:00 CET, room: 101 (?!) Class: 75% lectures, 25% tutorials.
-- **Location**: Campus Gemelli /optionally remote 
+- **Lectures**: 
+  - Mondays: 14:00 - 17:00 CET
+  - Tuesdays: 10:00 - 13:00 CET
+- **Location**: Campus Gemelli, Room 20 (and optionally remote)
 - **Office hours**:
-  - Prof Giuseppe **Arbia** : Mon 12:00 - 13:00 CET
-  - Prof Sophie **Dabo-Niang**: -- . --
-  - Dr. Niccolò **Salvini**: office times = lecture times (reach me by <ins>[email](mailto:niccolo.salvini27@gmail.com))</ins>
+  - Dr. Niccolò **Salvini**: Available via email and for questions before/after lectures
+  - Prof. Sophie **Dabo-Niang**: Available during intensive session (week of November 17th)
 - here's the [shared drive](https://drive.google.com/drive/folders/10ua4d1_5JjQYQpKTz8sxYsdsOXCgiYB3?usp=sharing) (slides notebooks extra in class)
 
 <!--- - **Grading**:
@@ -66,30 +67,21 @@ csl: chicago-fullnote-bibliography.csl
 
 ````{=html}
 <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <h3>Instructor</h3>
                 <div class="instructor">
-                    <a href="https://docenti.unicatt.it/ppd2/en/docenti/35215/giuseppe-arbia/profilo">
-                        <div class="instructorphoto"><img src="images/arbia.jpeg"></div>
-                        <div>Prof. Giuseppe Arbia</div>
+                    <a href="https://niccolosalvini.notion.site/Niccol-Salvini-PhD-2b09a3f0a7014b1182eb51578c058685">
+                        <div class="instructorphoto"><img src="images/salvini.jpeg"></div>
+                        <div>Dr. Niccolò Salvini</div>
                     </a>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <h3>Instructor</h3>
                 <div class="instructor">
                     <a href="https://sites.google.com/view/sophie-dabo-niang/">
                         <div class="instructorphoto"><img src="images/dabo-niang.png"></div>
-                        <div>Prof. Sophie Dabo-Niang </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <h3>TAs</h3>
-                <div class="instructor">
-                    <a href="https://niccolosalvini.me">
-                        <div class="instructorphoto"><img src="images/salvini.jpeg"></div>
-                        <div>Dr. Niccolò Salvini</div>
+                        <div>Prof. Sophie Dabo-Niang</div>
                     </a>
                 </div>
             </div>
@@ -99,17 +91,34 @@ csl: chicago-fullnote-bibliography.csl
 
 ## 🗒 labs' contents {#labs-content}
 
-- Introduction to the R ecosystem.
-  - Install R
-  - Install R Studio and how it works
-  - Some R tricks that might be useful in your reasearch and professional life
-  - data wrangling with R
-- Basic statistics (Descriptive statistics. Point and interval estimation, test of statistical hypotheses on an average and on a percentage).
-- Hypothesis testing on 2 averages and 2 percentages. - Hypothesis testing on more than 2 averages (ANOVA) and on more than 2 percentages (CHI square). 
-- Multiple linear regression model. 
-- Nonlinear regression.
-- Regression with dummy variables.
-- Binomial and multinomial logistic regression. Factor analysis. Cluster analysis. 
+### Part 1: The Foundations (Dr. Niccolò Salvini)
+- Introduction to the R ecosystem
+  - Install R and RStudio
+  - R tricks for research and professional life
+  - Data wrangling with R
+- Hypothesis Testing Fundamentals
+  - Alternative hypothesis testing
+  - How to calculate p-values
+  - Hypothesis testing with null hypothesis
+  - Hypothesis testing on averages
+- Analysis of Variance (ANOVA)
+  - Testing more than 2 means
+- Chi-Square Tests
+  - Testing more than 2 proportions
+- Linear Regression Analysis
+  - Simple linear regression
+  - Multiple linear regression
+  - Nonlinear regression
+  - Regression with dummy variables
+
+### Part 2: Advanced Modeling (Prof. Sophie Dabo-Niang)
+- Factor Analysis
+- Cluster Analysis
+- Discrimination & Classification
+- Binomial & Multinomial Logistic Regression
+- Kernel Methods
+- General Additive Models
+- Other Supervised Models 
 
 <!---
 - Other supervised classification models: outline of regression trees approach (CART), CHAID, C.5, Random Forest, and Gradient Boosting classification algorithms; Bagging, Boosting and other ensembling techniques; Approach to the evaluation criteria of a binary classification model. 
@@ -122,8 +131,8 @@ csl: chicago-fullnote-bibliography.csl
 The exam is going to be open and closed questions on theory and practice (coding part). You will be asked to provide results and sometimes code leading to these results. You can also be asked to directly provide code to solve for that exercise. The exam is going to take place in labs classroom, this means you are **not** going to have your laptop during the exam. We generally don't provide assignment neither group works. Indeed we provide intermediate exams for those who want to try them.
 
 we are going to have **2 intermediate sessions** exams on half of the whole content of the course. This means:
-- _first intermediate_: will happen typically on **November** and will be on Prof. Arbia contents (as well as labs)
-- _second intermediate_: will happen in **January** on contents taught by hosting teacher (as well as labs)
+- _first intermediate_: will happen typically on **November** and will be on Part 1 content (Dr. Salvini's part)
+- _second intermediate_: will happen in **January/February** on Part 2 content (Prof. Dabo-Niang's part)
 
 you can take first intermediate and take the second on each exam date within the winter session, meaning you take part 1 in Nov and part 2 in either Jan and Feb. You can **not** reject intermediates, that means if you take first part, try the second and did not perform well, you need to take the full. Grades may undergo to a review process before being official if they are particularly low. This has happened quite often, but it does not happen every time. 
 
@@ -172,8 +181,8 @@ knitr::include_graphics("images/qr-code.png")
 ## Colophon {#intro-colophon}
 
 This book was authored using [bookdown](https://bookdown.org/) inside [RStudio](https://www.rstudio.com/products/rstudio/) with [bs4 theme](https://pkgs.rstudio.com/bookdown/reference/bs4_book.html)
-The [website](sbd-labs-23-24.netlify.app) is hosted with [Netlify](https://www.netlify.com), and automatically updated after Netlify CI.
-The complete source is available from [GitHub](https://github.com/NiccoloSalvini/sbd_23-24).
+The [website](sbd-labs-25-26.netlify.app) is hosted with [Netlify](https://www.netlify.com), and automatically updated after Netlify CI.
+The complete source is available from [GitHub](https://github.com/NiccoloSalvini/sbd_25-26).
 
 This version of the book was built with:
 
