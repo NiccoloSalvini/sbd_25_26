@@ -1,7 +1,7 @@
 --- 
 title: "Statistics & Big Data 25-26 Labs"
 author: "Dr. Niccolò Salvini"
-date: "2025-09-10"
+date: "2025-09-23"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -186,32 +186,32 @@ This version of the book was built with:
 
 ```r
 library(devtools)
-#> Loading required package: usethis
+#> Caricamento del pacchetto richiesto: usethis
 library(roxygen2)
 library(testthat)
 #> 
-#> Attaching package: 'testthat'
-#> The following object is masked from 'package:devtools':
+#> Caricamento pacchetto: 'testthat'
+#> Il seguente oggetto `e mascherato da 'package:devtools':
 #> 
 #>     test_file
-#> The following object is masked from 'package:dplyr':
+#> Il seguente oggetto `e mascherato da 'package:dplyr':
 #> 
 #>     matches
 devtools::session_info()
-#> ─ Session info ──────────────────────────────────────────────────────────────────────────────────────────────
+#> - Session info -------------------------------------------
 #>  setting  value
 #>  version  R version 4.2.0 (2022-04-22)
 #>  os       macOS 15.6.1
 #>  system   aarch64, darwin20
 #>  ui       X11
 #>  language (EN)
-#>  collate  en_US.UTF-8
-#>  ctype    en_US.UTF-8
+#>  collate  C
+#>  ctype    C
 #>  tz       Europe/Rome
-#>  date     2025-09-10
+#>  date     2025-09-23
 #>  pandoc   3.7.0.2 @ /opt/homebrew/bin/ (via rmarkdown)
 #> 
-#> ─ Packages ──────────────────────────────────────────────────────────────────────────────────────────────────
+#> - Packages -----------------------------------------------
 #>  package      * version    date (UTC) lib source
 #>  bookdown       0.29       2022-09-12 [1] CRAN (R 4.2.0)
 #>  brio           1.1.3      2021-11-30 [1] CRAN (R 4.2.0)
@@ -219,15 +219,16 @@ devtools::session_info()
 #>  cachem         1.0.8      2023-05-01 [1] CRAN (R 4.2.0)
 #>  callr          3.7.3      2022-11-02 [1] CRAN (R 4.2.0)
 #>  cli            3.6.2      2023-12-11 [1] CRAN (R 4.2.3)
-#>  colorspace     2.1-0      2023-01-23 [1] CRAN (R 4.2.0)
 #>  crayon         1.5.2      2022-09-29 [1] CRAN (R 4.2.0)
 #>  devtools     * 2.4.5      2022-10-11 [1] CRAN (R 4.2.0)
+#>  dichromat      2.0-0.1    2022-05-02 [1] CRAN (R 4.2.0)
 #>  digest         0.6.33     2023-07-07 [1] CRAN (R 4.2.0)
 #>  downlit        0.4.2      2022-07-05 [1] CRAN (R 4.2.0)
-#>  dplyr        * 1.1.2      2023-04-20 [1] CRAN (R 4.2.0)
+#>  dplyr        * 1.1.4      2023-11-17 [1] CRAN (R 4.2.3)
 #>  ellipsis       0.3.2      2021-04-29 [1] CRAN (R 4.2.0)
 #>  evaluate       1.0.3      2025-01-10 [1] CRAN (R 4.2.0)
 #>  fansi          1.0.4      2023-01-22 [1] CRAN (R 4.2.0)
+#>  farver         2.1.1      2022-07-06 [1] CRAN (R 4.2.0)
 #>  fastmap        1.1.1      2023-02-24 [1] CRAN (R 4.2.0)
 #>  fs             1.6.3      2023-07-20 [1] CRAN (R 4.2.0)
 #>  generics       0.1.3      2022-07-05 [1] CRAN (R 4.2.0)
@@ -247,7 +248,6 @@ devtools::session_info()
 #>  memoise        2.0.1      2021-11-26 [1] CRAN (R 4.2.0)
 #>  mime           0.12       2021-09-28 [1] CRAN (R 4.2.0)
 #>  miniUI         0.1.1.1    2018-05-18 [1] CRAN (R 4.2.0)
-#>  munsell        0.5.0      2018-06-12 [1] CRAN (R 4.2.0)
 #>  pillar         1.9.0      2023-03-22 [1] CRAN (R 4.2.0)
 #>  pkgbuild       1.4.2      2023-06-26 [1] CRAN (R 4.2.0)
 #>  pkgconfig      2.0.3      2019-09-22 [1] CRAN (R 4.2.0)
@@ -259,6 +259,7 @@ devtools::session_info()
 #>  ps             1.7.5      2023-04-18 [1] CRAN (R 4.2.0)
 #>  purrr          1.0.2      2023-08-10 [1] CRAN (R 4.2.0)
 #>  R6             2.5.1      2021-08-19 [1] CRAN (R 4.2.0)
+#>  RColorBrewer   1.1-3      2022-04-03 [1] CRAN (R 4.2.0)
 #>  Rcpp           1.0.12     2024-01-09 [1] CRAN (R 4.2.3)
 #>  remotes        2.4.2      2021-11-30 [1] CRAN (R 4.2.0)
 #>  rlang          1.1.3      2024-01-10 [1] CRAN (R 4.2.3)
@@ -267,7 +268,7 @@ devtools::session_info()
 #>  rstudioapi     0.14       2022-08-22 [1] CRAN (R 4.2.0)
 #>  rvest          1.0.3      2022-08-19 [1] CRAN (R 4.2.0)
 #>  sass           0.4.6      2023-05-03 [1] CRAN (R 4.2.0)
-#>  scales         1.3.0      2023-11-28 [1] CRAN (R 4.2.3)
+#>  scales         1.4.0      2025-04-24 [1] CRAN (R 4.2.0)
 #>  sessioninfo    1.2.2      2021-12-06 [1] CRAN (R 4.2.0)
 #>  shiny          1.7.2      2022-07-19 [1] CRAN (R 4.2.0)
 #>  stringi        1.7.12     2023-01-11 [1] CRAN (R 4.2.0)
@@ -281,7 +282,7 @@ devtools::session_info()
 #>  urlchecker     1.0.1      2021-11-30 [1] CRAN (R 4.2.0)
 #>  usethis      * 2.1.6      2022-05-25 [1] CRAN (R 4.2.0)
 #>  utf8           1.2.3      2023-01-31 [1] CRAN (R 4.2.0)
-#>  vctrs          0.6.3      2023-06-14 [1] CRAN (R 4.2.0)
+#>  vctrs          0.6.5      2023-12-01 [1] CRAN (R 4.2.3)
 #>  viridisLite    0.4.2      2023-05-02 [1] CRAN (R 4.2.0)
 #>  webexercises * 1.0.0      2021-09-15 [1] CRAN (R 4.2.0)
 #>  webshot        0.5.4      2022-09-26 [1] CRAN (R 4.2.0)
@@ -294,5 +295,5 @@ devtools::session_info()
 #>  [1] /Users/niccolo/Library/R/arm64/4.2/library
 #>  [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library
 #> 
-#> ─────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#> ----------------------------------------------------------
 ```

@@ -151,5 +151,5 @@ Hypothesis testing is a powerful statistical tool for making data-driven decisio
 
 ## References
 
-- Slides: `alternative_hypo.pdf`, `how_to_calculate_pvalues.pdf`, `hypt_testing_null_hypo.pdf`, `hypt_testing_on_avg.pdf`
+- Slides: `02_hypt_testing_null_hypo.pdf`, `03_hypt_testing_alternative_hypo.pdf`, `04_how_to_calculate_pvalues.pdf`, `hypt_testing_on_avg.pdf`
 - Additional resources available in the course drive
