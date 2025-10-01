@@ -282,7 +282,7 @@ Linear regression is a fundamental statistical technique for modeling relationsh
 - Perform thorough diagnostics
 - Interpret results carefully and avoid common pitfalls
 
-## References
+## Further-on
 
 - Slides: `linear_regression.pdf`, `mlt_lin_reg.pdf`, `nonlinear_regression.pdf`
 - Additional resources available in the course drive

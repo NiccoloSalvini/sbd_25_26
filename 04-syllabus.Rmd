@@ -17,6 +17,7 @@ All course materials are available in the `slides/` folder:
 - [Hypothesis Testing with Alternative Hypothesis](slides/03_hypt_testing_alternative_hypo.pdf)
 - [How to Calculate P-values](slides/04_how_to_calculate_pvalues.pdf)
 - [Hypothesis Testing on Averages](slides/hypt_testing_on_avg.pdf)
+- [Exercises on Hypothesis Testing](slides/05_hypt_testing_exeR.pdf)
 - [Linear Regression](slides/linear_regression.pdf)
 - [Multiple Linear Regression](slides/mlt_lin_reg.pdf)
 - [Nonlinear Regression](slides/nonlinear_regression.pdf)
@@ -41,7 +42,7 @@ to be ready:
 | [TBD] | Introduction to RStudio + Hypothesis Testing Fundamentals | [Null Hypothesis Testing](slides/02_hypt_testing_null_hypo.pdf) | Laboratory          |
 | [TBD] | Alternative Hypothesis Testing + P-values Calculation | [Alternative Hypothesis](slides/03_hypt_testing_alternative_hypo.pdf) | Laboratory |
 | [TBD] | How to Calculate P-values | [P-values Calculation](slides/04_how_to_calculate_pvalues.pdf) | Laboratory |
-| [TBD] | Hypothesis Testing on Averages | [Testing on Averages](slides/hypt_testing_on_avg.pdf) | Laboratory |
+| [TBD] | Hypothesis Testing on Averages | [Testing on Averages](slides/hypt_testing_on_avg.pdf) and [Exercises](slides/05_hypt_testing_exeR.pdf) | Laboratory |
 | [TBD] | Chi-Square Tests (more than 2 proportions) | [Null Hypothesis Testing](slides/hypt_testing_null_hypo.pdf) | Laboratory |
 | [TBD] | Simple Linear Regression | [Linear Regression](slides/linear_regression.pdf) | Laboratory |
 | [TBD] | Multiple Linear Regression | [Multiple Linear Regression](slides/mlt_lin_reg.pdf) | Laboratory |
