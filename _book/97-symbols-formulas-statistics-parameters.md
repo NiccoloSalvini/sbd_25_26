@@ -17,90 +17,28 @@
 
 
 
-<table>
-<caption>(\#tab:ParametersStatistics)Some sample statistics used to estimate population parameters. Empty table cells means that these are not studied in this textbook. The dashes means that no formula is given in this textbook.</caption>
- <thead>
-  <tr>
-   <th style="text-align:left;font-weight: bold;">   </th>
-   <th style="text-align:center;font-weight: bold;"> Parameter </th>
-   <th style="text-align:center;font-weight: bold;"> Statistic </th>
-   <th style="text-align:center;font-weight: bold;"> Standard error </th>
-   <th style="text-align:center;font-weight: bold;"> S.E. formula reference </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Proportion </td>
-   <td style="text-align:center;"> $p$ </td>
-   <td style="text-align:center;"> $\hat{p}$ </td>
-   <td style="text-align:center;"> $\displaystyle\text{s.e.}(\hat{p}) = \sqrt{\frac{ \hat{p} \times (1 - \hat{p})}{n}}$ </td>
-   <td style="text-align:center;"> (ref:DEFSamplingDistributionPhat) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Mean </td>
-   <td style="text-align:center;"> $\mu$ </td>
-   <td style="text-align:center;"> $\bar{x}$ </td>
-   <td style="text-align:center;"> $\displaystyle\text{s.e.}(\bar{x}) = \frac{s}{\sqrt{n}}$ </td>
-   <td style="text-align:center;"> (ref:DEFSamplingDistributionXbar) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Standard deviation </td>
-   <td style="text-align:center;"> $\sigma$ </td>
-   <td style="text-align:center;"> $s$ </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Mean difference </td>
-   <td style="text-align:center;"> $\mu_d$ </td>
-   <td style="text-align:center;"> $\bar{d}$ </td>
-   <td style="text-align:center;"> $\displaystyle\text{s.e.}(\bar{d}) = \frac{s_d}{\sqrt{n}}$ </td>
-   <td style="text-align:center;"> (ref:DEFSamplingDistributionDbar) </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Diff. between means </td>
-   <td style="text-align:center;"> $\mu_1 - \mu_2$ </td>
-   <td style="text-align:center;"> $\bar{x}_1 - \bar{x}_2$ </td>
-   <td style="text-align:center;"> $\displaystyle\text{s.e.}(\bar{x}_1 - \bar{x}_2)$ </td>
-   <td style="text-align:center;"> -- </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Odds ratio </td>
-   <td style="text-align:center;"> Pop. OR </td>
-   <td style="text-align:center;"> Sample OR </td>
-   <td style="text-align:center;"> $\displaystyle\text{s.e.}(\text{sample OR})$ </td>
-   <td style="text-align:center;"> -- </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Correlation </td>
-   <td style="text-align:center;"> $\rho$ </td>
-   <td style="text-align:center;"> $r$ </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Slope of regression line </td>
-   <td style="text-align:center;"> $\beta_1$ </td>
-   <td style="text-align:center;"> $b_1$ </td>
-   <td style="text-align:center;"> $\text{s.e.}(b_1)$ </td>
-   <td style="text-align:center;"> -- </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Intercept of regression line </td>
-   <td style="text-align:center;"> $\beta_0$ </td>
-   <td style="text-align:center;"> $b_0$ </td>
-   <td style="text-align:center;"> $\text{s.e.}(b_0)$ </td>
-   <td style="text-align:center;"> -- </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> R-squared </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> $R^2$ </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;">  </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+\centering\begingroup\fontsize{9}{11}\selectfont
+
+\begin{tabular}{lcccc}
+\toprule
+\textbf{ } & \textbf{Parameter} & \textbf{Statistic} & \textbf{Standard error} & \textbf{S.E. formula reference}\\
+\midrule
+Proportion & $p$ & $\hat{p}$ & $\displaystyle\text{s.e.}(\hat{p}) = \sqrt{\frac{ \hat{p} \times (1 - \hat{p})}{n}}$ & (ref:DEFSamplingDistributionPhat)\\
+Mean & $\mu$ & $\bar{x}$ & $\displaystyle\text{s.e.}(\bar{x}) = \frac{s}{\sqrt{n}}$ & (ref:DEFSamplingDistributionXbar)\\
+Standard deviation & $\sigma$ & $s$ &  & \\
+Mean difference & $\mu_d$ & $\bar{d}$ & $\displaystyle\text{s.e.}(\bar{d}) = \frac{s_d}{\sqrt{n}}$ & (ref:DEFSamplingDistributionDbar)\\
+Diff. between means & $\mu_1 - \mu_2$ & $\bar{x}_1 - \bar{x}_2$ & $\displaystyle\text{s.e.}(\bar{x}_1 - \bar{x}_2)$ & --\\
+\addlinespace
+Odds ratio & Pop. OR & Sample OR & $\displaystyle\text{s.e.}(\text{sample OR})$ & --\\
+Correlation & $\rho$ & $r$ &  & \\
+Slope of regression line & $\beta_1$ & $b_1$ & $\text{s.e.}(b_1)$ & --\\
+Intercept of regression line & $\beta_0$ & $b_0$ & $\text{s.e.}(b_0)$ & --\\
+R-squared &  & $R^2$ &  & \\
+\bottomrule
+\end{tabular}
+\endgroup{}
+\end{table}
 
 
 
@@ -171,53 +109,27 @@ For many **hypothesis tests**, the *test statistic*\index{test statistic} is a $
 
 ## Other symbols used
 
-<table>
-<caption>(\#tab:OtherSymbols)Some symbols used</caption>
- <thead>
-  <tr>
-   <th style="text-align:center;font-weight: bold;"> Symbol </th>
-   <th style="text-align:left;font-weight: bold;"> Meaning </th>
-   <th style="text-align:center;font-weight: bold;"> Reference </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;"> $H_0$ </td>
-   <td style="text-align:left;"> Null hypothesis </td>
-   <td style="text-align:center;"> (ref:AboutHypotheses) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> $H_1$ </td>
-   <td style="text-align:left;"> Alternative hypothesis </td>
-   <td style="text-align:center;"> (ref:AboutHypotheses) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> df </td>
-   <td style="text-align:left;"> Degrees of freedom </td>
-   <td style="text-align:center;"> (ref:TestStatObs) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> CI </td>
-   <td style="text-align:left;"> Confidence interval </td>
-   <td style="text-align:center;"> (ref:AboutCIs) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> s.e. </td>
-   <td style="text-align:left;"> Standard error </td>
-   <td style="text-align:center;"> (ref:StandardError) </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> $n$ </td>
-   <td style="text-align:left;"> Sample size </td>
-   <td style="text-align:center;">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;"> $\chi^2$ </td>
-   <td style="text-align:left;"> The chi-squared test statistic </td>
-   <td style="text-align:center;"> (ref:TestStatObs) </td>
-  </tr>
-</tbody>
-</table>
+\begin{table}
+
+\caption{(\#tab:OtherSymbols)Some symbols used}
+\centering
+\fontsize{9}{11}\selectfont
+\begin{tabular}[t]{clc}
+\toprule
+\textbf{Symbol} & \textbf{Meaning} & \textbf{Reference}\\
+\midrule
+$H_0$ & Null hypothesis & (ref:AboutHypotheses)\\
+$H_1$ & Alternative hypothesis & (ref:AboutHypotheses)\\
+df & Degrees of freedom & (ref:TestStatObs)\\
+\addlinespace
+CI & Confidence interval & (ref:AboutCIs)\\
+\addlinespace
+s.e. & Standard error & (ref:StandardError)\\
+$n$ & Sample size & \\
+$\chi^2$ & The chi-squared test statistic & (ref:TestStatObs)\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 

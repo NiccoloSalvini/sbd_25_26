@@ -35,51 +35,45 @@ To create an R Project, you need to perform the following steps:
 
 1.  Select `File > New Project…` from the menu bar.
 
-<div class="figure">
-<img src="images/cpt_3/00_r_project_file_menu.png" alt="Get the R project" width="100%" />
-<p class="caption">(\#fig:rproj-menu)Get the R project</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/cpt_3/00_r_project_file_menu} \caption{Get the R project}(\#fig:rproj-menu)
+\end{figure}
 
 
 2.  Select `New Directory` from the popup window.
 
-<div class="figure">
-<img src="images/cpt_3/01_r_project_new_directory.png" alt="New Project Wizard pop up menu" width="100%" />
-<p class="caption">(\#fig:rproj-new-dir)New Project Wizard pop up menu</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/cpt_3/01_r_project_new_directory} \caption{New Project Wizard pop up menu}(\#fig:rproj-new-dir)
+\end{figure}
 
 3.  Next, select `New Project`.
 
-<div class="figure">
-<img src="images/cpt_3/02_r_project_new_project.png" alt="The full set of project you can initialize through the RStudio IDE" width="100%" />
-<p class="caption">(\#fig:rproj-open-new-dir)The full set of project you can initialize through the RStudio IDE</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/cpt_3/02_r_project_new_project} \caption{The full set of project you can initialize through the RStudio IDE}(\#fig:rproj-open-new-dir)
+\end{figure}
 
 4.  Pick a meaningful name for your project folder, i.e. the `Directory Name`. Ensure this project folder is created in the right place. You can change the `subdirectory` by clicking on `Browse…`. Ideally the subdirectory is a place where you usually store your research projects.
 
 
-<div class="figure">
-<img src="images/cpt_3/03_r_project_specs.png" alt="The RProject specifications" width="100%" />
-<p class="caption">(\#fig:rproj-specs)The RProject specifications</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/cpt_3/03_r_project_specs} \caption{The RProject specifications}(\#fig:rproj-specs)
+\end{figure}
 
 
 5.  You have the option to `Create a git repository`. This is only relevant if you already have a GitHub account and wish to use version control. For now, you can happily ignore it if you do not use GitHub.
 
 6.  Lastly, tick `Open in new session`. This will open your *R* Project in a new RStudio window.
 
-<div class="figure">
-<img src="images/cpt_3/04_r_project_directory_name.png" alt="Choose a directory name for your new project" width="100%" />
-<p class="caption">(\#fig:rproj-dirname)Choose a directory name for your new project</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/cpt_3/04_r_project_directory_name} \caption{Choose a directory name for your new project}(\#fig:rproj-dirname)
+\end{figure}
 
 
 7.  Once you are happy with your choices, you can click `Create Project`. This will open a new *R* Session, and you can start working on your project.
 
-<div class="figure">
-<img src="images/cpt_3/05_r_project_new_session.png" alt="A new RStudio Session will pop up just like magic!" width="100%" />
-<p class="caption">(\#fig:rproj-open-new-session)A new RStudio Session will pop up just like magic!</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/cpt_3/05_r_project_new_session} \caption{A new RStudio Session will pop up just like magic!}(\#fig:rproj-open-new-session)
+\end{figure}
 
 If you look carefully, you can see that your RStudio is now 'branded' with your project name. At the top of the window, you see the project name, the files pane shows the root directory where all your files will be, and even the console shows on top the file path of your project. You could set all this up manually, but I would not recommend it, not the least because it is easy and swift to work with *R* Projects
 
@@ -116,10 +110,9 @@ Code may easily grow lengthy and complicated. As a result, writing it on the con
 
 When you open or create a new R script, it will appear in the Source pane. This window is sometimes referred to as the 'script editor'. An R script begins with an empty file. Good coding etiquette requires us to put a comment # on the first line to describe what this file does. Here's a 'TidyTuesday' R Project sample.
 
-<div class="figure">
-<img src="images/cpt_3/00_r_script.png" alt="Open an R Script and write some on it" width="100%" />
-<p class="caption">(\#fig:rscript)Open an R Script and write some on it</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/cpt_3/00_r_script} \caption{Open an R Script and write some on it}(\#fig:rscript)
+\end{figure}
 
 
 All of the examples in this tutorial are made to be copied and pasted into your own R script. However, you will need to install the R packages for certain code. Let's give it a shot with the following code. The plot produced by this code displays which car company provides the most fuel-efficient vehicles. This code should be copied and pasted into your R script. Below there's a simple script that generates a plot, copy and paste into your file, then execute it.
@@ -141,7 +134,8 @@ mpg %>%
   ylab("Highway miles per gallon")
 ```
 
-<img src="03-nicewarmup_files/figure-html/R Script copy and paste examples-1.png" width="100%" />
+
+\includegraphics[width=1\linewidth]{03-nicewarmup_files/figure-latex/R Script copy and paste examples-1} 
 
 
 You're probably wondering what happened to your plot. Copying the code will not execute it in your *R* script. However, this is required in order to develop the plot. If you pressed `Return ↵`, you would just add a new line. Instead, choose the code you wish to run and hit `Ctrl+Return ↵` (PC) or `Cmd+Return ↵` (Mac). You may also use the `Run` command at the top of your source window, but the keyboard shortcut is far more convenient. Furthermore, you will rapidly remember this shortcut because we will need to utilize it frequently. If everything is in order, you should see the following:

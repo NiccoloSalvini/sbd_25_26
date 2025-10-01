@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 7 📈 Linear Regression Analysis | Statistics &amp; Big Data 25-26 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="This chapter covers linear regression analysis, including simple linear regression, multiple linear regression, and nonlinear regression techniques.  7.1 Learning Objectives By the end of this...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 7 📈 Linear Regression Analysis | Statistics &amp; Big Data 25-26 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="This chapter covers linear regression analysis, including simple linear regression, multiple linear regression, and nonlinear regression techniques.  7.1 Learning Objectives By the end of this...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 7 📈 Linear Regression Analysis | Statistics &amp; Big Data 25-26 Labs">
+<meta name="twitter:description" content="This chapter covers linear regression analysis, including simple linear regression, multiple linear regression, and nonlinear regression techniques.  7.1 Learning Objectives By the end of this...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 25-26 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li class="book-part">Part 1: The Foundations</li>
+<li><a class="" href="hypothesis-testing-fundamentals.html"><span class="header-section-number">6</span> 🧪 Hypothesis Testing Fundamentals</a></li>
+<li><a class="active" href="linear-regression-analysis.html"><span class="header-section-number">7</span> 📈 Linear Regression Analysis</a></li>
+<li><a class="" href="advanced-statistical-methods.html"><span class="header-section-number">8</span> 🔬 Advanced Statistical Methods</a></li>
+<li class="book-part">Part 2: Advanced Modeling</li>
+<li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
+<li class="book-part">Additional Resources</li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">10</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">11</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">12</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">13</span> ⚡ Course Performance</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">14</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">15</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">16</span> Datasets</a></li>
+<li><a class="" href="references-4.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="linear-regression-analysis" class="section level1" number="7">
+<h1>
+<span class="header-section-number">7</span> 📈 Linear Regression Analysis<a class="anchor" aria-label="anchor" href="#linear-regression-analysis"><i class="fas fa-link"></i></a>
+</h1>
+<p>This chapter covers linear regression analysis, including simple linear regression, multiple linear regression, and nonlinear regression techniques.</p>
+<div id="learning-objectives-1" class="section level2" number="7.1">
+<h2>
+<span class="header-section-number">7.1</span> Learning Objectives<a class="anchor" aria-label="anchor" href="#learning-objectives-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+<li>Understand the principles of linear regression</li>
+<li>Perform simple and multiple linear regression</li>
+<li>Interpret regression coefficients and statistics</li>
+<li>Assess model fit and assumptions</li>
+<li>Handle nonlinear relationships</li>
+<li>Use R for regression analysis</li>
+</ul>
+</div>
+<div id="introduction-to-linear-regression" class="section level2" number="7.2">
+<h2>
+<span class="header-section-number">7.2</span> Introduction to Linear Regression<a class="anchor" aria-label="anchor" href="#introduction-to-linear-regression"><i class="fas fa-link"></i></a>
+</h2>
+<p>Linear regression is a statistical method used to model the relationship between a dependent variable (Y) and one or more independent variables (X). It assumes a linear relationship between the variables.</p>
+<div id="simple-linear-regression" class="section level3" number="7.2.1">
+<h3>
+<span class="header-section-number">7.2.1</span> Simple Linear Regression<a class="anchor" aria-label="anchor" href="#simple-linear-regression"><i class="fas fa-link"></i></a>
+</h3>
+<p>Simple linear regression models the relationship between two variables:</p>
+<p><strong>Model</strong>: Y = β₀ + β₁X + ε</p>
+<p>Where:
+- Y = dependent variable (response)
+- X = independent variable (predictor)
+- β₀ = intercept
+- β₁ = slope
+- ε = error term</p>
+</div>
+<div id="multiple-linear-regression" class="section level3" number="7.2.2">
+<h3>
+<span class="header-section-number">7.2.2</span> Multiple Linear Regression<a class="anchor" aria-label="anchor" href="#multiple-linear-regression"><i class="fas fa-link"></i></a>
+</h3>
+<p>Multiple linear regression extends simple regression to include multiple predictors:</p>
+<p><strong>Model</strong>: Y = β₀ + β₁X₁ + β₂X₂ + … + βₖXₖ + ε</p>
+</div>
+</div>
+<div id="assumptions-of-linear-regression" class="section level2" number="7.3">
+<h2>
+<span class="header-section-number">7.3</span> Assumptions of Linear Regression<a class="anchor" aria-label="anchor" href="#assumptions-of-linear-regression"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Linearity</strong>: The relationship between X and Y is linear</li>
+<li>
+<strong>Independence</strong>: Observations are independent</li>
+<li>
+<strong>Homoscedasticity</strong>: Constant variance of errors</li>
+<li>
+<strong>Normality</strong>: Errors are normally distributed</li>
+<li>
+<strong>No multicollinearity</strong>: Independent variables are not highly correlated</li>
+</ol>
+</div>
+<div id="model-evaluation-metrics" class="section level2" number="7.4">
+<h2>
+<span class="header-section-number">7.4</span> Model Evaluation Metrics<a class="anchor" aria-label="anchor" href="#model-evaluation-metrics"><i class="fas fa-link"></i></a>
+</h2>
+<div id="r-squared-r²" class="section level3" number="7.4.1">
+<h3>
+<span class="header-section-number">7.4.1</span> R-squared (R²)<a class="anchor" aria-label="anchor" href="#r-squared-r%C2%B2"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>Definition</strong>: Proportion of variance in Y explained by X</li>
+<li>
+<strong>Range</strong>: 0 to 1</li>
+<li>
+<strong>Interpretation</strong>: Higher values indicate better fit</li>
+</ul>
+</div>
+<div id="adjusted-r-squared" class="section level3" number="7.4.2">
+<h3>
+<span class="header-section-number">7.4.2</span> Adjusted R-squared<a class="anchor" aria-label="anchor" href="#adjusted-r-squared"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>Definition</strong>: R² adjusted for the number of predictors</li>
+<li>
+<strong>Use</strong>: Compare models with different numbers of predictors</li>
+<li>
+<strong>Formula</strong>: 1 - (1-R²)(n-1)/(n-k-1)</li>
+</ul>
+</div>
+<div id="root-mean-square-error-rmse" class="section level3" number="7.4.3">
+<h3>
+<span class="header-section-number">7.4.3</span> Root Mean Square Error (RMSE)<a class="anchor" aria-label="anchor" href="#root-mean-square-error-rmse"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>Definition</strong>: Standard deviation of residuals</li>
+<li>
+<strong>Interpretation</strong>: Lower values indicate better fit</li>
+<li>
+<strong>Units</strong>: Same as dependent variable</li>
+</ul>
+</div>
+</div>
+<div id="practical-example-simple-linear-regression" class="section level2" number="7.5">
+<h2>
+<span class="header-section-number">7.5</span> Practical Example: Simple Linear Regression<a class="anchor" aria-label="anchor" href="#practical-example-simple-linear-regression"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create sample data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">100</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, mean <span class="op">=</span> <span class="fl">50</span>, sd <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> <span class="va">x</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create data frame</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Fit simple linear regression</span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># View model summary</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Extract key statistics</span></span>
+<span><span class="va">model_summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span>
+<span><span class="va">r_squared</span> <span class="op">&lt;-</span> <span class="va">model_summary</span><span class="op">$</span><span class="va">r.squared</span></span>
+<span><span class="va">adj_r_squared</span> <span class="op">&lt;-</span> <span class="va">model_summary</span><span class="op">$</span><span class="va">adj.r.squared</span></span>
+<span><span class="va">p_value</span> <span class="op">&lt;-</span> <span class="va">model_summary</span><span class="op">$</span><span class="va">coefficients</span><span class="op">[</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">]</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"R-squared:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">r_squared</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Adjusted R-squared:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">adj_r_squared</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"P-value:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">p_value</span>, <span class="fl">4</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create visualization</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Simple Linear Regression"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"Independent Variable (X)"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Dependent Variable (Y)"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="multiple-linear-regression-1" class="section level2" number="7.6">
+<h2>
+<span class="header-section-number">7.6</span> Multiple Linear Regression<a class="anchor" aria-label="anchor" href="#multiple-linear-regression-1"><i class="fas fa-link"></i></a>
+</h2>
+<div id="example-with-multiple-predictors" class="section level3" number="7.6.1">
+<h3>
+<span class="header-section-number">7.6.1</span> Example with Multiple Predictors<a class="anchor" aria-label="anchor" href="#example-with-multiple-predictors"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span>  <span class="co"># for VIF calculation</span></span>
+<span></span>
+<span><span class="co"># Create sample data with multiple predictors</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">100</span></span>
+<span><span class="va">x1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, mean <span class="op">=</span> <span class="fl">50</span>, sd <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">x2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, mean <span class="op">=</span> <span class="fl">30</span>, sd <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span>
+<span><span class="va">x3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, mean <span class="op">=</span> <span class="fl">20</span>, sd <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">10</span> <span class="op">+</span> <span class="fl">0.3</span> <span class="op">*</span> <span class="va">x1</span> <span class="op">+</span> <span class="fl">0.2</span> <span class="op">*</span> <span class="va">x2</span> <span class="op">-</span> <span class="fl">0.1</span> <span class="op">*</span> <span class="va">x3</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create data frame</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x1 <span class="op">=</span> <span class="va">x1</span>, x2 <span class="op">=</span> <span class="va">x2</span>, x3 <span class="op">=</span> <span class="va">x3</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Fit multiple linear regression</span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x1</span> <span class="op">+</span> <span class="va">x2</span> <span class="op">+</span> <span class="va">x3</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># View model summary</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check for multicollinearity using VIF</span></span>
+<span><span class="va">vif_values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/car/man/vif.html">vif</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Variance Inflation Factors:"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">vif_values</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Interpretation guidelines:</span></span>
+<span><span class="co"># VIF &lt; 5: No multicollinearity concern</span></span>
+<span><span class="co"># VIF 5-10: Moderate multicollinearity</span></span>
+<span><span class="co"># VIF &gt; 10: High multicollinearity</span></span></code></pre></div>
+</div>
+</div>
+<div id="nonlinear-regression" class="section level2" number="7.7">
+<h2>
+<span class="header-section-number">7.7</span> Nonlinear Regression<a class="anchor" aria-label="anchor" href="#nonlinear-regression"><i class="fas fa-link"></i></a>
+</h2>
+<p>When the relationship between variables is not linear, we can use nonlinear regression techniques.</p>
+<div id="polynomial-regression" class="section level3" number="7.7.1">
+<h3>
+<span class="header-section-number">7.7.1</span> Polynomial Regression<a class="anchor" aria-label="anchor" href="#polynomial-regression"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create nonlinear data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span>, length.out <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">0.1</span> <span class="op">*</span> <span class="va">x</span><span class="op">^</span><span class="fl">2</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create data frame</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Fit polynomial regression (quadratic)</span></span>
+<span><span class="va">model_poly</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/AsIs.html">I</a></span><span class="op">(</span><span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># View model summary</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_poly</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create visualization</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/AsIs.html">I</a></span><span class="op">(</span><span class="va">x</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span>, se <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Polynomial Regression (Quadratic)"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"Independent Variable (X)"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Dependent Variable (Y)"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="logarithmic-transformation" class="section level3" number="7.7.2">
+<h3>
+<span class="header-section-number">7.7.2</span> Logarithmic Transformation<a class="anchor" aria-label="anchor" href="#logarithmic-transformation"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create exponential data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">10</span>, length.out <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">0.5</span> <span class="op">+</span> <span class="fl">0.3</span> <span class="op">*</span> <span class="va">x</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create data frame</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Fit log-transformed model</span></span>
+<span><span class="va">model_log</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># View model summary</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_log</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create visualization</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_log10</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Log-transformed Regression"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"Independent Variable (X)"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Dependent Variable (Y) - Log Scale"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div id="model-diagnostics" class="section level2" number="7.8">
+<h2>
+<span class="header-section-number">7.8</span> Model Diagnostics<a class="anchor" aria-label="anchor" href="#model-diagnostics"><i class="fas fa-link"></i></a>
+</h2>
+<div id="residual-analysis" class="section level3" number="7.8.1">
+<h3>
+<span class="header-section-number">7.8.1</span> Residual Analysis<a class="anchor" aria-label="anchor" href="#residual-analysis"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Fit model</span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x1</span> <span class="op">+</span> <span class="va">x2</span> <span class="op">+</span> <span class="va">x3</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Get residuals and fitted values</span></span>
+<span><span class="va">model_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://generics.r-lib.org/reference/augment.html">augment</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Residual plots</span></span>
+<span><span class="co"># 1. Residuals vs Fitted Values</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">model_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.fitted</span>, y <span class="op">=</span> <span class="va">.resid</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fl">0</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Residuals vs Fitted Values"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"Fitted Values"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Residuals"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 2. Q-Q Plot for normality</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">model_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">.resid</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_qq.html">stat_qq</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_qq.html">stat_qq_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Q-Q Plot of Residuals"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"Theoretical Quantiles"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Sample Quantiles"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 3. Scale-Location Plot</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">model_data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">.fitted</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="va">.resid</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>se <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Scale-Location Plot"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"Fitted Values"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"√|Standardized Residuals|"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div id="best-practices-1" class="section level2" number="7.9">
+<h2>
+<span class="header-section-number">7.9</span> Best Practices<a class="anchor" aria-label="anchor" href="#best-practices-1"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Check assumptions</strong> before interpreting results</li>
+<li>
+<strong>Use appropriate transformations</strong> for nonlinear relationships</li>
+<li>
+<strong>Avoid overfitting</strong> by not including too many predictors</li>
+<li>
+<strong>Consider interaction terms</strong> when theoretically justified</li>
+<li>
+<strong>Report confidence intervals</strong> for coefficients</li>
+<li>
+<strong>Validate models</strong> using cross-validation when possible</li>
+</ol>
+</div>
+<div id="common-pitfalls" class="section level2" number="7.10">
+<h2>
+<span class="header-section-number">7.10</span> Common Pitfalls<a class="anchor" aria-label="anchor" href="#common-pitfalls"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Correlation vs Causation</strong>: Regression doesn’t imply causation</li>
+<li>
+<strong>Extrapolation</strong>: Be cautious when predicting outside the data range</li>
+<li>
+<strong>Outliers</strong>: Check for influential observations</li>
+<li>
+<strong>Missing data</strong>: Handle missing values appropriately</li>
+<li>
+<strong>Model selection</strong>: Use appropriate criteria for model comparison</li>
+</ol>
+</div>
+<div id="summary-1" class="section level2" number="7.11">
+<h2>
+<span class="header-section-number">7.11</span> Summary<a class="anchor" aria-label="anchor" href="#summary-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Linear regression is a fundamental statistical technique for modeling relationships between variables. Key points:</p>
+<ul>
+<li>Understand the assumptions and check them</li>
+<li>Use appropriate metrics to evaluate model fit</li>
+<li>Consider nonlinear relationships when necessary</li>
+<li>Perform thorough diagnostics</li>
+<li>Interpret results carefully and avoid common pitfalls</li>
+</ul>
+</div>
+<div id="references-1" class="section level2" number="7.12">
+<h2>
+<span class="header-section-number">7.12</span> References<a class="anchor" aria-label="anchor" href="#references-1"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Slides: <code>linear_regression.pdf</code>, <code>mlt_lin_reg.pdf</code>, <code>nonlinear_regression.pdf</code>
+</li>
+<li>Additional resources available in the course drive</li>
+</ul>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="hypothesis-testing-fundamentals.html"><span class="header-section-number">6</span> 🧪 Hypothesis Testing Fundamentals</a></div>
+<div class="next"><a href="advanced-statistical-methods.html"><span class="header-section-number">8</span> 🔬 Advanced Statistical Methods</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#linear-regression-analysis"><span class="header-section-number">7</span> 📈 Linear Regression Analysis</a></li>
+<li><a class="nav-link" href="#learning-objectives-1"><span class="header-section-number">7.1</span> Learning Objectives</a></li>
+<li>
+<a class="nav-link" href="#introduction-to-linear-regression"><span class="header-section-number">7.2</span> Introduction to Linear Regression</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#simple-linear-regression"><span class="header-section-number">7.2.1</span> Simple Linear Regression</a></li>
+<li><a class="nav-link" href="#multiple-linear-regression"><span class="header-section-number">7.2.2</span> Multiple Linear Regression</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#assumptions-of-linear-regression"><span class="header-section-number">7.3</span> Assumptions of Linear Regression</a></li>
+<li>
+<a class="nav-link" href="#model-evaluation-metrics"><span class="header-section-number">7.4</span> Model Evaluation Metrics</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#r-squared-r%C2%B2"><span class="header-section-number">7.4.1</span> R-squared (R²)</a></li>
+<li><a class="nav-link" href="#adjusted-r-squared"><span class="header-section-number">7.4.2</span> Adjusted R-squared</a></li>
+<li><a class="nav-link" href="#root-mean-square-error-rmse"><span class="header-section-number">7.4.3</span> Root Mean Square Error (RMSE)</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#practical-example-simple-linear-regression"><span class="header-section-number">7.5</span> Practical Example: Simple Linear Regression</a></li>
+<li>
+<a class="nav-link" href="#multiple-linear-regression-1"><span class="header-section-number">7.6</span> Multiple Linear Regression</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#example-with-multiple-predictors"><span class="header-section-number">7.6.1</span> Example with Multiple Predictors</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#nonlinear-regression"><span class="header-section-number">7.7</span> Nonlinear Regression</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#polynomial-regression"><span class="header-section-number">7.7.1</span> Polynomial Regression</a></li>
+<li><a class="nav-link" href="#logarithmic-transformation"><span class="header-section-number">7.7.2</span> Logarithmic Transformation</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#model-diagnostics"><span class="header-section-number">7.8</span> Model Diagnostics</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#residual-analysis"><span class="header-section-number">7.8.1</span> Residual Analysis</a></li></ul>
+</li>
+<li><a class="nav-link" href="#best-practices-1"><span class="header-section-number">7.9</span> Best Practices</a></li>
+<li><a class="nav-link" href="#common-pitfalls"><span class="header-section-number">7.10</span> Common Pitfalls</a></li>
+<li><a class="nav-link" href="#summary-1"><span class="header-section-number">7.11</span> Summary</a></li>
+<li><a class="nav-link" href="#references-1"><span class="header-section-number">7.12</span> References</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/06-linear-regression-analysis.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
+          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/06-linear-regression-analysis.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-09-10.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 2 ✨Prerequisites | Statistics &amp; Big Data 25-26 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="2.1 Setting up R and RStudio To get started with R, you need to acquire your own copy. This appendix will show you how to download R as well as RStudio, a software application that makes R easier...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 2 ✨Prerequisites | Statistics &amp; Big Data 25-26 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="2.1 Setting up R and RStudio To get started with R, you need to acquire your own copy. This appendix will show you how to download R as well as RStudio, a software application that makes R easier...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 2 ✨Prerequisites | Statistics &amp; Big Data 25-26 Labs">
+<meta name="twitter:description" content="2.1 Setting up R and RStudio To get started with R, you need to acquire your own copy. This appendix will show you how to download R as well as RStudio, a software application that makes R easier...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 25-26 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="active" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li class="book-part">Part 1: The Foundations</li>
+<li><a class="" href="hypothesis-testing-fundamentals.html"><span class="header-section-number">6</span> 🧪 Hypothesis Testing Fundamentals</a></li>
+<li><a class="" href="linear-regression-analysis.html"><span class="header-section-number">7</span> 📈 Linear Regression Analysis</a></li>
+<li><a class="" href="advanced-statistical-methods.html"><span class="header-section-number">8</span> 🔬 Advanced Statistical Methods</a></li>
+<li class="book-part">Part 2: Advanced Modeling</li>
+<li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
+<li class="book-part">Additional Resources</li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">10</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">11</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">12</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">13</span> ⚡ Course Performance</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">14</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">15</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">16</span> Datasets</a></li>
+<li><a class="" href="references-4.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="prereq" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> ✨Prerequisites<a class="anchor" aria-label="anchor" href="#prereq"><i class="fas fa-link"></i></a>
+</h1>
+<div id="setting-up-r-and-rstudio" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> Setting up R and RStudio<a class="anchor" aria-label="anchor" href="#setting-up-r-and-rstudio"><i class="fas fa-link"></i></a>
+</h2>
+<p>To get started with R, you need to acquire your own copy. This appendix will show you how to download R as well as RStudio, a software application that makes R easier to use. You’ll go from downloading R to opening your first R session. Use the menu on the right hand side of the page to select your OS and follow the correct installation.</p>
+<p>Both R and RStudio are free and easy to download. <strong>If you feel more comfortable interacting with videos instead of reading</strong> please visit <ins> <a href="https://learnr-examples.shinyapps.io/ex-setup-r/">this interactive tutorials</a> </ins> that will guide you through the full R set up!</p>
+</div>
+<div id="how-to-download-and-install-r" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> How to Download and Install R<a class="anchor" aria-label="anchor" href="#how-to-download-and-install-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>R is maintained by an international team of developers who make the language available through the web page of The Comprehensive R Archive Network i.e. CRAN. The top of the web page provides three links for downloading R. Follow the link that describes your operating system: Windows, Mac, or Linux.</p>
+<div id="r-in-windows" class="section level3" number="2.2.1">
+<h3>
+<span class="header-section-number">2.2.1</span> <strong>R in Windows</strong><a class="anchor" aria-label="anchor" href="#r-in-windows"><i class="fas fa-link"></i></a>
+</h3>
+<p>To install R on Windows, click the “Download R for Windows” link. Then click the “base” link. Next, click the first link at the top of the new page. This link should say something like “Download R 3.0.3 for Windows,” except the 3.0.3 will be replaced by the most current version of R. The link downloads an installer program, which installs the most up-to-date version of R for Windows. Run this program and step through the installation wizard that appears. The wizard will install R into your program files folders and place a shortcut in your Start menu. Note that you’ll need to have all of the appropriate administration privileges to install new software on your machine. (more detailed steps)</p>
+</div>
+<div id="r-in-mac" class="section level3" number="2.2.2">
+<h3>
+<span class="header-section-number">2.2.2</span> <strong>R in Mac</strong><a class="anchor" aria-label="anchor" href="#r-in-mac"><i class="fas fa-link"></i></a>
+</h3>
+<p>This is also my setup, feel free to reach me at <a href="mailto:niccolo.salvini27@gmail.com">my mail address</a> if something is messed up.</p>
+<ol style="list-style-type: decimal">
+<li>Go to <a href="www.r-project.org">www.r-project.org</a>
+</li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:rproj-page"></span>
+<img src="images/cpt_1/00_r_project_page.png" alt="The R mirrors website" width="100%"><p class="caption">
+Figure 2.1: The R mirrors website
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Click on <code>CRAN</code> where it says <code>Download</code>.</p></li>
+<li><p>Choose a server in your country (all of them work, but downloads will perform quicker if you choose your country or one that is close to where you are).</p></li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:cran-mirrors"></span>
+<img src="images/cpt_1/01_r_project_cran_mirror.png" alt="CRAN mirrors" width="100%"><p class="caption">
+Figure 2.2: CRAN mirrors
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Select the operating system for your computer, for example <code>Download R for macOS</code>.</li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:os-choice"></span>
+<img src="images/cpt_1/02_r_project_os_choice.png" alt="OS choices available" width="100%"><p class="caption">
+Figure 2.3: OS choices available
+</p>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>Select the version you want to install (I recommend the latest version)</li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:r-versions"></span>
+<img src="images/cpt_1/03_r_project_version_choice.png" alt="R versions available" width="100%"><p class="caption">
+Figure 2.4: R versions available
+</p>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>Open the downloaded file and follow the installation instructions. I recommend leaving the suggested settings as they are.</li>
+</ol>
+<div class="note">
+<p><strong>Binaries Versus Source</strong></p>
+<p>R can be installed from precompiled binaries or built from source on any operating system. For Windows and Mac machines, installing R from binaries is extremely easy. The binary comes preloaded in its own installer. Although you can build R from source on these platforms, the process is much more complicated and won’t provide much benefit for most users. For Linux systems, the opposite is true. Precompiled binaries can be found for some systems, but it is much more common to build R from source files when installing on Linux. The download pages on CRAN’s website provide information about building R from source for the Windows, Mac, and Linux platforms.</p>
+</div>
+</div>
+<div id="r-in-linux" class="section level3" number="2.2.3">
+<h3>
+<span class="header-section-number">2.2.3</span> <strong>R in Linux</strong><a class="anchor" aria-label="anchor" href="#r-in-linux"><i class="fas fa-link"></i></a>
+</h3>
+<p>R comes preinstalled on many Linux systems, but you’ll want the newest version of R if yours is out of date. The CRAN website provides files to build R from source on Debian, Redhat, SUSE, and Ubuntu systems under the link “Download R for Linux.” Click the link and then follow the directory trail to the version of Linux you wish to install on. The exact installation procedure will vary depending on the Linux system you use. CRAN guides the process by grouping each set of source files with documentation or README files that explain how to install on your system.</p>
+<div class="note">
+<p><strong>32-bit Versus 64-bit</strong></p>
+<p>R comes in both 32-bit and 64-bit versions. Which should you use? In most cases, it won’t matter. Both versions use 32-bit integers, which means they compute numbers to the same numerical precision. The difference occurs in the way each version manages memory. 64-bit R uses 64-bit memory pointers, and 32-bit R uses 32-bit memory pointers. This means 64-bit R has a larger memory space to use (and search through).
+As a rule of thumb, 32-bit builds of R are faster than 64-bit builds, though not always. On the other hand, 64-bit builds can handle larger files and data sets with fewer memory management problems. In either version, the maximum allowable vector size tops out at around 2 billion elements. If your operating system doesn’t support 64-bit programs, or your RAM is less than 4 GB, 32-bit R is for you. The Windows and Mac installers will automatically install both versions if your system supports 64-bit R.</p>
+</div>
+</div>
+</div>
+<div id="using-r" class="section level2" number="2.3">
+<h2>
+<span class="header-section-number">2.3</span> Using R<a class="anchor" aria-label="anchor" href="#using-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>R isn’t a program that you can open and start using, like Microsoft Word or Internet Explorer. Instead, R is a computer language, like C, C++, or UNIX. You use R by writing commands in the R language and asking your computer to interpret them. In the old days, people ran R code in a UNIX terminal window—as if they were hackers in a movie from the 1980s. Now almost everyone uses R with an application called RStudio, and I recommend that you do, too.</p>
+<div class="fyi">
+<p><strong>R and UNIX</strong></p>
+<p>You can still run R in a UNIX or BASH window (prompt or Powershell) by typing the command:
+R
+which opens an R interpreter. You can then do your work and close the interpreter by running <code><a href="https://rdrr.io/r/base/quit.html">q()</a></code> when you are finished.</p>
+</div>
+</div>
+<div id="using-rstudio" class="section level2" number="2.4">
+<h2>
+<span class="header-section-number">2.4</span> Using RStudio<a class="anchor" aria-label="anchor" href="#using-rstudio"><i class="fas fa-link"></i></a>
+</h2>
+<p><em>R</em> by itself is just the ‘<em>beating heart</em>’ of <em>R</em> programming, but it has no particular user interface. You may have heard me saying stuff like: “R is the <strong>engine</strong> of the car, indeed RStudio is the <strong>car body</strong>, that’s true, you just don’t need an engine if you don’t have a car body. That is to say: if you want buttons to click and actually ‘<em>see</em>’ what you are doing, there is no better way than RStudio.
+RStudio is an <em>integrated development environment</em> (IDE) and will be our primary tool to interact with <em>R</em>. It is the only software you need to do all the fun parts and, of course, to follow along with the examples of this book.
+You may ask yourself what is Posit, fair question. Back in the days Posit, the company behind RStudio, was actually named RStudio (as their product). Then in 2023 they rebranded themselves as Posit to also include other languages like Python,</p>
+<p>Howeveeeer to install RStudio perform the following steps:</p>
+<ol style="list-style-type: decimal">
+<li>Go to <a href="https://posit.co/" title="https://posit.co/">https://posit.co/</a>
+</li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:rstudio-main"></span>
+<img src="images/cpt_1/01_rstudio_main_page.png" alt="The Posit.co main page" width="100%"><p class="caption">
+Figure 2.5: The Posit.co main page
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Go to <code>DOWNLOAD RSTUDIO</code> in the upper right corner (download R if you still haven’t).</p></li>
+<li><p>Select <code>DOWNLOAD RSTUDIO</code>, just on the left of <code>DOWNLOAD RSTUDIO SERVER</code>.</p></li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:rstudio-select-version"></span>
+<img src="images/cpt_1/03_rstudio_select_version.png" alt="Choose RStudio version" width="100%"><p class="caption">
+Figure 2.6: Choose RStudio version
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>On this page, scroll down and select the Download (in the download column) corresponding to your OS (mind that different versions of the same OS, say macOS 11.2 or macOS 8.3 need different RStudio download installations).</li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:rstudio-select-os-version"></span>
+<img src="images/cpt_1/04_rstudio_select_edition.png" alt="Choose RStudio version" width="100%"><p class="caption">
+Figure 2.7: Choose RStudio version
+</p>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>Open the downloaded file and follow the installation instructions. Again, keep it to the default settings as much as possible.</li>
+</ol>
+<p>Congratulations, you are all set up to learn <em>R</em>. From now on you only need to start RStudio and not <em>R</em>. Of course, if you are the curious type, nothing shall stop you to try <em>R</em> without RStudio.</p>
+</div>
+<div id="when-you-first-start-rstudio" class="section level2" number="2.5">
+<h2>
+<span class="header-section-number">2.5</span> When you first start RStudio<a class="anchor" aria-label="anchor" href="#when-you-first-start-rstudio"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before you start programming away, you might want to make some tweaks to your settings right away to have a better experience (in my humble opinion). To open the Rstudio settings you have to click on</p>
+<ul>
+<li><p><code>RStudio &gt; Preferences</code> or press <code>⌘ + ,</code> if you are on a Mac.</p></li>
+<li><p><code>RStudio &gt; Tools &gt; Global Options</code> or press <code>Ctrl + ,</code> if you work on a Windows computer.</p></li>
+</ul>
+<p>I recommend to at least make the following changes to set yourself up for success right from the beginning:</p>
+<ol style="list-style-type: decimal">
+<li>
+<p>Already on the first tab, i.e. <code>General &gt; Basic</code>, we should make one of the most significant changes. Deactivate every option that starts with <code>Restore</code>. This will ensure that every time you start RStudio, you begin with a clean slate. At first sight, it might sound counter-intuitive not to restart everything where you left off, but it is essential to make all your projects easily reproducible. Furthermore, if you work together with others, not restoring your personal settings also ensures that your programming works across different computers. Therefore, I recommend having the following unticked:</p>
+<ul>
+<li><p><code>Restore most recently opened project at startup</code>,</p></li>
+<li><p><code>Restore previsouly open source documents at startup</code>,</p></li>
+<li><p><code>Restore .Rdata into workspace at startup</code></p></li>
+</ul>
+</li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:rstudio-preferences"></span>
+<img src="images/cpt_1/00_rstudio_preferences_basic.png" alt="get your RStudio preferences" width="100%"><p class="caption">
+Figure 2.8: get your RStudio preferences
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>In the same tab under <code>Workspace</code>, select <code>Never</code> for the setting <code>Save workspace to .RData on exit</code>. One might think it is wise to keep intermediary results stored from one R session to another. However, I often found myself fixing issues due to this lazy method, and my code became less reliable and, therefore, reproducible. With experience, you will find that this avoids many headaches.</p></li>
+<li><p>In the <code>Code &gt; Editing</code> tab, make sure to have at least the first five options ticked, especially the <code>Auto-indent code after paste</code>. This setting will save time when trying to format your coding appropriately, making it easier to read. Indentation is the primary way of making your code look more readable and less like a series of characters that appear almost random.</p></li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:rstudio-prefediting"></span>
+<img src="images/cpt_1/01_rstudio_preferences_editing.png" alt="Pimp your RStudio IDE" width="100%"><p class="caption">
+Figure 2.9: Pimp your RStudio IDE
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>In the <code>Display</code> tab, you might want to have the first three options selected. In particular, <code>Highlight selected line</code> is helpful because, in more complicated code, it is helpful to see where your cursor is.</li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:rstudio-prefdisp"></span>
+<img src="images/cpt_1/02_rstudio_preferences_display.png" alt="Edit your RStudio display preferences" width="100%"><p class="caption">
+Figure 2.10: Edit your RStudio display preferences
+</p>
+</div>
+<p>Of course, if you wish to customise your workspace further, you can do so. The visually most impactful way to alter the default appearance of RStudio is to select <code>Appearance</code> and pick a completely different colour theme. Feel free to browse through various options and see what you prefer. There is no right or wrong here. Just make it your own.</p>
+<div class="figure">
+<span style="display:block;" id="fig:rstudio-prefappear"></span>
+<img src="images/cpt_1/03_rstudio_preferences_appearance.png" alt="This will get you instantly nerd" width="100%"><p class="caption">
+Figure 2.11: This will get you instantly nerd
+</p>
+</div>
+</div>
+<div id="updating-r-and-rstudio" class="section level2" number="2.6">
+<h2>
+<span class="header-section-number">2.6</span> Updating R and RStudio: Living at the pulse of innovation<a class="anchor" aria-label="anchor" href="#updating-r-and-rstudio"><i class="fas fa-link"></i></a>
+</h2>
+<p>While not strictly something that helps you become a better programmer, this advice might come in handy to avoid turning into a frustrated programmer. When you update your software, you need to update <em>R</em> and RStudio separately from each other. While both <em>R</em> and RStudio work closely with each other, they still constitute separate pieces of software. Thus, it is essential to keep in mind that updating RStudio will not automatically update R. This can become problematic if specific tools you installed via RStudio (like a fancy learning algorithm) might not be compatible with earlier versions of <em>R</em>. Also, additional <em>R</em> packages (see Chapter <a href="r-packages.html#r-packages">3</a>) developed by other developers are separate pieces which require updating too, independently from <em>R</em> and RStudio.</p>
+<p>I know what you are thinking: This already sounds complicated and cumbersome. However, rest assured, we take a look at how you can easily update all your packages with RStudio. Thus, all you need to remember is: <em>R</em> needs to be updated separately from everything else.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="index.html"><span class="header-section-number">1</span> 🫶 About</a></div>
+<div class="next"><a href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#prereq"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="nav-link" href="#setting-up-r-and-rstudio"><span class="header-section-number">2.1</span> Setting up R and RStudio</a></li>
+<li>
+<a class="nav-link" href="#how-to-download-and-install-r"><span class="header-section-number">2.2</span> How to Download and Install R</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#r-in-windows"><span class="header-section-number">2.2.1</span> R in Windows</a></li>
+<li><a class="nav-link" href="#r-in-mac"><span class="header-section-number">2.2.2</span> R in Mac</a></li>
+<li><a class="nav-link" href="#r-in-linux"><span class="header-section-number">2.2.3</span> R in Linux</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#using-r"><span class="header-section-number">2.3</span> Using R</a></li>
+<li><a class="nav-link" href="#using-rstudio"><span class="header-section-number">2.4</span> Using RStudio</a></li>
+<li><a class="nav-link" href="#when-you-first-start-rstudio"><span class="header-section-number">2.5</span> When you first start RStudio</a></li>
+<li><a class="nav-link" href="#updating-r-and-rstudio"><span class="header-section-number">2.6</span> Updating R and RStudio: Living at the pulse of innovation</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/01-prerequisites.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
+          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/01-prerequisites.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-09-10.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

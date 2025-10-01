@@ -1,0 +1,357 @@
+# 🔬 Advanced Statistical Methods
+
+This chapter covers advanced statistical methods including regression with dummy variables, logistic regression, factor analysis, and cluster analysis.
+
+## Learning Objectives
+
+By the end of this chapter, you will be able to:
+
+- Understand and implement regression with dummy variables
+- Perform logistic regression for binary outcomes
+- Conduct factor analysis to reduce dimensionality
+- Apply cluster analysis techniques
+- Interpret results from advanced statistical methods
+- Use R for advanced statistical analysis
+
+## Regression with Dummy Variables
+
+Dummy variables (also called indicator variables) are binary variables (0/1) used to represent categorical data in regression models.
+
+### Creating Dummy Variables
+
+
+```r
+# Load required packages
+library(tidyverse)
+library(fastDummies)
+
+# Create sample data with categorical variable
+set.seed(123)
+n <- 100
+education <- sample(c("High School", "Bachelor", "Master", "PhD"), n, replace = TRUE)
+experience <- rnorm(n, mean = 5, sd = 2)
+salary <- 30000 + 5000 * (education == "Bachelor") + 
+          8000 * (education == "Master") + 
+          12000 * (education == "PhD") + 
+          2000 * experience + rnorm(n, mean = 0, sd = 3000)
+
+# Create data frame
+data <- data.frame(education = education, experience = experience, salary = salary)
+
+# Create dummy variables
+data_dummy <- dummy_cols(data, select_columns = "education", remove_first_dummy = TRUE)
+
+# View the data
+head(data_dummy)
+
+# Fit regression with dummy variables
+model <- lm(salary ~ experience + education_Bachelor + education_Master + education_PhD, 
+            data = data_dummy)
+
+# View model summary
+summary(model)
+
+# Alternative: R automatically creates dummy variables
+model_auto <- lm(salary ~ experience + education, data = data)
+summary(model_auto)
+```
+
+### Interpreting Dummy Variable Coefficients
+
+- **Reference category**: The category not included in the model (usually the first alphabetically)
+- **Coefficients**: Represent the difference from the reference category
+- **Example**: If "High School" is the reference, the coefficient for "Bachelor" represents the additional salary for Bachelor's degree holders
+
+## Logistic Regression
+
+Logistic regression is used when the dependent variable is binary (0/1, Yes/No, Success/Failure).
+
+### Binary Logistic Regression
+
+
+```r
+# Load required packages
+library(tidyverse)
+library(broom)
+
+# Create sample data for logistic regression
+set.seed(123)
+n <- 200
+age <- rnorm(n, mean = 35, sd = 10)
+income <- rnorm(n, mean = 50000, sd = 15000)
+education_years <- rnorm(n, mean = 16, sd = 3)
+
+# Create binary outcome (loan approval)
+log_odds <- -2 + 0.05 * age + 0.0001 * income + 0.2 * education_years
+prob <- exp(log_odds) / (1 + exp(log_odds))
+loan_approved <- rbinom(n, 1, prob)
+
+# Create data frame
+data <- data.frame(age = age, income = income, education_years = education_years, 
+                   loan_approved = loan_approved)
+
+# Fit logistic regression
+model <- glm(loan_approved ~ age + income + education_years, 
+             data = data, family = binomial())
+
+# View model summary
+summary(model)
+
+# Extract coefficients and odds ratios
+coef_summary <- tidy(model, exponentiate = TRUE)
+print(coef_summary)
+
+# Predict probabilities
+data$predicted_prob <- predict(model, type = "response")
+
+# Create visualization
+ggplot(data, aes(x = income, y = loan_approved)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "glm", method.args = list(family = "binomial"), se = TRUE) +
+  labs(
+    title = "Logistic Regression: Loan Approval vs Income",
+    x = "Income",
+    y = "Loan Approved (0/1)"
+  ) +
+  theme_minimal()
+```
+
+### Interpreting Logistic Regression Results
+
+- **Coefficients**: Represent the change in log-odds
+- **Odds Ratios**: e^(coefficient) represents the multiplicative change in odds
+- **Probabilities**: Use the logistic function to convert log-odds to probabilities
+
+## Factor Analysis
+
+Factor analysis is used to identify underlying latent factors that explain the correlations among observed variables.
+
+### Exploratory Factor Analysis (EFA)
+
+
+```r
+# Load required packages
+library(tidyverse)
+library(psych)
+library(GPArotation)
+
+# Create sample data with underlying factors
+set.seed(123)
+n <- 300
+
+# Factor 1: Math ability
+math1 <- rnorm(n, mean = 0, sd = 1)
+math2 <- 0.8 * math1 + rnorm(n, mean = 0, sd = 0.6)
+math3 <- 0.7 * math1 + rnorm(n, mean = 0, sd = 0.7)
+
+# Factor 2: Verbal ability
+verbal1 <- rnorm(n, mean = 0, sd = 1)
+verbal2 <- 0.9 * verbal1 + rnorm(n, mean = 0, sd = 0.4)
+verbal3 <- 0.8 * verbal1 + rnorm(n, mean = 0, sd = 0.6)
+
+# Create data frame
+data <- data.frame(
+  math_test1 = math1,
+  math_test2 = math2,
+  math_test3 = math3,
+  verbal_test1 = verbal1,
+  verbal_test2 = verbal2,
+  verbal_test3 = verbal3
+)
+
+# Perform factor analysis
+# First, check if data is suitable for factor analysis
+cortest.bartlett(data)
+
+# Determine number of factors
+fa.parallel(data, fa = "fa", n.iter = 100)
+
+# Perform factor analysis
+fa_result <- fa(data, nfactors = 2, rotate = "varimax")
+print(fa_result)
+
+# Plot factor loadings
+fa.diagram(fa_result)
+
+# Extract factor scores
+factor_scores <- factor.scores(data, fa_result)
+data$factor1 <- factor_scores$scores[, 1]
+data$factor2 <- factor_scores$scores[, 2]
+
+# Visualize factor scores
+ggplot(data, aes(x = factor1, y = factor2)) +
+  geom_point(alpha = 0.6) +
+  labs(
+    title = "Factor Scores",
+    x = "Factor 1 (Math Ability)",
+    y = "Factor 2 (Verbal Ability)"
+  ) +
+  theme_minimal()
+```
+
+## Cluster Analysis
+
+Cluster analysis groups similar observations together based on their characteristics.
+
+### K-Means Clustering
+
+
+```r
+# Load required packages
+library(tidyverse)
+library(cluster)
+library(factoextra)
+
+# Create sample data with clusters
+set.seed(123)
+n <- 200
+
+# Generate three clusters
+cluster1 <- data.frame(
+  x = rnorm(n/3, mean = 2, sd = 0.5),
+  y = rnorm(n/3, mean = 2, sd = 0.5),
+  cluster = 1
+)
+
+cluster2 <- data.frame(
+  x = rnorm(n/3, mean = 6, sd = 0.5),
+  y = rnorm(n/3, mean = 2, sd = 0.5),
+  cluster = 2
+)
+
+cluster3 <- data.frame(
+  x = rnorm(n/3, mean = 4, sd = 0.5),
+  y = rnorm(n/3, mean = 6, sd = 0.5),
+  cluster = 3
+)
+
+# Combine clusters
+data <- rbind(cluster1, cluster2, cluster3)
+data$cluster <- as.factor(data$cluster)
+
+# Perform K-means clustering
+kmeans_result <- kmeans(data[, 1:2], centers = 3, nstart = 25)
+data$kmeans_cluster <- as.factor(kmeans_result$cluster)
+
+# Visualize clusters
+ggplot(data, aes(x = x, y = y, color = cluster)) +
+  geom_point(size = 2) +
+  labs(
+    title = "True Clusters",
+    x = "X",
+    y = "Y"
+  ) +
+  theme_minimal()
+
+ggplot(data, aes(x = x, y = y, color = kmeans_cluster)) +
+  geom_point(size = 2) +
+  labs(
+    title = "K-means Clusters",
+    x = "X",
+    y = "Y"
+  ) +
+  theme_minimal()
+
+# Determine optimal number of clusters
+fviz_nbclust(data[, 1:2], kmeans, method = "wss")
+fviz_nbclust(data[, 1:2], kmeans, method = "silhouette")
+```
+
+### Hierarchical Clustering
+
+
+```r
+# Perform hierarchical clustering
+dist_matrix <- dist(data[, 1:2])
+hclust_result <- hclust(dist_matrix, method = "ward.D2")
+
+# Plot dendrogram
+plot(hclust_result, main = "Hierarchical Clustering Dendrogram")
+
+# Cut tree to get clusters
+hclust_clusters <- cutree(hclust_result, k = 3)
+data$hclust_cluster <- as.factor(hclust_clusters)
+
+# Visualize hierarchical clusters
+ggplot(data, aes(x = x, y = y, color = hclust_cluster)) +
+  geom_point(size = 2) +
+  labs(
+    title = "Hierarchical Clusters",
+    x = "X",
+    y = "Y"
+  ) +
+  theme_minimal()
+```
+
+## Model Selection and Validation
+
+### Cross-Validation for Logistic Regression
+
+
+```r
+# Load required packages
+library(tidyverse)
+library(caret)
+
+# Create sample data
+set.seed(123)
+n <- 300
+x1 <- rnorm(n, mean = 0, sd = 1)
+x2 <- rnorm(n, mean = 0, sd = 1)
+x3 <- rnorm(n, mean = 0, sd = 1)
+
+# Create binary outcome
+log_odds <- -1 + 0.5 * x1 + 0.3 * x2 - 0.2 * x3
+prob <- exp(log_odds) / (1 + exp(log_odds))
+y <- rbinom(n, 1, prob)
+
+# Create data frame
+data <- data.frame(x1 = x1, x2 = x2, x3 = x3, y = y)
+
+# Set up cross-validation
+ctrl <- trainControl(method = "cv", number = 10, classProbs = TRUE)
+
+# Train logistic regression model
+model <- train(as.factor(y) ~ x1 + x2 + x3, 
+               data = data, 
+               method = "glm", 
+               family = "binomial",
+               trControl = ctrl)
+
+# View results
+print(model)
+print(model$results)
+```
+
+## Best Practices
+
+1. **Check assumptions** for each method
+2. **Use appropriate sample sizes** for reliable results
+3. **Validate models** using cross-validation
+4. **Interpret results** in context of the research question
+5. **Consider multiple methods** when appropriate
+6. **Document decisions** and rationale
+
+## Common Pitfalls
+
+1. **Overfitting**: Including too many variables
+2. **Multicollinearity**: Highly correlated predictors
+3. **Sample size**: Insufficient data for reliable results
+4. **Assumptions**: Not checking method-specific assumptions
+5. **Interpretation**: Misunderstanding coefficients and results
+
+## Summary
+
+Advanced statistical methods provide powerful tools for analyzing complex data. Key points:
+
+- Choose appropriate methods based on research questions
+- Check assumptions and validate models
+- Interpret results carefully and in context
+- Use multiple methods when appropriate
+- Document all decisions and rationale
+
+## References
+
+- Slides: Available in the course drive
+- Additional resources and examples provided in class
+- R documentation for specific packages used

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 11 💻 Second Intermediate Sample Questions | Statistics &amp; Big Data 25-26 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="Hi guys, these are the sample questions that prof Dabo gave us to exercise yourself. As you may notice most of them are open questions on very superifical theory concepts, no indeep math or heavy...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 11 💻 Second Intermediate Sample Questions | Statistics &amp; Big Data 25-26 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Hi guys, these are the sample questions that prof Dabo gave us to exercise yourself. As you may notice most of them are open questions on very superifical theory concepts, no indeep math or heavy...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 11 💻 Second Intermediate Sample Questions | Statistics &amp; Big Data 25-26 Labs">
+<meta name="twitter:description" content="Hi guys, these are the sample questions that prof Dabo gave us to exercise yourself. As you may notice most of them are open questions on very superifical theory concepts, no indeep math or heavy...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 25-26 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li class="book-part">Part 1: The Foundations</li>
+<li><a class="" href="hypothesis-testing-fundamentals.html"><span class="header-section-number">6</span> 🧪 Hypothesis Testing Fundamentals</a></li>
+<li><a class="" href="linear-regression-analysis.html"><span class="header-section-number">7</span> 📈 Linear Regression Analysis</a></li>
+<li><a class="" href="advanced-statistical-methods.html"><span class="header-section-number">8</span> 🔬 Advanced Statistical Methods</a></li>
+<li class="book-part">Part 2: Advanced Modeling</li>
+<li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
+<li class="book-part">Additional Resources</li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">10</span> 💻 Intermediate preparation</a></li>
+<li><a class="active" href="int-samp-q-second.html"><span class="header-section-number">11</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">12</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">13</span> ⚡ Course Performance</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">14</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">15</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">16</span> Datasets</a></li>
+<li><a class="" href="references-4.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="int-samp-q-second" class="section level1" number="11">
+<h1>
+<span class="header-section-number">11</span> 💻 Second Intermediate Sample Questions<a class="anchor" aria-label="anchor" href="#int-samp-q-second"><i class="fas fa-link"></i></a>
+</h1>
+<p>Hi guys, these are the sample questions that prof Dabo gave us to exercise yourself. As you may notice most of them are open questions on very superifical theory concepts, no indeep math or <em>heavy</em> calculations (matrix products, dot products etc.). So please my suggestion is to review <strong>carefully the slides</strong> and just learn the basic R commands to execute analysis on a higer level! 🍀</p>
+<div id="nd-intermediate" class="section level2" number="11.1">
+<h2>
+<span class="header-section-number">11.1</span> 👨‍🎓 2023/2024 (2nd intermediate)<a class="anchor" aria-label="anchor" href="#nd-intermediate"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:dabo1" class="exercise"><strong>Exercise 11.1  </strong></span><strong>Basic Understanding:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>What does PCA stand for?</li>
+<li>Briefly explain the primary objective of Principal Component Analysis.</li>
+<li>How does PCA help in dimensionality reduction?</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo2" class="exercise"><strong>Exercise 11.2  </strong></span><strong>Library and Data Loading:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Which R library is commonly used for performing PCA?</li>
+<li>Write the command to load the library FactomineR for PCA.</li>
+<li>How do you read a dataset into R for PCA analysis?</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo3" class="exercise"><strong>Exercise 11.3  </strong></span><strong>Data Preparation:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Explain the importance of scaling or standardizing variables before applying PCA.</li>
+<li>Write the R command to standardize a data matrix.</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo4" class="exercise"><strong>Exercise 11.4  </strong></span><strong>PCA Execution:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>What function in R is used to perform PCA?</li>
+<li>Provide the basic syntax for running PCA on a dataset named « my_data.”</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo5" class="exercise"><strong>Exercise 11.5  </strong></span><strong>Interpretation of Results:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>How can you access the proportion of variance explained by each principal component in the following R script?</li>
+<li>What is the significance of the eigenvalues and eigenvectors in PCA?</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo6" class="exercise"><strong>Exercise 11.6  </strong></span><strong>Selecting Principal Components:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>How can you determine the optimal number of principal components to retain in R?</li>
+<li>Write the R command to extract the loadings of principal components.</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo7" class="exercise"><strong>Exercise 11.7  </strong></span><strong>The inertia of a centered matrix of n individuals and p quantitative variables is</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>p</li>
+<li>The sum of variances of the p variables</li>
+<li>None of the responses are true</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo8" class="exercise"><strong>Exercise 11.8  </strong></span><strong>The principal components (coordinates of the individuals) are un-correlated</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>TRUE</li>
+<li>FALSE</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo9" class="exercise"><strong>Exercise 11.9  </strong></span><strong>In a normed PCA, the mean eigen-values is </strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>1</li>
+<li>2</li>
+<li>3</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo10" class="exercise"><strong>Exercise 11.10  </strong></span>Let <strong>Z</strong> be a matrix <strong>(50 rows and 4 columns)</strong> of centered and reduced quantitative data, with a correlation matrix R (of dimension <strong>4</strong>) and three eigenvalues are <strong>2, 1 and 0.4.</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Give the maximum number of eigen-values</li>
+<li>Give the remaining eigen-values</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo11" class="exercise"><strong>Exercise 11.11  </strong></span>A dataset <strong>X</strong> gives, for <strong>23 Charolais and Zebus cattles</strong>, <strong>6 different weights</strong>, in kg: live weight (W_LIV), carcass weight (W_CAR), prime meat weight (W_QUALI), total meat weight (W_TOTAL), fat meat weight (W_FAT), bone weight (W_BO) and the cattle type (Type).</p>
+<ol style="list-style-type: lower-alpha">
+<li>How do you interpret the following correlation matrix plot?</li>
+</ol>
+<div class="float">
+<img src="images/corr_mat.png" alt="corr matrix"><div class="figcaption">corr matrix</div>
+</div>
+<ol style="list-style-type: lower-alpha">
+<li>How many components would you choose regarding the following figures (giving the eigen-values and correlation between the components and the variables)</li>
+</ol>
+<div class="float">
+<img src="images/eig_table.png" alt="eig table"><div class="figcaption">eig table</div>
+</div>
+<ol style="list-style-type: lower-alpha">
+<li>Interpret the following figure:</li>
+</ol>
+<div class="float">
+<img src="images/ind_pca.png" alt="eig table"><div class="figcaption">eig table</div>
+</div>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo12" class="exercise"><strong>Exercise 11.12  </strong></span><strong>Scree Plot:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>What is the purpose of a scree plot in PCA?</p></li>
+<li><p>How do you generate and interpret the following scree plot ?</p></li>
+</ol>
+<div class="float">
+<img src="images/scree_plot_sample.png" alt="scree plot"><div class="figcaption">scree plot</div>
+</div>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo13" class="exercise"><strong>Exercise 11.13  </strong></span><strong>Scree Plot:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Briefly explain the main objective of Correspondence Analysis (CA).</li>
+<li>How is CA different from Principal Component Analysis (PCA)?</li>
+<li>Provide an example of a scenario where CA would be a suitable analysis.</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo14" class="exercise"><strong>Exercise 11.14  </strong></span><strong>Correspondence Analysis:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Briefly explain the main objective of Correspondence Analysis (CA).</li>
+<li>How is CA different from Principal Component Analysis (PCA)?</li>
+<li>Provide an example of a scenario where CA would be a suitable analysis.</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo14" class="exercise"><strong>Exercise 11.14  </strong></span><strong>CA Execution:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Provide the basic syntax for running CA on a contingency table named “my_table.”</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo14" class="exercise"><strong>Exercise 11.14  </strong></span><strong>Interpretation of Results:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>How can you access the row and column scores of the CA results in R?</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo15" class="exercise"><strong>Exercise 11.15  </strong></span><strong>Visualization:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Write the R command to create a biplot for a Correspondence Analysis result.</li>
+<li>How can you visually assess the relationships between rows and columns in a CA plot?</li>
+</ol>
+</div>
+<hr>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo16" class="exercise"><strong>Exercise 11.16  </strong></span><strong>E3:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Write the R command to extract the contributions of dimensions in CA (write it in general)</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo17" class="exercise"><strong>Exercise 11.17  </strong></span><strong>Disjunctive table:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Construct the disjunctive table of the following data</li>
+</ol>
+<blockquote>
+<p>library(tibble)
+disj_table = tribble(
+~Var1, ~Var2, ~Var3,
+“CB”, “YB”, “F”,
+“CB”, “YV”, “F”,
+“CC”, “YB”, “M”,
+“CC”, “YM”, “F”,
+“CR”, “YV”, “M”,
+“CB”, “YB”, “M”
+)</p>
+</blockquote>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo18" class="exercise"><strong>Exercise 11.18  </strong></span><strong>Chi-Square Test:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>What is the role of the chi-square test in Correspondence Analysis?</li>
+<li>How can you perform a chi-square test on a CA result in R?</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo19" class="exercise"><strong>Exercise 11.19  </strong></span><strong>Clustering:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>What is the main goal of clustering algorithms?</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo20" class="exercise"><strong>Exercise 11.20  </strong></span><strong>K-Means Clustering:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>What is the fundamental concept behind K-means clustering?</li>
+<li>Explain the meaning of centroids in the context of K-means clustering.</li>
+<li>Write the R command to perform K-means clustering on a dataset named “my_data.”</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo21" class="exercise"><strong>Exercise 11.21  </strong></span><strong>Hierarchical Clustering:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Briefly explain how hierarchical clustering works.</li>
+<li>Write the R command to conduct hierarchical clustering on a dataset.</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo22" class="exercise"><strong>Exercise 11.22  </strong></span><strong>Interpretation of Clustering Results:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>How do you interpret the following output of a clustering analysis on the cattle data?</li>
+</ol>
+<div class="float">
+<img src="images/var_desc_clust.png" alt="var_desc_clust plot"><div class="figcaption">var_desc_clust plot</div>
+</div>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo23" class="exercise"><strong>Exercise 11.23  </strong></span><strong>Classification:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>What is the main goal of a classification ?</li>
+<li>Provide an example of a real-world application where classification analysis could be beneficial.</li>
+<li>How can classification be used in medical diagnosis or fraud detection?</li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:dabo26" class="exercise"><strong>Exercise 11.24  </strong></span>What does PCA stand for?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Primary Component Analysis</li>
+<li>Principal Component Algorithm</li>
+<li>Principal Component Analysis</li>
+<li>Primary Component Algorithm</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo27" class="exercise"><strong>Exercise 11.25  </strong></span>In PCA, what is the primary goal?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Reduce dimensionality while preserving variance</li>
+<li>Increase dimensionality for better visualization</li>
+<li>Minimize all components equally</li>
+<li>Focus on individual components only</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo28" class="exercise"><strong>Exercise 11.26  </strong></span>Which R function is commonly used to perform PCA?</p>
+<ol style="list-style-type: lower-alpha">
+<li>kmeans()</li>
+<li>PCA()</li>
+<li>prcomp()</li>
+<li>corresp()</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo29" class="exercise"><strong>Exercise 11.27  </strong></span>What is the purpose of a scree plot in PCA?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Visualize the clusters in data</li>
+<li>Assess the quality of clustering</li>
+<li>Evaluate the distribution of data</li>
+<li>Display the eigenvalues of principal components</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo30" class="exercise"><strong>Exercise 11.28  </strong></span>How do you determine the optimal number of principal components to retain in PCA?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Use hierarchical clustering</li>
+<li>Examine the scree plot</li>
+<li>Apply k-means clustering</li>
+<li>Perform a chi-square test</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo31" class="exercise"><strong>Exercise 11.29  </strong></span>What is the primary application of Correspondence Analysis (CA)?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Reducing dimensionality of numerical data</li>
+<li>Analyzing relationships in categorical data</li>
+<li>Classifying data points into clusters</li>
+<li>Predicting future values in a time series</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo32" class="exercise"><strong>Exercise 11.30  </strong></span>Which R library is commonly used for Correspondence Analysis?</p>
+<ol style="list-style-type: lower-alpha">
+<li>cluster</li>
+<li>caret</li>
+<li>ca</li>
+<li>factoextra</li>
+<li>FactomineR</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo33" class="exercise"><strong>Exercise 11.31  </strong></span>What is the role of the chi-square test in Correspondence Analysis?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Assess the significance of relationships</li>
+<li>Determine the optimal number of clusters</li>
+<li>Evaluate the distribution of data</li>
+<li>Visualize the proximity between data points</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo34" class="exercise"><strong>Exercise 11.32  </strong></span>What is the primary goal of clustering algorithms?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Dimensionality reduction</li>
+<li>Classification</li>
+<li>Grouping similar data points</li>
+<li>Visualization of data</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo35" class="exercise"><strong>Exercise 11.33  </strong></span>Which R function is commonly used for K-means clustering?</p>
+<ol style="list-style-type: lower-alpha">
+<li>hierarch()</li>
+<li>PCA()</li>
+<li>kmeans()</li>
+<li>prcomp()</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo36" class="exercise"><strong>Exercise 11.34  </strong></span>How can you visually assess relationships between rows and columns in a clustering plot?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Scree plot</li>
+<li>Dendrogram</li>
+<li>Silhouette plot</li>
+<li>Biplot</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo37" class="exercise"><strong>Exercise 11.35  </strong></span>What is the primary goal of a classification algorithm?</p>
+<ol style="list-style-type: lower-alpha">
+<li>Group similar data points</li>
+<li>Predict numerical values</li>
+<li>Assign labels to data points</li>
+<li>Visualize high-dimensional data</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo38" class="exercise"><strong>Exercise 11.36  </strong></span>Which algorithm is commonly used for binary classification tasks? (Answers can be mnore than one)</p>
+<ol style="list-style-type: lower-alpha">
+<li>Decision Trees</li>
+<li>K-means</li>
+<li>LDA</li>
+<li>Logistic Regression</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:dabo39" class="exercise"><strong>Exercise 11.37  </strong></span>Which metric is commonly used to evaluate the performance of a classification model?</p>
+<ol style="list-style-type: lower-alpha">
+<li>R-squared</li>
+<li>Mean Absolute Error</li>
+<li>Silhouette Score</li>
+<li>Accuracy</li>
+</ol>
+</div>
+</div>
+<div id="solutions-1" class="section level2" number="11.2">
+<h2>
+<span class="header-section-number">11.2</span> solutions<a class="anchor" aria-label="anchor" href="#solutions-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo7">11.7</a>:</p>
+<ol style="list-style-type: lower-alpha">
+<li>p</li>
+<li><strong>The sum of variances of the p variables</strong></li>
+<li>None of the responses are true</li>
+</ol>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo8">11.8</a>:</p>
+<ol style="list-style-type: lower-alpha">
+<li><strong>TRUE</strong></li>
+<li>FALSE</li>
+</ol>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo9">11.9</a>:</p>
+<ol style="list-style-type: lower-alpha">
+<li><strong>1</strong></li>
+<li>2</li>
+<li>3</li>
+</ol>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo32">11.30</a>:</p>
+<ol style="list-style-type: lower-alpha">
+<li>cluster</li>
+<li>caret</li>
+<li>ca</li>
+<li>factoextra</li>
+<li><strong>FactomineR</strong></li>
+</ol>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo34">11.32</a>:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Dimensionality reduction</li>
+<li>Classification</li>
+<li><strong>Grouping similar data points</strong></li>
+<li>Visualization of data</li>
+</ol>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo35">11.33</a>:</p>
+<ol style="list-style-type: lower-alpha">
+<li>hierarch()</li>
+<li>PCA()</li>
+<li><strong>kmeans()</strong></li>
+<li>prcomp()a</li>
+</ol>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo36">11.34</a>:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Scree plot</li>
+<li><strong>Dendrogram</strong></li>
+<li>Silhouette plot</li>
+<li>Biplot</li>
+</ol>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo37">11.35</a>:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Group similar data points</li>
+<li>Predict numerical values</li>
+<li><strong>Assign labels to data points</strong></li>
+<li>Visualize high-dimensional data</li>
+</ol>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo38">11.36</a>:</p>
+<ol style="list-style-type: lower-alpha">
+<li><strong>Decision Trees</strong></li>
+<li>K-means</li>
+<li><strong>LDA</strong></li>
+<li><strong>Logistic Regression</strong></li>
+</ol>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo39">11.37</a>:</p>
+<ol style="list-style-type: lower-alpha">
+<li>R-squared</li>
+<li>Mean Absolute Error</li>
+<li>Silhouette Score</li>
+<li><strong>Accuracy</strong></li>
+</ol>
+</div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="int-prep.html"><span class="header-section-number">10</span> 💻 Intermediate preparation</a></div>
+<div class="next"><a href="int-samp-q.html"><span class="header-section-number">12</span> 💻 Intermediate Sample Questions</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#int-samp-q-second"><span class="header-section-number">11</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="nav-link" href="#nd-intermediate"><span class="header-section-number">11.1</span> 👨‍🎓 2023/2024 (2nd intermediate)</a></li>
+<li><a class="nav-link" href="#solutions-1"><span class="header-section-number">11.2</span> solutions</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/06oct_2nd_intermed_sample.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
+          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/06oct_2nd_intermed_sample.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-09-10.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
