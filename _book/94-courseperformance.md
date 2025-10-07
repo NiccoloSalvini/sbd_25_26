@@ -39,8 +39,7 @@ Based on the data from the 2024-2025 academic year, here's a comprehensive analy
 
 ### Grade Distribution
 
-
-\includegraphics[width=1\linewidth]{94-courseperformance_files/figure-latex/grade-distribution-1} 
+<img src="94-courseperformance_files/figure-html/grade-distribution-1.png" width="100%" />
 
 ### Intermediate Exam Performance
 
@@ -68,8 +67,7 @@ Based on the data from the 2024-2025 academic year, here's a comprehensive analy
 
 ### Performance by Exam Type
 
-
-\includegraphics[width=1\linewidth]{94-courseperformance_files/figure-latex/exam-type-analysis-1} 
+<img src="94-courseperformance_files/figure-html/exam-type-analysis-1.png" width="100%" />
 
 ### Key Insights
 
@@ -85,13 +83,11 @@ Based on the data from the 2024-2025 academic year, here's a comprehensive analy
 
 ## 🎓 20-21 Students 
 
-
-\includegraphics[width=1\linewidth]{images/perf_20-21} 
+<img src="images/perf_20-21.png" width="100%" />
 
 ----
 
-
-\includegraphics[width=1\linewidth]{images/perf_mg_20-21} 
+<img src="images/perf_mg_20-21.png" width="100%" />
 
 ## 🎓 21-22 Students
 

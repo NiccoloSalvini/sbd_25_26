@@ -100,7 +100,7 @@
 <li>Prof. Sophie <strong>Dabo-Niang</strong>: Available during intensive session (week of November 17th)</li>
 </ul>
 </li>
-<li>here’s the <a href="https://drive.google.com/drive/folders/10ua4d1_5JjQYQpKTz8sxYsdsOXCgiYB3?usp=sharing">shared drive</a> (slides notebooks extra in class)</li>
+<li>here’s the <a href="https://drive.google.com/drive/folders/1e1HVjSYABJ8rLUErHWbQOhAhQ_OA_Xo9?usp=sharing">shared drive</a> (slides notebooks extra in class)</li>
 </ul>
 <!--- - **Grading**:
   one final project to build an ML application (65%). We'll have a demo day to showcase all students' final projects. See last year projects here two to three fun, short assignments (30%) discussion participation in class + EdStem + OHs (5%) --->
@@ -197,6 +197,11 @@
 <li>Multiple linear regression</li>
 <li>Nonlinear regression</li>
 <li>Regression with dummy variables</li>
+</ul>
+</li>
+<li>Logistic Regression
+<ul>
+<li>Introduction to logistic regression</li>
 </ul>
 </li>
 </ul>
@@ -306,32 +311,32 @@ The complete source is available from <a href="https://github.com/NiccoloSalvini
 <p>This version of the book was built with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/">devtools</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Loading required package: usethis</span></span>
+<span><span class="co">#&gt; Caricamento del pacchetto richiesto: usethis</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://roxygen2.r-lib.org/">roxygen2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://testthat.r-lib.org">testthat</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'testthat'</span></span>
-<span><span class="co">#&gt; The following object is masked from 'package:devtools':</span></span>
+<span><span class="co">#&gt; Caricamento pacchetto: 'testthat'</span></span>
+<span><span class="co">#&gt; Il seguente oggetto `e mascherato da 'package:devtools':</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;     test_file</span></span>
-<span><span class="co">#&gt; The following object is masked from 'package:dplyr':</span></span>
+<span><span class="co">#&gt; Il seguente oggetto `e mascherato da 'package:dplyr':</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;     matches</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://sessioninfo.r-lib.org/reference/session_info.html">session_info</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ─ Session info ───────────────────────────────────────────────────────────────</span></span>
+<span><span class="co">#&gt; - Session info -------------------------------------------</span></span>
 <span><span class="co">#&gt;  setting  value</span></span>
 <span><span class="co">#&gt;  version  R version 4.2.0 (2022-04-22)</span></span>
 <span><span class="co">#&gt;  os       macOS 15.6.1</span></span>
 <span><span class="co">#&gt;  system   aarch64, darwin20</span></span>
 <span><span class="co">#&gt;  ui       X11</span></span>
 <span><span class="co">#&gt;  language (EN)</span></span>
-<span><span class="co">#&gt;  collate  en_US.UTF-8</span></span>
-<span><span class="co">#&gt;  ctype    en_US.UTF-8</span></span>
+<span><span class="co">#&gt;  collate  C</span></span>
+<span><span class="co">#&gt;  ctype    C</span></span>
 <span><span class="co">#&gt;  tz       Europe/Rome</span></span>
-<span><span class="co">#&gt;  date     2025-10-01</span></span>
+<span><span class="co">#&gt;  date     2025-10-07</span></span>
 <span><span class="co">#&gt;  pandoc   3.7.0.2 @ /opt/homebrew/bin/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ─ Packages ───────────────────────────────────────────────────────────────────</span></span>
+<span><span class="co">#&gt; - Packages -----------------------------------------------</span></span>
 <span><span class="co">#&gt;  package      * version    date (UTC) lib source</span></span>
 <span><span class="co">#&gt;  bookdown       0.29       2022-09-12 [1] CRAN (R 4.2.0)</span></span>
 <span><span class="co">#&gt;  brio           1.1.3      2021-11-30 [1] CRAN (R 4.2.0)</span></span>
@@ -415,7 +420,7 @@ The complete source is available from <a href="https://github.com/NiccoloSalvini
 <span><span class="co">#&gt;  [1] /Users/niccolo/Library/R/arm64/4.2/library</span></span>
 <span><span class="co">#&gt;  [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ──────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
+<span><span class="co">#&gt; ----------------------------------------------------------</span></span></code></pre></div>
 
 </div>
 </div>
@@ -465,7 +470,7 @@ The complete source is available from <a href="https://github.com/NiccoloSalvini
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-10-01.</p>
+    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-10-07.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

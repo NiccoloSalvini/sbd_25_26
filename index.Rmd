@@ -27,7 +27,7 @@ csl: chicago-fullnote-bibliography.csl
 - **Office hours**:
   - Dr. Niccolò **Salvini**: Available via email and for questions before/after lectures
   - Prof. Sophie **Dabo-Niang**: Available during intensive session (week of November 17th)
-- here's the [shared drive](https://drive.google.com/drive/folders/10ua4d1_5JjQYQpKTz8sxYsdsOXCgiYB3?usp=sharing) (slides notebooks extra in class)
+- here's the [shared drive](https://drive.google.com/drive/folders/1e1HVjSYABJ8rLUErHWbQOhAhQ_OA_Xo9?usp=sharing) (slides notebooks extra in class)
 
 <!--- - **Grading**:
   one final project to build an ML application (65%). We'll have a demo day to showcase all students' final projects. See last year projects here two to three fun, short assignments (30%) discussion participation in class + EdStem + OHs (5%) --->
@@ -110,6 +110,8 @@ csl: chicago-fullnote-bibliography.csl
   - Multiple linear regression
   - Nonlinear regression
   - Regression with dummy variables
+- Logistic Regression
+  - Introduction to logistic regression
 
 ### Part 2: Advanced Modeling (Prof. Sophie Dabo-Niang)
 - Factor Analysis

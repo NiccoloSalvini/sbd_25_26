@@ -1,7 +1,7 @@
 --- 
 title: "Statistics & Big Data 25-26 Labs"
 author: "Dr. Niccolò Salvini"
-date: "2025-10-01"
+date: "2025-10-07"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -27,7 +27,7 @@ csl: chicago-fullnote-bibliography.csl
 - **Office hours**:
   - Dr. Niccolò **Salvini**: Available via email and for questions before/after lectures
   - Prof. Sophie **Dabo-Niang**: Available during intensive session (week of November 17th)
-- here's the [shared drive](https://drive.google.com/drive/folders/10ua4d1_5JjQYQpKTz8sxYsdsOXCgiYB3?usp=sharing) (slides notebooks extra in class)
+- here's the [shared drive](https://drive.google.com/drive/folders/1e1HVjSYABJ8rLUErHWbQOhAhQ_OA_Xo9?usp=sharing) (slides notebooks extra in class)
 
 <!--- - **Grading**:
   one final project to build an ML application (65%). We'll have a demo day to showcase all students' final projects. See last year projects here two to three fun, short assignments (30%) discussion participation in class + EdStem + OHs (5%) --->
@@ -35,7 +35,33 @@ csl: chicago-fullnote-bibliography.csl
 
 ## 👥 Team {#team}
 
+<style type="text/css">
 
+.instructor {
+    display: inline-block;
+    width: 160px;
+    text-align: center;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    vertical-align: top;
+}
+
+
+.instructorphoto img {
+    width: 150px;
+    border-radius: 140px;
+    margin-bottom: 10px;
+}
+
+.col-md-2, .col-md-6 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+</style>
 
 
 
@@ -84,6 +110,8 @@ csl: chicago-fullnote-bibliography.csl
   - Multiple linear regression
   - Nonlinear regression
   - Regression with dummy variables
+- Logistic Regression
+  - Introduction to logistic regression
 
 ### Part 2: Advanced Modeling (Prof. Sophie Dabo-Niang)
 - Factor Analysis
@@ -147,8 +175,7 @@ E.g. if you read it in a paper, cite it. If you ask on Quora, include the link.
 ## QR code time!
 
 
-
-\includegraphics[width=1\linewidth]{images/qr-code} 
+<img src="images/qr-code.png" width="100%" />
 
 ## Colophon {#intro-colophon}
 
@@ -161,35 +188,36 @@ This version of the book was built with:
 
 ```r
 library(devtools)
-#> Loading required package: usethis
+#> Caricamento del pacchetto richiesto: usethis
 library(roxygen2)
 library(testthat)
 #> 
-#> Attaching package: 'testthat'
-#> The following object is masked from 'package:devtools':
+#> Caricamento pacchetto: 'testthat'
+#> Il seguente oggetto `e mascherato da 'package:devtools':
 #> 
 #>     test_file
-#> The following object is masked from 'package:dplyr':
+#> Il seguente oggetto `e mascherato da 'package:dplyr':
 #> 
 #>     matches
 devtools::session_info()
-#> - Session info ---------------------------------------------------------------
+#> - Session info -------------------------------------------
 #>  setting  value
 #>  version  R version 4.2.0 (2022-04-22)
 #>  os       macOS 15.6.1
 #>  system   aarch64, darwin20
 #>  ui       X11
 #>  language (EN)
-#>  collate  en_US.UTF-8
-#>  ctype    en_US.UTF-8
+#>  collate  C
+#>  ctype    C
 #>  tz       Europe/Rome
-#>  date     2025-10-01
+#>  date     2025-10-07
 #>  pandoc   3.7.0.2 @ /opt/homebrew/bin/ (via rmarkdown)
 #> 
-#> - Packages -------------------------------------------------------------------
+#> - Packages -----------------------------------------------
 #>  package      * version    date (UTC) lib source
 #>  bookdown       0.29       2022-09-12 [1] CRAN (R 4.2.0)
 #>  brio           1.1.3      2021-11-30 [1] CRAN (R 4.2.0)
+#>  bslib          0.5.1      2023-08-11 [1] CRAN (R 4.2.0)
 #>  cachem         1.0.8      2023-05-01 [1] CRAN (R 4.2.0)
 #>  callr          3.7.3      2022-11-02 [1] CRAN (R 4.2.0)
 #>  cli            3.6.2      2023-12-11 [1] CRAN (R 4.2.3)
@@ -197,6 +225,7 @@ devtools::session_info()
 #>  devtools     * 2.4.5      2022-10-11 [1] CRAN (R 4.2.0)
 #>  dichromat      2.0-0.1    2022-05-02 [1] CRAN (R 4.2.0)
 #>  digest         0.6.33     2023-07-07 [1] CRAN (R 4.2.0)
+#>  downlit        0.4.2      2022-07-05 [1] CRAN (R 4.2.0)
 #>  dplyr        * 1.1.4      2023-11-17 [1] CRAN (R 4.2.3)
 #>  ellipsis       0.3.2      2021-04-29 [1] CRAN (R 4.2.0)
 #>  evaluate       1.0.3      2025-01-10 [1] CRAN (R 4.2.0)
@@ -210,6 +239,8 @@ devtools::session_info()
 #>  htmlwidgets    1.6.2      2023-03-17 [1] CRAN (R 4.2.0)
 #>  httpuv         1.6.6      2022-09-08 [1] CRAN (R 4.2.0)
 #>  httr           1.4.6      2023-05-08 [1] CRAN (R 4.2.0)
+#>  jquerylib      0.1.4      2021-04-26 [1] CRAN (R 4.2.0)
+#>  jsonlite       1.8.7      2023-06-29 [1] CRAN (R 4.2.0)
 #>  kableExtra   * 1.3.4.9000 2023-06-01 [1] Github (kupietz/kableExtra@3bf9b21)
 #>  knitr        * 1.44       2023-09-11 [1] CRAN (R 4.2.0)
 #>  later          1.3.0      2021-08-18 [1] CRAN (R 4.2.0)
@@ -238,6 +269,7 @@ devtools::session_info()
 #>  roxygen2     * 7.3.1      2024-01-22 [1] CRAN (R 4.2.3)
 #>  rstudioapi     0.14       2022-08-22 [1] CRAN (R 4.2.0)
 #>  rvest          1.0.3      2022-08-19 [1] CRAN (R 4.2.0)
+#>  sass           0.4.6      2023-05-03 [1] CRAN (R 4.2.0)
 #>  scales         1.4.0      2025-04-24 [1] CRAN (R 4.2.0)
 #>  sessioninfo    1.2.2      2021-12-06 [1] CRAN (R 4.2.0)
 #>  shiny          1.7.2      2022-07-19 [1] CRAN (R 4.2.0)
@@ -256,6 +288,7 @@ devtools::session_info()
 #>  viridisLite    0.4.2      2023-05-02 [1] CRAN (R 4.2.0)
 #>  webexercises * 1.0.0      2021-09-15 [1] CRAN (R 4.2.0)
 #>  webshot        0.5.4      2022-09-26 [1] CRAN (R 4.2.0)
+#>  withr          3.0.2      2024-10-28 [1] CRAN (R 4.2.0)
 #>  xfun           0.40       2023-08-09 [1] CRAN (R 4.2.0)
 #>  xml2           1.3.4      2023-04-27 [1] CRAN (R 4.2.0)
 #>  xtable         1.8-4      2019-04-21 [1] CRAN (R 4.2.0)
@@ -264,5 +297,5 @@ devtools::session_info()
 #>  [1] /Users/niccolo/Library/R/arm64/4.2/library
 #>  [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library
 #> 
-#> ------------------------------------------------------------------------------
+#> ----------------------------------------------------------
 ```

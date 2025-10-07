@@ -1,6 +1,6 @@
 # 🗒️ Syllabus
 
-The lecture slides, notes, tutorials, and assignments will be posted on <ins> [this drive](https://drive.google.com/drive/folders/1B0uJ7dxJpP6gP1hFokGpI8PdGc6cYrM4?usp=share_link) </ins>, feel free to jump on it. please do not anticipate questions that we will address in class, instead [drop me a mail](mailto:niccolo.salvini27@gmail.com) if you are not sure about something.
+The lecture slides, notes, tutorials, and assignments will be posted on <ins> [this drive](https://drive.google.com/drive/folders/1e1HVjSYABJ8rLUErHWbQOhAhQ_OA_Xo9?usp=sharing) </ins>, feel free to jump on it. please do not anticipate questions that we will address in class, instead [drop me a mail](mailto:niccolo.salvini27@gmail.com) if you are not sure about something.
 
 If for any reasons you have trouble accessing the G Drive, still please contact [your teaching assistant](mailto:niccolo.salvini27@gmail.com). One common issue students complain is that you may need to be authorization to access, because I may have forgotten to switch on the open to share option. If you see me, knock me on the shoulder!
 
@@ -23,6 +23,7 @@ All course materials are available in the `slides/` folder:
 - [Multiple Linear Regression](slides/mlt_lin_reg.pdf)
 - [Nonlinear Regression](slides/nonlinear_regression.pdf)
 - [Introduction to Linear Regression](slides/intro_linear_regr.pdf)
+- [Introduction to Logistic Regression](slides/intro to logistic regression.pdf)
 
 **Slides by Prof. Vincenzo Nardelli:**
 - [Linear Regression](slides/linear_regression.pdf)
@@ -53,6 +54,7 @@ to be ready:
 | Sept 29-30, Oct 6-7 | Simple Linear Regression | [Introduction to Linear Regression](slides/intro_linear_regr.pdf), [Linear Regression](slides/linear_regression.pdf) | Laboratory + Theory |
 | Sept 29-30, Oct 6-7 | Multiple Linear Regression | [Multiple Linear Regression](slides/mlt_lin_reg.pdf) | Laboratory + Theory |
 | Sept 29-30, Oct 6-7 | Nonlinear Regression + Dummy Variables | [Nonlinear Regression](slides/nonlinear_regression.pdf) | Laboratory + Theory |
+| Oct 7 | Logistic Regression | [Introduction to Logistic Regression](slides/intro to logistic regression.pdf) | Laboratory + Theory |
 | [TBD] | First Intermediate Exam (Part 1) | | Exam |
 | Week of Nov 17th | Intensive Session - Advanced Modeling | Materials provided during session | Laboratory |
 | [TBD] | Second Intermediate Exam (Part 2) | | Exam |

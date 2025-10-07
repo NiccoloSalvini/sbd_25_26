@@ -22,31 +22,35 @@ This is also my setup, feel free to reach me at  [my mail address](mailto:niccol
 
 1. Go to [www.r-project.org](www.r-project.org)
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/cpt_1/00_r_project_page} \caption{The R mirrors website}(\#fig:rproj-page)
-\end{figure}
+<div class="figure">
+<img src="images/cpt_1/00_r_project_page.png" alt="The R mirrors website" width="100%" />
+<p class="caption">(\#fig:rproj-page)The R mirrors website</p>
+</div>
 
   
 2.  Click on `CRAN` where it says `Download`.
 
 3.  Choose a server in your country (all of them work, but downloads will perform quicker if you choose your country or one that is close to where you are).
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/cpt_1/01_r_project_cran_mirror} \caption{CRAN mirrors}(\#fig:cran-mirrors)
-\end{figure}
+<div class="figure">
+<img src="images/cpt_1/01_r_project_cran_mirror.png" alt="CRAN mirrors" width="100%" />
+<p class="caption">(\#fig:cran-mirrors)CRAN mirrors</p>
+</div>
 
 4.  Select the operating system for your computer, for example `Download R for macOS`.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/cpt_1/02_r_project_os_choice} \caption{OS choices available}(\#fig:os-choice)
-\end{figure}
+<div class="figure">
+<img src="images/cpt_1/02_r_project_os_choice.png" alt="OS choices available" width="100%" />
+<p class="caption">(\#fig:os-choice)OS choices available</p>
+</div>
 
 
 5.  Select the version you want to install (I recommend the latest version)
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/cpt_1/03_r_project_version_choice} \caption{R versions available}(\#fig:r-versions)
-\end{figure}
+<div class="figure">
+<img src="images/cpt_1/03_r_project_version_choice.png" alt="R versions available" width="100%" />
+<p class="caption">(\#fig:r-versions)R versions available</p>
+</div>
 
 6.  Open the downloaded file and follow the installation instructions. I recommend leaving the suggested settings as they are.
 
@@ -90,23 +94,26 @@ Howeveeeer to install RStudio perform the following steps:
 
 1.  Go to [https://posit.co/](https://posit.co/ "https://posit.co/")
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/cpt_1/01_rstudio_main_page} \caption{The Posit.co main page}(\#fig:rstudio-main)
-\end{figure}
+<div class="figure">
+<img src="images/cpt_1/01_rstudio_main_page.png" alt="The Posit.co main page" width="100%" />
+<p class="caption">(\#fig:rstudio-main)The Posit.co main page</p>
+</div>
 
 2.  Go to `DOWNLOAD RSTUDIO` in the upper right corner (download R if you still haven't).
 
 3. Select `DOWNLOAD RSTUDIO`, just on the left of `DOWNLOAD RSTUDIO SERVER`.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/cpt_1/03_rstudio_select_version} \caption{Choose RStudio version}(\#fig:rstudio-select-version)
-\end{figure}
+<div class="figure">
+<img src="images/cpt_1/03_rstudio_select_version.png" alt="Choose RStudio version" width="100%" />
+<p class="caption">(\#fig:rstudio-select-version)Choose RStudio version</p>
+</div>
 
 4.  On this page, scroll down and select the Download (in the download column) corresponding to your OS (mind that different versions of the same OS, say macOS 11.2 or macOS 8.3 need different RStudio download installations).
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/cpt_1/04_rstudio_select_edition} \caption{Choose RStudio version}(\#fig:rstudio-select-os-version)
-\end{figure}
+<div class="figure">
+<img src="images/cpt_1/04_rstudio_select_edition.png" alt="Choose RStudio version" width="100%" />
+<p class="caption">(\#fig:rstudio-select-os-version)Choose RStudio version</p>
+</div>
   
 5.  Open the downloaded file and follow the installation instructions. Again, keep it to the default settings as much as possible.
 
@@ -132,31 +139,35 @@ I recommend to at least make the following changes to set yourself up for succes
     -   `Restore .Rdata into workspace at startup`
 
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/cpt_1/00_rstudio_preferences_basic} \caption{get your RStudio preferences}(\#fig:rstudio-preferences)
-\end{figure}
+<div class="figure">
+<img src="images/cpt_1/00_rstudio_preferences_basic.png" alt="get your RStudio preferences" width="100%" />
+<p class="caption">(\#fig:rstudio-preferences)get your RStudio preferences</p>
+</div>
 
 
 2.  In the same tab under `Workspace`, select `Never` for the setting `Save workspace to .RData on exit`. One might think it is wise to keep intermediary results stored from one R session to another. However, I often found myself fixing issues due to this lazy method, and my code became less reliable and, therefore, reproducible. With experience, you will find that this avoids many headaches.
 
 3.  In the `Code > Editing` tab, make sure to have at least the first five options ticked, especially the `Auto-indent code after paste`. This setting will save time when trying to format your coding appropriately, making it easier to read. Indentation is the primary way of making your code look more readable and less like a series of characters that appear almost random.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/cpt_1/01_rstudio_preferences_editing} \caption{Pimp your RStudio IDE}(\#fig:rstudio-prefediting)
-\end{figure}
+<div class="figure">
+<img src="images/cpt_1/01_rstudio_preferences_editing.png" alt="Pimp your RStudio IDE" width="100%" />
+<p class="caption">(\#fig:rstudio-prefediting)Pimp your RStudio IDE</p>
+</div>
 
 4.  In the `Display` tab, you might want to have the first three options selected. In particular, `Highlight selected line` is helpful because, in more complicated code, it is helpful to see where your cursor is.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/cpt_1/02_rstudio_preferences_display} \caption{Edit your RStudio display preferences}(\#fig:rstudio-prefdisp)
-\end{figure}
+<div class="figure">
+<img src="images/cpt_1/02_rstudio_preferences_display.png" alt="Edit your RStudio display preferences" width="100%" />
+<p class="caption">(\#fig:rstudio-prefdisp)Edit your RStudio display preferences</p>
+</div>
 
 
 Of course, if you wish to customise your workspace further, you can do so. The visually most impactful way to alter the default appearance of RStudio is to select `Appearance` and pick a completely different colour theme. Feel free to browse through various options and see what you prefer. There is no right or wrong here. Just make it your own.
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/cpt_1/03_rstudio_preferences_appearance} \caption{This will get you instantly nerd}(\#fig:rstudio-prefappear)
-\end{figure}
+<div class="figure">
+<img src="images/cpt_1/03_rstudio_preferences_appearance.png" alt="This will get you instantly nerd" width="100%" />
+<p class="caption">(\#fig:rstudio-prefappear)This will get you instantly nerd</p>
+</div>
 
 
 ## Updating R and RStudio: Living at the pulse of innovation {#updating-r-and-rstudio}

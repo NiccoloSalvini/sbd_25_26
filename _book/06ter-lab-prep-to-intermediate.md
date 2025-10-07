@@ -30,9 +30,10 @@ $$
 
 Below all the possible cases you should be dealing with:
 
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/wf_test} \caption{The t.test vademecum}(\#fig:ttest)
-\end{figure}
+<div class="figure">
+<img src="images/wf_test.png" alt="The t.test vademecum" width="100%" />
+<p class="caption">(\#fig:ttest)The t.test vademecum</p>
+</div>
 
 
 ## `t.test()` function
@@ -639,10 +640,10 @@ report(test)
 #> recommendations.
 #> 
 #> The One Sample t-test testing the difference between x
-#> (mean = 66.26) and mu = 65 suggests that the effect is
+#> (mean = 66.23) and mu = 65 suggests that the effect is
 #> positive, statistically not significant, and small
-#> (difference = 1.26, 95% CI [-Inf, 67.17], t(63) = 2.34, p =
-#> 0.989; Cohen's d = 0.29, 95% CI [-Inf, 0.50])
+#> (difference = 1.23, 95% CI [-Inf, 67.04], t(63) = 2.56, p =
+#> 0.994; Cohen's d = 0.32, 95% CI [-Inf, 0.53])
 ```
 
 
