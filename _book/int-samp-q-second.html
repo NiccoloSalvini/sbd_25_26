@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 11 💻 Second Intermediate Sample Questions | Statistics &amp; Big Data 25-26 Labs</title>
+<title>Chapter 11 📚 Additional Practice Exercises for Intermediate Exam | Statistics &amp; Big Data 25-26 Labs</title>
 <meta name="author" content="Dr. Niccolò Salvini">
-<meta name="description" content="Hi guys, these are the sample questions that prof Dabo gave us to exercise yourself. As you may notice most of them are open questions on very superifical theory concepts, no indeep math or heavy...">
+<meta name="description" content="This is a comprehensive collection of practice exercises designed to prepare you for the intermediate exam. These exercises cover all major topics from hypothesis testing to advanced regression...">
 <meta name="generator" content="bookdown 0.29 with bs4_book()">
-<meta property="og:title" content="Chapter 11 💻 Second Intermediate Sample Questions | Statistics &amp; Big Data 25-26 Labs">
+<meta property="og:title" content="Chapter 11 📚 Additional Practice Exercises for Intermediate Exam | Statistics &amp; Big Data 25-26 Labs">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Hi guys, these are the sample questions that prof Dabo gave us to exercise yourself. As you may notice most of them are open questions on very superifical theory concepts, no indeep math or heavy...">
+<meta property="og:description" content="This is a comprehensive collection of practice exercises designed to prepare you for the intermediate exam. These exercises cover all major topics from hypothesis testing to advanced regression...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 11 💻 Second Intermediate Sample Questions | Statistics &amp; Big Data 25-26 Labs">
-<meta name="twitter:description" content="Hi guys, these are the sample questions that prof Dabo gave us to exercise yourself. As you may notice most of them are open questions on very superifical theory concepts, no indeep math or heavy...">
+<meta name="twitter:title" content="Chapter 11 📚 Additional Practice Exercises for Intermediate Exam | Statistics &amp; Big Data 25-26 Labs">
+<meta name="twitter:description" content="This is a comprehensive collection of practice exercises designed to prepare you for the intermediate exam. These exercises cover all major topics from hypothesis testing to advanced regression...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -59,7 +59,7 @@
 <li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
 <li class="book-part">Additional Resources</li>
 <li><a class="" href="int-prep.html"><span class="header-section-number">10</span> 💻 Intermediate preparation</a></li>
-<li><a class="active" href="int-samp-q-second.html"><span class="header-section-number">11</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="active" href="int-samp-q-second.html"><span class="header-section-number">11</span> 📚 Additional Practice Exercises for Intermediate Exam</a></li>
 <li><a class="" href="int-samp-q.html"><span class="header-section-number">12</span> 💻 Intermediate Sample Questions</a></li>
 <li><a class="" href="course-performance.html"><span class="header-section-number">13</span> ⚡ Course Performance</a></li>
 <li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">14</span> ❓ Frequently Asked Questions</a></li>
@@ -76,478 +76,1365 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="int-samp-q-second" class="section level1" number="11">
 <h1>
-<span class="header-section-number">11</span> 💻 Second Intermediate Sample Questions<a class="anchor" aria-label="anchor" href="#int-samp-q-second"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11</span> 📚 Additional Practice Exercises for Intermediate Exam<a class="anchor" aria-label="anchor" href="#int-samp-q-second"><i class="fas fa-link"></i></a>
 </h1>
-<p>Hi guys, these are the sample questions that prof Dabo gave us to exercise yourself. As you may notice most of them are open questions on very superifical theory concepts, no indeep math or <em>heavy</em> calculations (matrix products, dot products etc.). So please my suggestion is to review <strong>carefully the slides</strong> and just learn the basic R commands to execute analysis on a higer level! 🍀</p>
-<div id="nd-intermediate" class="section level2" number="11.1">
+<p>This is a comprehensive collection of practice exercises designed to prepare you for the intermediate exam. These exercises cover all major topics from hypothesis testing to advanced regression techniques, with a focus on healthcare and biomedical data analysis.</p>
+<p><strong>Instructions</strong>: Try to solve all exercises on your own first. Solutions are provided at the end of this chapter.</p>
+<div id="part-1-data-wrangling-and-descriptive-statistics" class="section level2" number="11.1">
 <h2>
-<span class="header-section-number">11.1</span> 👨‍🎓 2023/2024 (2nd intermediate)<a class="anchor" aria-label="anchor" href="#nd-intermediate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.1</span> 🏥 Part 1: Data Wrangling and Descriptive Statistics<a class="anchor" aria-label="anchor" href="#part-1-data-wrangling-and-descriptive-statistics"><i class="fas fa-link"></i></a>
 </h2>
 <div class="exercise">
-<p><span id="exr:dabo1" class="exercise"><strong>Exercise 11.1  </strong></span><strong>Basic Understanding:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>What does PCA stand for?</li>
-<li>Briefly explain the primary objective of Principal Component Analysis.</li>
-<li>How does PCA help in dimensionality reduction?</li>
-</ol>
+<p><span id="exr:add1" class="exercise"><strong>Exercise 11.1  </strong></span>Load the built-in dataset <code>airquality</code> and remove all rows with missing values. How many complete observations remain?</p>
 </div>
 <hr>
 <div class="exercise">
-<p><span id="exr:dabo2" class="exercise"><strong>Exercise 11.2  </strong></span><strong>Library and Data Loading:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>Which R library is commonly used for performing PCA?</li>
-<li>Write the command to load the library FactomineR for PCA.</li>
-<li>How do you read a dataset into R for PCA analysis?</li>
-</ol>
+<p><span id="exr:add2" class="exercise"><strong>Exercise 11.2  </strong></span>Using the <code>mtcars</code> dataset, create a new variable called <code>efficiency</code> that categorizes cars as “High” if <code>mpg &gt; 20</code> and “Low” otherwise. How many cars are in the “High” efficiency category?</p>
 </div>
 <hr>
 <div class="exercise">
-<p><span id="exr:dabo3" class="exercise"><strong>Exercise 11.3  </strong></span><strong>Data Preparation:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>Explain the importance of scaling or standardizing variables before applying PCA.</li>
-<li>Write the R command to standardize a data matrix.</li>
-</ol>
+<p><span id="exr:add3" class="exercise"><strong>Exercise 11.3  </strong></span>Write the R command to calculate the mean, median, and standard deviation of a variable called <code>blood_pressure</code> in a dataset named <code>health_data</code>.</p>
 </div>
 <hr>
 <div class="exercise">
-<p><span id="exr:dabo4" class="exercise"><strong>Exercise 11.4  </strong></span><strong>PCA Execution:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>What function in R is used to perform PCA?</li>
-<li>Provide the basic syntax for running PCA on a dataset named « my_data.”</li>
-</ol>
+<p><span id="exr:add4" class="exercise"><strong>Exercise 11.4  </strong></span>Given a healthcare dataset with variables <code>patient_id</code>, <code>age</code>, <code>treatment</code> (A or B), and <code>recovery_days</code>, write the R command to create a summary table showing the mean recovery days for each treatment group.</p>
 </div>
 <hr>
-<div class="exercise">
-<p><span id="exr:dabo5" class="exercise"><strong>Exercise 11.5  </strong></span><strong>Interpretation of Results:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>How can you access the proportion of variance explained by each principal component in the following R script?</li>
-<li>What is the significance of the eigenvalues and eigenvectors in PCA?</li>
-</ol>
 </div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo6" class="exercise"><strong>Exercise 11.6  </strong></span><strong>Selecting Principal Components:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>How can you determine the optimal number of principal components to retain in R?</li>
-<li>Write the R command to extract the loadings of principal components.</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo7" class="exercise"><strong>Exercise 11.7  </strong></span><strong>The inertia of a centered matrix of n individuals and p quantitative variables is</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>p</li>
-<li>The sum of variances of the p variables</li>
-<li>None of the responses are true</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo8" class="exercise"><strong>Exercise 11.8  </strong></span><strong>The principal components (coordinates of the individuals) are un-correlated</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>TRUE</li>
-<li>FALSE</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo9" class="exercise"><strong>Exercise 11.9  </strong></span><strong>In a normed PCA, the mean eigen-values is </strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>1</li>
-<li>2</li>
-<li>3</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo10" class="exercise"><strong>Exercise 11.10  </strong></span>Let <strong>Z</strong> be a matrix <strong>(50 rows and 4 columns)</strong> of centered and reduced quantitative data, with a correlation matrix R (of dimension <strong>4</strong>) and three eigenvalues are <strong>2, 1 and 0.4.</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>Give the maximum number of eigen-values</li>
-<li>Give the remaining eigen-values</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo11" class="exercise"><strong>Exercise 11.11  </strong></span>A dataset <strong>X</strong> gives, for <strong>23 Charolais and Zebus cattles</strong>, <strong>6 different weights</strong>, in kg: live weight (W_LIV), carcass weight (W_CAR), prime meat weight (W_QUALI), total meat weight (W_TOTAL), fat meat weight (W_FAT), bone weight (W_BO) and the cattle type (Type).</p>
-<ol style="list-style-type: lower-alpha">
-<li>How do you interpret the following correlation matrix plot?</li>
-</ol>
-<div class="float">
-<img src="images/corr_mat.png" alt="corr matrix"><div class="figcaption">corr matrix</div>
-</div>
-<ol style="list-style-type: lower-alpha">
-<li>How many components would you choose regarding the following figures (giving the eigen-values and correlation between the components and the variables)</li>
-</ol>
-<div class="float">
-<img src="images/eig_table.png" alt="eig table"><div class="figcaption">eig table</div>
-</div>
-<ol style="list-style-type: lower-alpha">
-<li>Interpret the following figure:</li>
-</ol>
-<div class="float">
-<img src="images/ind_pca.png" alt="eig table"><div class="figcaption">eig table</div>
-</div>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo12" class="exercise"><strong>Exercise 11.12  </strong></span><strong>Scree Plot:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li><p>What is the purpose of a scree plot in PCA?</p></li>
-<li><p>How do you generate and interpret the following scree plot ?</p></li>
-</ol>
-<div class="float">
-<img src="images/scree_plot_sample.png" alt="scree plot"><div class="figcaption">scree plot</div>
-</div>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo13" class="exercise"><strong>Exercise 11.13  </strong></span><strong>Scree Plot:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>Briefly explain the main objective of Correspondence Analysis (CA).</li>
-<li>How is CA different from Principal Component Analysis (PCA)?</li>
-<li>Provide an example of a scenario where CA would be a suitable analysis.</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo14" class="exercise"><strong>Exercise 11.14  </strong></span><strong>Correspondence Analysis:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>Briefly explain the main objective of Correspondence Analysis (CA).</li>
-<li>How is CA different from Principal Component Analysis (PCA)?</li>
-<li>Provide an example of a scenario where CA would be a suitable analysis.</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo14" class="exercise"><strong>Exercise 11.14  </strong></span><strong>CA Execution:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>Provide the basic syntax for running CA on a contingency table named “my_table.”</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo14" class="exercise"><strong>Exercise 11.14  </strong></span><strong>Interpretation of Results:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>How can you access the row and column scores of the CA results in R?</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo15" class="exercise"><strong>Exercise 11.15  </strong></span><strong>Visualization:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>Write the R command to create a biplot for a Correspondence Analysis result.</li>
-<li>How can you visually assess the relationships between rows and columns in a CA plot?</li>
-</ol>
-</div>
-<hr>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo16" class="exercise"><strong>Exercise 11.16  </strong></span><strong>E3:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>Write the R command to extract the contributions of dimensions in CA (write it in general)</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo17" class="exercise"><strong>Exercise 11.17  </strong></span><strong>Disjunctive table:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>Construct the disjunctive table of the following data</li>
-</ol>
-<blockquote>
-<p>library(tibble)
-disj_table = tribble(
-~Var1, ~Var2, ~Var3,
-“CB”, “YB”, “F”,
-“CB”, “YV”, “F”,
-“CC”, “YB”, “M”,
-“CC”, “YM”, “F”,
-“CR”, “YV”, “M”,
-“CB”, “YB”, “M”
-)</p>
-</blockquote>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo18" class="exercise"><strong>Exercise 11.18  </strong></span><strong>Chi-Square Test:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>What is the role of the chi-square test in Correspondence Analysis?</li>
-<li>How can you perform a chi-square test on a CA result in R?</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo19" class="exercise"><strong>Exercise 11.19  </strong></span><strong>Clustering:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>What is the main goal of clustering algorithms?</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo20" class="exercise"><strong>Exercise 11.20  </strong></span><strong>K-Means Clustering:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>What is the fundamental concept behind K-means clustering?</li>
-<li>Explain the meaning of centroids in the context of K-means clustering.</li>
-<li>Write the R command to perform K-means clustering on a dataset named “my_data.”</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo21" class="exercise"><strong>Exercise 11.21  </strong></span><strong>Hierarchical Clustering:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>Briefly explain how hierarchical clustering works.</li>
-<li>Write the R command to conduct hierarchical clustering on a dataset.</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo22" class="exercise"><strong>Exercise 11.22  </strong></span><strong>Interpretation of Clustering Results:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>How do you interpret the following output of a clustering analysis on the cattle data?</li>
-</ol>
-<div class="float">
-<img src="images/var_desc_clust.png" alt="var_desc_clust plot"><div class="figcaption">var_desc_clust plot</div>
-</div>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo23" class="exercise"><strong>Exercise 11.23  </strong></span><strong>Classification:</strong></p>
-<ol style="list-style-type: lower-alpha">
-<li>What is the main goal of a classification ?</li>
-<li>Provide an example of a real-world application where classification analysis could be beneficial.</li>
-<li>How can classification be used in medical diagnosis or fraud detection?</li>
-</ol>
-</div>
-<div class="exercise">
-<p><span id="exr:dabo26" class="exercise"><strong>Exercise 11.24  </strong></span>What does PCA stand for?</p>
-<ol style="list-style-type: lower-alpha">
-<li>Primary Component Analysis</li>
-<li>Principal Component Algorithm</li>
-<li>Principal Component Analysis</li>
-<li>Primary Component Algorithm</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo27" class="exercise"><strong>Exercise 11.25  </strong></span>In PCA, what is the primary goal?</p>
-<ol style="list-style-type: lower-alpha">
-<li>Reduce dimensionality while preserving variance</li>
-<li>Increase dimensionality for better visualization</li>
-<li>Minimize all components equally</li>
-<li>Focus on individual components only</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo28" class="exercise"><strong>Exercise 11.26  </strong></span>Which R function is commonly used to perform PCA?</p>
-<ol style="list-style-type: lower-alpha">
-<li>kmeans()</li>
-<li>PCA()</li>
-<li>prcomp()</li>
-<li>corresp()</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo29" class="exercise"><strong>Exercise 11.27  </strong></span>What is the purpose of a scree plot in PCA?</p>
-<ol style="list-style-type: lower-alpha">
-<li>Visualize the clusters in data</li>
-<li>Assess the quality of clustering</li>
-<li>Evaluate the distribution of data</li>
-<li>Display the eigenvalues of principal components</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo30" class="exercise"><strong>Exercise 11.28  </strong></span>How do you determine the optimal number of principal components to retain in PCA?</p>
-<ol style="list-style-type: lower-alpha">
-<li>Use hierarchical clustering</li>
-<li>Examine the scree plot</li>
-<li>Apply k-means clustering</li>
-<li>Perform a chi-square test</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo31" class="exercise"><strong>Exercise 11.29  </strong></span>What is the primary application of Correspondence Analysis (CA)?</p>
-<ol style="list-style-type: lower-alpha">
-<li>Reducing dimensionality of numerical data</li>
-<li>Analyzing relationships in categorical data</li>
-<li>Classifying data points into clusters</li>
-<li>Predicting future values in a time series</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo32" class="exercise"><strong>Exercise 11.30  </strong></span>Which R library is commonly used for Correspondence Analysis?</p>
-<ol style="list-style-type: lower-alpha">
-<li>cluster</li>
-<li>caret</li>
-<li>ca</li>
-<li>factoextra</li>
-<li>FactomineR</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo33" class="exercise"><strong>Exercise 11.31  </strong></span>What is the role of the chi-square test in Correspondence Analysis?</p>
-<ol style="list-style-type: lower-alpha">
-<li>Assess the significance of relationships</li>
-<li>Determine the optimal number of clusters</li>
-<li>Evaluate the distribution of data</li>
-<li>Visualize the proximity between data points</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo34" class="exercise"><strong>Exercise 11.32  </strong></span>What is the primary goal of clustering algorithms?</p>
-<ol style="list-style-type: lower-alpha">
-<li>Dimensionality reduction</li>
-<li>Classification</li>
-<li>Grouping similar data points</li>
-<li>Visualization of data</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo35" class="exercise"><strong>Exercise 11.33  </strong></span>Which R function is commonly used for K-means clustering?</p>
-<ol style="list-style-type: lower-alpha">
-<li>hierarch()</li>
-<li>PCA()</li>
-<li>kmeans()</li>
-<li>prcomp()</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo36" class="exercise"><strong>Exercise 11.34  </strong></span>How can you visually assess relationships between rows and columns in a clustering plot?</p>
-<ol style="list-style-type: lower-alpha">
-<li>Scree plot</li>
-<li>Dendrogram</li>
-<li>Silhouette plot</li>
-<li>Biplot</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo37" class="exercise"><strong>Exercise 11.35  </strong></span>What is the primary goal of a classification algorithm?</p>
-<ol style="list-style-type: lower-alpha">
-<li>Group similar data points</li>
-<li>Predict numerical values</li>
-<li>Assign labels to data points</li>
-<li>Visualize high-dimensional data</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo38" class="exercise"><strong>Exercise 11.36  </strong></span>Which algorithm is commonly used for binary classification tasks? (Answers can be mnore than one)</p>
-<ol style="list-style-type: lower-alpha">
-<li>Decision Trees</li>
-<li>K-means</li>
-<li>LDA</li>
-<li>Logistic Regression</li>
-</ol>
-</div>
-<hr>
-<div class="exercise">
-<p><span id="exr:dabo39" class="exercise"><strong>Exercise 11.37  </strong></span>Which metric is commonly used to evaluate the performance of a classification model?</p>
-<ol style="list-style-type: lower-alpha">
-<li>R-squared</li>
-<li>Mean Absolute Error</li>
-<li>Silhouette Score</li>
-<li>Accuracy</li>
-</ol>
-</div>
-</div>
-<div id="solutions-1" class="section level2" number="11.2">
+<div id="part-2-hypothesis-testing---single-population" class="section level2" number="11.2">
 <h2>
-<span class="header-section-number">11.2</span> solutions<a class="anchor" aria-label="anchor" href="#solutions-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">11.2</span> 🔬 Part 2: Hypothesis Testing - Single Population<a class="anchor" aria-label="anchor" href="#part-2-hypothesis-testing---single-population"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:add5" class="exercise"><strong>Exercise 11.5  </strong></span>A hospital claims that the average waiting time in their emergency room is 45 minutes. A random sample of 50 patients showed a mean waiting time of 52 minutes with a standard deviation of 12 minutes. Test at α = 0.05 if the actual waiting time is significantly different from the claimed 45 minutes. Write the R command to perform this test.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add6" class="exercise"><strong>Exercise 11.6  </strong></span>A pharmaceutical company claims that 75% of patients experience relief from headaches within 30 minutes of taking their new medication. In a sample of 200 patients, 140 reported relief within 30 minutes. Test if the actual proportion is significantly different from 75%. Write the appropriate R command.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add7" class="exercise"><strong>Exercise 11.7  </strong></span>Without using formulas, explain the difference between Type I and Type II errors in hypothesis testing.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add8" class="exercise"><strong>Exercise 11.8  </strong></span>A medical study tests whether the average cholesterol level in a population is greater than 200 mg/dL. The p-value obtained is 0.032. At a significance level of 0.05, what is your decision and conclusion?</p>
+</div>
+<hr>
+</div>
+<div id="part-3-hypothesis-testing---two-populations" class="section level2" number="11.3">
+<h2>
+<span class="header-section-number">11.3</span> 👥 Part 3: Hypothesis Testing - Two Populations<a class="anchor" aria-label="anchor" href="#part-3-hypothesis-testing---two-populations"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:add9" class="exercise"><strong>Exercise 11.9  </strong></span>A clinical trial compares two different treatments for hypertension. Group A (n=30) has a mean blood pressure reduction of 15 mmHg (sd=5), while Group B (n=35) has a mean reduction of 12 mmHg (sd=6). Assume equal variances. Write the R command to test if there is a significant difference between the two treatments.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add10" class="exercise"><strong>Exercise 11.10  </strong></span>A hospital is testing a new training program for nurses. The same 20 nurses took a competency test before and after the training. The data is as follows:</p>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">nurse_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  nurse_id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">20</span>,</span>
+<span>  before <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">72</span>, <span class="fl">68</span>, <span class="fl">75</span>, <span class="fl">70</span>, <span class="fl">73</span>, <span class="fl">69</span>, <span class="fl">71</span>, <span class="fl">74</span>, <span class="fl">68</span>, <span class="fl">72</span>, </span>
+<span>             <span class="fl">70</span>, <span class="fl">73</span>, <span class="fl">69</span>, <span class="fl">71</span>, <span class="fl">74</span>, <span class="fl">72</span>, <span class="fl">70</span>, <span class="fl">68</span>, <span class="fl">73</span>, <span class="fl">71</span><span class="op">)</span>,</span>
+<span>  after <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">78</span>, <span class="fl">74</span>, <span class="fl">80</span>, <span class="fl">76</span>, <span class="fl">79</span>, <span class="fl">75</span>, <span class="fl">77</span>, <span class="fl">80</span>, <span class="fl">74</span>, <span class="fl">78</span>, </span>
+<span>            <span class="fl">76</span>, <span class="fl">79</span>, <span class="fl">75</span>, <span class="fl">77</span>, <span class="fl">80</span>, <span class="fl">78</span>, <span class="fl">76</span>, <span class="fl">74</span>, <span class="fl">79</span>, <span class="fl">77</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>Test if the training program significantly improved the test scores. Write the appropriate R command and state whether this should be a paired or unpaired test.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add11" class="exercise"><strong>Exercise 11.11  </strong></span>Two hospitals are comparing their patient satisfaction rates. Hospital A reports that 180 out of 250 patients (72%) were satisfied, while Hospital B reports that 210 out of 280 patients (75%) were satisfied. Write the R command to test if there is a significant difference in satisfaction rates between the two hospitals.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add12" class="exercise"><strong>Exercise 11.12  </strong></span>A researcher wants to compare the effectiveness of three different diets (A, B, and C) on weight loss. Given the following data, can you determine if this requires a t-test or ANOVA? Explain why.</p>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">diet_study</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  diet <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>,</span>
+<span>  weight_loss <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span>  <span class="co"># 45 observations total</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<hr>
+</div>
+<div id="part-4-anova---comparing-multiple-groups" class="section level2" number="11.4">
+<h2>
+<span class="header-section-number">11.4</span> 📊 Part 4: ANOVA - Comparing Multiple Groups<a class="anchor" aria-label="anchor" href="#part-4-anova---comparing-multiple-groups"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:add13" class="exercise"><strong>Exercise 11.13  </strong></span>Using the built-in <code>PlantGrowth</code> dataset in R, test if there is a significant difference in plant weight across the three treatment groups. Write the R command and report the p-value.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add14" class="exercise"><strong>Exercise 11.14  </strong></span>A medical study examines the effect of four different medications on reducing fever. The temperature reduction (in degrees Celsius) for patients in each group is recorded:</p>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">fever_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  medication <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Med_A"</span>, <span class="st">"Med_B"</span>, <span class="st">"Med_C"</span>, <span class="st">"Med_D"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,</span>
+<span>  temp_reduction <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>    <span class="fl">1.2</span>, <span class="fl">1.5</span>, <span class="fl">1.3</span>, <span class="fl">1.4</span>, <span class="fl">1.6</span>, <span class="fl">1.3</span>, <span class="fl">1.5</span>, <span class="fl">1.4</span>, <span class="fl">1.2</span>, <span class="fl">1.5</span>,  <span class="co"># Med_A</span></span>
+<span>    <span class="fl">1.8</span>, <span class="fl">2.0</span>, <span class="fl">1.9</span>, <span class="fl">2.1</span>, <span class="fl">1.8</span>, <span class="fl">2.0</span>, <span class="fl">1.9</span>, <span class="fl">1.8</span>, <span class="fl">2.0</span>, <span class="fl">1.9</span>,  <span class="co"># Med_B</span></span>
+<span>    <span class="fl">1.0</span>, <span class="fl">1.2</span>, <span class="fl">1.1</span>, <span class="fl">1.3</span>, <span class="fl">1.0</span>, <span class="fl">1.2</span>, <span class="fl">1.1</span>, <span class="fl">1.0</span>, <span class="fl">1.2</span>, <span class="fl">1.1</span>,  <span class="co"># Med_C</span></span>
+<span>    <span class="fl">2.3</span>, <span class="fl">2.5</span>, <span class="fl">2.4</span>, <span class="fl">2.6</span>, <span class="fl">2.3</span>, <span class="fl">2.5</span>, <span class="fl">2.4</span>, <span class="fl">2.3</span>, <span class="fl">2.5</span>, <span class="fl">2.4</span>   <span class="co"># Med_D</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>Perform an ANOVA test to determine if there are significant differences among the medications. What is the F-statistic?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add15" class="exercise"><strong>Exercise 11.15  </strong></span>After conducting an ANOVA test that shows significant differences among groups, what additional analysis would you perform to identify which specific groups differ from each other?</p>
+</div>
+<hr>
+</div>
+<div id="part-5-simple-and-multiple-linear-regression" class="section level2" number="11.5">
+<h2>
+<span class="header-section-number">11.5</span> 📈 Part 5: Simple and Multiple Linear Regression<a class="anchor" aria-label="anchor" href="#part-5-simple-and-multiple-linear-regression"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:add16" class="exercise"><strong>Exercise 11.16  </strong></span>Using the <code>mtcars</code> dataset, estimate a simple linear regression model where <code>mpg</code> (miles per gallon) is predicted by <code>wt</code> (weight). What is the interpretation of the slope coefficient?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add17" class="exercise"><strong>Exercise 11.17  </strong></span>A researcher collects data on hospital readmission rates. They want to predict the <code>readmission_rate</code> (percentage) based on <code>bed_count</code>, <code>nurse_ratio</code> (nurses per patient), and <code>avg_stay</code> (average length of stay). Write the R command to estimate this multiple regression model.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add18" class="exercise"><strong>Exercise 11.18  </strong></span>In a multiple linear regression model predicting patient recovery time based on age, BMI, and exercise hours, you obtain the following VIF values:
+- age: VIF = 2.3
+- BMI: VIF = 12.5
+- exercise: VIF = 2.1</p>
+<p>Which variable(s) might be problematic due to multicollinearity, and what would you recommend?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add19" class="exercise"><strong>Exercise 11.19  </strong></span>Using the <code>mtcars</code> dataset, estimate a multiple regression model: <code>mpg ~ wt + hp + cyl</code>. After checking for significance and multicollinearity, you find that <code>cyl</code> has a p-value of 0.85 and high VIF. What should you do next?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add20" class="exercise"><strong>Exercise 11.20  </strong></span>Explain the difference between R-squared and Adjusted R-squared. Why is Adjusted R-squared particularly important in multiple regression?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add21" class="exercise"><strong>Exercise 11.21  </strong></span>Given the following regression output for predicting systolic blood pressure:</p>
+<pre><code>Coefficients:
+              Estimate  Std. Error  t value  Pr(&gt;|t|)    
+(Intercept)   90.234    5.123       17.61    &lt; 2e-16 ***
+age           0.652     0.085        7.67    1.2e-11 ***
+weight        0.234     0.045        5.20    8.3e-07 ***
+exercise     -1.234     0.312       -3.95    0.00015 ***
+
+Residual standard error: 8.5 on 146 degrees of freedom
+Multiple R-squared:  0.5234,    Adjusted R-squared:  0.5136
+F-statistic: 53.45 on 3 and 146 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>What is the predicted systolic blood pressure for a 50-year-old person weighing 75 kg who exercises 5 hours per week?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add22" class="exercise"><strong>Exercise 11.22  </strong></span>In the regression output from the previous exercise, which variable has the strongest effect on blood pressure? How did you determine this?</p>
+</div>
+<hr>
+</div>
+<div id="part-6-nonlinear-regression-and-transformations" class="section level2" number="11.6">
+<h2>
+<span class="header-section-number">11.6</span> 🔄 Part 6: Nonlinear Regression and Transformations<a class="anchor" aria-label="anchor" href="#part-6-nonlinear-regression-and-transformations"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:add23" class="exercise"><strong>Exercise 11.23  </strong></span>You want to model the relationship between BMI and the risk of diabetes, but the relationship appears to be quadratic. Write the R command to estimate a polynomial regression model with BMI and BMI² as predictors.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add24" class="exercise"><strong>Exercise 11.24  </strong></span>Given a variable <code>income</code> that is highly right-skewed, what transformation would you typically apply to make it more normally distributed for regression analysis? Write the R command to create this transformed variable.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add25" class="exercise"><strong>Exercise 11.25  </strong></span>Using the <code>mtcars</code> dataset, create a model predicting <code>mpg</code> using both <code>wt</code> and <code>wt²</code> (weight squared). Write the complete R commands needed.</p>
+</div>
+<hr>
+</div>
+<div id="part-7-logistic-regression" class="section level2" number="11.7">
+<h2>
+<span class="header-section-number">11.7</span> 🎯 Part 7: Logistic Regression<a class="anchor" aria-label="anchor" href="#part-7-logistic-regression"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:add26" class="exercise"><strong>Exercise 11.26  </strong></span>A study examines factors affecting whether a patient develops a certain disease (yes/no). The predictors are age, BMI, and smoking status (0=non-smoker, 1=smoker). Write the R command to estimate a logistic regression model with <code>disease</code> as the outcome variable.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add27" class="exercise"><strong>Exercise 11.27  </strong></span>In logistic regression, what does an odds ratio of 2.5 for the variable “smoking” mean in practical terms?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add28" class="exercise"><strong>Exercise 11.28  </strong></span>You have a dataset with a binary outcome <code>survived</code> (1=yes, 0=no) and predictors <code>age</code>, <code>treatment_type</code>, and <code>severity_score</code>. After fitting a logistic regression model, you get a coefficient of -0.05 for age. What does this negative coefficient indicate?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add29" class="exercise"><strong>Exercise 11.29  </strong></span>What is the key difference between linear regression and logistic regression in terms of what they predict?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add30" class="exercise"><strong>Exercise 11.30  </strong></span>Using the built-in <code>mtcars</code> dataset, create a binary variable <code>high_mpg</code> (1 if mpg &gt; 20, 0 otherwise) and estimate a logistic regression model predicting <code>high_mpg</code> based on <code>wt</code> and <code>hp</code>. Write the R commands.</p>
+</div>
+<hr>
+</div>
+<div id="part-8-poisson-regression" class="section level2" number="11.8">
+<h2>
+<span class="header-section-number">11.8</span> 📊 Part 8: Poisson Regression<a class="anchor" aria-label="anchor" href="#part-8-poisson-regression"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:add31" class="exercise"><strong>Exercise 11.31  </strong></span>A hospital administrator wants to model the number of emergency room visits per day based on day of the week and weather conditions. What type of regression model is most appropriate for count data like this?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add32" class="exercise"><strong>Exercise 11.32  </strong></span>You have data on the number of hospital-acquired infections (<code>infection_count</code>) and want to predict it based on <code>bed_occupancy_rate</code> and <code>nurse_staff_ratio</code>. Write the R command to fit a Poisson regression model.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add33" class="exercise"><strong>Exercise 11.33  </strong></span>What is the primary assumption of Poisson regression regarding the relationship between the mean and variance of the outcome variable?</p>
+</div>
+<hr>
+</div>
+<div id="part-9-regression-with-dummy-variables" class="section level2" number="11.9">
+<h2>
+<span class="header-section-number">11.9</span> 🏷️ Part 9: Regression with Dummy Variables<a class="anchor" aria-label="anchor" href="#part-9-regression-with-dummy-variables"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:add34" class="exercise"><strong>Exercise 11.34  </strong></span>A dataset contains a variable <code>blood_type</code> with categories: A, B, AB, and O. You want to include this in a regression model predicting cholesterol levels. How many dummy variables do you need to create, and why?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add35" class="exercise"><strong>Exercise 11.35  </strong></span>You have a dataset with the following variables:
+- <code>recovery_time</code> (continuous outcome)
+- <code>age</code> (continuous)
+- <code>treatment</code> (categorical: “Standard”, “Experimental”, “Control”)</p>
+<p>Write the R command to create a regression model that includes the categorical treatment variable.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add36" class="exercise"><strong>Exercise 11.36  </strong></span>In a regression model with a categorical variable “hospital_ward” (ICU, Surgery, General), you create dummy variables. The regression output shows:</p>
+<pre><code>Coefficients:
+                      Estimate  Std. Error  t value  Pr(&gt;|t|)    
+(Intercept)           12.5      1.2         10.42    &lt; 2e-16 ***
+ward_Surgery          -2.3      0.8         -2.88    0.0045 **
+ward_ICU              4.7       0.9          5.22    &lt; 0.0001 ***</code></pre>
+<p>If “General” is the reference category, what is the predicted value for a patient in the Surgery ward (assuming no other predictors)?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add37" class="exercise"><strong>Exercise 11.37  </strong></span>Using the <code>mtcars</code> dataset, the variable <code>am</code> is binary (0=automatic, 1=manual). Create a regression model predicting <code>mpg</code> based on <code>wt</code>, <code>hp</code>, and <code>am</code>. Write the R command.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add38" class="exercise"><strong>Exercise 11.38  </strong></span>In a model with a dummy variable for gender (male=1, female=0) predicting salary, the coefficient for gender is 5000. What does this mean?</p>
+</div>
+<hr>
+</div>
+<div id="part-10-model-diagnostics-and-interpretation" class="section level2" number="11.10">
+<h2>
+<span class="header-section-number">11.10</span> 🧮 Part 10: Model Diagnostics and Interpretation<a class="anchor" aria-label="anchor" href="#part-10-model-diagnostics-and-interpretation"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:add39" class="exercise"><strong>Exercise 11.39  </strong></span>What are the four main assumptions that should be checked for linear regression models?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add40" class="exercise"><strong>Exercise 11.40  </strong></span>You fit a regression model and obtain an R² of 0.85 and an Adjusted R² of 0.83. You have 100 observations. Approximately how many predictors are in your model? (Hint: use the relationship between R² and Adjusted R²)</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add41" class="exercise"><strong>Exercise 11.41  </strong></span>A researcher finds that in their regression model, the residuals show a clear funnel shape when plotted against fitted values. What problem does this indicate, and what might be a solution?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add42" class="exercise"><strong>Exercise 11.42  </strong></span>Using the <code>mtcars</code> dataset, fit a model <code>mpg ~ wt + hp</code> and create diagnostic plots using the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function. Write the R commands.</p>
+</div>
+<hr>
+</div>
+<div id="part-11-big-data-concepts-and-data-collection" class="section level2" number="11.11">
+<h2>
+<span class="header-section-number">11.11</span> 🔢 Part 11: Big Data Concepts and Data Collection<a class="anchor" aria-label="anchor" href="#part-11-big-data-concepts-and-data-collection"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:add43" class="exercise"><strong>Exercise 11.43  </strong></span>Explain in your own words why correct data collection is particularly important in the era of Big Data, even though we have more data than ever before.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add44" class="exercise"><strong>Exercise 11.44  </strong></span>What is the difference between structured and unstructured data? Give one example of each in a healthcare context.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add45" class="exercise"><strong>Exercise 11.45  </strong></span>Name at least three potential sources of bias in data collection that could affect the validity of statistical analyses in healthcare research.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add46" class="exercise"><strong>Exercise 11.46  </strong></span>A hospital collects data on patient satisfaction through a voluntary online survey. What type of bias might this introduce, and why?</p>
+</div>
+<hr>
+</div>
+<div id="part-12-mixed-practical-exercises" class="section level2" number="11.12">
+<h2>
+<span class="header-section-number">11.12</span> 💻 Part 12: Mixed Practical Exercises<a class="anchor" aria-label="anchor" href="#part-12-mixed-practical-exercises"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:add47" class="exercise"><strong>Exercise 11.47  </strong></span>Create a simulated dataset with 100 observations containing:
+- <code>patient_id</code>: sequential numbers 1 to 100
+- <code>age</code>: random values from a normal distribution with mean 50 and sd 15
+- <code>treatment</code>: randomly assign “A” or “B” to each patient
+- <code>outcome</code>: random values from a normal distribution with mean 100 and sd 20</p>
+<p>Write the R commands to create this dataset.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add48" class="exercise"><strong>Exercise 11.48  </strong></span>Using the dataset created in the previous exercise, perform the following:
+1. Calculate the mean age for each treatment group
+2. Test if there’s a significant difference in outcome between treatment groups
+3. Create a linear model predicting outcome from age and treatment</p>
+<p>Write all necessary R commands.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add49" class="exercise"><strong>Exercise 11.49  </strong></span>Load the <code>iris</code> dataset and:
+1. Filter only the “setosa” and “versicolor” species
+2. Create a logistic regression model predicting species based on <code>Sepal.Length</code> and <code>Petal.Length</code>
+3. Report the coefficients</p>
+<p>Write the R commands using <code>dplyr</code> for filtering.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:add50" class="exercise"><strong>Exercise 11.50  </strong></span>A pharmaceutical company tests a new drug on 500 patients. They record:
+- Patient demographics (age, gender, BMI)
+- Baseline health metrics (blood pressure, cholesterol, glucose)
+- Treatment assignment (drug vs. placebo)
+- Outcome after 6 months (improved=1, not improved=0)</p>
+<p>Describe the complete analytical workflow you would follow, from data cleaning to final model interpretation. What types of analyses would you perform?</p>
+</div>
+<hr>
+<hr>
+</div>
+<div id="solutions-1" class="section level2" number="11.13">
+<h2>
+<span class="header-section-number">11.13</span> ✅ SOLUTIONS<a class="anchor" aria-label="anchor" href="#solutions-1"><i class="fas fa-link"></i></a>
 </h2>
 <div class="answer">
-<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo7">11.7</a>:</p>
-<ol style="list-style-type: lower-alpha">
-<li>p</li>
-<li><strong>The sum of variances of the p variables</strong></li>
-<li>None of the responses are true</li>
-</ol>
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add1">11.1</a>:</p>
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span></span>
+<span><span class="va">complete_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">airquality</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">complete_data</span><span class="op">)</span></span></code></pre></div>
+<p>Result: <strong>111</strong> complete observations remain.</p>
 </div>
 <div class="answer">
-<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo8">11.8</a>:</p>
-<ol style="list-style-type: lower-alpha">
-<li><strong>TRUE</strong></li>
-<li>FALSE</li>
-</ol>
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add2">11.2</a>:</p>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">efficiency</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span> <span class="op">&gt;</span> <span class="fl">20</span>, <span class="st">"High"</span>, <span class="st">"Low"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">efficiency</span><span class="op">)</span></span></code></pre></div>
+<p>Result: <strong>14</strong> cars are in the “High” efficiency category.</p>
 </div>
 <div class="answer">
-<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo9">11.9</a>:</p>
-<ol style="list-style-type: lower-alpha">
-<li><strong>1</strong></li>
-<li>2</li>
-<li>3</li>
-</ol>
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add3">11.3</a>:</p>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">health_data</span><span class="op">$</span><span class="va">blood_pressure</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">health_data</span><span class="op">$</span><span class="va">blood_pressure</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">health_data</span><span class="op">$</span><span class="va">blood_pressure</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Or all at once:</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">health_data</span><span class="op">$</span><span class="va">blood_pressure</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="answer">
-<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo32">11.30</a>:</p>
-<ol style="list-style-type: lower-alpha">
-<li>cluster</li>
-<li>caret</li>
-<li>ca</li>
-<li>factoextra</li>
-<li><strong>FactomineR</strong></li>
-</ol>
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add4">11.4</a>:</p>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="va">health_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">treatment</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_recovery <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">recovery_days</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Or base R:</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">recovery_days</span> <span class="op">~</span> <span class="va">treatment</span>, data <span class="op">=</span> <span class="va">health_data</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="answer">
-<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo34">11.32</a>:</p>
-<ol style="list-style-type: lower-alpha">
-<li>Dimensionality reduction</li>
-<li>Classification</li>
-<li><strong>Grouping similar data points</strong></li>
-<li>Visualization of data</li>
-</ol>
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add5">11.5</a>:</p>
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create the sample data</span></span>
+<span><span class="va">waiting_time</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">50</span>, mean <span class="op">=</span> <span class="fl">52</span>, sd <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>  <span class="co"># Simulated data</span></span>
+<span></span>
+<span><span class="co"># Perform one-sample t-test</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">waiting_time</span>, mu <span class="op">=</span> <span class="fl">45</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Or if you have the actual data vector:</span></span>
+<span><span class="co"># t.test(sample_waiting_times, mu = 45, alternative = "two.sided")</span></span></code></pre></div>
+<p>This is a one-sample t-test because we’re comparing the sample mean to a known population value (45 minutes).</p>
 </div>
 <div class="answer">
-<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo35">11.33</a>:</p>
-<ol style="list-style-type: lower-alpha">
-<li>hierarch()</li>
-<li>PCA()</li>
-<li><strong>kmeans()</strong></li>
-<li>prcomp()a</li>
-</ol>
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add6">11.6</a>:</p>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Proportion test</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/prop.test.html">prop.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">140</span>, n <span class="op">=</span> <span class="fl">200</span>, p <span class="op">=</span> <span class="fl">0.75</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></span></code></pre></div>
+<p>The null hypothesis is H0: p = 0.75. The sample proportion is 140/200 = 0.70 (70%).</p>
 </div>
 <div class="answer">
-<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo36">11.34</a>:</p>
-<ol style="list-style-type: lower-alpha">
-<li>Scree plot</li>
-<li><strong>Dendrogram</strong></li>
-<li>Silhouette plot</li>
-<li>Biplot</li>
-</ol>
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add7">11.7</a>:</p>
+<p><strong>Type I Error (α)</strong>: Rejecting the null hypothesis when it is actually true. This is a “false positive” - concluding there is an effect when there isn’t one. The probability of Type I error is the significance level (usually 0.05).</p>
+<p><strong>Type II Error (β)</strong>: Failing to reject the null hypothesis when it is actually false. This is a “false negative” - missing a real effect. The probability of Type II error is related to the power of the test (Power = 1 - β).</p>
+<p>Example in healthcare: Type I error would be concluding a drug works when it doesn’t; Type II error would be concluding a drug doesn’t work when it actually does.</p>
 </div>
 <div class="answer">
-<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo37">11.35</a>:</p>
-<ol style="list-style-type: lower-alpha">
-<li>Group similar data points</li>
-<li>Predict numerical values</li>
-<li><strong>Assign labels to data points</strong></li>
-<li>Visualize high-dimensional data</li>
-</ol>
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add8">11.8</a>:</p>
+<p><strong>Decision</strong>: Reject the null hypothesis.</p>
+<p><strong>Conclusion</strong>: Since p-value (0.032) &lt; α (0.05), we reject H0. There is sufficient evidence to conclude that the average cholesterol level in the population is significantly greater than 200 mg/dL.</p>
 </div>
 <div class="answer">
-<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo38">11.36</a>:</p>
-<ol style="list-style-type: lower-alpha">
-<li><strong>Decision Trees</strong></li>
-<li>K-means</li>
-<li><strong>LDA</strong></li>
-<li><strong>Logistic Regression</strong></li>
-</ol>
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add9">11.9</a>:</p>
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create sample data (in practice, you'd have actual data)</span></span>
+<span><span class="va">group_A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">30</span>, mean <span class="op">=</span> <span class="fl">15</span>, sd <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="va">group_B</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">35</span>, mean <span class="op">=</span> <span class="fl">12</span>, sd <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Two-sample t-test assuming equal variances</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">group_A</span>, <span class="va">group_B</span>, var.equal <span class="op">=</span> <span class="cn">TRUE</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></span></code></pre></div>
+<p>This is an unpaired (independent samples) t-test with equal variances.</p>
 </div>
 <div class="answer">
-<p><strong>Answer to Question</strong> <a href="int-samp-q-second.html#exr:dabo39">11.37</a>:</p>
-<ol style="list-style-type: lower-alpha">
-<li>R-squared</li>
-<li>Mean Absolute Error</li>
-<li>Silhouette Score</li>
-<li><strong>Accuracy</strong></li>
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add10">11.10</a>:</p>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">nurse_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  nurse_id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">20</span>,</span>
+<span>  before <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">72</span>, <span class="fl">68</span>, <span class="fl">75</span>, <span class="fl">70</span>, <span class="fl">73</span>, <span class="fl">69</span>, <span class="fl">71</span>, <span class="fl">74</span>, <span class="fl">68</span>, <span class="fl">72</span>, </span>
+<span>             <span class="fl">70</span>, <span class="fl">73</span>, <span class="fl">69</span>, <span class="fl">71</span>, <span class="fl">74</span>, <span class="fl">72</span>, <span class="fl">70</span>, <span class="fl">68</span>, <span class="fl">73</span>, <span class="fl">71</span><span class="op">)</span>,</span>
+<span>  after <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">78</span>, <span class="fl">74</span>, <span class="fl">80</span>, <span class="fl">76</span>, <span class="fl">79</span>, <span class="fl">75</span>, <span class="fl">77</span>, <span class="fl">80</span>, <span class="fl">74</span>, <span class="fl">78</span>, </span>
+<span>            <span class="fl">76</span>, <span class="fl">79</span>, <span class="fl">75</span>, <span class="fl">77</span>, <span class="fl">80</span>, <span class="fl">78</span>, <span class="fl">76</span>, <span class="fl">74</span>, <span class="fl">79</span>, <span class="fl">77</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Paired t-test</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">nurse_data</span><span class="op">$</span><span class="va">after</span>, <span class="va">nurse_data</span><span class="op">$</span><span class="va">before</span>, </span>
+<span>       paired <span class="op">=</span> <span class="cn">TRUE</span>, alternative <span class="op">=</span> <span class="st">"greater"</span><span class="op">)</span></span></code></pre></div>
+<p>This should be a <strong>PAIRED test</strong> because the same nurses are measured before and after the training (repeated measures on the same subjects).</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add11">11.11</a>:</p>
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Two-sample proportion test</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/prop.test.html">prop.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">180</span>, <span class="fl">210</span><span class="op">)</span>, n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">250</span>, <span class="fl">280</span><span class="op">)</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></span></code></pre></div>
+<p>This tests if the proportions (0.72 vs 0.75) are significantly different between the two hospitals.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add12">11.12</a>:</p>
+<p>This requires <strong>ANOVA</strong> (Analysis of Variance), not a t-test.</p>
+<p><strong>Reason</strong>: We are comparing means across <strong>three groups</strong> (diets A, B, and C). A t-test can only compare two groups at a time. ANOVA is specifically designed to test if there are significant differences among three or more group means simultaneously.</p>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># The appropriate test would be:</span></span>
+<span><span class="va">anova_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">weight_loss</span> <span class="op">~</span> <span class="va">diet</span>, data <span class="op">=</span> <span class="va">diet_study</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">anova_result</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add13">11.13</a>:</p>
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">PlantGrowth</span><span class="op">)</span></span>
+<span><span class="va">plant_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">weight</span> <span class="op">~</span> <span class="va">group</span>, data <span class="op">=</span> <span class="va">PlantGrowth</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">plant_model</span><span class="op">)</span></span></code></pre></div>
+<p>The p-value is approximately <strong>0.0159</strong>, indicating significant differences among the groups at α = 0.05.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add14">11.14</a>:</p>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">fever_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  medication <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Med_A"</span>, <span class="st">"Med_B"</span>, <span class="st">"Med_C"</span>, <span class="st">"Med_D"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,</span>
+<span>  temp_reduction <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>    <span class="fl">1.2</span>, <span class="fl">1.5</span>, <span class="fl">1.3</span>, <span class="fl">1.4</span>, <span class="fl">1.6</span>, <span class="fl">1.3</span>, <span class="fl">1.5</span>, <span class="fl">1.4</span>, <span class="fl">1.2</span>, <span class="fl">1.5</span>,</span>
+<span>    <span class="fl">1.8</span>, <span class="fl">2.0</span>, <span class="fl">1.9</span>, <span class="fl">2.1</span>, <span class="fl">1.8</span>, <span class="fl">2.0</span>, <span class="fl">1.9</span>, <span class="fl">1.8</span>, <span class="fl">2.0</span>, <span class="fl">1.9</span>,</span>
+<span>    <span class="fl">1.0</span>, <span class="fl">1.2</span>, <span class="fl">1.1</span>, <span class="fl">1.3</span>, <span class="fl">1.0</span>, <span class="fl">1.2</span>, <span class="fl">1.1</span>, <span class="fl">1.0</span>, <span class="fl">1.2</span>, <span class="fl">1.1</span>,</span>
+<span>    <span class="fl">2.3</span>, <span class="fl">2.5</span>, <span class="fl">2.4</span>, <span class="fl">2.6</span>, <span class="fl">2.3</span>, <span class="fl">2.5</span>, <span class="fl">2.4</span>, <span class="fl">2.3</span>, <span class="fl">2.5</span>, <span class="fl">2.4</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">fever_anova</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">temp_reduction</span> <span class="op">~</span> <span class="va">medication</span>, data <span class="op">=</span> <span class="va">fever_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fever_anova</span><span class="op">)</span></span></code></pre></div>
+<p>The F-statistic is approximately <strong>167.4</strong>, with a very small p-value (&lt; 2e-16), indicating highly significant differences among medications.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add15">11.15</a>:</p>
+<p>After a significant ANOVA, you should perform <strong>post-hoc tests</strong> (pairwise comparisons) such as:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Tukey’s HSD (Honestly Significant Difference)</strong> - most common</li>
+<li><strong>Bonferroni correction</strong></li>
+<li><strong>Scheffe’s test</strong></li>
 </ol>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Example using Tukey's HSD:</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span><span class="va">anova_model</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Or using the multcomp package:</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://multcomp.R-forge.R-project.org">multcomp</a></span><span class="op">)</span></span>
+<span><span class="va">post_hoc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/glht.html">glht</a></span><span class="op">(</span><span class="va">anova_model</span>, linfct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/glht.html">mcp</a></span><span class="op">(</span>group_variable <span class="op">=</span> <span class="st">"Tukey"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">post_hoc</span><span class="op">)</span></span></code></pre></div>
+<p>These tests identify which specific pairs of groups differ significantly from each other.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add16">11.16</a>:</p>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="va">mpg_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mpg_model</span><span class="op">)</span></span></code></pre></div>
+<p><strong>Interpretation of slope</strong>: The coefficient for <code>wt</code> is approximately <strong>-5.34</strong>. This means that for every 1,000 lb increase in car weight, the fuel efficiency (mpg) decreases by about 5.34 miles per gallon, on average. The negative sign indicates an inverse relationship: heavier cars have lower fuel efficiency.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add17">11.17</a>:</p>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">readmission_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">readmission_rate</span> <span class="op">~</span> <span class="va">bed_count</span> <span class="op">+</span> <span class="va">nurse_ratio</span> <span class="op">+</span> <span class="va">avg_stay</span>, </span>
+<span>                        data <span class="op">=</span> <span class="va">hospital_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">readmission_model</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add18">11.18</a>:</p>
+<p><strong>Problem</strong>: The variable <strong>BMI</strong> has a VIF of 12.5, which exceeds the common threshold of 10, indicating problematic multicollinearity. Age and exercise have acceptable VIF values (&lt; 10).</p>
+<p><strong>Recommendation</strong>:
+1. Consider removing BMI from the model, OR
+2. Investigate which other variable(s) BMI is highly correlated with
+3. Consider combining correlated variables or using principal component analysis (PCA)
+4. Check if the model performance and interpretability are actually affected</p>
+<p>The other variables (age and exercise) are fine and should be retained.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add19">11.19</a>:</p>
+<p>You should <strong>remove the <code>cyl</code> variable</strong> from the model.</p>
+<p><strong>Reasoning</strong>:
+1. The p-value of 0.85 is much larger than any reasonable significance level (e.g., 0.05), indicating <code>cyl</code> is not significantly associated with <code>mpg</code> in this model
+2. High VIF suggests multicollinearity with other predictors
+3. Removing non-significant variables with high VIF improves model parsimony and interpretability</p>
+<p><strong>Next step</strong>:</p>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Refit the model without cyl</span></span>
+<span><span class="va">improved_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">improved_model</span><span class="op">)</span></span>
+<span><span class="co"># Check VIF again</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/car/man/vif.html">vif</a></span><span class="op">(</span><span class="va">improved_model</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add20">11.20</a>:</p>
+<p><strong>R-squared (R²)</strong>: Represents the proportion of variance in the dependent variable that is explained by the independent variable(s). It ranges from 0 to 1. However, R² always increases (or stays the same) when you add more predictors, even if they’re not truly useful.</p>
+<p><strong>Adjusted R-squared (R²adj)</strong>: Adjusts R² for the number of predictors in the model and the sample size. It penalizes the addition of unhelpful variables.</p>
+<p><strong>Formula</strong>: R²adj = 1 - [(1 - R²)(n - 1)/(n - k - 1)]
+where n = sample size, k = number of predictors</p>
+<p><strong>Why important in multiple regression</strong>:
+- Prevents overfitting
+- Allows fair comparison between models with different numbers of predictors
+- Can decrease if you add predictors that don’t improve the model enough to justify their inclusion
+- More realistic measure of model quality</p>
+<p>Use R²adj when comparing models with different numbers of predictors; use R² when evaluating a single model’s goodness of fit.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add21">11.21</a>:</p>
+<p>The regression equation is:
+Systolic BP = 90.234 + 0.652(age) + 0.234(weight) - 1.234(exercise)</p>
+<p>For a 50-year-old, 75 kg person who exercises 5 hours/week:
+Systolic BP = 90.234 + 0.652(50) + 0.234(75) - 1.234(5)
+Systolic BP = 90.234 + 32.6 + 17.55 - 6.17
+<strong>Systolic BP = 134.214 mmHg</strong></p>
+<p>Approximately <strong>134.2 mmHg</strong></p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add22">11.22</a>:</p>
+<p>The variable with the <strong>strongest effect</strong> appears to be <strong>age</strong>, with a t-value of 7.67 (the highest absolute t-value).</p>
+<p><strong>How to determine</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong>Compare t-values</strong> (most direct method): Larger absolute t-values indicate stronger effects</p>
+<ul>
+<li>age: t = 7.67</li>
+<li>weight: t = 5.20</li>
+<li>exercise: t = -3.95</li>
+</ul>
+</li>
+<li><p><strong>Compare p-values</strong>: All are highly significant, but age has the smallest p-value (1.2e-11)</p></li>
+<li><p><strong>Standardized coefficients</strong> would be the most precise method (not shown here), as they account for different scales of measurement</p></li>
+</ol>
+<p>Note: We cannot simply compare the raw coefficients (0.652, 0.234, -1.234) because the variables are measured in different units (years, kg, hours).</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add23">11.23</a>:</p>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create the polynomial term</span></span>
+<span><span class="va">model_data</span><span class="op">$</span><span class="va">BMI_squared</span> <span class="op">&lt;-</span> <span class="va">model_data</span><span class="op">$</span><span class="va">BMI</span><span class="op">^</span><span class="fl">2</span></span>
+<span></span>
+<span><span class="co"># Fit polynomial regression</span></span>
+<span><span class="va">poly_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">diabetes_risk</span> <span class="op">~</span> <span class="va">BMI</span> <span class="op">+</span> <span class="va">BMI_squared</span>, data <span class="op">=</span> <span class="va">model_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">poly_model</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Alternative using poly() function (creates orthogonal polynomials):</span></span>
+<span><span class="va">poly_model2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">diabetes_risk</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/poly.html">poly</a></span><span class="op">(</span><span class="va">BMI</span>, <span class="fl">2</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">model_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">poly_model2</span><span class="op">)</span></span></code></pre></div>
+<p>The first approach gives more interpretable coefficients; the second is better for avoiding multicollinearity between BMI and BMI².</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add24">11.24</a>:</p>
+<p>For a right-skewed variable like income, apply a <strong>logarithmic transformation</strong>:</p>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Natural log transformation</span></span>
+<span><span class="va">data</span><span class="op">$</span><span class="va">log_income</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">income</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Or log base 10</span></span>
+<span><span class="va">data</span><span class="op">$</span><span class="va">log10_income</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">income</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Make sure there are no zero or negative values first:</span></span>
+<span><span class="va">data</span><span class="op">$</span><span class="va">log_income</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">income</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span>  <span class="co"># Adding 1 if zeros exist</span></span></code></pre></div>
+<p><strong>Why log transformation</strong>:
+- Reduces right skewness
+- Makes the distribution more normal
+- Reduces the influence of extreme values
+- Often makes relationships more linear</p>
+<p>Other options for right-skewed data: square root transformation <code>sqrt(income)</code> or inverse transformation <code>1/income</code>.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add25">11.25</a>:</p>
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Method 1: Create the squared term explicitly</span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">wt_squared</span> <span class="op">&lt;-</span> <span class="va">mtcars</span><span class="op">$</span><span class="va">wt</span><span class="op">^</span><span class="fl">2</span></span>
+<span><span class="va">poly_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">wt_squared</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">poly_model</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Method 2: Using I() function (cleaner)</span></span>
+<span><span class="va">poly_model2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/AsIs.html">I</a></span><span class="op">(</span><span class="va">wt</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">poly_model2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Method 3: Using poly() for orthogonal polynomials</span></span>
+<span><span class="va">poly_model3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/poly.html">poly</a></span><span class="op">(</span><span class="va">wt</span>, <span class="fl">2</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">poly_model3</span><span class="op">)</span></span></code></pre></div>
+<p>Method 2 is recommended for most applications as it’s concise and easy to interpret.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add26">11.26</a>:</p>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">logistic_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">disease</span> <span class="op">~</span> <span class="va">age</span> <span class="op">+</span> <span class="va">BMI</span> <span class="op">+</span> <span class="va">smoking</span>, </span>
+<span>                      data <span class="op">=</span> <span class="va">health_data</span>, </span>
+<span>                      family <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/family.html">binomial</a></span><span class="op">(</span>link <span class="op">=</span> <span class="st">"logit"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">logistic_model</span><span class="op">)</span></span></code></pre></div>
+<p>Key points:
+- Use <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> instead of <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>
+- Specify <code>family = binomial</code> for logistic regression
+- The outcome variable <code>disease</code> should be binary (0/1, or factor with 2 levels)
+- Results give log-odds; exponentiate coefficients to get odds ratios: <code>exp(coef(logistic_model))</code></p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add27">11.27</a>:</p>
+<p>An odds ratio of <strong>2.5</strong> for smoking means:</p>
+<p><strong>The odds of developing the disease are 2.5 times higher for smokers compared to non-smokers</strong>, holding all other variables constant.</p>
+<p>More specifically:
+- If OR = 2.5, smokers have 150% higher odds of disease than non-smokers
+- OR &gt; 1: positive association (increased risk)
+- OR = 1: no association
+- OR &lt; 1: negative association (protective effect)</p>
+<p>Example interpretation: If non-smokers have a 10% probability of disease, smokers might have approximately 22% probability (though exact conversion from odds to probability requires more calculation).</p>
+<p><strong>Note</strong>: Odds ratio is NOT the same as relative risk, but for rare diseases (&lt; 10% prevalence), they are approximately equal.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add28">11.28</a>:</p>
+<p>The negative coefficient of <strong>-0.05 for age</strong> indicates:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Direction</strong>: As age increases, the log-odds of survival <strong>decrease</strong>
+</li>
+<li>
+<strong>Practical meaning</strong>: Older patients have <strong>lower probability of survival</strong>, holding other factors constant</li>
+<li>
+<strong>Odds ratio</strong>: exp(-0.05) = 0.951, meaning for each one-year increase in age, the odds of survival multiply by 0.951 (decrease by about 5%)</li>
+</ol>
+<p>For a 10-year age difference: exp(-0.05 × 10) = exp(-0.5) = 0.606
+A patient 10 years older has about 60.6% the odds of survival compared to a younger patient.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add29">11.29</a>:</p>
+<p><strong>Linear Regression</strong>:
+- Predicts the <strong>actual value</strong> of a continuous outcome variable
+- Output: A number on a continuous scale
+- Example: Predicting exact blood pressure (135 mmHg), salary ($45,000), temperature (98.6°F)
+- Uses normal distribution</p>
+<p><strong>Logistic Regression</strong>:
+- Predicts the <strong>probability</strong> of belonging to a category (usually binary: yes/no, 0/1)
+- Output: A probability between 0 and 1, which can be converted to a category
+- Example: Predicting probability of disease (0.75 = 75% chance), probability of survival, probability of clicking an ad
+- Uses binomial distribution with logit link function</p>
+<p><strong>Technical difference</strong>:
+- Linear regression: E(Y) = β₀ + β₁X₁ + β₂X₂ + …
+- Logistic regression: log(P/(1-P)) = β₀ + β₁X₁ + β₂X₂ + … (models log-odds)</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add30">11.30</a>:</p>
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create binary outcome variable</span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">high_mpg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">mpg</span> <span class="op">&gt;</span> <span class="fl">20</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Fit logistic regression model</span></span>
+<span><span class="va">logit_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">high_mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span>, </span>
+<span>                   data <span class="op">=</span> <span class="va">mtcars</span>, </span>
+<span>                   family <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/family.html">binomial</a></span><span class="op">(</span>link <span class="op">=</span> <span class="st">"logit"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># View results</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">logit_model</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Get odds ratios</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">logit_model</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Predict probabilities for original data</span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">predicted_prob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">logit_model</span>, type <span class="op">=</span> <span class="st">"response"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add31">11.31</a>:</p>
+<p><strong>Poisson regression</strong> is most appropriate for count data.</p>
+<p><strong>Reasoning</strong>:
+- The outcome (number of ER visits per day) is a <strong>count variable</strong> (0, 1, 2, 3, …)
+- Count data is discrete and non-negative
+- Poisson distribution is designed for modeling count outcomes
+- It models the rate of events occurring</p>
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Example Poisson regression</span></span>
+<span><span class="va">poisson_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">er_visits</span> <span class="op">~</span> <span class="va">day_of_week</span> <span class="op">+</span> <span class="va">weather</span>, </span>
+<span>                     data <span class="op">=</span> <span class="va">hospital_data</span>, </span>
+<span>                     family <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/family.html">poisson</a></span><span class="op">(</span>link <span class="op">=</span> <span class="st">"log"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><strong>Note</strong>: If the variance is much larger than the mean (overdispersion), consider using <strong>negative binomial regression</strong> instead.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add32">11.32</a>:</p>
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">poisson_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">infection_count</span> <span class="op">~</span> <span class="va">bed_occupancy_rate</span> <span class="op">+</span> <span class="va">nurse_staff_ratio</span>, </span>
+<span>                     data <span class="op">=</span> <span class="va">hospital_data</span>, </span>
+<span>                     family <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/family.html">poisson</a></span><span class="op">(</span>link <span class="op">=</span> <span class="st">"log"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">poisson_model</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check for overdispersion</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">AER</span><span class="op">)</span></span>
+<span><span class="fu">dispersiontest</span><span class="op">(</span><span class="va">poisson_model</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># If overdispersion detected, use negative binomial:</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span></span>
+<span><span class="va">nb_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MASS/man/glm.nb.html">glm.nb</a></span><span class="op">(</span><span class="va">infection_count</span> <span class="op">~</span> <span class="va">bed_occupancy_rate</span> <span class="op">+</span> <span class="va">nurse_staff_ratio</span>, </span>
+<span>                   data <span class="op">=</span> <span class="va">hospital_data</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add33">11.33</a>:</p>
+<p>The primary assumption of Poisson regression is that <strong>the mean equals the variance</strong> (equidispersion).</p>
+<p>Specifically:
+- <strong>E(Y) = Var(Y) = λ</strong> (the Poisson parameter)</p>
+<p><strong>In practice</strong>:
+- If Var(Y) &gt; E(Y): <strong>Overdispersion</strong> - common in real data, violates assumption
+- Solution: Use negative binomial regression or quasi-Poisson
+- If Var(Y) &lt; E(Y): <strong>Underdispersion</strong> - less common
+- May still use Poisson or consider other models</p>
+<p><strong>Other important assumptions</strong>:
+1. Outcome variable is a count
+2. Observations are independent
+3. Counts cannot be negative
+4. The log of the mean is a linear function of predictors</p>
+<p><strong>Check overdispersion</strong>:</p>
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Deviance/df should be close to 1</span></span>
+<span><span class="va">model</span><span class="op">$</span><span class="va">deviance</span> <span class="op">/</span> <span class="va">model</span><span class="op">$</span><span class="va">df.residual</span></span></code></pre></div>
+<p>If ratio &gt;&gt; 1, overdispersion is present.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add34">11.34</a>:</p>
+<p>You need to create <strong>3 dummy variables</strong> for a categorical variable with 4 categories.</p>
+<p><strong>Rule</strong>: For a categorical variable with k categories, create (k-1) dummy variables.</p>
+<p><strong>Why</strong>:
+- One category serves as the <strong>reference/baseline</strong> category
+- The other k-1 categories are represented by dummy variables
+- Including all k categories would cause perfect multicollinearity (dummy variable trap)</p>
+<p><strong>Example for blood_type</strong>:</p>
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># R does this automatically in regression, but manual creation:</span></span>
+<span><span class="va">data</span><span class="op">$</span><span class="va">type_A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">blood_type</span> <span class="op">==</span> <span class="st">"A"</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span>
+<span><span class="va">data</span><span class="op">$</span><span class="va">type_B</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">blood_type</span> <span class="op">==</span> <span class="st">"B"</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span>
+<span><span class="va">data</span><span class="op">$</span><span class="va">type_AB</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">blood_type</span> <span class="op">==</span> <span class="st">"AB"</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span>
+<span><span class="co"># Type O is the reference category (all three dummies = 0)</span></span>
+<span></span>
+<span><span class="co"># In regression, R handles this automatically:</span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">cholesterol</span> <span class="op">~</span> <span class="va">blood_type</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
+<span><span class="co"># R will create the dummy variables automatically</span></span></code></pre></div>
+<p>If you include type O as well, the model matrix would be singular and inestimable.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add35">11.35</a>:</p>
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># R automatically creates dummy variables for factors</span></span>
+<span><span class="va">recovery_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">recovery_time</span> <span class="op">~</span> <span class="va">age</span> <span class="op">+</span> <span class="va">treatment</span>, data <span class="op">=</span> <span class="va">patient_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">recovery_model</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># To explicitly set the reference category:</span></span>
+<span><span class="va">patient_data</span><span class="op">$</span><span class="va">treatment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">patient_data</span><span class="op">$</span><span class="va">treatment</span>, </span>
+<span>                                  levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Control"</span>, <span class="st">"Standard"</span>, <span class="st">"Experimental"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># Now "Control" is the reference</span></span>
+<span></span>
+<span><span class="co"># Alternatively, using relevel():</span></span>
+<span><span class="va">patient_data</span><span class="op">$</span><span class="va">treatment</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/relevel.html">relevel</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">patient_data</span><span class="op">$</span><span class="va">treatment</span><span class="op">)</span>, ref <span class="op">=</span> <span class="st">"Control"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">recovery_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">recovery_time</span> <span class="op">~</span> <span class="va">age</span> <span class="op">+</span> <span class="va">treatment</span>, data <span class="op">=</span> <span class="va">patient_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">recovery_model</span><span class="op">)</span></span></code></pre></div>
+<p>R will automatically create 2 dummy variables (treatmentStandard and treatmentExperimental) with “Control” as the reference category.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add36">11.36</a>:</p>
+<p>The predicted value for a patient in the Surgery ward is:</p>
+<p><strong>Predicted value = 12.5 + (-2.3) = 10.2</strong></p>
+<p><strong>Explanation</strong>:
+- The intercept (12.5) represents the predicted value for the <strong>reference category</strong> (General ward)
+- For Surgery ward: add the Surgery coefficient (-2.3) to the intercept
+- For ICU ward: you would add 4.7 to get 12.5 + 4.7 = 17.2
+- For General ward (reference): just use the intercept = 12.5</p>
+<p><strong>Interpretation</strong>: Compared to the General ward (baseline), patients in Surgery have 2.3 units lower outcome (on average), and ICU patients have 4.7 units higher outcome.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add37">11.37</a>:</p>
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># The variable am is already coded as 0/1</span></span>
+<span><span class="va">mpg_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span> <span class="op">+</span> <span class="va">am</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mpg_model</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># To make it more explicit:</span></span>
+<span><span class="va">mtcars</span><span class="op">$</span><span class="va">transmission</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">$</span><span class="va">am</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, </span>
+<span>                               labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Automatic"</span>, <span class="st">"Manual"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">mpg_model2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span> <span class="op">+</span> <span class="va">transmission</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mpg_model2</span><span class="op">)</span></span></code></pre></div>
+<p>The coefficient for <code>am</code> (or <code>transmissionManual</code>) tells you the difference in mpg between manual and automatic transmissions, holding weight and horsepower constant.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add38">11.38</a>:</p>
+<p>The coefficient of <strong>5000</strong> means:</p>
+<p><strong>Males earn $5,000 more than females on average</strong>, holding all other variables in the model constant.</p>
+<p>More precisely:
+- When gender = 1 (male), add $5,000 to the predicted salary
+- When gender = 0 (female, reference), add $0
+- This is the estimated gender pay gap in this model</p>
+<p><strong>Example</strong>:
+If the model is: Salary = 40,000 + 5,000(gender) + other terms
+- Female (gender=0): Predicted base salary = $40,000 + other factors
+- Male (gender=1): Predicted base salary = $45,000 + other factors</p>
+<p><strong>Important notes</strong>:
+- This is correlation, not necessarily causation
+- Other factors (education, experience, etc.) should be controlled for
+- The coefficient’s statistical significance (p-value) determines if this difference is reliable</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add39">11.39</a>:</p>
+<p>The four main assumptions for linear regression (LINE):</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Linearity</strong>: The relationship between predictors and outcome is linear
+<ul>
+<li>Check: Residuals vs. Fitted plot should show random scatter</li>
+</ul>
+</li>
+<li>
+<strong>Independence</strong>: Observations are independent of each other
+<ul>
+<li>Check: Durbin-Watson test, knowledge of data collection</li>
+<li>Violated by: Time series, clustered data, repeated measures</li>
+</ul>
+</li>
+<li>
+<strong>Normality</strong>: Residuals are normally distributed
+<ul>
+<li>Check: Q-Q plot, Shapiro-Wilk test, histogram of residuals</li>
+<li>Most important for inference (confidence intervals, p-values)</li>
+</ul>
+</li>
+<li>
+<strong>Equal variance (Homoscedasticity)</strong>: Constant variance of residuals across all levels of predictors
+<ul>
+<li>Check: Scale-Location plot, Breusch-Pagan test</li>
+<li>Residuals vs. Fitted should show constant spread</li>
+</ul>
+</li>
+</ol>
+<p><strong>Additional assumption often mentioned</strong>:
+5. <strong>No multicollinearity</strong> (for multiple regression): Predictors are not highly correlated
+- Check: VIF (Variance Inflation Factor)</p>
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Check assumptions:</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span>  <span class="co"># Produces 4 diagnostic plots</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/car/man/vif.html">vif</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span>  <span class="co"># Check multicollinearity</span></span></code></pre></div>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add40">11.40</a>:</p>
+<p>Using the formula for Adjusted R²:
+R²adj = 1 - [(1 - R²)(n - 1)/(n - k - 1)]</p>
+<p>Given:
+- R² = 0.85
+- R²adj = 0.83
+- n = 100</p>
+<p>Solving for k:
+0.83 = 1 - [(1 - 0.85)(100 - 1)/(100 - k - 1)]
+0.83 = 1 - [0.15 × 99/(99 - k)]
+0.17 = 0.15 × 99/(99 - k)
+0.17(99 - k) = 14.85
+16.83 - 0.17k = 14.85
+-0.17k = -1.98
+k ≈ <strong>11.6</strong></p>
+<p>So approximately <strong>11 or 12 predictors</strong> are in the model.</p>
+<p><strong>Quick approximation</strong>: When R² and R²adj are close, you typically have relatively few predictors. The difference of 0.02 with n=100 suggests around 10-12 predictors.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add41">11.41</a>:</p>
+<p><strong>Problem identified</strong>: <strong>Heteroscedasticity</strong> (non-constant variance)</p>
+<p>A funnel shape means:
+- Variance of residuals increases (or decreases) with fitted values
+- Violates the assumption of homoscedasticity (equal variance)</p>
+<p><strong>Potential solutions</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong>Transform the outcome variable</strong>:</p>
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Log transformation</span></span>
+<span><span class="va">model_log</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">~</span> <span class="va">x1</span> <span class="op">+</span> <span class="va">x2</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Square root transformation</span></span>
+<span><span class="va">model_sqrt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">~</span> <span class="va">x1</span> <span class="op">+</span> <span class="va">x2</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span></code></pre></div>
+</li>
+<li>
+<p><strong>Use weighted least squares (WLS)</strong>:</p>
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Weights inversely proportional to variance</span></span>
+<span><span class="va">wls_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x1</span> <span class="op">+</span> <span class="va">x2</span>, data <span class="op">=</span> <span class="va">data</span>, weights <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="va">residuals</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+</li>
+<li>
+<p><strong>Use robust standard errors</strong>:</p>
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://sandwich.R-Forge.R-project.org/">sandwich</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">lmtest</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/lmtest/man/coeftest.html">coeftest</a></span><span class="op">(</span><span class="va">model</span>, vcov <span class="op">=</span> <span class="fu"><a href="https://sandwich.R-Forge.R-project.org/reference/vcovHC.html">vcovHC</a></span><span class="op">(</span><span class="va">model</span>, type <span class="op">=</span> <span class="st">"HC1"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</li>
+<li><p><strong>Add or transform predictors</strong>: May indicate missing variable or wrong functional form</p></li>
+<li><p><strong>Use generalized linear models (GLM)</strong>: If outcome is count or binary</p></li>
+</ol>
+<p><strong>Check after solution</strong>:</p>
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html">fitted</a></span><span class="op">(</span><span class="va">new_model</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">new_model</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># Should show random scatter, not a pattern</span></span></code></pre></div>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add42">11.42</a>:</p>
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Fit the model</span></span>
+<span><span class="va">mpg_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">hp</span>, data <span class="op">=</span> <span class="va">mtcars</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create diagnostic plots</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>  <span class="co"># Set up 2x2 plot layout</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mpg_model</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>  <span class="co"># Reset to default</span></span>
+<span></span>
+<span><span class="co"># Individual plots:</span></span>
+<span><span class="co"># 1. Residuals vs Fitted (checks linearity and homoscedasticity)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mpg_model</span>, which <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 2. Q-Q plot (checks normality of residuals)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mpg_model</span>, which <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 3. Scale-Location (checks homoscedasticity)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mpg_model</span>, which <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 4. Residuals vs Leverage (identifies influential points)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mpg_model</span>, which <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Additional useful diagnostics:</span></span>
+<span><span class="co"># Histogram of residuals</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">mpg_model</span><span class="op">)</span>, main <span class="op">=</span> <span class="st">"Histogram of Residuals"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Shapiro-Wilk test for normality</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">mpg_model</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><strong>Interpretation</strong>:
+- Plot 1: Should show random scatter around zero
+- Plot 2: Points should follow the diagonal line
+- Plot 3: Should show horizontal line with equal spread
+- Plot 4: Points outside Cook’s distance indicate influential observations</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add43">11.43</a>:</p>
+<p>Correct data collection is crucial in Big Data for several reasons:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Volume doesn’t equal quality</strong>: Having more data doesn’t automatically make it better. Garbage in, garbage out - if data collection is flawed, you just have more bad data, leading to confident but wrong conclusions.</p></li>
+<li><p><strong>Bias amplification</strong>: Systematic errors in data collection are amplified with large datasets. A small sampling bias becomes a huge problem when scaled up, potentially affecting millions of decisions.</p></li>
+<li><p><strong>Representativeness</strong>: Big data often comes from convenience samples (e.g., social media users, app users) that may not represent the target population. Just because you have millions of data points doesn’t mean they represent everyone.</p></li>
+<li><p><strong>Missing data patterns</strong>: In healthcare, missing data is rarely random. If data is systematically missing for certain groups (e.g., disadvantaged populations less likely to have electronic health records), analyses will be biased no matter how much data you have.</p></li>
+<li><p><strong>Measurement validity</strong>: Ensuring that variables actually measure what you think they measure is critical. In healthcare, if diagnostic codes are inconsistently applied or symptoms are differently reported, analyses will be unreliable.</p></li>
+<li><p><strong>Ethical considerations</strong>: Poor data collection can perpetuate discrimination and inequity, especially in healthcare where decisions affect lives.</p></li>
+</ol>
+<p>Example: A hospital with excellent electronic records for insured patients but poor documentation for uninsured patients will produce biased analyses about treatment effectiveness, potentially harming vulnerable populations.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add44">11.44</a>:</p>
+<p><strong>Structured Data</strong>:
+- Organized in a predefined format (rows and columns)
+- Easily searchable and analyzable with standard statistical tools
+- Stored in relational databases or spreadsheets
+- <strong>Healthcare example</strong>:
+- Electronic Health Records (EHRs) with fields like patient ID, age, blood pressure readings, lab test results
+- Billing codes (ICD-10 diagnosis codes)
+- Appointment dates and times</p>
+<p><strong>Unstructured Data</strong>:
+- No predefined format or organization
+- Not easily searchable without special tools (NLP, text mining)
+- Can include text, images, audio, video
+- <strong>Healthcare example</strong>:
+- Physician clinical notes (free text)
+- Medical imaging (X-rays, MRIs, CT scans)
+- Patient feedback and survey comments
+- Audio recordings of patient-doctor consultations</p>
+<p><strong>Semi-structured data</strong> (middle ground):
+- Has some organizational properties but doesn’t fit strict relational model
+- Healthcare example: XML or JSON formatted health information exchange documents</p>
+<p><strong>Challenge</strong>: Most healthcare data (estimated 80%) is unstructured, requiring advanced techniques to extract value from it.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add45">11.45</a>:</p>
+<p>Three major sources of bias in healthcare data collection:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Selection Bias / Sampling Bias</strong>:
+<ul>
+<li>
+<strong>Problem</strong>: The sample doesn’t represent the target population</li>
+<li>
+<strong>Examples</strong>:
+<ul>
+<li>Clinical trials that exclude elderly patients, pregnant women, or those with comorbidities</li>
+<li>Studies recruiting only from academic medical centers (sicker, more complex patients)</li>
+<li>Online health surveys that only capture tech-savvy, engaged patients</li>
+</ul>
+</li>
+<li>
+<strong>Impact</strong>: Results don’t generalize to broader populations</li>
+</ul>
+</li>
+<li>
+<strong>Measurement Bias / Information Bias</strong>:
+<ul>
+<li>
+<strong>Problem</strong>: Systematic errors in how variables are measured or recorded</li>
+<li>
+<strong>Examples</strong>:
+<ul>
+<li>Recall bias: Patients with disease remember exposures better than healthy patients</li>
+<li>Observer bias: Researchers’ expectations influence how they record observations</li>
+<li>Diagnostic bias: Patients under closer surveillance more likely to have conditions detected</li>
+</ul>
+</li>
+<li>
+<strong>Impact</strong>: Distorted associations between variables</li>
+</ul>
+</li>
+<li>
+<strong>Non-Response Bias / Attrition Bias</strong>:
+<ul>
+<li>
+<strong>Problem</strong>: Systematic differences between responders and non-responders</li>
+<li>
+<strong>Examples</strong>:
+<ul>
+<li>Healthier patients more likely to complete follow-up studies</li>
+<li>Patients experiencing side effects drop out of clinical trials</li>
+<li>Lower response rates in disadvantaged communities</li>
+</ul>
+</li>
+<li>
+<strong>Impact</strong>: Results don’t reflect the full population, often overestimating positive outcomes</li>
+</ul>
+</li>
+</ol>
+<p><strong>Other important biases</strong>:
+- <strong>Confounding bias</strong>: Third variables influence both exposure and outcome
+- <strong>Survival bias</strong>: Only analyzing survivors excludes those who died
+- <strong>Temporal bias</strong>: Changes in diagnostic criteria or treatment over time</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add46">11.46</a>:</p>
+<p>This introduces <strong>non-response bias</strong> (also called self-selection bias).</p>
+<p><strong>Why it’s problematic</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Voluntary participation</strong>: Only motivated patients respond
+<ul>
+<li>Very satisfied patients may be more likely to respond (positive bias)</li>
+<li>Very dissatisfied patients may be more likely to respond (negative bias)</li>
+<li>The “moderately satisfied” majority may not participate</li>
+</ul>
+</li>
+<li>
+<strong>Digital divide</strong>:
+<ul>
+<li>Excludes patients without internet access (often elderly, low-income, less educated)</li>
+<li>These groups may have different satisfaction levels</li>
+<li>Typically underrepresents vulnerable populations</li>
+</ul>
+</li>
+<li>
+<strong>Health status</strong>:
+<ul>
+<li>Sicker patients in hospital may not complete surveys</li>
+<li>Healthier, discharged patients more likely to respond</li>
+<li>Creates systematic difference between responders and non-responders</li>
+</ul>
+</li>
+<li>
+<strong>Timing</strong>: Only captures patients actively seeking care, missing those who avoid the hospital due to poor past experiences</li>
+</ol>
+<p><strong>Consequence</strong>: The survey results will not accurately reflect true patient satisfaction across all patient groups. Conclusions drawn will be biased and policy decisions based on this data could be misguided.</p>
+<p><strong>Better approach</strong>:
+- Random sampling of all patients
+- Multiple contact methods (phone, mail, in-person)
+- Follow-up with non-responders
+- Weight responses to match population demographics</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add47">11.47</a>:</p>
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Set seed for reproducibility</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create simulated dataset</span></span>
+<span><span class="va">simulated_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  patient_id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span>,</span>
+<span>  age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, mean <span class="op">=</span> <span class="fl">50</span>, sd <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>,</span>
+<span>  treatment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">100</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  outcome <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, mean <span class="op">=</span> <span class="fl">100</span>, sd <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># View first few rows</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">simulated_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check structure</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">simulated_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Summary statistics</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">simulated_data</span><span class="op">)</span></span></code></pre></div>
+<p><strong>Alternative with more control</strong>:</p>
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">456</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Ensure exactly 50 patients in each treatment group</span></span>
+<span><span class="va">simulated_data2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  patient_id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span>,</span>
+<span>  age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, mean <span class="op">=</span> <span class="fl">50</span>, sd <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>,</span>
+<span>  treatment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fl">50</span><span class="op">)</span>,</span>
+<span>  outcome <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, mean <span class="op">=</span> <span class="fl">100</span>, sd <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add48">11.48</a>:</p>
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Using the simulated_data from previous exercise</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">simulated_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  patient_id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span>,</span>
+<span>  age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, mean <span class="op">=</span> <span class="fl">50</span>, sd <span class="op">=</span> <span class="fl">15</span><span class="op">)</span>,</span>
+<span>  treatment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">100</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  outcome <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, mean <span class="op">=</span> <span class="fl">100</span>, sd <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 1. Calculate mean age for each treatment group</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="va">age_by_treatment</span> <span class="op">&lt;-</span> <span class="va">simulated_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">treatment</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
+<span>    mean_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span>,</span>
+<span>    sd_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span>,</span>
+<span>    n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">age_by_treatment</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Base R alternative:</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">age</span> <span class="op">~</span> <span class="va">treatment</span>, data <span class="op">=</span> <span class="va">simulated_data</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 2. Test if there's significant difference in outcome between treatments</span></span>
+<span><span class="va">outcome_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">outcome</span> <span class="op">~</span> <span class="va">treatment</span>, data <span class="op">=</span> <span class="va">simulated_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">outcome_test</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 3. Create linear model predicting outcome from age and treatment</span></span>
+<span><span class="va">outcome_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">outcome</span> <span class="op">~</span> <span class="va">age</span> <span class="op">+</span> <span class="va">treatment</span>, data <span class="op">=</span> <span class="va">simulated_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">outcome_model</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Additional useful analyses:</span></span>
+<span><span class="co"># Check assumptions</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">outcome_model</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Get confidence intervals</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">outcome_model</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add49">11.49</a>:</p>
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load necessary packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Load iris dataset</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 1. Filter only setosa and versicolor species</span></span>
+<span><span class="va">iris_filtered</span> <span class="op">&lt;-</span> <span class="va">iris</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Species</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"setosa"</span>, <span class="st">"versicolor"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Alternative base R:</span></span>
+<span><span class="va">iris_filtered</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span><span class="va">iris</span><span class="op">$</span><span class="va">Species</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"setosa"</span>, <span class="st">"versicolor"</span><span class="op">)</span>, <span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Create binary outcome (0/1)</span></span>
+<span><span class="va">iris_filtered</span><span class="op">$</span><span class="va">species_binary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">iris_filtered</span><span class="op">$</span><span class="va">Species</span> <span class="op">==</span> <span class="st">"versicolor"</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 2. Fit logistic regression model</span></span>
+<span><span class="va">logit_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">species_binary</span> <span class="op">~</span> <span class="va">Sepal.Length</span> <span class="op">+</span> <span class="va">Petal.Length</span>, </span>
+<span>                   data <span class="op">=</span> <span class="va">iris_filtered</span>, </span>
+<span>                   family <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/family.html">binomial</a></span><span class="op">(</span>link <span class="op">=</span> <span class="st">"logit"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 3. Report coefficients</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">logit_model</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">logit_model</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Get odds ratios</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">logit_model</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Predictions</span></span>
+<span><span class="va">iris_filtered</span><span class="op">$</span><span class="va">predicted_prob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">logit_model</span>, type <span class="op">=</span> <span class="st">"response"</span><span class="op">)</span></span>
+<span><span class="va">iris_filtered</span><span class="op">$</span><span class="va">predicted_species</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">iris_filtered</span><span class="op">$</span><span class="va">predicted_prob</span> <span class="op">&gt;</span> <span class="fl">0.5</span>, </span>
+<span>                                           <span class="st">"versicolor"</span>, <span class="st">"setosa"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Confusion matrix</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span>Predicted <span class="op">=</span> <span class="va">iris_filtered</span><span class="op">$</span><span class="va">predicted_species</span>, </span>
+<span>      Actual <span class="op">=</span> <span class="va">iris_filtered</span><span class="op">$</span><span class="va">Species</span><span class="op">)</span></span></code></pre></div>
+<p><strong>Interpretation</strong>: The model will likely show that Petal.Length is a very strong predictor (high coefficient) for distinguishing between setosa and versicolor.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise</strong> <a href="int-samp-q-second.html#exr:add50">11.50</a>:</p>
+<p><strong>Complete Analytical Workflow</strong>:</p>
+<p><strong>1. Data Cleaning &amp; Preparation (Exploratory Phase)</strong></p>
+<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load and inspect data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">pharma_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">pharma_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check for missing values</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">pharma_data</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/njtierney/naniar">naniar</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://docs.ropensci.org/visdat/reference/vis_miss.html">vis_miss</a></span><span class="op">(</span><span class="va">pharma_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Handle missing data</span></span>
+<span><span class="co"># - Document patterns of missingness</span></span>
+<span><span class="co"># - Decide on imputation vs. deletion</span></span>
+<span><span class="co"># - Use multiple imputation if appropriate</span></span>
+<span></span>
+<span><span class="co"># Check for outliers</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">pharma_data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"age"</span>, <span class="st">"BMI"</span>, <span class="st">"blood_pressure"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create derived variables if needed</span></span>
+<span><span class="va">pharma_data</span><span class="op">$</span><span class="va">age_group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html">cut</a></span><span class="op">(</span><span class="va">pharma_data</span><span class="op">$</span><span class="va">age</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">40</span>, <span class="fl">60</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><strong>2. Descriptive Statistics &amp; Initial Exploration</strong></p>
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Demographics summary</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">pharma_data</span><span class="op">$</span><span class="va">gender</span>, <span class="va">pharma_data</span><span class="op">$</span><span class="va">treatment</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Baseline characteristics by treatment group</span></span>
+<span><span class="va">pharma_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">treatment</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
+<span>    mean_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">age</span><span class="op">)</span>,</span>
+<span>    mean_BP <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">blood_pressure</span><span class="op">)</span>,</span>
+<span>    mean_cholesterol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">cholesterol</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check randomization success</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">age</span> <span class="op">~</span> <span class="va">treatment</span>, data <span class="op">=</span> <span class="va">pharma_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">BMI</span> <span class="op">~</span> <span class="va">treatment</span>, data <span class="op">=</span> <span class="va">pharma_data</span><span class="op">)</span></span></code></pre></div>
+<p><strong>3. Primary Analysis - Treatment Effect</strong></p>
+<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Crude comparison of outcome</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/proportions.html">prop.table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">pharma_data</span><span class="op">$</span><span class="va">treatment</span>, <span class="va">pharma_data</span><span class="op">$</span><span class="va">improved</span><span class="op">)</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Chi-square test</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test</a></span><span class="op">(</span><span class="va">pharma_data</span><span class="op">$</span><span class="va">treatment</span>, <span class="va">pharma_data</span><span class="op">$</span><span class="va">improved</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Logistic regression - unadjusted</span></span>
+<span><span class="va">model_crude</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">improved</span> <span class="op">~</span> <span class="va">treatment</span>, </span>
+<span>                   data <span class="op">=</span> <span class="va">pharma_data</span>, </span>
+<span>                   family <span class="op">=</span> <span class="va">binomial</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_crude</span><span class="op">)</span></span></code></pre></div>
+<p><strong>4. Adjusted Analysis - Control for Confounders</strong></p>
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Multivariable logistic regression</span></span>
+<span><span class="va">model_adjusted</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">improved</span> <span class="op">~</span> <span class="va">treatment</span> <span class="op">+</span> <span class="va">age</span> <span class="op">+</span> <span class="va">gender</span> <span class="op">+</span> <span class="va">BMI</span> <span class="op">+</span> </span>
+<span>                                 <span class="va">blood_pressure</span> <span class="op">+</span> <span class="va">cholesterol</span> <span class="op">+</span> <span class="va">glucose</span>, </span>
+<span>                     data <span class="op">=</span> <span class="va">pharma_data</span>, </span>
+<span>                     family <span class="op">=</span> <span class="va">binomial</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_adjusted</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check for multicollinearity</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/car/man/vif.html">vif</a></span><span class="op">(</span><span class="va">model_adjusted</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Model selection if needed</span></span>
+<span><span class="va">model_final</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/step.html">step</a></span><span class="op">(</span><span class="va">model_adjusted</span>, direction <span class="op">=</span> <span class="st">"backward"</span><span class="op">)</span></span></code></pre></div>
+<p><strong>5. Subgroup Analyses</strong></p>
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Test for interaction with gender</span></span>
+<span><span class="va">model_interaction</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">improved</span> <span class="op">~</span> <span class="va">treatment</span> <span class="op">*</span> <span class="va">gender</span> <span class="op">+</span> <span class="va">age</span> <span class="op">+</span> <span class="va">BMI</span>, </span>
+<span>                         data <span class="op">=</span> <span class="va">pharma_data</span>, </span>
+<span>                         family <span class="op">=</span> <span class="va">binomial</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Stratified analyses</span></span>
+<span><span class="co"># By age group</span></span>
+<span><span class="va">pharma_data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">age_group</span> <span class="op">==</span> <span class="st">"young"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">improved</span> <span class="op">~</span> <span class="va">treatment</span>, data <span class="op">=</span> <span class="va">.</span>, family <span class="op">=</span> <span class="va">binomial</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><strong>6. Model Diagnostics</strong></p>
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Check assumptions</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">model_final</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Assess model fit</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/psolymos/ResourceSelection">ResourceSelection</a></span><span class="op">)</span></span>
+<span><span class="fu">hoslem.test</span><span class="op">(</span><span class="va">model_final</span><span class="op">$</span><span class="va">y</span>, <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html">fitted</a></span><span class="op">(</span><span class="va">model_final</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate AUC</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://expasy.org/tools/pROC/">pROC</a></span><span class="op">)</span></span>
+<span><span class="va">roc_curve</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/roc.html">roc</a></span><span class="op">(</span><span class="va">pharma_data</span><span class="op">$</span><span class="va">improved</span>, </span>
+<span>                 <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html">fitted</a></span><span class="op">(</span><span class="va">model_final</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/pROC/man/auc.html">auc</a></span><span class="op">(</span><span class="va">roc_curve</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">roc_curve</span><span class="op">)</span></span></code></pre></div>
+<p><strong>7. Sensitivity Analyses</strong></p>
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Complete case vs. multiple imputation</span></span>
+<span><span class="co"># Different model specifications</span></span>
+<span><span class="co"># Exclude influential outliers</span></span>
+<span><span class="co"># Alternative statistical methods</span></span></code></pre></div>
+<p><strong>8. Results Interpretation &amp; Reporting</strong></p>
+<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Calculate odds ratios with 95% CI</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span>OR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">model_final</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">model_final</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Number needed to treat (NNT)</span></span>
+<span><span class="co"># Predicted probabilities for typical patients</span></span>
+<span><span class="co"># Clinical significance vs. statistical significance</span></span></code></pre></div>
+<p><strong>Key Analyses to Perform</strong>:
+1. ✓ Descriptive statistics (demographics, baseline characteristics)
+2. ✓ Balance check (treatment groups comparable at baseline?)
+3. ✓ Crude association (treatment vs. outcome)
+4. ✓ Adjusted association (control for confounders)
+5. ✓ Interaction testing (effect modification)
+6. ✓ Subgroup analyses
+7. ✓ Model diagnostics and validation
+8. ✓ Sensitivity analyses</p>
+<p><strong>Final Deliverables</strong>:
+- Table 1: Baseline characteristics by treatment group
+- Table 2: Crude and adjusted odds ratios
+- Figure 1: Forest plot of effect estimates
+- Figure 2: ROC curve
+- Supplementary: Sensitivity analyses results</p>
 </div>
 
 </div>
@@ -558,9 +1445,20 @@ disj_table = tribble(
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#int-samp-q-second"><span class="header-section-number">11</span> 💻 Second Intermediate Sample Questions</a></li>
-<li><a class="nav-link" href="#nd-intermediate"><span class="header-section-number">11.1</span> 👨‍🎓 2023/2024 (2nd intermediate)</a></li>
-<li><a class="nav-link" href="#solutions-1"><span class="header-section-number">11.2</span> solutions</a></li>
+<li><a class="nav-link" href="#int-samp-q-second"><span class="header-section-number">11</span> 📚 Additional Practice Exercises for Intermediate Exam</a></li>
+<li><a class="nav-link" href="#part-1-data-wrangling-and-descriptive-statistics"><span class="header-section-number">11.1</span> 🏥 Part 1: Data Wrangling and Descriptive Statistics</a></li>
+<li><a class="nav-link" href="#part-2-hypothesis-testing---single-population"><span class="header-section-number">11.2</span> 🔬 Part 2: Hypothesis Testing - Single Population</a></li>
+<li><a class="nav-link" href="#part-3-hypothesis-testing---two-populations"><span class="header-section-number">11.3</span> 👥 Part 3: Hypothesis Testing - Two Populations</a></li>
+<li><a class="nav-link" href="#part-4-anova---comparing-multiple-groups"><span class="header-section-number">11.4</span> 📊 Part 4: ANOVA - Comparing Multiple Groups</a></li>
+<li><a class="nav-link" href="#part-5-simple-and-multiple-linear-regression"><span class="header-section-number">11.5</span> 📈 Part 5: Simple and Multiple Linear Regression</a></li>
+<li><a class="nav-link" href="#part-6-nonlinear-regression-and-transformations"><span class="header-section-number">11.6</span> 🔄 Part 6: Nonlinear Regression and Transformations</a></li>
+<li><a class="nav-link" href="#part-7-logistic-regression"><span class="header-section-number">11.7</span> 🎯 Part 7: Logistic Regression</a></li>
+<li><a class="nav-link" href="#part-8-poisson-regression"><span class="header-section-number">11.8</span> 📊 Part 8: Poisson Regression</a></li>
+<li><a class="nav-link" href="#part-9-regression-with-dummy-variables"><span class="header-section-number">11.9</span> 🏷️ Part 9: Regression with Dummy Variables</a></li>
+<li><a class="nav-link" href="#part-10-model-diagnostics-and-interpretation"><span class="header-section-number">11.10</span> 🧮 Part 10: Model Diagnostics and Interpretation</a></li>
+<li><a class="nav-link" href="#part-11-big-data-concepts-and-data-collection"><span class="header-section-number">11.11</span> 🔢 Part 11: Big Data Concepts and Data Collection</a></li>
+<li><a class="nav-link" href="#part-12-mixed-practical-exercises"><span class="header-section-number">11.12</span> 💻 Part 12: Mixed Practical Exercises</a></li>
+<li><a class="nav-link" href="#solutions-1"><span class="header-section-number">11.13</span> ✅ SOLUTIONS</a></li>
 </ul>
 
       <div class="book-extra">
@@ -578,7 +1476,7 @@ disj_table = tribble(
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-10-07.</p>
+    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-10-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
