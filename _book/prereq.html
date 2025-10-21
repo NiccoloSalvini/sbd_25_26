@@ -1,113 +1,512 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="" xml:lang="">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 2 ✨Prerequisites | Statistics &amp; Big Data 25-26 Labs</title>
-<meta name="author" content="Dr. Niccolò Salvini">
-<meta name="description" content="2.1 Setting up R and RStudio To get started with R, you need to acquire your own copy. This appendix will show you how to download R as well as RStudio, a software application that makes R easier...">
-<meta name="generator" content="bookdown 0.29 with bs4_book()">
-<meta property="og:title" content="Chapter 2 ✨Prerequisites | Statistics &amp; Big Data 25-26 Labs">
-<meta property="og:type" content="book">
-<meta property="og:description" content="2.1 Setting up R and RStudio To get started with R, you need to acquire your own copy. This appendix will show you how to download R as well as RStudio, a software application that makes R easier...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 2 ✨Prerequisites | Statistics &amp; Big Data 25-26 Labs">
-<meta name="twitter:description" content="2.1 Setting up R and RStudio To get started with R, you need to acquire your own copy. This appendix will show you how to download R as well as RStudio, a software application that makes R easier...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
-    
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  </style>
-<link rel="stylesheet" href="style.css">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 ✨Prerequisites | Statistics &amp; Big Data 25-26 Labs</title>
+  <meta name="description" content="This is a minimal course website containing class materials for Statistics &amp; Big Data labs.1" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 ✨Prerequisites | Statistics &amp; Big Data 25-26 Labs" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal course website containing class materials for Statistics &amp; Big Data labs.1" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 ✨Prerequisites | Statistics &amp; Big Data 25-26 Labs" />
+  
+  <meta name="twitter:description" content="This is a minimal course website containing class materials for Statistics &amp; Big Data labs.1" />
+  
+
+<meta name="author" content="Dr. Niccolò Salvini" />
+
+
+<meta name="date" content="2025-10-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="r-packages.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
 </head>
-<body data-spy="scroll" data-target="#toc">
 
-<div class="container-fluid">
-<div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<body>
 
-    <div class="d-flex align-items-start justify-content-between">
-      <h1>
-        <a href="index.html" title="">Statistics &amp; Big Data 25-26 Labs</a>
-      </h1>
-      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
-    </div>
 
-    <div id="main-nav" class="collapse-lg">
-      <form role="search">
-        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
-<li class="book-part">Get Started</li>
-<li><a class="active" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
-<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
-<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
-<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
-<li class="book-part">Part 1: The Foundations</li>
-<li><a class="" href="hypothesis-testing-fundamentals.html"><span class="header-section-number">6</span> 🧪 Hypothesis Testing Fundamentals</a></li>
-<li><a class="" href="linear-regression-analysis.html"><span class="header-section-number">7</span> 📈 Linear Regression Analysis</a></li>
-<li><a class="" href="advanced-statistical-methods.html"><span class="header-section-number">8</span> 🔬 Advanced Statistical Methods</a></li>
-<li class="book-part">Part 2: Advanced Modeling</li>
-<li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
-<li class="book-part">Additional Resources</li>
-<li><a class="" href="int-prep.html"><span class="header-section-number">10</span> 💻 Intermediate preparation</a></li>
-<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">11</span> 📚 Additional Practice Exercises for Intermediate Exam</a></li>
-<li><a class="" href="int-samp-q.html"><span class="header-section-number">12</span> 💻 Intermediate Sample Questions</a></li>
-<li><a class="" href="course-performance.html"><span class="header-section-number">13</span> ⚡ Course Performance</a></li>
-<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">14</span> ❓ Frequently Asked Questions</a></li>
-<li class="book-part">Appendix</li>
-<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">15</span> Symbols, formulas, statistics and parameters</a></li>
-<li><a class="" href="appendixdatasets.html"><span class="header-section-number">16</span> Datasets</a></li>
-<li><a class="" href="references-2.html">References</a></li>
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 🫶 About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#logistics"><i class="fa fa-check"></i><b>1.1</b> 🔧 Logistics</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#team"><i class="fa fa-check"></i><b>1.2</b> 👥 Team</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#labs-content"><i class="fa fa-check"></i><b>1.3</b> 🗒 labs’ contents</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="01-prerequisites.html"><a href="#part-1-the-foundations-dr.-niccol%C3%B2-salvini"><i class="fa fa-check"></i><b>1.3.1</b> Part 1: The Foundations (Dr. Niccolò Salvini)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#part-2-advanced-modeling-prof.-sophie-dabo-niang"><i class="fa fa-check"></i><b>1.3.2</b> Part 2: Advanced Modeling (Prof. Sophie Dabo-Niang)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#exam"><i class="fa fa-check"></i><b>1.4</b> Exam 📝</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#suggested-reading"><i class="fa fa-check"></i><b>1.5</b> 📚 Suggested reading list</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#minimal-or-0-knowledge-of-r"><i class="fa fa-check"></i><b>1.5.1</b> Minimal or 0 knowledge of R</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#advanced-knowledge-of-r-to-become-a-top-g"><i class="fa fa-check"></i><b>1.5.2</b> Advanced knowledge of R to become a top G</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#honorcode"><i class="fa fa-check"></i><b>1.6</b> 📜 Honor Code</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#qr-code-time"><i class="fa fa-check"></i><b>1.7</b> QR code time!</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#intro-colophon"><i class="fa fa-check"></i><b>1.8</b> Colophon</a></li>
+</ul></li>
+<li class="part"><span><b>Get Started</b></span></li>
+<li class="chapter" data-level="2" data-path="prereq.html"><a href="prereq.html"><i class="fa fa-check"></i><b>2</b> ✨Prerequisites</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="prereq.html"><a href="prereq.html#setting-up-r-and-rstudio"><i class="fa fa-check"></i><b>2.1</b> Setting up R and RStudio</a></li>
+<li class="chapter" data-level="2.2" data-path="prereq.html"><a href="prereq.html#how-to-download-and-install-r"><i class="fa fa-check"></i><b>2.2</b> How to Download and Install R</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="prereq.html"><a href="prereq.html#r-in-windows"><i class="fa fa-check"></i><b>2.2.1</b> <strong>R in Windows</strong></a></li>
+<li class="chapter" data-level="2.2.2" data-path="prereq.html"><a href="prereq.html#r-in-mac"><i class="fa fa-check"></i><b>2.2.2</b> <strong>R in Mac</strong></a></li>
+<li class="chapter" data-level="2.2.3" data-path="prereq.html"><a href="prereq.html#r-in-linux"><i class="fa fa-check"></i><b>2.2.3</b> <strong>R in Linux</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="prereq.html"><a href="prereq.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
+<li class="chapter" data-level="2.4" data-path="prereq.html"><a href="prereq.html#using-rstudio"><i class="fa fa-check"></i><b>2.4</b> Using RStudio</a></li>
+<li class="chapter" data-level="2.5" data-path="prereq.html"><a href="prereq.html#when-you-first-start-rstudio"><i class="fa fa-check"></i><b>2.5</b> When you first start RStudio</a></li>
+<li class="chapter" data-level="2.6" data-path="prereq.html"><a href="prereq.html#updating-r-and-rstudio"><i class="fa fa-check"></i><b>2.6</b> Updating R and RStudio: Living at the pulse of innovation</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>3</b> 📦 R Packages</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-packages.html"><a href="r-packages.html#installing-packages"><i class="fa fa-check"></i><b>3.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="3.2" data-path="r-packages.html"><a href="r-packages.html#loading-packages"><i class="fa fa-check"></i><b>3.2</b> Loading Packages</a></li>
+<li class="chapter" data-level="3.3" data-path="r-packages.html"><a href="r-packages.html#updating-r-and-its-packages"><i class="fa fa-check"></i><b>3.3</b> Updating R and Its Packages</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="r-packages.html"><a href="r-packages.html#r-packages-1"><i class="fa fa-check"></i><b>3.3.1</b> <strong>R Packages</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="nice-warm-up.html"><a href="nice-warm-up.html"><i class="fa fa-check"></i><b>4</b> 🔥 Nice warm-up</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="nice-warm-up.html"><a href="nice-warm-up.html#starting-your-fresh-new-r-project"><i class="fa fa-check"></i><b>4.1</b> Starting your fresh new R project</a></li>
+<li class="chapter" data-level="4.2" data-path="nice-warm-up.html"><a href="nice-warm-up.html#creating-an-r-project"><i class="fa fa-check"></i><b>4.2</b> Creating an <em>R</em> Project file</a></li>
+<li class="chapter" data-level="4.3" data-path="nice-warm-up.html"><a href="nice-warm-up.html#workdir"><i class="fa fa-check"></i><b>4.3</b> Working Directory with <code>here</code></a></li>
+<li class="chapter" data-level="4.4" data-path="nice-warm-up.html"><a href="nice-warm-up.html#creating-an-r-script"><i class="fa fa-check"></i><b>4.4</b> Creating an R Script</a></li>
+<li class="chapter" data-level="4.5" data-path="nice-warm-up.html"><a href="nice-warm-up.html#using-r-markdown"><i class="fa fa-check"></i><b>4.5</b> Using R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i><b>5</b> 🗒️ Syllabus</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="syllabus.html"><a href="syllabus.html#course-materials"><i class="fa fa-check"></i><b>5.1</b> Course Materials</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="01-prerequisites.html"><a href="#part-1-the-foundations-dr.-niccol%C3%B2-salvini-1"><i class="fa fa-check"></i><b>5.1.1</b> Part 1: The Foundations (Dr. Niccolò Salvini)</a></li>
+<li class="chapter" data-level="5.1.2" data-path="syllabus.html"><a href="syllabus.html#part-2-advanced-modeling-prof.-sophie-dabo-niang-1"><i class="fa fa-check"></i><b>5.1.2</b> Part 2: Advanced Modeling (Prof. Sophie Dabo-Niang)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="syllabus.html"><a href="syllabus.html#course-structure"><i class="fa fa-check"></i><b>5.2</b> Course Structure</a></li>
+</ul></li>
+<li class="part"><span><b>Part 1: The Foundations</b></span></li>
+<li class="chapter" data-level="6" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html"><i class="fa fa-check"></i><b>6</b> 🧪 Hypothesis Testing Fundamentals</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#learning-objectives"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#introduction-to-hypothesis-testing"><i class="fa fa-check"></i><b>6.2</b> Introduction to Hypothesis Testing</a></li>
+<li class="chapter" data-level="6.3" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>6.3</b> Null and Alternative Hypotheses</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="01-prerequisites.html"><a href="#null-hypothesis-h%E2%82%80"><i class="fa fa-check"></i><b>6.3.1</b> Null Hypothesis (H₀)</a></li>
+<li class="chapter" data-level="6.3.2" data-path="01-prerequisites.html"><a href="#alternative-hypothesis-h%E2%82%81"><i class="fa fa-check"></i><b>6.3.2</b> Alternative Hypothesis (H₁)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#p-values-and-statistical-significance"><i class="fa fa-check"></i><b>6.4</b> P-values and Statistical Significance</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#what-is-a-p-value"><i class="fa fa-check"></i><b>6.4.1</b> What is a P-value?</a></li>
+<li class="chapter" data-level="6.4.2" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#interpreting-p-values"><i class="fa fa-check"></i><b>6.4.2</b> Interpreting P-values</a></li>
+<li class="chapter" data-level="6.4.3" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#common-misconceptions"><i class="fa fa-check"></i><b>6.4.3</b> Common Misconceptions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#hypothesis-testing-on-averages"><i class="fa fa-check"></i><b>6.5</b> Hypothesis Testing on Averages</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#one-sample-t-test"><i class="fa fa-check"></i><b>6.5.1</b> One-Sample t-test</a></li>
+<li class="chapter" data-level="6.5.2" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#two-sample-t-test"><i class="fa fa-check"></i><b>6.5.2</b> Two-Sample t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#practical-example"><i class="fa fa-check"></i><b>6.6</b> Practical Example</a></li>
+<li class="chapter" data-level="6.7" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#type-i-and-type-ii-errors"><i class="fa fa-check"></i><b>6.7</b> Type I and Type II Errors</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="01-prerequisites.html"><a href="#type-i-error-%CE%B1"><i class="fa fa-check"></i><b>6.7.1</b> Type I Error (α)</a></li>
+<li class="chapter" data-level="6.7.2" data-path="01-prerequisites.html"><a href="#type-ii-error-%CE%B2"><i class="fa fa-check"></i><b>6.7.2</b> Type II Error (β)</a></li>
+<li class="chapter" data-level="6.7.3" data-path="01-prerequisites.html"><a href="#power-1---%CE%B2"><i class="fa fa-check"></i><b>6.7.3</b> Power (1 - β)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#best-practices"><i class="fa fa-check"></i><b>6.8</b> Best Practices</a></li>
+<li class="chapter" data-level="6.9" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#summary"><i class="fa fa-check"></i><b>6.9</b> Summary</a></li>
+<li class="chapter" data-level="6.10" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#further-on"><i class="fa fa-check"></i><b>6.10</b> Further-on</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html"><i class="fa fa-check"></i><b>7</b> 📈 Linear Regression Analysis</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#learning-objectives-1"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#introduction-to-linear-regression"><i class="fa fa-check"></i><b>7.2</b> Introduction to Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#simple-linear-regression"><i class="fa fa-check"></i><b>7.2.1</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="7.2.2" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#multiple-linear-regression"><i class="fa fa-check"></i><b>7.2.2</b> Multiple Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#assumptions-of-linear-regression"><i class="fa fa-check"></i><b>7.3</b> Assumptions of Linear Regression</a></li>
+<li class="chapter" data-level="7.4" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#model-evaluation-metrics"><i class="fa fa-check"></i><b>7.4</b> Model Evaluation Metrics</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="01-prerequisites.html"><a href="#r-squared-r%C2%B2"><i class="fa fa-check"></i><b>7.4.1</b> R-squared (R²)</a></li>
+<li class="chapter" data-level="7.4.2" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#adjusted-r-squared"><i class="fa fa-check"></i><b>7.4.2</b> Adjusted R-squared</a></li>
+<li class="chapter" data-level="7.4.3" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#root-mean-square-error-rmse"><i class="fa fa-check"></i><b>7.4.3</b> Root Mean Square Error (RMSE)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#practical-example-simple-linear-regression"><i class="fa fa-check"></i><b>7.5</b> Practical Example: Simple Linear Regression</a></li>
+<li class="chapter" data-level="7.6" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#multiple-linear-regression-1"><i class="fa fa-check"></i><b>7.6</b> Multiple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#example-with-multiple-predictors"><i class="fa fa-check"></i><b>7.6.1</b> Example with Multiple Predictors</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#nonlinear-regression"><i class="fa fa-check"></i><b>7.7</b> Nonlinear Regression</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#polynomial-regression"><i class="fa fa-check"></i><b>7.7.1</b> Polynomial Regression</a></li>
+<li class="chapter" data-level="7.7.2" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#logarithmic-transformation"><i class="fa fa-check"></i><b>7.7.2</b> Logarithmic Transformation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#model-diagnostics"><i class="fa fa-check"></i><b>7.8</b> Model Diagnostics</a>
+<ul>
+<li class="chapter" data-level="7.8.1" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#residual-analysis"><i class="fa fa-check"></i><b>7.8.1</b> Residual Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#best-practices-1"><i class="fa fa-check"></i><b>7.9</b> Best Practices</a></li>
+<li class="chapter" data-level="7.10" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#common-pitfalls"><i class="fa fa-check"></i><b>7.10</b> Common Pitfalls</a></li>
+<li class="chapter" data-level="7.11" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#summary-1"><i class="fa fa-check"></i><b>7.11</b> Summary</a></li>
+<li class="chapter" data-level="7.12" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#further-on-1"><i class="fa fa-check"></i><b>7.12</b> Further-on</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html"><i class="fa fa-check"></i><b>8</b> 🔬 Advanced Statistical Methods</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#learning-objectives-2"><i class="fa fa-check"></i><b>8.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#regression-with-dummy-variables"><i class="fa fa-check"></i><b>8.2</b> Regression with Dummy Variables</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#creating-dummy-variables"><i class="fa fa-check"></i><b>8.2.1</b> Creating Dummy Variables</a></li>
+<li class="chapter" data-level="8.2.2" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#interpreting-dummy-variable-coefficients"><i class="fa fa-check"></i><b>8.2.2</b> Interpreting Dummy Variable Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#logistic-regression"><i class="fa fa-check"></i><b>8.3</b> Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#binary-logistic-regression"><i class="fa fa-check"></i><b>8.3.1</b> Binary Logistic Regression</a></li>
+<li class="chapter" data-level="8.3.2" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#interpreting-logistic-regression-results"><i class="fa fa-check"></i><b>8.3.2</b> Interpreting Logistic Regression Results</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#factor-analysis"><i class="fa fa-check"></i><b>8.4</b> Factor Analysis</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#exploratory-factor-analysis-efa"><i class="fa fa-check"></i><b>8.4.1</b> Exploratory Factor Analysis (EFA)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#cluster-analysis"><i class="fa fa-check"></i><b>8.5</b> Cluster Analysis</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#k-means-clustering"><i class="fa fa-check"></i><b>8.5.1</b> K-Means Clustering</a></li>
+<li class="chapter" data-level="8.5.2" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#hierarchical-clustering"><i class="fa fa-check"></i><b>8.5.2</b> Hierarchical Clustering</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#model-selection-and-validation"><i class="fa fa-check"></i><b>8.6</b> Model Selection and Validation</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#cross-validation-for-logistic-regression"><i class="fa fa-check"></i><b>8.6.1</b> Cross-Validation for Logistic Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#best-practices-2"><i class="fa fa-check"></i><b>8.7</b> Best Practices</a></li>
+<li class="chapter" data-level="8.8" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#common-pitfalls-1"><i class="fa fa-check"></i><b>8.8</b> Common Pitfalls</a></li>
+<li class="chapter" data-level="8.9" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#summary-2"><i class="fa fa-check"></i><b>8.9</b> Summary</a></li>
+<li class="chapter" data-level="8.10" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#references"><i class="fa fa-check"></i><b>8.10</b> References</a></li>
+</ul></li>
+<li class="part"><span><b>Part 2: Advanced Modeling</b></span></li>
+<li class="chapter" data-level="9" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html"><i class="fa fa-check"></i><b>9</b> 🚀 Advanced Modeling Techniques</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#learning-objectives-3"><i class="fa fa-check"></i><b>9.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#course-structure-1"><i class="fa fa-check"></i><b>9.2</b> Course Structure</a></li>
+<li class="chapter" data-level="9.3" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#factor-analysis-1"><i class="fa fa-check"></i><b>9.3</b> Factor Analysis</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#key-concepts"><i class="fa fa-check"></i><b>9.3.1</b> Key Concepts</a></li>
+<li class="chapter" data-level="9.3.2" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#applications"><i class="fa fa-check"></i><b>9.3.2</b> Applications</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#cluster-analysis-1"><i class="fa fa-check"></i><b>9.4</b> Cluster Analysis</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#methods-covered"><i class="fa fa-check"></i><b>9.4.1</b> Methods Covered</a></li>
+<li class="chapter" data-level="9.4.2" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#applications-1"><i class="fa fa-check"></i><b>9.4.2</b> Applications</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#discrimination-classification"><i class="fa fa-check"></i><b>9.5</b> Discrimination &amp; Classification</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#techniques"><i class="fa fa-check"></i><b>9.5.1</b> Techniques</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#logistic-regression-1"><i class="fa fa-check"></i><b>9.6</b> Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#types-covered"><i class="fa fa-check"></i><b>9.6.1</b> Types Covered</a></li>
+<li class="chapter" data-level="9.6.2" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#key-concepts-1"><i class="fa fa-check"></i><b>9.6.2</b> Key Concepts</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#kernel-methods"><i class="fa fa-check"></i><b>9.7</b> Kernel Methods</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#applications-2"><i class="fa fa-check"></i><b>9.7.1</b> Applications</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#general-additive-models-gams"><i class="fa fa-check"></i><b>9.8</b> General Additive Models (GAMs)</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#features"><i class="fa fa-check"></i><b>9.8.1</b> Features</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#other-supervised-models"><i class="fa fa-check"></i><b>9.9</b> Other Supervised Models</a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#methods-covered-1"><i class="fa fa-check"></i><b>9.9.1</b> Methods Covered</a></li>
+</ul></li>
+<li class="chapter" data-level="9.10" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#practical-implementation"><i class="fa fa-check"></i><b>9.10</b> Practical Implementation</a></li>
+<li class="chapter" data-level="9.11" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#assessment-and-evaluation"><i class="fa fa-check"></i><b>9.11</b> Assessment and Evaluation</a>
+<ul>
+<li class="chapter" data-level="9.11.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#model-evaluation-metrics-1"><i class="fa fa-check"></i><b>9.11.1</b> Model Evaluation Metrics</a></li>
+<li class="chapter" data-level="9.11.2" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#best-practices-3"><i class="fa fa-check"></i><b>9.11.2</b> Best Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="9.12" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#intensive-session-schedule"><i class="fa fa-check"></i><b>9.12</b> Intensive Session Schedule</a></li>
+<li class="chapter" data-level="9.13" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#prerequisites"><i class="fa fa-check"></i><b>9.13</b> Prerequisites</a></li>
+<li class="chapter" data-level="9.14" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#resources"><i class="fa fa-check"></i><b>9.14</b> Resources</a></li>
+<li class="chapter" data-level="9.15" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#summary-3"><i class="fa fa-check"></i><b>9.15</b> Summary</a></li>
+<li class="chapter" data-level="9.16" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#references-1"><i class="fa fa-check"></i><b>9.16</b> References</a></li>
+</ul></li>
+<li class="part"><span><b>Additional Resources</b></span></li>
+<li class="chapter" data-level="10" data-path="int-prep.html"><a href="int-prep.html"><i class="fa fa-check"></i><b>10</b> 💻 Intermediate preparation</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="int-prep.html"><a href="int-prep.html#core-concepts-of-t-test"><i class="fa fa-check"></i><b>10.1</b> 🪨 core concepts of T test</a></li>
+<li class="chapter" data-level="10.2" data-path="int-prep.html"><a href="int-prep.html#t.test-function"><i class="fa fa-check"></i><b>10.2</b> <code>t.test()</code> function</a></li>
+<li class="chapter" data-level="10.3" data-path="int-prep.html"><a href="int-prep.html#introduction"><i class="fa fa-check"></i><b>10.3</b> Introduction</a></li>
+<li class="chapter" data-level="10.4" data-path="int-prep.html"><a href="int-prep.html#basic-usage"><i class="fa fa-check"></i><b>10.4</b> Basic Usage</a></li>
+<li class="chapter" data-level="10.5" data-path="int-prep.html"><a href="int-prep.html#arguments"><i class="fa fa-check"></i><b>10.5</b> Arguments</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="int-prep.html"><a href="int-prep.html#formula"><i class="fa fa-check"></i><b>10.5.1</b> Formula</a></li>
+<li class="chapter" data-level="10.5.2" data-path="int-prep.html"><a href="int-prep.html#data"><i class="fa fa-check"></i><b>10.5.2</b> Data</a></li>
+<li class="chapter" data-level="10.5.3" data-path="int-prep.html"><a href="int-prep.html#subset"><i class="fa fa-check"></i><b>10.5.3</b> Subset</a></li>
+<li class="chapter" data-level="10.5.4" data-path="int-prep.html"><a href="int-prep.html#weight"><i class="fa fa-check"></i><b>10.5.4</b> Weight</a></li>
+<li class="chapter" data-level="10.5.5" data-path="int-prep.html"><a href="int-prep.html#na.action"><i class="fa fa-check"></i><b>10.5.5</b> Na.action</a></li>
+<li class="chapter" data-level="10.5.6" data-path="int-prep.html"><a href="int-prep.html#other-arguments"><i class="fa fa-check"></i><b>10.5.6</b> Other Arguments</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="int-prep.html"><a href="int-prep.html#vif-variance-inflation-factor"><i class="fa fa-check"></i><b>10.6</b> VIF (Variance Inflation Factor)</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="int-prep.html"><a href="int-prep.html#calculating-vif"><i class="fa fa-check"></i><b>10.6.1</b> Calculating VIF</a></li>
+<li class="chapter" data-level="10.6.2" data-path="int-prep.html"><a href="int-prep.html#interpreting-vif"><i class="fa fa-check"></i><b>10.6.2</b> Interpreting VIF</a></li>
+<li class="chapter" data-level="10.6.3" data-path="int-prep.html"><a href="int-prep.html#addressing-multicollinearity"><i class="fa fa-check"></i><b>10.6.3</b> Addressing Multicollinearity</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="int-prep.html"><a href="int-prep.html#anova-analysis-of-variance"><i class="fa fa-check"></i><b>10.7</b> ANOVA (Analysis of Variance)</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="int-prep.html"><a href="int-prep.html#performing-anova-with-aov"><i class="fa fa-check"></i><b>10.7.1</b> Performing ANOVA with <code>aov()</code></a></li>
+<li class="chapter" data-level="10.7.2" data-path="int-prep.html"><a href="int-prep.html#anova-tables"><i class="fa fa-check"></i><b>10.7.2</b> ANOVA Tables</a></li>
+<li class="chapter" data-level="10.7.3" data-path="int-prep.html"><a href="int-prep.html#interpreting-anova"><i class="fa fa-check"></i><b>10.7.3</b> Interpreting ANOVA</a></li>
+<li class="chapter" data-level="10.7.4" data-path="int-prep.html"><a href="int-prep.html#assumptions-of-anova"><i class="fa fa-check"></i><b>10.7.4</b> Assumptions of ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="int-prep.html"><a href="int-prep.html#logistic-regression-with-glm"><i class="fa fa-check"></i><b>10.8</b> Logistic Regression with <code>glm()</code></a>
+<ul>
+<li class="chapter" data-level="10.8.1" data-path="int-prep.html"><a href="int-prep.html#performing-logistic-regression-with-glm"><i class="fa fa-check"></i><b>10.8.1</b> Performing Logistic Regression with <code>glm()</code></a></li>
+<li class="chapter" data-level="10.8.2" data-path="int-prep.html"><a href="int-prep.html#model-summary"><i class="fa fa-check"></i><b>10.8.2</b> Model Summary</a></li>
+<li class="chapter" data-level="10.8.3" data-path="int-prep.html"><a href="int-prep.html#interpreting-logistic-regression"><i class="fa fa-check"></i><b>10.8.3</b> Interpreting Logistic Regression</a></li>
+<li class="chapter" data-level="10.8.4" data-path="int-prep.html"><a href="int-prep.html#model-evaluation"><i class="fa fa-check"></i><b>10.8.4</b> Model Evaluation</a></li>
+<li class="chapter" data-level="10.8.5" data-path="int-prep.html"><a href="int-prep.html#assumptions-of-logistic-regression"><i class="fa fa-check"></i><b>10.8.5</b> Assumptions of Logistic Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="int-prep.html"><a href="int-prep.html#poisson-regression-with-glm"><i class="fa fa-check"></i><b>10.9</b> Poisson Regression with <code>glm()</code></a>
+<ul>
+<li class="chapter" data-level="10.9.1" data-path="int-prep.html"><a href="int-prep.html#performing-poisson-regression-with-glm"><i class="fa fa-check"></i><b>10.9.1</b> Performing Poisson Regression with <code>glm()</code></a></li>
+<li class="chapter" data-level="10.9.2" data-path="int-prep.html"><a href="int-prep.html#model-summary-1"><i class="fa fa-check"></i><b>10.9.2</b> Model Summary</a></li>
+<li class="chapter" data-level="10.9.3" data-path="int-prep.html"><a href="int-prep.html#interpreting-poisson-regression"><i class="fa fa-check"></i><b>10.9.3</b> Interpreting Poisson Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="10.10" data-path="int-prep.html"><a href="int-prep.html#class-exercises-do-it-in-groups"><i class="fa fa-check"></i><b>10.10</b> class exercises, do it in groups 👯</a></li>
+<li class="chapter" data-level="10.11" data-path="int-prep.html"><a href="int-prep.html#solutions"><i class="fa fa-check"></i><b>10.11</b> solutions</a></li>
+<li class="chapter" data-level="10.12" data-path="int-prep.html"><a href="int-prep.html#tips"><i class="fa fa-check"></i><b>10.12</b> 🍬 tips and tricks</a></li>
+<li class="chapter" data-level="10.13" data-path="int-prep.html"><a href="int-prep.html#further-exercies"><i class="fa fa-check"></i><b>10.13</b> further exercies 🏋️</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html"><i class="fa fa-check"></i><b>11</b> 📚 Additional Practice Exercises for Intermediate Exam</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-1-data-wrangling-and-descriptive-statistics"><i class="fa fa-check"></i><b>11.1</b> 🏥 Part 1: Data Wrangling and Descriptive Statistics</a></li>
+<li class="chapter" data-level="11.2" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-2-hypothesis-testing---single-population"><i class="fa fa-check"></i><b>11.2</b> 🔬 Part 2: Hypothesis Testing - Single Population</a></li>
+<li class="chapter" data-level="11.3" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-3-hypothesis-testing---two-populations"><i class="fa fa-check"></i><b>11.3</b> 👥 Part 3: Hypothesis Testing - Two Populations</a></li>
+<li class="chapter" data-level="11.4" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-4-anova---comparing-multiple-groups"><i class="fa fa-check"></i><b>11.4</b> 📊 Part 4: ANOVA - Comparing Multiple Groups</a></li>
+<li class="chapter" data-level="11.5" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-5-simple-and-multiple-linear-regression"><i class="fa fa-check"></i><b>11.5</b> 📈 Part 5: Simple and Multiple Linear Regression</a></li>
+<li class="chapter" data-level="11.6" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-6-nonlinear-regression-and-transformations"><i class="fa fa-check"></i><b>11.6</b> 🔄 Part 6: Nonlinear Regression and Transformations</a></li>
+<li class="chapter" data-level="11.7" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-7-logistic-regression"><i class="fa fa-check"></i><b>11.7</b> 🎯 Part 7: Logistic Regression</a></li>
+<li class="chapter" data-level="11.8" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-8-poisson-regression"><i class="fa fa-check"></i><b>11.8</b> 📊 Part 8: Poisson Regression</a></li>
+<li class="chapter" data-level="11.9" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-9-regression-with-dummy-variables"><i class="fa fa-check"></i><b>11.9</b> 🏷️ Part 9: Regression with Dummy Variables</a></li>
+<li class="chapter" data-level="11.10" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-10-model-diagnostics-and-interpretation"><i class="fa fa-check"></i><b>11.10</b> 🧮 Part 10: Model Diagnostics and Interpretation</a></li>
+<li class="chapter" data-level="11.11" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#solutions-1"><i class="fa fa-check"></i><b>11.11</b> ✅ SOLUTIONS</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="int-samp-q.html"><a href="int-samp-q.html"><i class="fa fa-check"></i><b>12</b> 💻 Intermediate Sample Questions</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="int-samp-q.html"><a href="int-samp-q.html#section"><i class="fa fa-check"></i><b>12.1</b> 👨‍🎓 2020/2021</a></li>
+<li class="chapter" data-level="12.2" data-path="int-samp-q.html"><a href="int-samp-q.html#section-1"><i class="fa fa-check"></i><b>12.2</b> 👨‍🎓 2021/2022</a></li>
+<li class="chapter" data-level="12.3" data-path="int-samp-q.html"><a href="int-samp-q.html#section-2"><i class="fa fa-check"></i><b>12.3</b> 👨‍🎓 2022/2023</a></li>
+<li class="chapter" data-level="12.4" data-path="int-samp-q.html"><a href="int-samp-q.html#solutions-2"><i class="fa fa-check"></i><b>12.4</b> solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="course-performance.html"><a href="course-performance.html"><i class="fa fa-check"></i><b>13</b> ⚡ Course Performance</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="course-performance.html"><a href="course-performance.html#students-performance-analysis"><i class="fa fa-check"></i><b>13.1</b> 🎓 24-25 Students Performance Analysis</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="course-performance.html"><a href="course-performance.html#overall-statistics"><i class="fa fa-check"></i><b>13.1.1</b> Overall Statistics</a></li>
+<li class="chapter" data-level="13.1.2" data-path="course-performance.html"><a href="course-performance.html#grade-distribution"><i class="fa fa-check"></i><b>13.1.2</b> Grade Distribution</a></li>
+<li class="chapter" data-level="13.1.3" data-path="course-performance.html"><a href="course-performance.html#intermediate-exam-performance"><i class="fa fa-check"></i><b>13.1.3</b> Intermediate Exam Performance</a></li>
+<li class="chapter" data-level="13.1.4" data-path="course-performance.html"><a href="course-performance.html#performance-by-exam-type"><i class="fa fa-check"></i><b>13.1.4</b> Performance by Exam Type</a></li>
+<li class="chapter" data-level="13.1.5" data-path="course-performance.html"><a href="course-performance.html#key-insights"><i class="fa fa-check"></i><b>13.1.5</b> Key Insights</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="course-performance.html"><a href="course-performance.html#students"><i class="fa fa-check"></i><b>13.2</b> 🎓 20-21 Students</a></li>
+<li class="chapter" data-level="13.3" data-path="course-performance.html"><a href="course-performance.html#students-1"><i class="fa fa-check"></i><b>13.3</b> 🎓 21-22 Students</a></li>
+<li class="chapter" data-level="13.4" data-path="course-performance.html"><a href="course-performance.html#students-2"><i class="fa fa-check"></i><b>13.4</b> 🎓 22-23 Students</a></li>
+<li class="chapter" data-level="13.5" data-path="course-performance.html"><a href="course-performance.html#students-3"><i class="fa fa-check"></i><b>13.5</b> 🎓 23-24 Students</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html"><i class="fa fa-check"></i><b>14</b> ❓ Frequently Asked Questions</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#q-na"><i class="fa fa-check"></i><b>14.1</b> Q n’A</a></li>
+</ul></li>
+<li class="part"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="15" data-path="StatisticsAndParameters.html"><a href="StatisticsAndParameters.html"><i class="fa fa-check"></i><b>15</b> Symbols, formulas, statistics and parameters</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="StatisticsAndParameters.html"><a href="StatisticsAndParameters.html#symbols-and-standard-errors"><i class="fa fa-check"></i><b>15.1</b> Symbols and standard errors</a></li>
+<li class="chapter" data-level="15.2" data-path="StatisticsAndParameters.html"><a href="StatisticsAndParameters.html#confidence-intervals"><i class="fa fa-check"></i><b>15.2</b> Confidence intervals</a></li>
+<li class="chapter" data-level="15.3" data-path="StatisticsAndParameters.html"><a href="StatisticsAndParameters.html#hypothesis-testing"><i class="fa fa-check"></i><b>15.3</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="15.4" data-path="StatisticsAndParameters.html"><a href="StatisticsAndParameters.html#other-formulas"><i class="fa fa-check"></i><b>15.4</b> Other formulas</a></li>
+<li class="chapter" data-level="15.5" data-path="StatisticsAndParameters.html"><a href="StatisticsAndParameters.html#other-symbols-used"><i class="fa fa-check"></i><b>15.5</b> Other symbols used</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="appendixdatasets.html"><a href="appendixdatasets.html"><i class="fa fa-check"></i><b>16</b> Datasets</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="appendixdatasets.html"><a href="appendixdatasets.html#built-in-r-datasets"><i class="fa fa-check"></i><b>16.1</b> Built-in R Datasets</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="appendixdatasets.html"><a href="appendixdatasets.html#mtcars---motor-trend-car-road-tests"><i class="fa fa-check"></i><b>16.1.1</b> <code>mtcars</code> - Motor Trend Car Road Tests</a></li>
+<li class="chapter" data-level="16.1.2" data-path="appendixdatasets.html"><a href="appendixdatasets.html#iris---edgar-andersons-iris-data"><i class="fa fa-check"></i><b>16.1.2</b> <code>iris</code> - Edgar Anderson’s Iris Data</a></li>
+<li class="chapter" data-level="16.1.3" data-path="appendixdatasets.html"><a href="appendixdatasets.html#cars---speed-and-stopping-distances-of-cars"><i class="fa fa-check"></i><b>16.1.3</b> <code>cars</code> - Speed and Stopping Distances of Cars</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="appendixdatasets.html"><a href="appendixdatasets.html#course-specific-datasets"><i class="fa fa-check"></i><b>16.2</b> Course-Specific Datasets</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="appendixdatasets.html"><a href="appendixdatasets.html#bikeshare.csv---bike-sharing-data"><i class="fa fa-check"></i><b>16.2.1</b> <code>bikeshare.csv</code> - Bike Sharing Data</a></li>
+<li class="chapter" data-level="16.2.2" data-path="appendixdatasets.html"><a href="appendixdatasets.html#stroke_data.csv---stroke-prediction-data"><i class="fa fa-check"></i><b>16.2.2</b> <code>stroke_data.csv</code> - Stroke Prediction Data</a></li>
+<li class="chapter" data-level="16.2.3" data-path="appendixdatasets.html"><a href="appendixdatasets.html#coronary.dta---coronary-heart-disease-data"><i class="fa fa-check"></i><b>16.2.3</b> <code>coronary.dta</code> - Coronary Heart Disease Data</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="appendixdatasets.html"><a href="appendixdatasets.html#how-to-access-datasets"><i class="fa fa-check"></i><b>16.3</b> How to Access Datasets</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="appendixdatasets.html"><a href="appendixdatasets.html#built-in-r-datasets-1"><i class="fa fa-check"></i><b>16.3.1</b> Built-in R Datasets</a></li>
+<li class="chapter" data-level="16.3.2" data-path="appendixdatasets.html"><a href="appendixdatasets.html#course-datasets"><i class="fa fa-check"></i><b>16.3.2</b> Course Datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="appendixdatasets.html"><a href="appendixdatasets.html#dataset-usage-in-course"><i class="fa fa-check"></i><b>16.4</b> Dataset Usage in Course</a></li>
+<li class="chapter" data-level="16.5" data-path="appendixdatasets.html"><a href="appendixdatasets.html#additional-resources"><i class="fa fa-check"></i><b>16.5</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a>
+<ul>
+<li class="chapter" data-level="16.6" data-path="references-2.html"><a href="references-2.html#statistical-methods-and-r-programming"><i class="fa fa-check"></i><b>16.6</b> Statistical Methods and R Programming</a></li>
+<li class="chapter" data-level="16.7" data-path="references-2.html"><a href="references-2.html#advanced-r-programming"><i class="fa fa-check"></i><b>16.7</b> Advanced R Programming</a></li>
+<li class="chapter" data-level="16.8" data-path="references-2.html"><a href="references-2.html#statistical-software-and-tools"><i class="fa fa-check"></i><b>16.8</b> Statistical Software and Tools</a></li>
+<li class="chapter" data-level="16.9" data-path="references-2.html"><a href="references-2.html#course-materials-1"><i class="fa fa-check"></i><b>16.9</b> Course Materials</a></li>
+<li class="chapter" data-level="16.10" data-path="references-2.html"><a href="references-2.html#additional-resources-1"><i class="fa fa-check"></i><b>16.10</b> Additional Resources</a></li>
+</ul></li>
 </ul>
 
-        <div class="book-extra">
-          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
-        </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="prereq" class="section level1" number="2">
-<h1>
-<span class="header-section-number">2</span> ✨Prerequisites<a class="anchor" aria-label="anchor" href="#prereq"><i class="fas fa-link"></i></a>
-</h1>
-<div id="setting-up-r-and-rstudio" class="section level2" number="2.1">
-<h2>
-<span class="header-section-number">2.1</span> Setting up R and RStudio<a class="anchor" aria-label="anchor" href="#setting-up-r-and-rstudio"><i class="fas fa-link"></i></a>
-</h2>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics &amp; Big Data 25-26 Labs</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="prereq" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> ✨Prerequisites<a href="prereq.html#prereq" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="setting-up-r-and-rstudio" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Setting up R and RStudio<a href="prereq.html#setting-up-r-and-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To get started with R, you need to acquire your own copy. This appendix will show you how to download R as well as RStudio, a software application that makes R easier to use. You’ll go from downloading R to opening your first R session. Use the menu on the right hand side of the page to select your OS and follow the correct installation.</p>
 <p>Both R and RStudio are free and easy to download. <strong>If you feel more comfortable interacting with videos instead of reading</strong> please visit <ins> <a href="https://learnr-examples.shinyapps.io/ex-setup-r/">this interactive tutorials</a> </ins> that will guide you through the full R set up!</p>
 </div>
-<div id="how-to-download-and-install-r" class="section level2" number="2.2">
-<h2>
-<span class="header-section-number">2.2</span> How to Download and Install R<a class="anchor" aria-label="anchor" href="#how-to-download-and-install-r"><i class="fas fa-link"></i></a>
-</h2>
+<div id="how-to-download-and-install-r" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> How to Download and Install R<a href="prereq.html#how-to-download-and-install-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R is maintained by an international team of developers who make the language available through the web page of The Comprehensive R Archive Network i.e. CRAN. The top of the web page provides three links for downloading R. Follow the link that describes your operating system: Windows, Mac, or Linux.</p>
-<div id="r-in-windows" class="section level3" number="2.2.1">
-<h3>
-<span class="header-section-number">2.2.1</span> <strong>R in Windows</strong><a class="anchor" aria-label="anchor" href="#r-in-windows"><i class="fas fa-link"></i></a>
-</h3>
+<div id="r-in-windows" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> <strong>R in Windows</strong><a href="prereq.html#r-in-windows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To install R on Windows, click the “Download R for Windows” link. Then click the “base” link. Next, click the first link at the top of the new page. This link should say something like “Download R 3.0.3 for Windows,” except the 3.0.3 will be replaced by the most current version of R. The link downloads an installer program, which installs the most up-to-date version of R for Windows. Run this program and step through the installation wizard that appears. The wizard will install R into your program files folders and place a shortcut in your Start menu. Note that you’ll need to have all of the appropriate administration privileges to install new software on your machine. (more detailed steps)</p>
 </div>
-<div id="r-in-mac" class="section level3" number="2.2.2">
-<h3>
-<span class="header-section-number">2.2.2</span> <strong>R in Mac</strong><a class="anchor" aria-label="anchor" href="#r-in-mac"><i class="fas fa-link"></i></a>
-</h3>
+<div id="r-in-mac" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> <strong>R in Mac</strong><a href="prereq.html#r-in-mac" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is also my setup, feel free to reach me at <a href="mailto:niccolo.salvini27@gmail.com">my mail address</a> if something is messed up.</p>
 <ol style="list-style-type: decimal">
-<li>Go to <a href="www.r-project.org">www.r-project.org</a>
-</li>
+<li>Go to <a href="www.r-project.org">www.r-project.org</a></li>
 </ol>
-<div class="figure">
-<span style="display:block;" id="fig:rproj-page"></span>
-<img src="images/cpt_1/00_r_project_page.png" alt="The R mirrors website" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:rproj-page"></span>
+<img src="images/cpt_1/00_r_project_page.png" alt="The R mirrors website" width="100%" />
+<p class="caption">
 Figure 2.1: The R mirrors website
 </p>
 </div>
@@ -115,27 +514,27 @@ Figure 2.1: The R mirrors website
 <li><p>Click on <code>CRAN</code> where it says <code>Download</code>.</p></li>
 <li><p>Choose a server in your country (all of them work, but downloads will perform quicker if you choose your country or one that is close to where you are).</p></li>
 </ol>
-<div class="figure">
-<span style="display:block;" id="fig:cran-mirrors"></span>
-<img src="images/cpt_1/01_r_project_cran_mirror.png" alt="CRAN mirrors" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:cran-mirrors"></span>
+<img src="images/cpt_1/01_r_project_cran_mirror.png" alt="CRAN mirrors" width="100%" />
+<p class="caption">
 Figure 2.2: CRAN mirrors
 </p>
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li>Select the operating system for your computer, for example <code>Download R for macOS</code>.</li>
 </ol>
-<div class="figure">
-<span style="display:block;" id="fig:os-choice"></span>
-<img src="images/cpt_1/02_r_project_os_choice.png" alt="OS choices available" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:os-choice"></span>
+<img src="images/cpt_1/02_r_project_os_choice.png" alt="OS choices available" width="100%" />
+<p class="caption">
 Figure 2.3: OS choices available
 </p>
 </div>
 <ol start="5" style="list-style-type: decimal">
 <li>Select the version you want to install (I recommend the latest version)</li>
 </ol>
-<div class="figure">
-<span style="display:block;" id="fig:r-versions"></span>
-<img src="images/cpt_1/03_r_project_version_choice.png" alt="R versions available" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:r-versions"></span>
+<img src="images/cpt_1/03_r_project_version_choice.png" alt="R versions available" width="100%" />
+<p class="caption">
 Figure 2.4: R versions available
 </p>
 </div>
@@ -147,10 +546,8 @@ Figure 2.4: R versions available
 <p>R can be installed from precompiled binaries or built from source on any operating system. For Windows and Mac machines, installing R from binaries is extremely easy. The binary comes preloaded in its own installer. Although you can build R from source on these platforms, the process is much more complicated and won’t provide much benefit for most users. For Linux systems, the opposite is true. Precompiled binaries can be found for some systems, but it is much more common to build R from source files when installing on Linux. The download pages on CRAN’s website provide information about building R from source for the Windows, Mac, and Linux platforms.</p>
 </div>
 </div>
-<div id="r-in-linux" class="section level3" number="2.2.3">
-<h3>
-<span class="header-section-number">2.2.3</span> <strong>R in Linux</strong><a class="anchor" aria-label="anchor" href="#r-in-linux"><i class="fas fa-link"></i></a>
-</h3>
+<div id="r-in-linux" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> <strong>R in Linux</strong><a href="prereq.html#r-in-linux" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R comes preinstalled on many Linux systems, but you’ll want the newest version of R if yours is out of date. The CRAN website provides files to build R from source on Debian, Redhat, SUSE, and Ubuntu systems under the link “Download R for Linux.” Click the link and then follow the directory trail to the version of Linux you wish to install on. The exact installation procedure will vary depending on the Linux system you use. CRAN guides the process by grouping each set of source files with documentation or README files that explain how to install on your system.</p>
 <div class="note">
 <p><strong>32-bit Versus 64-bit</strong></p>
@@ -159,33 +556,28 @@ As a rule of thumb, 32-bit builds of R are faster than 64-bit builds, though not
 </div>
 </div>
 </div>
-<div id="using-r" class="section level2" number="2.3">
-<h2>
-<span class="header-section-number">2.3</span> Using R<a class="anchor" aria-label="anchor" href="#using-r"><i class="fas fa-link"></i></a>
-</h2>
+<div id="using-r" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Using R<a href="prereq.html#using-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R isn’t a program that you can open and start using, like Microsoft Word or Internet Explorer. Instead, R is a computer language, like C, C++, or UNIX. You use R by writing commands in the R language and asking your computer to interpret them. In the old days, people ran R code in a UNIX terminal window—as if they were hackers in a movie from the 1980s. Now almost everyone uses R with an application called RStudio, and I recommend that you do, too.</p>
 <div class="fyi">
 <p><strong>R and UNIX</strong></p>
 <p>You can still run R in a UNIX or BASH window (prompt or Powershell) by typing the command:
 R
-which opens an R interpreter. You can then do your work and close the interpreter by running <code><a href="https://rdrr.io/r/base/quit.html">q()</a></code> when you are finished.</p>
+which opens an R interpreter. You can then do your work and close the interpreter by running <code>q()</code> when you are finished.</p>
 </div>
 </div>
-<div id="using-rstudio" class="section level2" number="2.4">
-<h2>
-<span class="header-section-number">2.4</span> Using RStudio<a class="anchor" aria-label="anchor" href="#using-rstudio"><i class="fas fa-link"></i></a>
-</h2>
+<div id="using-rstudio" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Using RStudio<a href="prereq.html#using-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><em>R</em> by itself is just the ‘<em>beating heart</em>’ of <em>R</em> programming, but it has no particular user interface. You may have heard me saying stuff like: “R is the <strong>engine</strong> of the car, indeed RStudio is the <strong>car body</strong>, that’s true, you just don’t need an engine if you don’t have a car body. That is to say: if you want buttons to click and actually ‘<em>see</em>’ what you are doing, there is no better way than RStudio.
 RStudio is an <em>integrated development environment</em> (IDE) and will be our primary tool to interact with <em>R</em>. It is the only software you need to do all the fun parts and, of course, to follow along with the examples of this book.
 You may ask yourself what is Posit, fair question. Back in the days Posit, the company behind RStudio, was actually named RStudio (as their product). Then in 2023 they rebranded themselves as Posit to also include other languages like Python,</p>
 <p>Howeveeeer to install RStudio perform the following steps:</p>
 <ol style="list-style-type: decimal">
-<li>Go to <a href="https://posit.co/" title="https://posit.co/">https://posit.co/</a>
-</li>
+<li>Go to <a href="https://posit.co/" title="https://posit.co/">https://posit.co/</a></li>
 </ol>
-<div class="figure">
-<span style="display:block;" id="fig:rstudio-main"></span>
-<img src="images/cpt_1/01_rstudio_main_page.png" alt="The Posit.co main page" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:rstudio-main"></span>
+<img src="images/cpt_1/01_rstudio_main_page.png" alt="The Posit.co main page" width="100%" />
+<p class="caption">
 Figure 2.5: The Posit.co main page
 </p>
 </div>
@@ -193,18 +585,18 @@ Figure 2.5: The Posit.co main page
 <li><p>Go to <code>DOWNLOAD RSTUDIO</code> in the upper right corner (download R if you still haven’t).</p></li>
 <li><p>Select <code>DOWNLOAD RSTUDIO</code>, just on the left of <code>DOWNLOAD RSTUDIO SERVER</code>.</p></li>
 </ol>
-<div class="figure">
-<span style="display:block;" id="fig:rstudio-select-version"></span>
-<img src="images/cpt_1/03_rstudio_select_version.png" alt="Choose RStudio version" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:rstudio-select-version"></span>
+<img src="images/cpt_1/03_rstudio_select_version.png" alt="Choose RStudio version" width="100%" />
+<p class="caption">
 Figure 2.6: Choose RStudio version
 </p>
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li>On this page, scroll down and select the Download (in the download column) corresponding to your OS (mind that different versions of the same OS, say macOS 11.2 or macOS 8.3 need different RStudio download installations).</li>
 </ol>
-<div class="figure">
-<span style="display:block;" id="fig:rstudio-select-os-version"></span>
-<img src="images/cpt_1/04_rstudio_select_edition.png" alt="Choose RStudio version" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:rstudio-select-os-version"></span>
+<img src="images/cpt_1/04_rstudio_select_edition.png" alt="Choose RStudio version" width="100%" />
+<p class="caption">
 Figure 2.7: Choose RStudio version
 </p>
 </div>
@@ -213,10 +605,8 @@ Figure 2.7: Choose RStudio version
 </ol>
 <p>Congratulations, you are all set up to learn <em>R</em>. From now on you only need to start RStudio and not <em>R</em>. Of course, if you are the curious type, nothing shall stop you to try <em>R</em> without RStudio.</p>
 </div>
-<div id="when-you-first-start-rstudio" class="section level2" number="2.5">
-<h2>
-<span class="header-section-number">2.5</span> When you first start RStudio<a class="anchor" aria-label="anchor" href="#when-you-first-start-rstudio"><i class="fas fa-link"></i></a>
-</h2>
+<div id="when-you-first-start-rstudio" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> When you first start RStudio<a href="prereq.html#when-you-first-start-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Before you start programming away, you might want to make some tweaks to your settings right away to have a better experience (in my humble opinion). To open the Rstudio settings you have to click on</p>
 <ul>
 <li><p><code>RStudio &gt; Preferences</code> or press <code>⌘ + ,</code> if you are on a Mac.</p></li>
@@ -224,18 +614,16 @@ Figure 2.7: Choose RStudio version
 </ul>
 <p>I recommend to at least make the following changes to set yourself up for success right from the beginning:</p>
 <ol style="list-style-type: decimal">
-<li>
-<p>Already on the first tab, i.e. <code>General &gt; Basic</code>, we should make one of the most significant changes. Deactivate every option that starts with <code>Restore</code>. This will ensure that every time you start RStudio, you begin with a clean slate. At first sight, it might sound counter-intuitive not to restart everything where you left off, but it is essential to make all your projects easily reproducible. Furthermore, if you work together with others, not restoring your personal settings also ensures that your programming works across different computers. Therefore, I recommend having the following unticked:</p>
+<li><p>Already on the first tab, i.e. <code>General &gt; Basic</code>, we should make one of the most significant changes. Deactivate every option that starts with <code>Restore</code>. This will ensure that every time you start RStudio, you begin with a clean slate. At first sight, it might sound counter-intuitive not to restart everything where you left off, but it is essential to make all your projects easily reproducible. Furthermore, if you work together with others, not restoring your personal settings also ensures that your programming works across different computers. Therefore, I recommend having the following unticked:</p>
 <ul>
 <li><p><code>Restore most recently opened project at startup</code>,</p></li>
 <li><p><code>Restore previsouly open source documents at startup</code>,</p></li>
 <li><p><code>Restore .Rdata into workspace at startup</code></p></li>
-</ul>
-</li>
+</ul></li>
 </ol>
-<div class="figure">
-<span style="display:block;" id="fig:rstudio-preferences"></span>
-<img src="images/cpt_1/00_rstudio_preferences_basic.png" alt="get your RStudio preferences" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:rstudio-preferences"></span>
+<img src="images/cpt_1/00_rstudio_preferences_basic.png" alt="get your RStudio preferences" width="100%" />
+<p class="caption">
 Figure 2.8: get your RStudio preferences
 </p>
 </div>
@@ -243,83 +631,98 @@ Figure 2.8: get your RStudio preferences
 <li><p>In the same tab under <code>Workspace</code>, select <code>Never</code> for the setting <code>Save workspace to .RData on exit</code>. One might think it is wise to keep intermediary results stored from one R session to another. However, I often found myself fixing issues due to this lazy method, and my code became less reliable and, therefore, reproducible. With experience, you will find that this avoids many headaches.</p></li>
 <li><p>In the <code>Code &gt; Editing</code> tab, make sure to have at least the first five options ticked, especially the <code>Auto-indent code after paste</code>. This setting will save time when trying to format your coding appropriately, making it easier to read. Indentation is the primary way of making your code look more readable and less like a series of characters that appear almost random.</p></li>
 </ol>
-<div class="figure">
-<span style="display:block;" id="fig:rstudio-prefediting"></span>
-<img src="images/cpt_1/01_rstudio_preferences_editing.png" alt="Pimp your RStudio IDE" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:rstudio-prefediting"></span>
+<img src="images/cpt_1/01_rstudio_preferences_editing.png" alt="Pimp your RStudio IDE" width="100%" />
+<p class="caption">
 Figure 2.9: Pimp your RStudio IDE
 </p>
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li>In the <code>Display</code> tab, you might want to have the first three options selected. In particular, <code>Highlight selected line</code> is helpful because, in more complicated code, it is helpful to see where your cursor is.</li>
 </ol>
-<div class="figure">
-<span style="display:block;" id="fig:rstudio-prefdisp"></span>
-<img src="images/cpt_1/02_rstudio_preferences_display.png" alt="Edit your RStudio display preferences" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:rstudio-prefdisp"></span>
+<img src="images/cpt_1/02_rstudio_preferences_display.png" alt="Edit your RStudio display preferences" width="100%" />
+<p class="caption">
 Figure 2.10: Edit your RStudio display preferences
 </p>
 </div>
 <p>Of course, if you wish to customise your workspace further, you can do so. The visually most impactful way to alter the default appearance of RStudio is to select <code>Appearance</code> and pick a completely different colour theme. Feel free to browse through various options and see what you prefer. There is no right or wrong here. Just make it your own.</p>
-<div class="figure">
-<span style="display:block;" id="fig:rstudio-prefappear"></span>
-<img src="images/cpt_1/03_rstudio_preferences_appearance.png" alt="This will get you instantly nerd" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:rstudio-prefappear"></span>
+<img src="images/cpt_1/03_rstudio_preferences_appearance.png" alt="This will get you instantly nerd" width="100%" />
+<p class="caption">
 Figure 2.11: This will get you instantly nerd
 </p>
 </div>
 </div>
-<div id="updating-r-and-rstudio" class="section level2" number="2.6">
-<h2>
-<span class="header-section-number">2.6</span> Updating R and RStudio: Living at the pulse of innovation<a class="anchor" aria-label="anchor" href="#updating-r-and-rstudio"><i class="fas fa-link"></i></a>
-</h2>
+<div id="updating-r-and-rstudio" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Updating R and RStudio: Living at the pulse of innovation<a href="prereq.html#updating-r-and-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>While not strictly something that helps you become a better programmer, this advice might come in handy to avoid turning into a frustrated programmer. When you update your software, you need to update <em>R</em> and RStudio separately from each other. While both <em>R</em> and RStudio work closely with each other, they still constitute separate pieces of software. Thus, it is essential to keep in mind that updating RStudio will not automatically update R. This can become problematic if specific tools you installed via RStudio (like a fancy learning algorithm) might not be compatible with earlier versions of <em>R</em>. Also, additional <em>R</em> packages (see Chapter <a href="r-packages.html#r-packages">3</a>) developed by other developers are separate pieces which require updating too, independently from <em>R</em> and RStudio.</p>
 <p>I know what you are thinking: This already sounds complicated and cumbersome. However, rest assured, we take a look at how you can easily update all your packages with RStudio. Thus, all you need to remember is: <em>R</em> needs to be updated separately from everything else.</p>
 
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="index.html"><span class="header-section-number">1</span> 🫶 About</a></div>
-<div class="next"><a href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#prereq"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
-<li><a class="nav-link" href="#setting-up-r-and-rstudio"><span class="header-section-number">2.1</span> Setting up R and RStudio</a></li>
-<li>
-<a class="nav-link" href="#how-to-download-and-install-r"><span class="header-section-number">2.2</span> How to Download and Install R</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#r-in-windows"><span class="header-section-number">2.2.1</span> R in Windows</a></li>
-<li><a class="nav-link" href="#r-in-mac"><span class="header-section-number">2.2.2</span> R in Mac</a></li>
-<li><a class="nav-link" href="#r-in-linux"><span class="header-section-number">2.2.3</span> R in Linux</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#using-r"><span class="header-section-number">2.3</span> Using R</a></li>
-<li><a class="nav-link" href="#using-rstudio"><span class="header-section-number">2.4</span> Using RStudio</a></li>
-<li><a class="nav-link" href="#when-you-first-start-rstudio"><span class="header-section-number">2.5</span> When you first start RStudio</a></li>
-<li><a class="nav-link" href="#updating-r-and-rstudio"><span class="header-section-number">2.6</span> Updating R and RStudio: Living at the pulse of innovation</a></li>
-</ul>
+            </section>
 
-      <div class="book-extra">
-        <ul class="list-unstyled">
-<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/01-prerequisites.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
-          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/01-prerequisites.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
-        </ul>
-</div>
-    </nav>
-</div>
-
-</div>
-</div> <!-- .container -->
-
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-10-16.</p>
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-packages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
   </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
 
-  <div class="col-12 col-md-6 mt-3">
-    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
-  </div>
-
-</div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -331,22 +734,7 @@ Figure 2.11: This will get you instantly nerd
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
 </script>
 </body>
+
 </html>

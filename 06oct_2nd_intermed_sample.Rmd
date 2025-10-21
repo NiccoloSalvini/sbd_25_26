@@ -12,6 +12,26 @@ Load the built-in dataset `airquality` and remove all rows with missing values. 
 
 ----
 
+::: {.exercise #add63}
+Using the `chickwts` dataset, create a summary table that shows the number of chicks, the mean weight, and the standard deviation of weight for each `feed` type.
+:::
+
+----
+
+::: {.exercise #add64}
+You are given a `blood_pressure` dataframe. It contains patient IDs and two separate columns for systolic and diastolic blood pressure readings (`systolic`, `diastolic`). Reshape the data into a "long" format with three columns: `patient_id`, `bp_type` (containing "systolic" or "diastolic"), and `value`.
+```r
+set.seed(123)
+blood_pressure <- data.frame(
+  patient_id = 1:5,
+  systolic = c(120, 135, 122, 140, 130),
+  diastolic = c(80, 88, 82, 90, 85)
+)
+```
+:::
+
+----
+
 ::: {.exercise #add2}
 Using the `mtcars` dataset, create a new variable called `efficiency` that categorizes cars as "High" if `mpg > 20` and "Low" otherwise. How many cars are in the "High" efficiency category?
 :::
@@ -25,7 +45,22 @@ Write the R command to calculate the mean, median, and standard deviation of a v
 ----
 
 ::: {.exercise #add4}
-Given a healthcare dataset with variables `patient_id`, `age`, `treatment` (A or B), and `recovery_days`, write the R command to create a summary table showing the mean recovery days for each treatment group.
+Given a healthcare dataset, `health_data`, with variables `patient_id`, `age`, `treatment` (A or B), and `recovery_days`, write the R command to create a summary table showing the mean recovery days for each treatment group. For reproducibility, first create the `health_data` dataframe with the following code:
+```r
+set.seed(42)
+health_data <- data.frame(
+  patient_id = 1:100,
+  age = rnorm(100, 50, 10),
+  treatment = sample(c("A", "B"), 100, replace = TRUE),
+  recovery_days = rpois(100, 15)
+)
+```
+:::
+
+----
+
+::: {.exercise #add51}
+From a `patients` dataset with columns `patient_id`, `age`, `sex`, `diagnosis_code`, and `hospital_stay_days`, write a `dplyr` pipeline to find the average hospital stay for male patients over 65 for each diagnosis code, showing only diagnoses with more than 10 such patients.
 :::
 
 ----
@@ -52,6 +87,18 @@ Without using formulas, explain the difference between Type I and Type II errors
 
 ::: {.exercise #add8}
 A medical study tests whether the average cholesterol level in a population is greater than 200 mg/dL. The p-value obtained is 0.032. At a significance level of 0.05, what is your decision and conclusion?
+:::
+
+----
+
+::: {.exercise #add62}
+A pharmaceutical company has developed a new drug to increase T-cell count in patients. A clinically significant improvement is defined as a mean increase of at least 150 cells/µL. In a sample of 35 patients, the mean increase was 162 cells/µL with a standard deviation of 40. Write the R code to test if the drug produces a clinically significant improvement. Explain your choice of a one-sided test.
+:::
+
+----
+
+::: {.exercise #add52}
+A new drug is tested to reduce systolic blood pressure. The mean reduction in a sample of 40 patients is 8.5 mmHg with a standard deviation of 10 mmHg. A reduction of at least 10 mmHg is considered clinically significant. Perform a one-sample t-test to check if the mean reduction is less than 10 mmHg. Write the R code and interpret the p-value in the context of clinical significance.
 :::
 
 ----
@@ -101,6 +148,12 @@ diet_study <- data.frame(
 
 ----
 
+::: {.exercise #add53}
+A study compares the cholesterol levels of patients in two different clinics. Before running a t-test, you perform a Levene's test for equality of variances and get a p-value of 0.02. Which type of two-sample t-test should you use and why? Write the R command for the appropriate t-test, assuming you have a `cholesterol_data` dataframe with `level` and `clinic` columns.
+:::
+
+----
+
 ## 📊 Part 4: ANOVA - Comparing Multiple Groups
 
 ::: {.exercise #add13}
@@ -135,6 +188,24 @@ After conducting an ANOVA test that shows significant differences among groups, 
 
 ----
 
+::: {.exercise #add54}
+After running an ANOVA on the effect of three different physical therapy routines (`RoutineA`, `RoutineB`, `RoutineC`) on recovery time, you get a significant p-value. The subsequent Tukey's HSD test gives the following output. Which routines are significantly different from each other, and what does the `diff` column represent?
+```
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = recovery_time ~ routine)
+
+$routine
+                     diff       lwr       upr     p adj
+RoutineB-RoutineA  -5.231 -8.992618 -1.469382 0.0045121
+RoutineC-RoutineA   1.543 -2.218618  5.304618 0.5694884
+RoutineC-RoutineB   6.774  3.012382 10.535618 0.0002196
+```
+:::
+
+----
+
 ## 📈 Part 5: Simple and Multiple Linear Regression
 
 ::: {.exercise #add16}
@@ -144,7 +215,7 @@ Using the `mtcars` dataset, estimate a simple linear regression model where `mpg
 ----
 
 ::: {.exercise #add17}
-A researcher collects data on hospital readmission rates. They want to predict the `readmission_rate` (percentage) based on `bed_count`, `nurse_ratio` (nurses per patient), and `avg_stay` (average length of stay). Write the R command to estimate this multiple regression model.
+A researcher collects data on hospital readmission rates. They want to predict the `readmission_rate` (percentage) based on `bed_count`, `nurse_ratio` (nurses per patient), and `avg_stay` (average length of stay). Write the R command to estimate this multiple regression model, assuming the data is in a dataframe called `hospital_data`.
 :::
 
 ----
@@ -199,10 +270,16 @@ In the regression output from the previous exercise, which variable has the stro
 
 ----
 
+::: {.exercise #add55}
+You are modeling the length of a hospital stay (`los`) based on `age` and `infection_status` (1=yes, 0=no). You suspect that the effect of age on the length of stay is different for patients with and without an infection. How would you specify this in an R model? Write the `lm()` command and explain how to interpret the interaction term's coefficient if it is significant. Assume you have a `hospital_data` dataframe with `los`, `age`, and `infection_status`.
+:::
+
+----
+
 ## 🔄 Part 6: Nonlinear Regression and Transformations
 
 ::: {.exercise #add23}
-You want to model the relationship between BMI and the risk of diabetes, but the relationship appears to be quadratic. Write the R command to estimate a polynomial regression model with BMI and BMI² as predictors.
+You want to model the relationship between BMI and the risk of diabetes, but the relationship appears to be quadratic. Write the R command to estimate a polynomial regression model with BMI and BMI² as predictors, assuming your data is in a `model_data` dataframe.
 :::
 
 ----
@@ -219,10 +296,16 @@ Using the `mtcars` dataset, create a model predicting `mpg` using both `wt` and 
 
 ----
 
+::: {.exercise #add56}
+In a model predicting `blood_pressure` from `log(body_weight)`, the coefficient for `log(body_weight)` is 15.3. How do you interpret this coefficient?
+:::
+
+----
+
 ## 🎯 Part 7: Logistic Regression
 
 ::: {.exercise #add26}
-A study examines factors affecting whether a patient develops a certain disease (yes/no). The predictors are age, BMI, and smoking status (0=non-smoker, 1=smoker). Write the R command to estimate a logistic regression model with `disease` as the outcome variable.
+A study examines factors affecting whether a patient develops a certain disease (yes/no). The predictors are age, BMI, and smoking status (0=non-smoker, 1=smoker). Write the R command to estimate a logistic regression model with `disease` as the outcome variable, assuming the data is in a dataframe called `health_data`.
 :::
 
 ----
@@ -251,22 +334,34 @@ Using the built-in `mtcars` dataset, create a binary variable `high_mpg` (1 if m
 
 ----
 
+::: {.exercise #add57}
+Using the logistic regression model from Exercise \@ref(exr:add30) (`high_mpg ~ wt + hp`), write the R code to predict the probability of having high MPG for a car with `wt = 2.8` and `hp = 150`.
+:::
+
+----
+
 ## 📊 Part 8: Poisson Regression
 
 ::: {.exercise #add31}
-A hospital administrator wants to model the number of emergency room visits per day based on day of the week and weather conditions. What type of regression model is most appropriate for count data like this?
+A hospital administrator wants to model the number of emergency room visits per day based on day of the week and weather conditions. What type of regression model is most appropriate for count data like this? Assume the data is in `hospital_data`.
 :::
 
 ----
 
 ::: {.exercise #add32}
-You have data on the number of hospital-acquired infections (`infection_count`) and want to predict it based on `bed_occupancy_rate` and `nurse_staff_ratio`. Write the R command to fit a Poisson regression model.
+You have data on the number of hospital-acquired infections (`infection_count`) and want to predict it based on `bed_occupancy_rate` and `nurse_staff_ratio`. Write the R command to fit a Poisson regression model, assuming the data is in `hospital_data`.
 :::
 
 ----
 
 ::: {.exercise #add33}
 What is the primary assumption of Poisson regression regarding the relationship between the mean and variance of the outcome variable?
+:::
+
+----
+
+::: {.exercise #add58}
+You fit a Poisson model to predict the number of asthma-related ER visits. The residual deviance is 150 on 80 degrees of freedom. What does this suggest about your model, and what alternative model should you consider? Write the R command for fitting this alternative model, assuming the data is in `hospital_data`.
 :::
 
 ----
@@ -318,6 +413,12 @@ In a model with a dummy variable for gender (male=1, female=0) predicting salary
 
 ----
 
+::: {.exercise #add59}
+In a model predicting `patient_satisfaction` (scale 1-100), you include a dummy variable `has_private_room` (1=yes, 0=no). The intercept of the model is 75.2. How do you interpret this intercept value?
+:::
+
+----
+
 ## 🧮 Part 10: Model Diagnostics and Interpretation
 
 ::: {.exercise #add39}
@@ -344,76 +445,8 @@ Using the `mtcars` dataset, fit a model `mpg ~ wt + hp` and create diagnostic pl
 
 ----
 
-## 🔢 Part 11: Big Data Concepts and Data Collection
-
-::: {.exercise #add43}
-Explain in your own words why correct data collection is particularly important in the era of Big Data, even though we have more data than ever before.
-:::
-
-----
-
-::: {.exercise #add44}
-What is the difference between structured and unstructured data? Give one example of each in a healthcare context.
-:::
-
-----
-
-::: {.exercise #add45}
-Name at least three potential sources of bias in data collection that could affect the validity of statistical analyses in healthcare research.
-:::
-
-----
-
-::: {.exercise #add46}
-A hospital collects data on patient satisfaction through a voluntary online survey. What type of bias might this introduce, and why?
-:::
-
-----
-
-## 💻 Part 12: Mixed Practical Exercises
-
-::: {.exercise #add47}
-Create a simulated dataset with 100 observations containing:
-- `patient_id`: sequential numbers 1 to 100
-- `age`: random values from a normal distribution with mean 50 and sd 15
-- `treatment`: randomly assign "A" or "B" to each patient
-- `outcome`: random values from a normal distribution with mean 100 and sd 20
-
-Write the R commands to create this dataset.
-:::
-
-----
-
-::: {.exercise #add48}
-Using the dataset created in the previous exercise, perform the following:
-1. Calculate the mean age for each treatment group
-2. Test if there's a significant difference in outcome between treatment groups
-3. Create a linear model predicting outcome from age and treatment
-
-Write all necessary R commands.
-:::
-
-----
-
-::: {.exercise #add49}
-Load the `iris` dataset and:
-1. Filter only the "setosa" and "versicolor" species
-2. Create a logistic regression model predicting species based on `Sepal.Length` and `Petal.Length`
-3. Report the coefficients
-
-Write the R commands using `dplyr` for filtering.
-:::
-
-----
-
-::: {.exercise #add50}
-A pharmaceutical company tests a new drug on 500 patients. They record:
-- Patient demographics (age, gender, BMI)
-- Baseline health metrics (blood pressure, cholesterol, glucose)
-- Treatment assignment (drug vs. placebo)
-- Outcome after 6 months (improved=1, not improved=0)
-
-Describe the complete analytical workflow you would follow, from data cleaning to final model interpretation. What types of analyses would you perform?
+::: {.exercise #add60}
+You run diagnostic plots for a linear model and notice that observation #45 has a Cook's distance value much larger than 1. What does this indicate, and what are two potential next steps to address this issue?
 :::
 
 ----
@@ -435,6 +468,44 @@ Result: **111** complete observations remain.
 :::
 
 ::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add63):
+```r
+library(dplyr)
+
+chickwts %>%
+  group_by(feed) %>%
+  summarise(
+    count = n(),
+    mean_weight = mean(weight, na.rm = TRUE),
+    sd_weight = sd(weight, na.rm = TRUE)
+  )
+```
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add64):
+```r
+library(tidyr)
+
+set.seed(123)
+blood_pressure <- data.frame(
+  patient_id = 1:5,
+  systolic = c(120, 135, 122, 140, 130),
+  diastolic = c(80, 88, 82, 90, 85)
+)
+
+blood_pressure_long <- blood_pressure %>%
+  pivot_longer(
+    cols = c(systolic, diastolic),
+    names_to = "bp_type",
+    values_to = "value"
+  )
+
+print(blood_pressure_long)
+```
+:::
+
+::: {.answer data-latex=""}
 **Answer to Exercise** \@ref(exr:add2):
 
 ```r
@@ -450,6 +521,13 @@ Result: **14** cars are in the "High" efficiency category.
 **Answer to Exercise** \@ref(exr:add3):
 
 ```r
+# First, let's create a sample health_data dataframe for the example
+set.seed(42)
+health_data <- data.frame(
+  patient_id = 1:100,
+  blood_pressure = rnorm(100, 120, 15)
+)
+
 mean(health_data$blood_pressure, na.rm = TRUE)
 median(health_data$blood_pressure, na.rm = TRUE)
 sd(health_data$blood_pressure, na.rm = TRUE)
@@ -464,6 +542,15 @@ summary(health_data$blood_pressure)
 
 ```r
 library(dplyr)
+# Create the dataframe as specified in the exercise
+set.seed(42)
+health_data <- data.frame(
+  patient_id = 1:100,
+  age = rnorm(100, 50, 10),
+  treatment = sample(c("A", "B"), 100, replace = TRUE),
+  recovery_days = rpois(100, 15)
+)
+
 health_data %>%
   group_by(treatment) %>%
   summarise(mean_recovery = mean(recovery_days, na.rm = TRUE))
@@ -517,6 +604,20 @@ Example in healthcare: Type I error would be concluding a drug works when it doe
 **Decision**: Reject the null hypothesis.
 
 **Conclusion**: Since p-value (0.032) < α (0.05), we reject H0. There is sufficient evidence to conclude that the average cholesterol level in the population is significantly greater than 200 mg/dL.
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add62):
+```r
+# H0: mu <= 150 (The mean increase is not clinically significant)
+# Ha: mu > 150 (The mean increase is clinically significant)
+# We simulate data for the example
+set.seed(123)
+t_cell_increase <- rnorm(35, mean = 162, sd = 40)
+
+t.test(t_cell_increase, mu = 150, alternative = "greater")
+```
+**Explanation**: A **one-sided test** (`alternative = "greater"`) is used because the research question is directional. We are not just interested in whether the T-cell count is *different* from 150, but specifically whether it is *greater than* 150. If the p-value is less than our significance level (e.g., 0.05), we would reject the null hypothesis and conclude that there is statistically significant evidence that the drug's effect meets the clinically significant threshold.
 :::
 
 ::: {.answer data-latex=""}
@@ -580,6 +681,21 @@ summary(anova_result)
 :::
 
 ::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add53):
+
+You should use **Welch's two-sample t-test** (the default in R).
+**Reason**: Levene's test checks if the variances of the two groups are equal. A p-value of 0.02 (< 0.05) indicates that the variances are significantly different. The standard two-sample t-test assumes equal variances, so using it would lead to incorrect results. Welch's t-test does not assume equal variances and is therefore the appropriate choice.
+```r
+# Assuming 'cholesterol_data' with 'level' and 'clinic' columns
+# The default t.test in R is Welch's t-test
+t.test(level ~ clinic, data = cholesterol_data)
+
+# You would NOT do this, as var.equal=TRUE is for equal variances:
+# t.test(level ~ clinic, data = cholesterol_data, var.equal = TRUE)
+```
+:::
+
+::: {.answer data-latex=""}
 **Answer to Exercise** \@ref(exr:add13):
 
 ```r
@@ -635,6 +751,21 @@ These tests identify which specific pairs of groups differ significantly from ea
 :::
 
 ::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add54):
+
+**Interpretation**:
+*   The `diff` column shows the difference in mean recovery time between the two routines being compared. For example, `RoutineB-RoutineA` has a `diff` of -5.231, meaning Routine B's average recovery time is 5.231 days shorter than Routine A's.
+*   The `p adj` column shows the p-value adjusted for multiple comparisons.
+*   **Significant differences (p < 0.05)**:
+    *   `RoutineB` is significantly different from `RoutineA` (p = 0.0045).
+    *   `RoutineC` is significantly different from `RoutineB` (p = 0.0002).
+*   **No significant difference**:
+    *   `RoutineC` is not significantly different from `RoutineA` (p = 0.569).
+
+**Conclusion**: Routine B leads to the fastest recovery, significantly faster than both A and C. There is no statistical difference between routines A and C.
+:::
+
+::: {.answer data-latex=""}
 **Answer to Exercise** \@ref(exr:add16):
 
 ```r
@@ -650,6 +781,15 @@ summary(mpg_model)
 **Answer to Exercise** \@ref(exr:add17):
 
 ```r
+# Create sample hospital_data for the example
+set.seed(42)
+hospital_data <- data.frame(
+  readmission_rate = runif(50, 5, 20),
+  bed_count = rpois(50, 150),
+  nurse_ratio = rnorm(50, 0.8, 0.2),
+  avg_stay = rnorm(50, 7, 2)
+)
+
 readmission_model <- lm(readmission_rate ~ bed_count + nurse_ratio + avg_stay, 
                         data = hospital_data)
 summary(readmission_model)
@@ -744,9 +884,32 @@ Note: We cannot simply compare the raw coefficients (0.652, 0.234, -1.234) becau
 :::
 
 ::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add55):
+
+You would specify the model with an interaction term using `*`.
+```r
+# Fit model with interaction term
+interaction_model <- lm(los ~ age * infection_status, data = hospital_data)
+summary(interaction_model)
+
+# This is equivalent to:
+# lm(los ~ age + infection_status + age:infection_status, data = hospital_data)
+```
+**Interpretation of the interaction coefficient (`age:infection_status`)**:
+If the interaction term is significant, it means the effect of age on the length of stay is different depending on infection status. The coefficient for `age:infection_status` represents the **additional change in the slope of age** for patients with an infection compared to those without. For example, if the coefficient is 1.5, it means that for each one-year increase in age, the length of stay increases by an additional 1.5 days for infected patients, on top of the baseline age effect for non-infected patients.
+:::
+
+::: {.answer data-latex=""}
 **Answer to Exercise** \@ref(exr:add23):
 
 ```r
+# Create sample model_data for the example
+set.seed(42)
+model_data <- data.frame(
+  BMI = rnorm(200, 28, 5),
+  diabetes_risk = rnorm(200, 0.3, 0.1)
+)
+
 # Create the polynomial term
 model_data$BMI_squared <- model_data$BMI^2
 
@@ -811,9 +974,25 @@ Method 2 is recommended for most applications as it's concise and easy to interp
 :::
 
 ::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add56):
+
+**Interpretation**: Since the predictor is log-transformed, the interpretation is: a **1% increase in body weight** is associated with a **(15.3 / 100) = 0.153 mmHg increase** in blood pressure, on average.
+This type of model (log-lin) is used when the effect of the predictor is not linear but multiplicative.
+:::
+
+::: {.answer data-latex=""}
 **Answer to Exercise** \@ref(exr:add26):
 
 ```r
+# Create sample health_data for the example
+set.seed(42)
+health_data <- data.frame(
+  disease = sample(0:1, 150, replace = TRUE),
+  age = rnorm(150, 55, 12),
+  BMI = rnorm(150, 27, 4),
+  smoking = sample(0:1, 150, replace = TRUE)
+)
+
 logistic_model <- glm(disease ~ age + BMI + smoking, 
                       data = health_data, 
                       family = binomial(link = "logit"))
@@ -904,6 +1083,25 @@ mtcars$predicted_prob <- predict(logit_model, type = "response")
 :::
 
 ::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add57):
+
+```r
+# First, refit the model from Exercise #add30
+data(mtcars)
+mtcars$high_mpg <- ifelse(mtcars$mpg > 20, 1, 0)
+logit_model <- glm(high_mpg ~ wt + hp, data = mtcars, family = binomial)
+
+# Create a new data frame for the car we want to predict
+new_car <- data.frame(wt = 2.8, hp = 150)
+
+# Predict the probability
+predicted_prob <- predict(logit_model, newdata = new_car, type = "response")
+print(predicted_prob)
+```
+The output `predicted_prob` will be a value between 0 and 1, representing the model's estimated probability that a car with these specifications has an MPG over 20.
+:::
+
+::: {.answer data-latex=""}
 **Answer to Exercise** \@ref(exr:add31):
 
 **Poisson regression** is most appropriate for count data.
@@ -928,6 +1126,14 @@ poisson_model <- glm(er_visits ~ day_of_week + weather,
 **Answer to Exercise** \@ref(exr:add32):
 
 ```r
+# Create sample hospital_data for the example
+set.seed(42)
+hospital_data <- data.frame(
+  infection_count = rpois(100, 5),
+  bed_occupancy_rate = runif(100, 0.7, 0.95),
+  nurse_staff_ratio = rnorm(100, 0.7, 0.1)
+)
+
 poisson_model <- glm(infection_count ~ bed_occupancy_rate + nurse_staff_ratio, 
                      data = hospital_data, 
                      family = poisson(link = "log"))
@@ -935,13 +1141,13 @@ poisson_model <- glm(infection_count ~ bed_occupancy_rate + nurse_staff_ratio,
 summary(poisson_model)
 
 # Check for overdispersion
-library(AER)
-dispersiontest(poisson_model)
+# library(AER)
+# dispersiontest(poisson_model)
 
 # If overdispersion detected, use negative binomial:
-library(MASS)
-nb_model <- glm.nb(infection_count ~ bed_occupancy_rate + nurse_staff_ratio, 
-                   data = hospital_data)
+# library(MASS)
+# nb_model <- glm.nb(infection_count ~ bed_occupancy_rate + nurse_staff_ratio, 
+#                    data = hospital_data)
 ```
 :::
 
@@ -971,6 +1177,27 @@ Specifically:
 model$deviance / model$df.residual
 ```
 If ratio >> 1, overdispersion is present.
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add58):
+
+**Problem**: The ratio of residual deviance to degrees of freedom (150 / 80 = 1.875) is much greater than 1. This suggests **overdispersion**, meaning the variance of the data is larger than what the Poisson model assumes (where mean equals variance). This violates a key assumption of Poisson regression.
+**Alternative Model**: A **Negative Binomial regression** is the appropriate alternative as it can handle overdispersed count data by including an extra parameter to model the variance.
+```r
+# Create sample hospital_data for the example
+set.seed(42)
+hospital_data <- data.frame(
+  er_visits = rnbinom(100, size = 1.5, mu = 10),
+  predictor1 = rnorm(100),
+  predictor2 = rnorm(100)
+)
+
+library(MASS)
+# Fit a negative binomial model
+nb_model <- glm.nb(er_visits ~ predictor1 + predictor2, data = hospital_data)
+summary(nb_model)
+```
 :::
 
 ::: {.answer data-latex=""}
@@ -1081,6 +1308,12 @@ If the model is: Salary = 40,000 + 5,000(gender) + other terms
 - This is correlation, not necessarily causation
 - Other factors (education, experience, etc.) should be controlled for
 - The coefficient's statistical significance (p-value) determines if this difference is reliable
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add59):
+
+**Interpretation**: The intercept of 75.2 represents the **predicted average patient satisfaction score for the reference group**. In this case, the reference group is patients for whom `has_private_room` is 0, i.e., patients **who do not have a private room**.
 :::
 
 ::: {.answer data-latex=""}
@@ -1227,395 +1460,11 @@ shapiro.test(residuals(mpg_model))
 :::
 
 ::: {.answer data-latex=""}
-**Answer to Exercise** \@ref(exr:add43):
-
-Correct data collection is crucial in Big Data for several reasons:
-
-1. **Volume doesn't equal quality**: Having more data doesn't automatically make it better. Garbage in, garbage out - if data collection is flawed, you just have more bad data, leading to confident but wrong conclusions.
-
-2. **Bias amplification**: Systematic errors in data collection are amplified with large datasets. A small sampling bias becomes a huge problem when scaled up, potentially affecting millions of decisions.
-
-3. **Representativeness**: Big data often comes from convenience samples (e.g., social media users, app users) that may not represent the target population. Just because you have millions of data points doesn't mean they represent everyone.
-
-4. **Missing data patterns**: In healthcare, missing data is rarely random. If data is systematically missing for certain groups (e.g., disadvantaged populations less likely to have electronic health records), analyses will be biased no matter how much data you have.
-
-5. **Measurement validity**: Ensuring that variables actually measure what you think they measure is critical. In healthcare, if diagnostic codes are inconsistently applied or symptoms are differently reported, analyses will be unreliable.
-
-6. **Ethical considerations**: Poor data collection can perpetuate discrimination and inequity, especially in healthcare where decisions affect lives.
-
-Example: A hospital with excellent electronic records for insured patients but poor documentation for uninsured patients will produce biased analyses about treatment effectiveness, potentially harming vulnerable populations.
-:::
-
-::: {.answer data-latex=""}
-**Answer to Exercise** \@ref(exr:add44):
-
-**Structured Data**:
-- Organized in a predefined format (rows and columns)
-- Easily searchable and analyzable with standard statistical tools
-- Stored in relational databases or spreadsheets
-- **Healthcare example**: 
-  - Electronic Health Records (EHRs) with fields like patient ID, age, blood pressure readings, lab test results
-  - Billing codes (ICD-10 diagnosis codes)
-  - Appointment dates and times
-
-**Unstructured Data**:
-- No predefined format or organization
-- Not easily searchable without special tools (NLP, text mining)
-- Can include text, images, audio, video
-- **Healthcare example**:
-  - Physician clinical notes (free text)
-  - Medical imaging (X-rays, MRIs, CT scans)
-  - Patient feedback and survey comments
-  - Audio recordings of patient-doctor consultations
-
-**Semi-structured data** (middle ground):
-- Has some organizational properties but doesn't fit strict relational model
-- Healthcare example: XML or JSON formatted health information exchange documents
-
-**Challenge**: Most healthcare data (estimated 80%) is unstructured, requiring advanced techniques to extract value from it.
-:::
-
-::: {.answer data-latex=""}
-**Answer to Exercise** \@ref(exr:add45):
-
-Three major sources of bias in healthcare data collection:
-
-1. **Selection Bias / Sampling Bias**:
-   - **Problem**: The sample doesn't represent the target population
-   - **Examples**: 
-     - Clinical trials that exclude elderly patients, pregnant women, or those with comorbidities
-     - Studies recruiting only from academic medical centers (sicker, more complex patients)
-     - Online health surveys that only capture tech-savvy, engaged patients
-   - **Impact**: Results don't generalize to broader populations
-
-2. **Measurement Bias / Information Bias**:
-   - **Problem**: Systematic errors in how variables are measured or recorded
-   - **Examples**:
-     - Recall bias: Patients with disease remember exposures better than healthy patients
-     - Observer bias: Researchers' expectations influence how they record observations
-     - Diagnostic bias: Patients under closer surveillance more likely to have conditions detected
-   - **Impact**: Distorted associations between variables
-
-3. **Non-Response Bias / Attrition Bias**:
-   - **Problem**: Systematic differences between responders and non-responders
-   - **Examples**:
-     - Healthier patients more likely to complete follow-up studies
-     - Patients experiencing side effects drop out of clinical trials
-     - Lower response rates in disadvantaged communities
-   - **Impact**: Results don't reflect the full population, often overestimating positive outcomes
-
-**Other important biases**:
-- **Confounding bias**: Third variables influence both exposure and outcome
-- **Survival bias**: Only analyzing survivors excludes those who died
-- **Temporal bias**: Changes in diagnostic criteria or treatment over time
-:::
-
-::: {.answer data-latex=""}
-**Answer to Exercise** \@ref(exr:add46):
-
-This introduces **non-response bias** (also called self-selection bias).
-
-**Why it's problematic**:
-
-1. **Voluntary participation**: Only motivated patients respond
-   - Very satisfied patients may be more likely to respond (positive bias)
-   - Very dissatisfied patients may be more likely to respond (negative bias)
-   - The "moderately satisfied" majority may not participate
-
-2. **Digital divide**: 
-   - Excludes patients without internet access (often elderly, low-income, less educated)
-   - These groups may have different satisfaction levels
-   - Typically underrepresents vulnerable populations
-
-3. **Health status**: 
-   - Sicker patients in hospital may not complete surveys
-   - Healthier, discharged patients more likely to respond
-   - Creates systematic difference between responders and non-responders
-
-4. **Timing**: Only captures patients actively seeking care, missing those who avoid the hospital due to poor past experiences
-
-**Consequence**: The survey results will not accurately reflect true patient satisfaction across all patient groups. Conclusions drawn will be biased and policy decisions based on this data could be misguided.
-
-**Better approach**: 
-- Random sampling of all patients
-- Multiple contact methods (phone, mail, in-person)
-- Follow-up with non-responders
-- Weight responses to match population demographics
-:::
-
-::: {.answer data-latex=""}
-**Answer to Exercise** \@ref(exr:add47):
-
-```r
-# Set seed for reproducibility
-set.seed(123)
-
-# Create simulated dataset
-simulated_data <- data.frame(
-  patient_id = 1:100,
-  age = rnorm(100, mean = 50, sd = 15),
-  treatment = sample(c("A", "B"), size = 100, replace = TRUE),
-  outcome = rnorm(100, mean = 100, sd = 20)
-)
-
-# View first few rows
-head(simulated_data)
-
-# Check structure
-str(simulated_data)
-
-# Summary statistics
-summary(simulated_data)
-```
-
-**Alternative with more control**:
-```r
-set.seed(456)
-
-# Ensure exactly 50 patients in each treatment group
-simulated_data2 <- data.frame(
-  patient_id = 1:100,
-  age = rnorm(100, mean = 50, sd = 15),
-  treatment = rep(c("A", "B"), each = 50),
-  outcome = rnorm(100, mean = 100, sd = 20)
-)
-```
-:::
-
-::: {.answer data-latex=""}
-**Answer to Exercise** \@ref(exr:add48):
-
-```r
-# Using the simulated_data from previous exercise
-set.seed(123)
-simulated_data <- data.frame(
-  patient_id = 1:100,
-  age = rnorm(100, mean = 50, sd = 15),
-  treatment = sample(c("A", "B"), size = 100, replace = TRUE),
-  outcome = rnorm(100, mean = 100, sd = 20)
-)
-
-# 1. Calculate mean age for each treatment group
-library(dplyr)
-age_by_treatment <- simulated_data %>%
-  group_by(treatment) %>%
-  summarise(
-    mean_age = mean(age),
-    sd_age = sd(age),
-    n = n()
-  )
-print(age_by_treatment)
-
-# Base R alternative:
-aggregate(age ~ treatment, data = simulated_data, FUN = mean)
-
-# 2. Test if there's significant difference in outcome between treatments
-outcome_test <- t.test(outcome ~ treatment, data = simulated_data)
-print(outcome_test)
-
-# 3. Create linear model predicting outcome from age and treatment
-outcome_model <- lm(outcome ~ age + treatment, data = simulated_data)
-summary(outcome_model)
-
-# Additional useful analyses:
-# Check assumptions
-par(mfrow = c(2, 2))
-plot(outcome_model)
-
-# Get confidence intervals
-confint(outcome_model)
-```
-:::
-
-::: {.answer data-latex=""}
-**Answer to Exercise** \@ref(exr:add49):
-
-```r
-# Load necessary packages
-library(dplyr)
-
-# Load iris dataset
-data(iris)
-
-# 1. Filter only setosa and versicolor species
-iris_filtered <- iris %>%
-  filter(Species %in% c("setosa", "versicolor"))
-
-# Alternative base R:
-iris_filtered <- iris[iris$Species %in% c("setosa", "versicolor"), ]
-
-# Create binary outcome (0/1)
-iris_filtered$species_binary <- ifelse(iris_filtered$Species == "versicolor", 1, 0)
-
-# 2. Fit logistic regression model
-logit_model <- glm(species_binary ~ Sepal.Length + Petal.Length, 
-                   data = iris_filtered, 
-                   family = binomial(link = "logit"))
-
-# 3. Report coefficients
-summary(logit_model)
-coef(logit_model)
-
-# Get odds ratios
-exp(coef(logit_model))
-
-# Predictions
-iris_filtered$predicted_prob <- predict(logit_model, type = "response")
-iris_filtered$predicted_species <- ifelse(iris_filtered$predicted_prob > 0.5, 
-                                           "versicolor", "setosa")
-
-# Confusion matrix
-table(Predicted = iris_filtered$predicted_species, 
-      Actual = iris_filtered$Species)
-```
-
-**Interpretation**: The model will likely show that Petal.Length is a very strong predictor (high coefficient) for distinguishing between setosa and versicolor.
-:::
-
-::: {.answer data-latex=""}
-**Answer to Exercise** \@ref(exr:add50):
-
-**Complete Analytical Workflow**:
-
-**1. Data Cleaning & Preparation (Exploratory Phase)**
-```r
-# Load and inspect data
-summary(pharma_data)
-str(pharma_data)
-
-# Check for missing values
-sum(is.na(pharma_data))
-library(naniar)
-vis_miss(pharma_data)
-
-# Handle missing data
-# - Document patterns of missingness
-# - Decide on imputation vs. deletion
-# - Use multiple imputation if appropriate
-
-# Check for outliers
-boxplot(pharma_data[, c("age", "BMI", "blood_pressure")])
-
-# Create derived variables if needed
-pharma_data$age_group <- cut(pharma_data$age, breaks = c(0, 40, 60, 100))
-```
-
-**2. Descriptive Statistics & Initial Exploration**
-```r
-# Demographics summary
-table(pharma_data$gender, pharma_data$treatment)
-
-# Baseline characteristics by treatment group
-pharma_data %>%
-  group_by(treatment) %>%
-  summarise(
-    mean_age = mean(age),
-    mean_BP = mean(blood_pressure),
-    mean_cholesterol = mean(cholesterol)
-  )
-
-# Check randomization success
-t.test(age ~ treatment, data = pharma_data)
-t.test(BMI ~ treatment, data = pharma_data)
-```
-
-**3. Primary Analysis - Treatment Effect**
-```r
-# Crude comparison of outcome
-prop.table(table(pharma_data$treatment, pharma_data$improved), 1)
-
-# Chi-square test
-chisq.test(pharma_data$treatment, pharma_data$improved)
-
-# Logistic regression - unadjusted
-model_crude <- glm(improved ~ treatment, 
-                   data = pharma_data, 
-                   family = binomial)
-summary(model_crude)
-```
-
-**4. Adjusted Analysis - Control for Confounders**
-```r
-# Multivariable logistic regression
-model_adjusted <- glm(improved ~ treatment + age + gender + BMI + 
-                                 blood_pressure + cholesterol + glucose, 
-                     data = pharma_data, 
-                     family = binomial)
-summary(model_adjusted)
-
-# Check for multicollinearity
-library(car)
-vif(model_adjusted)
-
-# Model selection if needed
-model_final <- step(model_adjusted, direction = "backward")
-```
-
-**5. Subgroup Analyses**
-```r
-# Test for interaction with gender
-model_interaction <- glm(improved ~ treatment * gender + age + BMI, 
-                         data = pharma_data, 
-                         family = binomial)
-
-# Stratified analyses
-# By age group
-pharma_data %>%
-  filter(age_group == "young") %>%
-  glm(improved ~ treatment, data = ., family = binomial) %>%
-  summary()
-```
-
-**6. Model Diagnostics**
-```r
-# Check assumptions
-plot(model_final)
-
-# Assess model fit
-library(ResourceSelection)
-hoslem.test(model_final$y, fitted(model_final))
-
-# Calculate AUC
-library(pROC)
-roc_curve <- roc(pharma_data$improved, 
-                 fitted(model_final))
-auc(roc_curve)
-plot(roc_curve)
-```
-
-**7. Sensitivity Analyses**
-```r
-# Complete case vs. multiple imputation
-# Different model specifications
-# Exclude influential outliers
-# Alternative statistical methods
-```
-
-**8. Results Interpretation & Reporting**
-```r
-# Calculate odds ratios with 95% CI
-exp(cbind(OR = coef(model_final), confint(model_final)))
-
-# Number needed to treat (NNT)
-# Predicted probabilities for typical patients
-# Clinical significance vs. statistical significance
-```
-
-**Key Analyses to Perform**:
-1. ✓ Descriptive statistics (demographics, baseline characteristics)
-2. ✓ Balance check (treatment groups comparable at baseline?)
-3. ✓ Crude association (treatment vs. outcome)
-4. ✓ Adjusted association (control for confounders)
-5. ✓ Interaction testing (effect modification)
-6. ✓ Subgroup analyses
-7. ✓ Model diagnostics and validation
-8. ✓ Sensitivity analyses
-
-**Final Deliverables**:
-- Table 1: Baseline characteristics by treatment group
-- Table 2: Crude and adjusted odds ratios
-- Figure 1: Forest plot of effect estimates
-- Figure 2: ROC curve
-- Supplementary: Sensitivity analyses results
+**Answer to Exercise** \@ref(exr:add60):
+
+**Indication**: A Cook's distance > 1 indicates that observation #45 is a **highly influential point**. This means that its presence in the dataset has a substantial impact on the estimated regression coefficients. The model fitted with this point is likely very different from the model fitted without it.
+**Next steps**:
+1.  **Investigate the data point**: Check observation #45 for data entry errors or determine if it represents a truly unusual case (e.g., a patient with a rare condition). If it's an error, correct it.
+2.  **Perform sensitivity analysis**: Rerun the regression model after removing observation #45. If the model's coefficients or conclusions change dramatically, you must report this sensitivity and be cautious about interpreting the original model. You might report the results of both models. Simply deleting the point without justification is generally not recommended.
 :::
 

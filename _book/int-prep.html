@@ -1,98 +1,503 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="" xml:lang="">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 10 💻 Intermediate preparation | Statistics &amp; Big Data 25-26 Labs</title>
-<meta name="author" content="Dr. Niccolò Salvini">
-<meta name="description" content="Intermediate test topics should include: - hypothesis tests on means - anova - simple + multiple regression (adj-R2 + collinearity + dummy vars) - logistic regression Below you find a review of...">
-<meta name="generator" content="bookdown 0.29 with bs4_book()">
-<meta property="og:title" content="Chapter 10 💻 Intermediate preparation | Statistics &amp; Big Data 25-26 Labs">
-<meta property="og:type" content="book">
-<meta property="og:description" content="Intermediate test topics should include: - hypothesis tests on means - anova - simple + multiple regression (adj-R2 + collinearity + dummy vars) - logistic regression Below you find a review of...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 10 💻 Intermediate preparation | Statistics &amp; Big Data 25-26 Labs">
-<meta name="twitter:description" content="Intermediate test topics should include: - hypothesis tests on means - anova - simple + multiple regression (adj-R2 + collinearity + dummy vars) - logistic regression Below you find a review of...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
-    
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  </style>
-<link rel="stylesheet" href="style.css">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 💻 Intermediate preparation | Statistics &amp; Big Data 25-26 Labs</title>
+  <meta name="description" content="This is a minimal course website containing class materials for Statistics &amp; Big Data labs.1" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 💻 Intermediate preparation | Statistics &amp; Big Data 25-26 Labs" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal course website containing class materials for Statistics &amp; Big Data labs.1" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 💻 Intermediate preparation | Statistics &amp; Big Data 25-26 Labs" />
+  
+  <meta name="twitter:description" content="This is a minimal course website containing class materials for Statistics &amp; Big Data labs.1" />
+  
+
+<meta name="author" content="Dr. Niccolò Salvini" />
+
+
+<meta name="date" content="2025-10-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="advanced-modeling-techniques.html"/>
+<link rel="next" href="int-samp-q-second.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
 </head>
-<body data-spy="scroll" data-target="#toc">
 
-<div class="container-fluid">
-<div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<body>
 
-    <div class="d-flex align-items-start justify-content-between">
-      <h1>
-        <a href="index.html" title="">Statistics &amp; Big Data 25-26 Labs</a>
-      </h1>
-      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
-    </div>
 
-    <div id="main-nav" class="collapse-lg">
-      <form role="search">
-        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
-<li class="book-part">Get Started</li>
-<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
-<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
-<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
-<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
-<li class="book-part">Part 1: The Foundations</li>
-<li><a class="" href="hypothesis-testing-fundamentals.html"><span class="header-section-number">6</span> 🧪 Hypothesis Testing Fundamentals</a></li>
-<li><a class="" href="linear-regression-analysis.html"><span class="header-section-number">7</span> 📈 Linear Regression Analysis</a></li>
-<li><a class="" href="advanced-statistical-methods.html"><span class="header-section-number">8</span> 🔬 Advanced Statistical Methods</a></li>
-<li class="book-part">Part 2: Advanced Modeling</li>
-<li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
-<li class="book-part">Additional Resources</li>
-<li><a class="active" href="int-prep.html"><span class="header-section-number">10</span> 💻 Intermediate preparation</a></li>
-<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">11</span> 📚 Additional Practice Exercises for Intermediate Exam</a></li>
-<li><a class="" href="int-samp-q.html"><span class="header-section-number">12</span> 💻 Intermediate Sample Questions</a></li>
-<li><a class="" href="course-performance.html"><span class="header-section-number">13</span> ⚡ Course Performance</a></li>
-<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">14</span> ❓ Frequently Asked Questions</a></li>
-<li class="book-part">Appendix</li>
-<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">15</span> Symbols, formulas, statistics and parameters</a></li>
-<li><a class="" href="appendixdatasets.html"><span class="header-section-number">16</span> Datasets</a></li>
-<li><a class="" href="references-2.html">References</a></li>
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 🫶 About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#logistics"><i class="fa fa-check"></i><b>1.1</b> 🔧 Logistics</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#team"><i class="fa fa-check"></i><b>1.2</b> 👥 Team</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#labs-content"><i class="fa fa-check"></i><b>1.3</b> 🗒 labs’ contents</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="06ter-lab-prep-to-intermediate.html"><a href="#part-1-the-foundations-dr.-niccol%C3%B2-salvini"><i class="fa fa-check"></i><b>1.3.1</b> Part 1: The Foundations (Dr. Niccolò Salvini)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#part-2-advanced-modeling-prof.-sophie-dabo-niang"><i class="fa fa-check"></i><b>1.3.2</b> Part 2: Advanced Modeling (Prof. Sophie Dabo-Niang)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#exam"><i class="fa fa-check"></i><b>1.4</b> Exam 📝</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#suggested-reading"><i class="fa fa-check"></i><b>1.5</b> 📚 Suggested reading list</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#minimal-or-0-knowledge-of-r"><i class="fa fa-check"></i><b>1.5.1</b> Minimal or 0 knowledge of R</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#advanced-knowledge-of-r-to-become-a-top-g"><i class="fa fa-check"></i><b>1.5.2</b> Advanced knowledge of R to become a top G</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#honorcode"><i class="fa fa-check"></i><b>1.6</b> 📜 Honor Code</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#qr-code-time"><i class="fa fa-check"></i><b>1.7</b> QR code time!</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#intro-colophon"><i class="fa fa-check"></i><b>1.8</b> Colophon</a></li>
+</ul></li>
+<li class="part"><span><b>Get Started</b></span></li>
+<li class="chapter" data-level="2" data-path="prereq.html"><a href="prereq.html"><i class="fa fa-check"></i><b>2</b> ✨Prerequisites</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="prereq.html"><a href="prereq.html#setting-up-r-and-rstudio"><i class="fa fa-check"></i><b>2.1</b> Setting up R and RStudio</a></li>
+<li class="chapter" data-level="2.2" data-path="prereq.html"><a href="prereq.html#how-to-download-and-install-r"><i class="fa fa-check"></i><b>2.2</b> How to Download and Install R</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="prereq.html"><a href="prereq.html#r-in-windows"><i class="fa fa-check"></i><b>2.2.1</b> <strong>R in Windows</strong></a></li>
+<li class="chapter" data-level="2.2.2" data-path="prereq.html"><a href="prereq.html#r-in-mac"><i class="fa fa-check"></i><b>2.2.2</b> <strong>R in Mac</strong></a></li>
+<li class="chapter" data-level="2.2.3" data-path="prereq.html"><a href="prereq.html#r-in-linux"><i class="fa fa-check"></i><b>2.2.3</b> <strong>R in Linux</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="prereq.html"><a href="prereq.html#using-r"><i class="fa fa-check"></i><b>2.3</b> Using R</a></li>
+<li class="chapter" data-level="2.4" data-path="prereq.html"><a href="prereq.html#using-rstudio"><i class="fa fa-check"></i><b>2.4</b> Using RStudio</a></li>
+<li class="chapter" data-level="2.5" data-path="prereq.html"><a href="prereq.html#when-you-first-start-rstudio"><i class="fa fa-check"></i><b>2.5</b> When you first start RStudio</a></li>
+<li class="chapter" data-level="2.6" data-path="prereq.html"><a href="prereq.html#updating-r-and-rstudio"><i class="fa fa-check"></i><b>2.6</b> Updating R and RStudio: Living at the pulse of innovation</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>3</b> 📦 R Packages</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-packages.html"><a href="r-packages.html#installing-packages"><i class="fa fa-check"></i><b>3.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="3.2" data-path="r-packages.html"><a href="r-packages.html#loading-packages"><i class="fa fa-check"></i><b>3.2</b> Loading Packages</a></li>
+<li class="chapter" data-level="3.3" data-path="r-packages.html"><a href="r-packages.html#updating-r-and-its-packages"><i class="fa fa-check"></i><b>3.3</b> Updating R and Its Packages</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="r-packages.html"><a href="r-packages.html#r-packages-1"><i class="fa fa-check"></i><b>3.3.1</b> <strong>R Packages</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="nice-warm-up.html"><a href="nice-warm-up.html"><i class="fa fa-check"></i><b>4</b> 🔥 Nice warm-up</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="nice-warm-up.html"><a href="nice-warm-up.html#starting-your-fresh-new-r-project"><i class="fa fa-check"></i><b>4.1</b> Starting your fresh new R project</a></li>
+<li class="chapter" data-level="4.2" data-path="nice-warm-up.html"><a href="nice-warm-up.html#creating-an-r-project"><i class="fa fa-check"></i><b>4.2</b> Creating an <em>R</em> Project file</a></li>
+<li class="chapter" data-level="4.3" data-path="nice-warm-up.html"><a href="nice-warm-up.html#workdir"><i class="fa fa-check"></i><b>4.3</b> Working Directory with <code>here</code></a></li>
+<li class="chapter" data-level="4.4" data-path="nice-warm-up.html"><a href="nice-warm-up.html#creating-an-r-script"><i class="fa fa-check"></i><b>4.4</b> Creating an R Script</a></li>
+<li class="chapter" data-level="4.5" data-path="nice-warm-up.html"><a href="nice-warm-up.html#using-r-markdown"><i class="fa fa-check"></i><b>4.5</b> Using R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i><b>5</b> 🗒️ Syllabus</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="syllabus.html"><a href="syllabus.html#course-materials"><i class="fa fa-check"></i><b>5.1</b> Course Materials</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="06ter-lab-prep-to-intermediate.html"><a href="#part-1-the-foundations-dr.-niccol%C3%B2-salvini-1"><i class="fa fa-check"></i><b>5.1.1</b> Part 1: The Foundations (Dr. Niccolò Salvini)</a></li>
+<li class="chapter" data-level="5.1.2" data-path="syllabus.html"><a href="syllabus.html#part-2-advanced-modeling-prof.-sophie-dabo-niang-1"><i class="fa fa-check"></i><b>5.1.2</b> Part 2: Advanced Modeling (Prof. Sophie Dabo-Niang)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="syllabus.html"><a href="syllabus.html#course-structure"><i class="fa fa-check"></i><b>5.2</b> Course Structure</a></li>
+</ul></li>
+<li class="part"><span><b>Part 1: The Foundations</b></span></li>
+<li class="chapter" data-level="6" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html"><i class="fa fa-check"></i><b>6</b> 🧪 Hypothesis Testing Fundamentals</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#learning-objectives"><i class="fa fa-check"></i><b>6.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="6.2" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#introduction-to-hypothesis-testing"><i class="fa fa-check"></i><b>6.2</b> Introduction to Hypothesis Testing</a></li>
+<li class="chapter" data-level="6.3" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#null-and-alternative-hypotheses"><i class="fa fa-check"></i><b>6.3</b> Null and Alternative Hypotheses</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="06ter-lab-prep-to-intermediate.html"><a href="#null-hypothesis-h%E2%82%80"><i class="fa fa-check"></i><b>6.3.1</b> Null Hypothesis (H₀)</a></li>
+<li class="chapter" data-level="6.3.2" data-path="06ter-lab-prep-to-intermediate.html"><a href="#alternative-hypothesis-h%E2%82%81"><i class="fa fa-check"></i><b>6.3.2</b> Alternative Hypothesis (H₁)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#p-values-and-statistical-significance"><i class="fa fa-check"></i><b>6.4</b> P-values and Statistical Significance</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#what-is-a-p-value"><i class="fa fa-check"></i><b>6.4.1</b> What is a P-value?</a></li>
+<li class="chapter" data-level="6.4.2" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#interpreting-p-values"><i class="fa fa-check"></i><b>6.4.2</b> Interpreting P-values</a></li>
+<li class="chapter" data-level="6.4.3" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#common-misconceptions"><i class="fa fa-check"></i><b>6.4.3</b> Common Misconceptions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#hypothesis-testing-on-averages"><i class="fa fa-check"></i><b>6.5</b> Hypothesis Testing on Averages</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#one-sample-t-test"><i class="fa fa-check"></i><b>6.5.1</b> One-Sample t-test</a></li>
+<li class="chapter" data-level="6.5.2" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#two-sample-t-test"><i class="fa fa-check"></i><b>6.5.2</b> Two-Sample t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#practical-example"><i class="fa fa-check"></i><b>6.6</b> Practical Example</a></li>
+<li class="chapter" data-level="6.7" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#type-i-and-type-ii-errors"><i class="fa fa-check"></i><b>6.7</b> Type I and Type II Errors</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="06ter-lab-prep-to-intermediate.html"><a href="#type-i-error-%CE%B1"><i class="fa fa-check"></i><b>6.7.1</b> Type I Error (α)</a></li>
+<li class="chapter" data-level="6.7.2" data-path="06ter-lab-prep-to-intermediate.html"><a href="#type-ii-error-%CE%B2"><i class="fa fa-check"></i><b>6.7.2</b> Type II Error (β)</a></li>
+<li class="chapter" data-level="6.7.3" data-path="06ter-lab-prep-to-intermediate.html"><a href="#power-1---%CE%B2"><i class="fa fa-check"></i><b>6.7.3</b> Power (1 - β)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#best-practices"><i class="fa fa-check"></i><b>6.8</b> Best Practices</a></li>
+<li class="chapter" data-level="6.9" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#summary"><i class="fa fa-check"></i><b>6.9</b> Summary</a></li>
+<li class="chapter" data-level="6.10" data-path="hypothesis-testing-fundamentals.html"><a href="hypothesis-testing-fundamentals.html#further-on"><i class="fa fa-check"></i><b>6.10</b> Further-on</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html"><i class="fa fa-check"></i><b>7</b> 📈 Linear Regression Analysis</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#learning-objectives-1"><i class="fa fa-check"></i><b>7.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="7.2" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#introduction-to-linear-regression"><i class="fa fa-check"></i><b>7.2</b> Introduction to Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#simple-linear-regression"><i class="fa fa-check"></i><b>7.2.1</b> Simple Linear Regression</a></li>
+<li class="chapter" data-level="7.2.2" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#multiple-linear-regression"><i class="fa fa-check"></i><b>7.2.2</b> Multiple Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#assumptions-of-linear-regression"><i class="fa fa-check"></i><b>7.3</b> Assumptions of Linear Regression</a></li>
+<li class="chapter" data-level="7.4" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#model-evaluation-metrics"><i class="fa fa-check"></i><b>7.4</b> Model Evaluation Metrics</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="06ter-lab-prep-to-intermediate.html"><a href="#r-squared-r%C2%B2"><i class="fa fa-check"></i><b>7.4.1</b> R-squared (R²)</a></li>
+<li class="chapter" data-level="7.4.2" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#adjusted-r-squared"><i class="fa fa-check"></i><b>7.4.2</b> Adjusted R-squared</a></li>
+<li class="chapter" data-level="7.4.3" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#root-mean-square-error-rmse"><i class="fa fa-check"></i><b>7.4.3</b> Root Mean Square Error (RMSE)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#practical-example-simple-linear-regression"><i class="fa fa-check"></i><b>7.5</b> Practical Example: Simple Linear Regression</a></li>
+<li class="chapter" data-level="7.6" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#multiple-linear-regression-1"><i class="fa fa-check"></i><b>7.6</b> Multiple Linear Regression</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#example-with-multiple-predictors"><i class="fa fa-check"></i><b>7.6.1</b> Example with Multiple Predictors</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#nonlinear-regression"><i class="fa fa-check"></i><b>7.7</b> Nonlinear Regression</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#polynomial-regression"><i class="fa fa-check"></i><b>7.7.1</b> Polynomial Regression</a></li>
+<li class="chapter" data-level="7.7.2" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#logarithmic-transformation"><i class="fa fa-check"></i><b>7.7.2</b> Logarithmic Transformation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#model-diagnostics"><i class="fa fa-check"></i><b>7.8</b> Model Diagnostics</a>
+<ul>
+<li class="chapter" data-level="7.8.1" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#residual-analysis"><i class="fa fa-check"></i><b>7.8.1</b> Residual Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#best-practices-1"><i class="fa fa-check"></i><b>7.9</b> Best Practices</a></li>
+<li class="chapter" data-level="7.10" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#common-pitfalls"><i class="fa fa-check"></i><b>7.10</b> Common Pitfalls</a></li>
+<li class="chapter" data-level="7.11" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#summary-1"><i class="fa fa-check"></i><b>7.11</b> Summary</a></li>
+<li class="chapter" data-level="7.12" data-path="linear-regression-analysis.html"><a href="linear-regression-analysis.html#further-on-1"><i class="fa fa-check"></i><b>7.12</b> Further-on</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html"><i class="fa fa-check"></i><b>8</b> 🔬 Advanced Statistical Methods</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#learning-objectives-2"><i class="fa fa-check"></i><b>8.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="8.2" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#regression-with-dummy-variables"><i class="fa fa-check"></i><b>8.2</b> Regression with Dummy Variables</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#creating-dummy-variables"><i class="fa fa-check"></i><b>8.2.1</b> Creating Dummy Variables</a></li>
+<li class="chapter" data-level="8.2.2" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#interpreting-dummy-variable-coefficients"><i class="fa fa-check"></i><b>8.2.2</b> Interpreting Dummy Variable Coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#logistic-regression"><i class="fa fa-check"></i><b>8.3</b> Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#binary-logistic-regression"><i class="fa fa-check"></i><b>8.3.1</b> Binary Logistic Regression</a></li>
+<li class="chapter" data-level="8.3.2" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#interpreting-logistic-regression-results"><i class="fa fa-check"></i><b>8.3.2</b> Interpreting Logistic Regression Results</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#factor-analysis"><i class="fa fa-check"></i><b>8.4</b> Factor Analysis</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#exploratory-factor-analysis-efa"><i class="fa fa-check"></i><b>8.4.1</b> Exploratory Factor Analysis (EFA)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#cluster-analysis"><i class="fa fa-check"></i><b>8.5</b> Cluster Analysis</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#k-means-clustering"><i class="fa fa-check"></i><b>8.5.1</b> K-Means Clustering</a></li>
+<li class="chapter" data-level="8.5.2" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#hierarchical-clustering"><i class="fa fa-check"></i><b>8.5.2</b> Hierarchical Clustering</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#model-selection-and-validation"><i class="fa fa-check"></i><b>8.6</b> Model Selection and Validation</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#cross-validation-for-logistic-regression"><i class="fa fa-check"></i><b>8.6.1</b> Cross-Validation for Logistic Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#best-practices-2"><i class="fa fa-check"></i><b>8.7</b> Best Practices</a></li>
+<li class="chapter" data-level="8.8" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#common-pitfalls-1"><i class="fa fa-check"></i><b>8.8</b> Common Pitfalls</a></li>
+<li class="chapter" data-level="8.9" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#summary-2"><i class="fa fa-check"></i><b>8.9</b> Summary</a></li>
+<li class="chapter" data-level="8.10" data-path="advanced-statistical-methods.html"><a href="advanced-statistical-methods.html#references"><i class="fa fa-check"></i><b>8.10</b> References</a></li>
+</ul></li>
+<li class="part"><span><b>Part 2: Advanced Modeling</b></span></li>
+<li class="chapter" data-level="9" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html"><i class="fa fa-check"></i><b>9</b> 🚀 Advanced Modeling Techniques</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#learning-objectives-3"><i class="fa fa-check"></i><b>9.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="9.2" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#course-structure-1"><i class="fa fa-check"></i><b>9.2</b> Course Structure</a></li>
+<li class="chapter" data-level="9.3" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#factor-analysis-1"><i class="fa fa-check"></i><b>9.3</b> Factor Analysis</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#key-concepts"><i class="fa fa-check"></i><b>9.3.1</b> Key Concepts</a></li>
+<li class="chapter" data-level="9.3.2" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#applications"><i class="fa fa-check"></i><b>9.3.2</b> Applications</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#cluster-analysis-1"><i class="fa fa-check"></i><b>9.4</b> Cluster Analysis</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#methods-covered"><i class="fa fa-check"></i><b>9.4.1</b> Methods Covered</a></li>
+<li class="chapter" data-level="9.4.2" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#applications-1"><i class="fa fa-check"></i><b>9.4.2</b> Applications</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#discrimination-classification"><i class="fa fa-check"></i><b>9.5</b> Discrimination &amp; Classification</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#techniques"><i class="fa fa-check"></i><b>9.5.1</b> Techniques</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#logistic-regression-1"><i class="fa fa-check"></i><b>9.6</b> Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#types-covered"><i class="fa fa-check"></i><b>9.6.1</b> Types Covered</a></li>
+<li class="chapter" data-level="9.6.2" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#key-concepts-1"><i class="fa fa-check"></i><b>9.6.2</b> Key Concepts</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#kernel-methods"><i class="fa fa-check"></i><b>9.7</b> Kernel Methods</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#applications-2"><i class="fa fa-check"></i><b>9.7.1</b> Applications</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#general-additive-models-gams"><i class="fa fa-check"></i><b>9.8</b> General Additive Models (GAMs)</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#features"><i class="fa fa-check"></i><b>9.8.1</b> Features</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#other-supervised-models"><i class="fa fa-check"></i><b>9.9</b> Other Supervised Models</a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#methods-covered-1"><i class="fa fa-check"></i><b>9.9.1</b> Methods Covered</a></li>
+</ul></li>
+<li class="chapter" data-level="9.10" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#practical-implementation"><i class="fa fa-check"></i><b>9.10</b> Practical Implementation</a></li>
+<li class="chapter" data-level="9.11" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#assessment-and-evaluation"><i class="fa fa-check"></i><b>9.11</b> Assessment and Evaluation</a>
+<ul>
+<li class="chapter" data-level="9.11.1" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#model-evaluation-metrics-1"><i class="fa fa-check"></i><b>9.11.1</b> Model Evaluation Metrics</a></li>
+<li class="chapter" data-level="9.11.2" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#best-practices-3"><i class="fa fa-check"></i><b>9.11.2</b> Best Practices</a></li>
+</ul></li>
+<li class="chapter" data-level="9.12" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#intensive-session-schedule"><i class="fa fa-check"></i><b>9.12</b> Intensive Session Schedule</a></li>
+<li class="chapter" data-level="9.13" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#prerequisites"><i class="fa fa-check"></i><b>9.13</b> Prerequisites</a></li>
+<li class="chapter" data-level="9.14" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#resources"><i class="fa fa-check"></i><b>9.14</b> Resources</a></li>
+<li class="chapter" data-level="9.15" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#summary-3"><i class="fa fa-check"></i><b>9.15</b> Summary</a></li>
+<li class="chapter" data-level="9.16" data-path="advanced-modeling-techniques.html"><a href="advanced-modeling-techniques.html#references-1"><i class="fa fa-check"></i><b>9.16</b> References</a></li>
+</ul></li>
+<li class="part"><span><b>Additional Resources</b></span></li>
+<li class="chapter" data-level="10" data-path="int-prep.html"><a href="int-prep.html"><i class="fa fa-check"></i><b>10</b> 💻 Intermediate preparation</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="int-prep.html"><a href="int-prep.html#core-concepts-of-t-test"><i class="fa fa-check"></i><b>10.1</b> 🪨 core concepts of T test</a></li>
+<li class="chapter" data-level="10.2" data-path="int-prep.html"><a href="int-prep.html#t.test-function"><i class="fa fa-check"></i><b>10.2</b> <code>t.test()</code> function</a></li>
+<li class="chapter" data-level="10.3" data-path="int-prep.html"><a href="int-prep.html#introduction"><i class="fa fa-check"></i><b>10.3</b> Introduction</a></li>
+<li class="chapter" data-level="10.4" data-path="int-prep.html"><a href="int-prep.html#basic-usage"><i class="fa fa-check"></i><b>10.4</b> Basic Usage</a></li>
+<li class="chapter" data-level="10.5" data-path="int-prep.html"><a href="int-prep.html#arguments"><i class="fa fa-check"></i><b>10.5</b> Arguments</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="int-prep.html"><a href="int-prep.html#formula"><i class="fa fa-check"></i><b>10.5.1</b> Formula</a></li>
+<li class="chapter" data-level="10.5.2" data-path="int-prep.html"><a href="int-prep.html#data"><i class="fa fa-check"></i><b>10.5.2</b> Data</a></li>
+<li class="chapter" data-level="10.5.3" data-path="int-prep.html"><a href="int-prep.html#subset"><i class="fa fa-check"></i><b>10.5.3</b> Subset</a></li>
+<li class="chapter" data-level="10.5.4" data-path="int-prep.html"><a href="int-prep.html#weight"><i class="fa fa-check"></i><b>10.5.4</b> Weight</a></li>
+<li class="chapter" data-level="10.5.5" data-path="int-prep.html"><a href="int-prep.html#na.action"><i class="fa fa-check"></i><b>10.5.5</b> Na.action</a></li>
+<li class="chapter" data-level="10.5.6" data-path="int-prep.html"><a href="int-prep.html#other-arguments"><i class="fa fa-check"></i><b>10.5.6</b> Other Arguments</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="int-prep.html"><a href="int-prep.html#vif-variance-inflation-factor"><i class="fa fa-check"></i><b>10.6</b> VIF (Variance Inflation Factor)</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="int-prep.html"><a href="int-prep.html#calculating-vif"><i class="fa fa-check"></i><b>10.6.1</b> Calculating VIF</a></li>
+<li class="chapter" data-level="10.6.2" data-path="int-prep.html"><a href="int-prep.html#interpreting-vif"><i class="fa fa-check"></i><b>10.6.2</b> Interpreting VIF</a></li>
+<li class="chapter" data-level="10.6.3" data-path="int-prep.html"><a href="int-prep.html#addressing-multicollinearity"><i class="fa fa-check"></i><b>10.6.3</b> Addressing Multicollinearity</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="int-prep.html"><a href="int-prep.html#anova-analysis-of-variance"><i class="fa fa-check"></i><b>10.7</b> ANOVA (Analysis of Variance)</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="int-prep.html"><a href="int-prep.html#performing-anova-with-aov"><i class="fa fa-check"></i><b>10.7.1</b> Performing ANOVA with <code>aov()</code></a></li>
+<li class="chapter" data-level="10.7.2" data-path="int-prep.html"><a href="int-prep.html#anova-tables"><i class="fa fa-check"></i><b>10.7.2</b> ANOVA Tables</a></li>
+<li class="chapter" data-level="10.7.3" data-path="int-prep.html"><a href="int-prep.html#interpreting-anova"><i class="fa fa-check"></i><b>10.7.3</b> Interpreting ANOVA</a></li>
+<li class="chapter" data-level="10.7.4" data-path="int-prep.html"><a href="int-prep.html#assumptions-of-anova"><i class="fa fa-check"></i><b>10.7.4</b> Assumptions of ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="10.8" data-path="int-prep.html"><a href="int-prep.html#logistic-regression-with-glm"><i class="fa fa-check"></i><b>10.8</b> Logistic Regression with <code>glm()</code></a>
+<ul>
+<li class="chapter" data-level="10.8.1" data-path="int-prep.html"><a href="int-prep.html#performing-logistic-regression-with-glm"><i class="fa fa-check"></i><b>10.8.1</b> Performing Logistic Regression with <code>glm()</code></a></li>
+<li class="chapter" data-level="10.8.2" data-path="int-prep.html"><a href="int-prep.html#model-summary"><i class="fa fa-check"></i><b>10.8.2</b> Model Summary</a></li>
+<li class="chapter" data-level="10.8.3" data-path="int-prep.html"><a href="int-prep.html#interpreting-logistic-regression"><i class="fa fa-check"></i><b>10.8.3</b> Interpreting Logistic Regression</a></li>
+<li class="chapter" data-level="10.8.4" data-path="int-prep.html"><a href="int-prep.html#model-evaluation"><i class="fa fa-check"></i><b>10.8.4</b> Model Evaluation</a></li>
+<li class="chapter" data-level="10.8.5" data-path="int-prep.html"><a href="int-prep.html#assumptions-of-logistic-regression"><i class="fa fa-check"></i><b>10.8.5</b> Assumptions of Logistic Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="int-prep.html"><a href="int-prep.html#poisson-regression-with-glm"><i class="fa fa-check"></i><b>10.9</b> Poisson Regression with <code>glm()</code></a>
+<ul>
+<li class="chapter" data-level="10.9.1" data-path="int-prep.html"><a href="int-prep.html#performing-poisson-regression-with-glm"><i class="fa fa-check"></i><b>10.9.1</b> Performing Poisson Regression with <code>glm()</code></a></li>
+<li class="chapter" data-level="10.9.2" data-path="int-prep.html"><a href="int-prep.html#model-summary-1"><i class="fa fa-check"></i><b>10.9.2</b> Model Summary</a></li>
+<li class="chapter" data-level="10.9.3" data-path="int-prep.html"><a href="int-prep.html#interpreting-poisson-regression"><i class="fa fa-check"></i><b>10.9.3</b> Interpreting Poisson Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="10.10" data-path="int-prep.html"><a href="int-prep.html#class-exercises-do-it-in-groups"><i class="fa fa-check"></i><b>10.10</b> class exercises, do it in groups 👯</a></li>
+<li class="chapter" data-level="10.11" data-path="int-prep.html"><a href="int-prep.html#solutions"><i class="fa fa-check"></i><b>10.11</b> solutions</a></li>
+<li class="chapter" data-level="10.12" data-path="int-prep.html"><a href="int-prep.html#tips"><i class="fa fa-check"></i><b>10.12</b> 🍬 tips and tricks</a></li>
+<li class="chapter" data-level="10.13" data-path="int-prep.html"><a href="int-prep.html#further-exercies"><i class="fa fa-check"></i><b>10.13</b> further exercies 🏋️</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html"><i class="fa fa-check"></i><b>11</b> 📚 Additional Practice Exercises for Intermediate Exam</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-1-data-wrangling-and-descriptive-statistics"><i class="fa fa-check"></i><b>11.1</b> 🏥 Part 1: Data Wrangling and Descriptive Statistics</a></li>
+<li class="chapter" data-level="11.2" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-2-hypothesis-testing---single-population"><i class="fa fa-check"></i><b>11.2</b> 🔬 Part 2: Hypothesis Testing - Single Population</a></li>
+<li class="chapter" data-level="11.3" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-3-hypothesis-testing---two-populations"><i class="fa fa-check"></i><b>11.3</b> 👥 Part 3: Hypothesis Testing - Two Populations</a></li>
+<li class="chapter" data-level="11.4" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-4-anova---comparing-multiple-groups"><i class="fa fa-check"></i><b>11.4</b> 📊 Part 4: ANOVA - Comparing Multiple Groups</a></li>
+<li class="chapter" data-level="11.5" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-5-simple-and-multiple-linear-regression"><i class="fa fa-check"></i><b>11.5</b> 📈 Part 5: Simple and Multiple Linear Regression</a></li>
+<li class="chapter" data-level="11.6" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-6-nonlinear-regression-and-transformations"><i class="fa fa-check"></i><b>11.6</b> 🔄 Part 6: Nonlinear Regression and Transformations</a></li>
+<li class="chapter" data-level="11.7" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-7-logistic-regression"><i class="fa fa-check"></i><b>11.7</b> 🎯 Part 7: Logistic Regression</a></li>
+<li class="chapter" data-level="11.8" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-8-poisson-regression"><i class="fa fa-check"></i><b>11.8</b> 📊 Part 8: Poisson Regression</a></li>
+<li class="chapter" data-level="11.9" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-9-regression-with-dummy-variables"><i class="fa fa-check"></i><b>11.9</b> 🏷️ Part 9: Regression with Dummy Variables</a></li>
+<li class="chapter" data-level="11.10" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#part-10-model-diagnostics-and-interpretation"><i class="fa fa-check"></i><b>11.10</b> 🧮 Part 10: Model Diagnostics and Interpretation</a></li>
+<li class="chapter" data-level="11.11" data-path="int-samp-q-second.html"><a href="int-samp-q-second.html#solutions-1"><i class="fa fa-check"></i><b>11.11</b> ✅ SOLUTIONS</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="int-samp-q.html"><a href="int-samp-q.html"><i class="fa fa-check"></i><b>12</b> 💻 Intermediate Sample Questions</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="int-samp-q.html"><a href="int-samp-q.html#section"><i class="fa fa-check"></i><b>12.1</b> 👨‍🎓 2020/2021</a></li>
+<li class="chapter" data-level="12.2" data-path="int-samp-q.html"><a href="int-samp-q.html#section-1"><i class="fa fa-check"></i><b>12.2</b> 👨‍🎓 2021/2022</a></li>
+<li class="chapter" data-level="12.3" data-path="int-samp-q.html"><a href="int-samp-q.html#section-2"><i class="fa fa-check"></i><b>12.3</b> 👨‍🎓 2022/2023</a></li>
+<li class="chapter" data-level="12.4" data-path="int-samp-q.html"><a href="int-samp-q.html#solutions-2"><i class="fa fa-check"></i><b>12.4</b> solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="course-performance.html"><a href="course-performance.html"><i class="fa fa-check"></i><b>13</b> ⚡ Course Performance</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="course-performance.html"><a href="course-performance.html#students-performance-analysis"><i class="fa fa-check"></i><b>13.1</b> 🎓 24-25 Students Performance Analysis</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="course-performance.html"><a href="course-performance.html#overall-statistics"><i class="fa fa-check"></i><b>13.1.1</b> Overall Statistics</a></li>
+<li class="chapter" data-level="13.1.2" data-path="course-performance.html"><a href="course-performance.html#grade-distribution"><i class="fa fa-check"></i><b>13.1.2</b> Grade Distribution</a></li>
+<li class="chapter" data-level="13.1.3" data-path="course-performance.html"><a href="course-performance.html#intermediate-exam-performance"><i class="fa fa-check"></i><b>13.1.3</b> Intermediate Exam Performance</a></li>
+<li class="chapter" data-level="13.1.4" data-path="course-performance.html"><a href="course-performance.html#performance-by-exam-type"><i class="fa fa-check"></i><b>13.1.4</b> Performance by Exam Type</a></li>
+<li class="chapter" data-level="13.1.5" data-path="course-performance.html"><a href="course-performance.html#key-insights"><i class="fa fa-check"></i><b>13.1.5</b> Key Insights</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="course-performance.html"><a href="course-performance.html#students"><i class="fa fa-check"></i><b>13.2</b> 🎓 20-21 Students</a></li>
+<li class="chapter" data-level="13.3" data-path="course-performance.html"><a href="course-performance.html#students-1"><i class="fa fa-check"></i><b>13.3</b> 🎓 21-22 Students</a></li>
+<li class="chapter" data-level="13.4" data-path="course-performance.html"><a href="course-performance.html#students-2"><i class="fa fa-check"></i><b>13.4</b> 🎓 22-23 Students</a></li>
+<li class="chapter" data-level="13.5" data-path="course-performance.html"><a href="course-performance.html#students-3"><i class="fa fa-check"></i><b>13.5</b> 🎓 23-24 Students</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html"><i class="fa fa-check"></i><b>14</b> ❓ Frequently Asked Questions</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="frequently-asked-questions.html"><a href="frequently-asked-questions.html#q-na"><i class="fa fa-check"></i><b>14.1</b> Q n’A</a></li>
+</ul></li>
+<li class="part"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="15" data-path="StatisticsAndParameters.html"><a href="StatisticsAndParameters.html"><i class="fa fa-check"></i><b>15</b> Symbols, formulas, statistics and parameters</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="StatisticsAndParameters.html"><a href="StatisticsAndParameters.html#symbols-and-standard-errors"><i class="fa fa-check"></i><b>15.1</b> Symbols and standard errors</a></li>
+<li class="chapter" data-level="15.2" data-path="StatisticsAndParameters.html"><a href="StatisticsAndParameters.html#confidence-intervals"><i class="fa fa-check"></i><b>15.2</b> Confidence intervals</a></li>
+<li class="chapter" data-level="15.3" data-path="StatisticsAndParameters.html"><a href="StatisticsAndParameters.html#hypothesis-testing"><i class="fa fa-check"></i><b>15.3</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="15.4" data-path="StatisticsAndParameters.html"><a href="StatisticsAndParameters.html#other-formulas"><i class="fa fa-check"></i><b>15.4</b> Other formulas</a></li>
+<li class="chapter" data-level="15.5" data-path="StatisticsAndParameters.html"><a href="StatisticsAndParameters.html#other-symbols-used"><i class="fa fa-check"></i><b>15.5</b> Other symbols used</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="appendixdatasets.html"><a href="appendixdatasets.html"><i class="fa fa-check"></i><b>16</b> Datasets</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="appendixdatasets.html"><a href="appendixdatasets.html#built-in-r-datasets"><i class="fa fa-check"></i><b>16.1</b> Built-in R Datasets</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="appendixdatasets.html"><a href="appendixdatasets.html#mtcars---motor-trend-car-road-tests"><i class="fa fa-check"></i><b>16.1.1</b> <code>mtcars</code> - Motor Trend Car Road Tests</a></li>
+<li class="chapter" data-level="16.1.2" data-path="appendixdatasets.html"><a href="appendixdatasets.html#iris---edgar-andersons-iris-data"><i class="fa fa-check"></i><b>16.1.2</b> <code>iris</code> - Edgar Anderson’s Iris Data</a></li>
+<li class="chapter" data-level="16.1.3" data-path="appendixdatasets.html"><a href="appendixdatasets.html#cars---speed-and-stopping-distances-of-cars"><i class="fa fa-check"></i><b>16.1.3</b> <code>cars</code> - Speed and Stopping Distances of Cars</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="appendixdatasets.html"><a href="appendixdatasets.html#course-specific-datasets"><i class="fa fa-check"></i><b>16.2</b> Course-Specific Datasets</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="appendixdatasets.html"><a href="appendixdatasets.html#bikeshare.csv---bike-sharing-data"><i class="fa fa-check"></i><b>16.2.1</b> <code>bikeshare.csv</code> - Bike Sharing Data</a></li>
+<li class="chapter" data-level="16.2.2" data-path="appendixdatasets.html"><a href="appendixdatasets.html#stroke_data.csv---stroke-prediction-data"><i class="fa fa-check"></i><b>16.2.2</b> <code>stroke_data.csv</code> - Stroke Prediction Data</a></li>
+<li class="chapter" data-level="16.2.3" data-path="appendixdatasets.html"><a href="appendixdatasets.html#coronary.dta---coronary-heart-disease-data"><i class="fa fa-check"></i><b>16.2.3</b> <code>coronary.dta</code> - Coronary Heart Disease Data</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="appendixdatasets.html"><a href="appendixdatasets.html#how-to-access-datasets"><i class="fa fa-check"></i><b>16.3</b> How to Access Datasets</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="appendixdatasets.html"><a href="appendixdatasets.html#built-in-r-datasets-1"><i class="fa fa-check"></i><b>16.3.1</b> Built-in R Datasets</a></li>
+<li class="chapter" data-level="16.3.2" data-path="appendixdatasets.html"><a href="appendixdatasets.html#course-datasets"><i class="fa fa-check"></i><b>16.3.2</b> Course Datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="appendixdatasets.html"><a href="appendixdatasets.html#dataset-usage-in-course"><i class="fa fa-check"></i><b>16.4</b> Dataset Usage in Course</a></li>
+<li class="chapter" data-level="16.5" data-path="appendixdatasets.html"><a href="appendixdatasets.html#additional-resources"><i class="fa fa-check"></i><b>16.5</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-2.html"><a href="references-2.html"><i class="fa fa-check"></i>References</a>
+<ul>
+<li class="chapter" data-level="16.6" data-path="references-2.html"><a href="references-2.html#statistical-methods-and-r-programming"><i class="fa fa-check"></i><b>16.6</b> Statistical Methods and R Programming</a></li>
+<li class="chapter" data-level="16.7" data-path="references-2.html"><a href="references-2.html#advanced-r-programming"><i class="fa fa-check"></i><b>16.7</b> Advanced R Programming</a></li>
+<li class="chapter" data-level="16.8" data-path="references-2.html"><a href="references-2.html#statistical-software-and-tools"><i class="fa fa-check"></i><b>16.8</b> Statistical Software and Tools</a></li>
+<li class="chapter" data-level="16.9" data-path="references-2.html"><a href="references-2.html#course-materials-1"><i class="fa fa-check"></i><b>16.9</b> Course Materials</a></li>
+<li class="chapter" data-level="16.10" data-path="references-2.html"><a href="references-2.html#additional-resources-1"><i class="fa fa-check"></i><b>16.10</b> Additional Resources</a></li>
+</ul></li>
 </ul>
 
-        <div class="book-extra">
-          <p><a id="book-repo" href="https://sbd-labs-22-23.netlify.app">View book source <i class="fab fa-gitlab"></i></a></p>
-        </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="int-prep" class="section level1" number="10">
-<h1>
-<span class="header-section-number">10</span> 💻 Intermediate preparation<a class="anchor" aria-label="anchor" href="#int-prep"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics &amp; Big Data 25-26 Labs</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="int-prep" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> 💻 Intermediate preparation<a href="int-prep.html#int-prep" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Intermediate test topics should include:
 - <strong>hypothesis tests on means</strong>
 - <strong>anova</strong>
 - <strong>simple + multiple regression (adj-R2 + collinearity + dummy vars)</strong>
 - <strong>logistic regression</strong></p>
 <p>Below you find a review of core concepts and a bunch of exercises which in some way may resemble intermediate ones.</p>
-<div id="core-concepts-of-t-test" class="section level2" number="10.1">
-<h2>
-<span class="header-section-number">10.1</span> 🪨 core concepts of T test<a class="anchor" aria-label="anchor" href="#core-concepts-of-t-test"><i class="fas fa-link"></i></a>
-</h2>
+<div id="core-concepts-of-t-test" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> 🪨 core concepts of T test<a href="int-prep.html#core-concepts-of-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>recall from <a href="https://drive.google.com/file/d/1UqDW1UG5CY3wbW2SisCqzoPtK7ZpvQs7/view?usp=sharing">Arbia’s slide</a> 69 that we are focusing on test on <strong>mean</strong> and that steps for calculating statistical tests generally are:</p>
 <ol style="list-style-type: decimal">
 <li>Develop the null Hypothesis</li>
-<li>Specify the level of Significance <span class="math inline">\(\alpha\)</span>
-</li>
+<li>Specify the level of Significance <span class="math inline">\(\alpha\)</span></li>
 <li>Collect the sample data and compute the test statistic.</li>
 </ol>
 <p>then <em>pvalues</em>:
@@ -103,139 +508,99 @@
 t = \frac{(m - \mu_0)}{S/\sqrt{n}}
 \]</span></p>
 <p>Below all the possible cases you should be dealing with:</p>
-<div class="figure">
-<span style="display:block;" id="fig:ttest"></span>
-<img src="images/wf_test.png" alt="The t.test vademecum" width="100%"><p class="caption">
+<div class="figure"><span style="display:block;" id="fig:ttest"></span>
+<img src="images/wf_test.png" alt="The t.test vademecum" width="100%" />
+<p class="caption">
 Figure 10.1: The t.test vademecum
 </p>
 </div>
 </div>
-<div id="t.test-function" class="section level2" number="10.2">
-<h2>
-<span class="header-section-number">10.2</span> <code>t.test()</code> function<a class="anchor" aria-label="anchor" href="#t.test-function"><i class="fas fa-link"></i></a>
-</h2>
-<p>The <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function may run one and two sample t-tests on data vectors. The function has several parameters and is invoked as follows:</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">x</span>, y <span class="op">=</span> <span class="cn">NULL</span>, alternative <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"two.sided"</span>, <span class="st">"less"</span>, <span class="st">"greater"</span><span class="op">)</span>, mu <span class="op">=</span> <span class="fl">0</span>, </span>
-<span>        paired <span class="op">=</span> <span class="cn">FALSE</span>, var.equal <span class="op">=</span> <span class="cn">FALSE</span>, conf.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span></code></pre></div>
+<div id="t.test-function" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> <code>t.test()</code> function<a href="int-prep.html#t.test-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>t.test()</code> function may run one and two sample t-tests on data vectors. The function has several parameters and is invoked as follows:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="int-prep.html#cb24-1" tabindex="-1"></a><span class="fu">t.test</span>(x, <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">alternative =</span> <span class="fu">c</span>(<span class="st">&quot;two.sided&quot;</span>, <span class="st">&quot;less&quot;</span>, <span class="st">&quot;greater&quot;</span>), <span class="at">mu =</span> <span class="dv">0</span>, </span>
+<span id="cb24-2"><a href="int-prep.html#cb24-2" tabindex="-1"></a>        <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <p>In this case, <code>x</code> is a numeric vector of data values, and <code>y</code> is optional. If <code>y</code> is not included, the function does a one-sample t-test on the data in <code>x</code>; if it is included, the function runs a two-sample t-test on both <code>x</code> and <code>y</code>.</p>
 <p>The <code>mu</code> (i.e. <span class="math inline">\(\mu\)</span>) argument returns a number showing the real value of the mean (or difference in means if a two sample test is used) under the null hypothesis. The test conducts a two-sided t-test by default; however, you may perform an alternative hypothesis by changing the <code>alternative</code> argument to <code>"greater"</code> or <code>"less"</code>, depending on whether the alternative hypothesis is that the mean is larger than or smaller than <code>mu</code>. Consider the following:</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">x</span>, alternative <span class="op">=</span> <span class="st">"less"</span>, mu <span class="op">=</span> <span class="fl">25</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="int-prep.html#cb25-1" tabindex="-1"></a><span class="fu">t.test</span>(x, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="at">mu =</span> <span class="dv">25</span>)</span></code></pre></div>
 <p>…performs a one-sample t-test on the data contained in <code>x</code> where the null hypothesis is that $ = 25$ and the alternative is that $ &lt; 25 $</p>
 <p>The <code>paired</code> argument will indicate whether or not you want a paired t-test. The default is set to <code>FALSE</code> but can be set to <code>TRUE</code> if you desire to perform a paired t-test. We do paired test when we are considering pre-post treatment test or when we are considering couples of individuals.</p>
 <p>When doing a two-sample t-test, the <code>var.equal</code> option specifies whether or not to assume equal variances. The default assumption is unequal variance and the Welsh approximation to degrees of freedom; however, you may change this to <code>TRUE</code> to pool the variance.</p>
 <p>Finally, the <code>conf.level</code> parameter specifies the degree of confidence in the reported confidence interval for <span class="math inline">\(\mu\)</span> in the one-sample and for <span class="math inline">\(\mu_1 - \mu_2\)</span> two-sample cases. Below a very simple example:</p>
-<p>To use the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function in R for linear modeling, you can create a Markdown document to explain its usage and its various arguments. Below is an example of how to create a conceptual guide in RMarkdown format:</p>
+<p>To use the <code>lm()</code> function in R for linear modeling, you can create a Markdown document to explain its usage and its various arguments. Below is an example of how to create a conceptual guide in RMarkdown format:</p>
 <p>## Linear Modeling with lm() in R</p>
 </div>
-<div id="introduction" class="section level2" number="10.3">
-<h2>
-<span class="header-section-number">10.3</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction"><i class="fas fa-link"></i></a>
-</h2>
-<p>The <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function in R is used for performing linear regression modeling. Linear regression is a statistical method that models the relationship between a dependent variable and one or more independent variables. In this document, we will explore how to use the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function and its various arguments for linear modeling.</p>
+<div id="introduction" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Introduction<a href="int-prep.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>lm()</code> function in R is used for performing linear regression modeling. Linear regression is a statistical method that models the relationship between a dependent variable and one or more independent variables. In this document, we will explore how to use the <code>lm()</code> function and its various arguments for linear modeling.</p>
 </div>
-<div id="basic-usage" class="section level2" number="10.4">
-<h2>
-<span class="header-section-number">10.4</span> Basic Usage<a class="anchor" aria-label="anchor" href="#basic-usage"><i class="fas fa-link"></i></a>
-</h2>
-<p>To perform linear modeling with <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>, you need to specify the formula of the linear regression model. The basic syntax is as follows:</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">dependent_variable</span> <span class="op">~</span> <span class="va">independent_variable</span>, data <span class="op">=</span> <span class="va">your_data</span><span class="op">)</span></span></code></pre></div>
+<div id="basic-usage" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> Basic Usage<a href="int-prep.html#basic-usage" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To perform linear modeling with <code>lm()</code>, you need to specify the formula of the linear regression model. The basic syntax is as follows:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="int-prep.html#cb26-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(dependent_variable <span class="sc">~</span> independent_variable, <span class="at">data =</span> your_data)</span></code></pre></div>
 <ul>
-<li>
-<code>dependent_variable</code>: The variable you want to predict.</li>
-<li>
-<code>independent_variable</code>: The variable(s) used to make the prediction.</li>
-<li>
-<code>data</code>: The data frame containing your variables.</li>
+<li><code>dependent_variable</code>: The variable you want to predict.</li>
+<li><code>independent_variable</code>: The variable(s) used to make the prediction.</li>
+<li><code>data</code>: The data frame containing your variables.</li>
 </ul>
 </div>
-<div id="arguments" class="section level2" number="10.5">
-<h2>
-<span class="header-section-number">10.5</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments"><i class="fas fa-link"></i></a>
-</h2>
-<div id="formula" class="section level3" number="10.5.1">
-<h3>
-<span class="header-section-number">10.5.1</span> Formula<a class="anchor" aria-label="anchor" href="#formula"><i class="fas fa-link"></i></a>
-</h3>
-<p>The formula is at the core of the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function and specifies the relationship between the dependent and independent variables. It follows the <code>Y ~ X</code> pattern, where <code>Y</code> is the dependent variable, and <code>X</code> is the independent variable. You can include multiple independent variables and interactions by using <code>+</code> and <code>*</code>. For example:</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x1</span> <span class="op">+</span> <span class="va">x2</span> <span class="op">+</span> <span class="va">x1</span><span class="op">*</span><span class="va">x2</span>, data <span class="op">=</span> <span class="va">your_data</span><span class="op">)</span></span></code></pre></div>
+<div id="arguments" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> Arguments<a href="int-prep.html#arguments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="formula" class="section level3 hasAnchor" number="10.5.1">
+<h3><span class="header-section-number">10.5.1</span> Formula<a href="int-prep.html#formula" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The formula is at the core of the <code>lm()</code> function and specifies the relationship between the dependent and independent variables. It follows the <code>Y ~ X</code> pattern, where <code>Y</code> is the dependent variable, and <code>X</code> is the independent variable. You can include multiple independent variables and interactions by using <code>+</code> and <code>*</code>. For example:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="int-prep.html#cb27-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2 <span class="sc">+</span> x1<span class="sc">*</span>x2, <span class="at">data =</span> your_data)</span></code></pre></div>
 </div>
-<div id="data" class="section level3" number="10.5.2">
-<h3>
-<span class="header-section-number">10.5.2</span> Data<a class="anchor" aria-label="anchor" href="#data"><i class="fas fa-link"></i></a>
-</h3>
+<div id="data" class="section level3 hasAnchor" number="10.5.2">
+<h3><span class="header-section-number">10.5.2</span> Data<a href="int-prep.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>data</code> argument should point to the data frame where your variables are located. This argument helps R locate the variables specified in the formula.</p>
 </div>
-<div id="subset" class="section level3" number="10.5.3">
-<h3>
-<span class="header-section-number">10.5.3</span> Subset<a class="anchor" aria-label="anchor" href="#subset"><i class="fas fa-link"></i></a>
-</h3>
+<div id="subset" class="section level3 hasAnchor" number="10.5.3">
+<h3><span class="header-section-number">10.5.3</span> Subset<a href="int-prep.html#subset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You can use the <code>subset</code> argument to specify a subset of your data for modeling. This is useful when you want to focus on a specific portion of your dataset.</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">your_data</span>, subset <span class="op">=</span> <span class="va">condition</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="int-prep.html#cb28-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> your_data, <span class="at">subset =</span> condition)</span></code></pre></div>
 </div>
-<div id="weight" class="section level3" number="10.5.4">
-<h3>
-<span class="header-section-number">10.5.4</span> Weight<a class="anchor" aria-label="anchor" href="#weight"><i class="fas fa-link"></i></a>
-</h3>
+<div id="weight" class="section level3 hasAnchor" number="10.5.4">
+<h3><span class="header-section-number">10.5.4</span> Weight<a href="int-prep.html#weight" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>weight</code> argument allows you to assign different weights to each data point. This can be useful when you want to give more importance to certain observations.</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">your_data</span>, weights <span class="op">=</span> <span class="va">weight_variable</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="int-prep.html#cb29-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> your_data, <span class="at">weights =</span> weight_variable)</span></code></pre></div>
 </div>
-<div id="na.action" class="section level3" number="10.5.5">
-<h3>
-<span class="header-section-number">10.5.5</span> Na.action<a class="anchor" aria-label="anchor" href="#na.action"><i class="fas fa-link"></i></a>
-</h3>
+<div id="na.action" class="section level3 hasAnchor" number="10.5.5">
+<h3><span class="header-section-number">10.5.5</span> Na.action<a href="int-prep.html#na.action" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>na.action</code> argument controls how missing values are treated. By default, <code>na.action = na.fail</code>, which means the model will fail if there are missing values in your data. You can also use <code>na.omit</code> to automatically remove rows with missing values.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, data <span class="op">=</span> <span class="va">your_data</span>, na.action <span class="op">=</span> <span class="va">na.omit</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="int-prep.html#cb30-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> your_data, <span class="at">na.action =</span> na.omit)</span></code></pre></div>
 </div>
-<div id="other-arguments" class="section level3" number="10.5.6">
-<h3>
-<span class="header-section-number">10.5.6</span> Other Arguments<a class="anchor" aria-label="anchor" href="#other-arguments"><i class="fas fa-link"></i></a>
-</h3>
+<div id="other-arguments" class="section level3 hasAnchor" number="10.5.6">
+<h3><span class="header-section-number">10.5.6</span> Other Arguments<a href="int-prep.html#other-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are additional arguments for controlling aspects of the modeling process, such as <code>offset</code>, <code>method</code>, and <code>control</code>. You can refer to the R documentation for a complete list of available arguments and their descriptions.</p>
 </div>
 </div>
-<div id="vif-variance-inflation-factor" class="section level2" number="10.6">
-<h2>
-<span class="header-section-number">10.6</span> VIF (Variance Inflation Factor)<a class="anchor" aria-label="anchor" href="#vif-variance-inflation-factor"><i class="fas fa-link"></i></a>
-</h2>
+<div id="vif-variance-inflation-factor" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> VIF (Variance Inflation Factor)<a href="int-prep.html#vif-variance-inflation-factor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The Variance Inflation Factor (VIF) is a measure used to detect multicollinearity in a linear regression model. Multicollinearity occurs when independent variables in the model are highly correlated, making it challenging to determine the individual effect of each variable on the dependent variable. The <code>VIF</code> function from the <code>regclass</code> package in R can help us identify multicollinearity in our linear regression model.</p>
-<div id="calculating-vif" class="section level3" number="10.6.1">
-<h3>
-<span class="header-section-number">10.6.1</span> Calculating VIF<a class="anchor" aria-label="anchor" href="#calculating-vif"><i class="fas fa-link"></i></a>
-</h3>
-<p>To calculate the VIF for the independent variables in your model, you can use the <code><a href="https://rdrr.io/pkg/regclass/man/VIF.html">VIF()</a></code> function. First, make sure you have the <code>regclass</code> package installed and loaded:</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"regclass"</span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">regclass</span><span class="op">)</span></span></code></pre></div>
+<div id="calculating-vif" class="section level3 hasAnchor" number="10.6.1">
+<h3><span class="header-section-number">10.6.1</span> Calculating VIF<a href="int-prep.html#calculating-vif" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To calculate the VIF for the independent variables in your model, you can use the <code>VIF()</code> function. First, make sure you have the <code>regclass</code> package installed and loaded:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="int-prep.html#cb31-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;regclass&quot;</span>)</span>
+<span id="cb31-2"><a href="int-prep.html#cb31-2" tabindex="-1"></a><span class="fu">library</span>(regclass)</span></code></pre></div>
 <p>Next, you can calculate VIF for your linear regression model as follows:</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Fit a linear regression model</span></span>
-<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula  <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x1</span> <span class="op">+</span> <span class="va">x2</span> <span class="op">+</span> <span class="va">x3</span>, data <span class="op">=</span> <span class="va">your_data</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Calculate VIF</span></span>
-<span><span class="va">vif_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/regclass/man/VIF.html">VIF</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
-<p>The <code><a href="https://rdrr.io/pkg/regclass/man/VIF.html">VIF()</a></code> function takes the linear regression model as its argument and returns a data frame with VIF values for each independent variable. Higher VIF values indicate stronger multicollinearity, typically with a threshold of 5 or 10 as a rule of thumb.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="int-prep.html#cb32-1" tabindex="-1"></a><span class="co"># Fit a linear regression model</span></span>
+<span id="cb32-2"><a href="int-prep.html#cb32-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula  =</span> y <span class="sc">~</span> x1 <span class="sc">+</span> x2 <span class="sc">+</span> x3, <span class="at">data =</span> your_data)</span>
+<span id="cb32-3"><a href="int-prep.html#cb32-3" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="int-prep.html#cb32-4" tabindex="-1"></a><span class="co"># Calculate VIF</span></span>
+<span id="cb32-5"><a href="int-prep.html#cb32-5" tabindex="-1"></a>vif_results <span class="ot">&lt;-</span> <span class="fu">VIF</span>(model)</span></code></pre></div>
+<p>The <code>VIF()</code> function takes the linear regression model as its argument and returns a data frame with VIF values for each independent variable. Higher VIF values indicate stronger multicollinearity, typically with a threshold of 5 or 10 as a rule of thumb.</p>
 </div>
-<div id="interpreting-vif" class="section level3" number="10.6.2">
-<h3>
-<span class="header-section-number">10.6.2</span> Interpreting VIF<a class="anchor" aria-label="anchor" href="#interpreting-vif"><i class="fas fa-link"></i></a>
-</h3>
+<div id="interpreting-vif" class="section level3 hasAnchor" number="10.6.2">
+<h3><span class="header-section-number">10.6.2</span> Interpreting VIF<a href="int-prep.html#interpreting-vif" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>If VIF is close to 1, it suggests that the variable is not highly correlated with other independent variables, indicating no significant multicollinearity.</p></li>
 <li><p>If VIF is greater than 1 but less than a chosen threshold (e.g., 5 or 10), it suggests some correlation but not necessarily problematic multicollinearity.</p></li>
 <li><p>If VIF is significantly greater than the chosen threshold (e.g., 10), it indicates a high degree of multicollinearity, and you may need to consider removing or combining variables to address this issue.</p></li>
 </ul>
 </div>
-<div id="addressing-multicollinearity" class="section level3" number="10.6.3">
-<h3>
-<span class="header-section-number">10.6.3</span> Addressing Multicollinearity<a class="anchor" aria-label="anchor" href="#addressing-multicollinearity"><i class="fas fa-link"></i></a>
-</h3>
+<div id="addressing-multicollinearity" class="section level3 hasAnchor" number="10.6.3">
+<h3><span class="header-section-number">10.6.3</span> Addressing Multicollinearity<a href="int-prep.html#addressing-multicollinearity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you detect problematic multicollinearity with high VIF values, you can take several steps to address the issue:</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Remove one of the correlated variables:</strong> If two or more variables are highly correlated, removing one of them can often resolve the multicollinearity issue.</p></li>
@@ -246,88 +611,59 @@ Figure 10.1: The t.test vademecum
 <p>VIF analysis is a crucial step in assessing the quality of your linear regression model and ensuring the independence of your independent variables.</p>
 </div>
 </div>
-<div id="anova-analysis-of-variance" class="section level2" number="10.7">
-<h2>
-<span class="header-section-number">10.7</span> ANOVA (Analysis of Variance)<a class="anchor" aria-label="anchor" href="#anova-analysis-of-variance"><i class="fas fa-link"></i></a>
-</h2>
-<p>ANOVA, or Analysis of Variance, is a statistical technique used to analyze the differences among group means in a dataset. It is particularly useful when you want to compare the means of more than two groups. The <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code> function in R is commonly used to perform ANOVA.</p>
-<div id="performing-anova-with-aov" class="section level3" number="10.7.1">
-<h3>
-<span class="header-section-number">10.7.1</span> Performing ANOVA with <code>aov()</code><a class="anchor" aria-label="anchor" href="#performing-anova-with-aov"><i class="fas fa-link"></i></a>
-</h3>
-<p>To perform ANOVA using the <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code> function, you need to specify a formula that describes the relationship between the dependent variable and the grouping factor (categorical variable). The basic syntax is as follows:</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">anova_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">dependent_variable</span> <span class="op">~</span> <span class="va">grouping_factor</span>, data <span class="op">=</span> <span class="va">your_data</span><span class="op">)</span></span></code></pre></div>
+<div id="anova-analysis-of-variance" class="section level2 hasAnchor" number="10.7">
+<h2><span class="header-section-number">10.7</span> ANOVA (Analysis of Variance)<a href="int-prep.html#anova-analysis-of-variance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>ANOVA, or Analysis of Variance, is a statistical technique used to analyze the differences among group means in a dataset. It is particularly useful when you want to compare the means of more than two groups. The <code>aov()</code> function in R is commonly used to perform ANOVA.</p>
+<div id="performing-anova-with-aov" class="section level3 hasAnchor" number="10.7.1">
+<h3><span class="header-section-number">10.7.1</span> Performing ANOVA with <code>aov()</code><a href="int-prep.html#performing-anova-with-aov" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To perform ANOVA using the <code>aov()</code> function, you need to specify a formula that describes the relationship between the dependent variable and the grouping factor (categorical variable). The basic syntax is as follows:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="int-prep.html#cb33-1" tabindex="-1"></a>anova_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(dependent_variable <span class="sc">~</span> grouping_factor, <span class="at">data =</span> your_data)</span></code></pre></div>
 <ul>
-<li>
-<code>dependent_variable</code>: The continuous variable you want to analyze.</li>
-<li>
-<code>grouping_factor</code>: The categorical variable that defines the groups.</li>
-<li>
-<code>data</code>: The data frame containing your variables.</li>
+<li><code>dependent_variable</code>: The continuous variable you want to analyze.</li>
+<li><code>grouping_factor</code>: The categorical variable that defines the groups.</li>
+<li><code>data</code>: The data frame containing your variables.</li>
 </ul>
 </div>
-<div id="anova-tables" class="section level3" number="10.7.2">
-<h3>
-<span class="header-section-number">10.7.2</span> ANOVA Tables<a class="anchor" aria-label="anchor" href="#anova-tables"><i class="fas fa-link"></i></a>
-</h3>
-<p>Once you’ve created the ANOVA model, you can obtain an ANOVA table using the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function applied to the <code>aov</code> object:</p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">anova_model</span><span class="op">)</span></span></code></pre></div>
+<div id="anova-tables" class="section level3 hasAnchor" number="10.7.2">
+<h3><span class="header-section-number">10.7.2</span> ANOVA Tables<a href="int-prep.html#anova-tables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once you’ve created the ANOVA model, you can obtain an ANOVA table using the <code>summary()</code> function applied to the <code>aov</code> object:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="int-prep.html#cb34-1" tabindex="-1"></a><span class="fu">summary</span>(anova_model)</span></code></pre></div>
 <p>This table provides various statistics, including the sum of squares, degrees of freedom, F-statistic, and p-value, which allow you to assess the significance of differences among group means.</p>
 </div>
-<div id="interpreting-anova" class="section level3" number="10.7.3">
-<h3>
-<span class="header-section-number">10.7.3</span> Interpreting ANOVA<a class="anchor" aria-label="anchor" href="#interpreting-anova"><i class="fas fa-link"></i></a>
-</h3>
+<div id="interpreting-anova" class="section level3 hasAnchor" number="10.7.3">
+<h3><span class="header-section-number">10.7.3</span> Interpreting ANOVA<a href="int-prep.html#interpreting-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>The F-statistic in the ANOVA table tests whether there are significant differences among the group means. A small p-value (&lt; 0.05) suggests that there are significant differences.</p></li>
 <li><p>If the ANOVA is not statistically significant, it indicates that there are no significant differences among the group means.</p></li>
 </ul>
 </div>
-<div id="assumptions-of-anova" class="section level3" number="10.7.4">
-<h3>
-<span class="header-section-number">10.7.4</span> Assumptions of ANOVA<a class="anchor" aria-label="anchor" href="#assumptions-of-anova"><i class="fas fa-link"></i></a>
-</h3>
+<div id="assumptions-of-anova" class="section level3 hasAnchor" number="10.7.4">
+<h3><span class="header-section-number">10.7.4</span> Assumptions of ANOVA<a href="int-prep.html#assumptions-of-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>ANOVA assumes that the variances of the groups are equal (homogeneity of variances) and that the data are normally distributed. Violations of these assumptions may lead to inaccurate results. You can check the homogeneity of variances using tests like Levene’s test or Bartlett’s test and assess the normality of data using normal probability plots or statistical tests like the Shapiro-Wilk test.</p>
 </div>
 </div>
-<div id="logistic-regression-with-glm" class="section level2" number="10.8">
-<h2>
-<span class="header-section-number">10.8</span> Logistic Regression with <code>glm()</code><a class="anchor" aria-label="anchor" href="#logistic-regression-with-glm"><i class="fas fa-link"></i></a>
-</h2>
-<p>Logistic regression is a statistical technique used for modeling the relationship between a binary dependent variable (0/1, Yes/No, True/False) and one or more independent variables. The <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> function in R is commonly used to perform logistic regression.</p>
-<div id="performing-logistic-regression-with-glm" class="section level3" number="10.8.1">
-<h3>
-<span class="header-section-number">10.8.1</span> Performing Logistic Regression with <code>glm()</code><a class="anchor" aria-label="anchor" href="#performing-logistic-regression-with-glm"><i class="fas fa-link"></i></a>
-</h3>
-<p>To perform logistic regression using the <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> function, you need to specify a formula that describes the relationship between the binary dependent variable and the independent variables. The basic syntax is as follows:</p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">logistic_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">dependent_variable</span> <span class="op">~</span> <span class="va">independent_variable1</span> <span class="op">+</span> <span class="va">independent_variable2</span>, family <span class="op">=</span> <span class="st">"binomial"</span>, data <span class="op">=</span> <span class="va">your_data</span><span class="op">)</span></span></code></pre></div>
+<div id="logistic-regression-with-glm" class="section level2 hasAnchor" number="10.8">
+<h2><span class="header-section-number">10.8</span> Logistic Regression with <code>glm()</code><a href="int-prep.html#logistic-regression-with-glm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Logistic regression is a statistical technique used for modeling the relationship between a binary dependent variable (0/1, Yes/No, True/False) and one or more independent variables. The <code>glm()</code> function in R is commonly used to perform logistic regression.</p>
+<div id="performing-logistic-regression-with-glm" class="section level3 hasAnchor" number="10.8.1">
+<h3><span class="header-section-number">10.8.1</span> Performing Logistic Regression with <code>glm()</code><a href="int-prep.html#performing-logistic-regression-with-glm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To perform logistic regression using the <code>glm()</code> function, you need to specify a formula that describes the relationship between the binary dependent variable and the independent variables. The basic syntax is as follows:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="int-prep.html#cb35-1" tabindex="-1"></a>logistic_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">formula =</span> dependent_variable <span class="sc">~</span> independent_variable1 <span class="sc">+</span> independent_variable2, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>, <span class="at">data =</span> your_data)</span></code></pre></div>
 <ul>
-<li>
-<code>dependent_variable</code>: The binary dependent variable you want to model.</li>
-<li>
-<code>independent_variable1</code>, <code>independent_variable2</code>, etc.: The independent variables that influence the probability of the binary outcome.</li>
-<li>
-<code>family</code>: Specify the family argument as <code>binomial</code> to indicate logistic regression.</li>
-<li>
-<code>data</code>: The data frame containing your variables.</li>
+<li><code>dependent_variable</code>: The binary dependent variable you want to model.</li>
+<li><code>independent_variable1</code>, <code>independent_variable2</code>, etc.: The independent variables that influence the probability of the binary outcome.</li>
+<li><code>family</code>: Specify the family argument as <code>binomial</code> to indicate logistic regression.</li>
+<li><code>data</code>: The data frame containing your variables.</li>
 </ul>
 </div>
-<div id="model-summary" class="section level3" number="10.8.2">
-<h3>
-<span class="header-section-number">10.8.2</span> Model Summary<a class="anchor" aria-label="anchor" href="#model-summary"><i class="fas fa-link"></i></a>
-</h3>
-<p>After creating the logistic regression model, you can obtain a summary of the model’s coefficients, standard errors, z-values, and p-values using the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function applied to the <code>glm</code> object:</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">logistic_model</span><span class="op">)</span></span></code></pre></div>
+<div id="model-summary" class="section level3 hasAnchor" number="10.8.2">
+<h3><span class="header-section-number">10.8.2</span> Model Summary<a href="int-prep.html#model-summary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>After creating the logistic regression model, you can obtain a summary of the model’s coefficients, standard errors, z-values, and p-values using the <code>summary()</code> function applied to the <code>glm</code> object:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="int-prep.html#cb36-1" tabindex="-1"></a><span class="fu">summary</span>(logistic_model)</span></code></pre></div>
 <p>This summary provides valuable information about the influence of the independent variables on the log-odds of the binary outcome.</p>
 </div>
-<div id="interpreting-logistic-regression" class="section level3" number="10.8.3">
-<h3>
-<span class="header-section-number">10.8.3</span> Interpreting Logistic Regression<a class="anchor" aria-label="anchor" href="#interpreting-logistic-regression"><i class="fas fa-link"></i></a>
-</h3>
+<div id="interpreting-logistic-regression" class="section level3 hasAnchor" number="10.8.3">
+<h3><span class="header-section-number">10.8.3</span> Interpreting Logistic Regression<a href="int-prep.html#interpreting-logistic-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>The coefficients in the summary indicate the direction and strength of the relationship between the independent variables and the log-odds of the binary outcome.</p></li>
 <li><p>Positive coefficients suggest an increase in the log-odds, while negative coefficients suggest a decrease.</p></li>
@@ -336,55 +672,37 @@ Figure 10.1: The t.test vademecum
 <li><p>The null hypothesis in logistic regression is that there is no relationship between the independent variable and the binary outcome.</p></li>
 </ul>
 </div>
-<div id="model-evaluation" class="section level3" number="10.8.4">
-<h3>
-<span class="header-section-number">10.8.4</span> Model Evaluation<a class="anchor" aria-label="anchor" href="#model-evaluation"><i class="fas fa-link"></i></a>
-</h3>
+<div id="model-evaluation" class="section level3 hasAnchor" number="10.8.4">
+<h3><span class="header-section-number">10.8.4</span> Model Evaluation<a href="int-prep.html#model-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To evaluate the performance of your logistic regression model, you can assess its accuracy, sensitivity, specificity, and other metrics using techniques like cross-validation and ROC analysis. You can also plot the ROC curve and calculate the AUC (Area Under the Curve) to assess the model’s predictive power.</p>
 </div>
-<div id="assumptions-of-logistic-regression" class="section level3" number="10.8.5">
-<h3>
-<span class="header-section-number">10.8.5</span> Assumptions of Logistic Regression<a class="anchor" aria-label="anchor" href="#assumptions-of-logistic-regression"><i class="fas fa-link"></i></a>
-</h3>
+<div id="assumptions-of-logistic-regression" class="section level3 hasAnchor" number="10.8.5">
+<h3><span class="header-section-number">10.8.5</span> Assumptions of Logistic Regression<a href="int-prep.html#assumptions-of-logistic-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Logistic regression assumes that the log-odds of the binary outcome are a linear combination of the independent variables. It is important to check for violations of this assumption, which can be done through residual analysis.</p>
 </div>
 </div>
-<div id="poisson-regression-with-glm" class="section level2" number="10.9">
-<h2>
-<span class="header-section-number">10.9</span> Poisson Regression with <code>glm()</code><a class="anchor" aria-label="anchor" href="#poisson-regression-with-glm"><i class="fas fa-link"></i></a>
-</h2>
-<p>Poisson regression is a statistical technique used to model the relationship between a count-dependent variable (typically non-negative integers) and one or more independent variables. The <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> function in R is commonly used to perform Poisson regression.</p>
-<div id="performing-poisson-regression-with-glm" class="section level3" number="10.9.1">
-<h3>
-<span class="header-section-number">10.9.1</span> Performing Poisson Regression with <code>glm()</code><a class="anchor" aria-label="anchor" href="#performing-poisson-regression-with-glm"><i class="fas fa-link"></i></a>
-</h3>
-<p>To perform Poisson regression using the <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> function, you need to specify a formula that describes the relationship between the count-dependent variable and the independent variables. The basic syntax is as follows:</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">poisson_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">count_dependent_variable</span> <span class="op">~</span> <span class="va">independent_variable1</span> <span class="op">+</span> <span class="va">independent_variable2</span>, family <span class="op">=</span> <span class="st">"poisson"</span>, data <span class="op">=</span> <span class="va">your_data</span><span class="op">)</span></span></code></pre></div>
+<div id="poisson-regression-with-glm" class="section level2 hasAnchor" number="10.9">
+<h2><span class="header-section-number">10.9</span> Poisson Regression with <code>glm()</code><a href="int-prep.html#poisson-regression-with-glm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Poisson regression is a statistical technique used to model the relationship between a count-dependent variable (typically non-negative integers) and one or more independent variables. The <code>glm()</code> function in R is commonly used to perform Poisson regression.</p>
+<div id="performing-poisson-regression-with-glm" class="section level3 hasAnchor" number="10.9.1">
+<h3><span class="header-section-number">10.9.1</span> Performing Poisson Regression with <code>glm()</code><a href="int-prep.html#performing-poisson-regression-with-glm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To perform Poisson regression using the <code>glm()</code> function, you need to specify a formula that describes the relationship between the count-dependent variable and the independent variables. The basic syntax is as follows:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="int-prep.html#cb37-1" tabindex="-1"></a>poisson_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">formula =</span> count_dependent_variable <span class="sc">~</span> independent_variable1 <span class="sc">+</span> independent_variable2, <span class="at">family =</span> <span class="st">&quot;poisson&quot;</span>, <span class="at">data =</span> your_data)</span></code></pre></div>
 <ul>
-<li>
-<code>count_dependent_variable</code>: The count-dependent variable you want to model.</li>
-<li>
-<code>independent_variable1</code>, <code>independent_variable2</code>, etc.: The independent variables that influence the count-dependent variable.</li>
-<li>
-<code>family</code>: Specify the family argument as <code>poisson</code> to indicate Poisson regression.</li>
-<li>
-<code>data</code>: The data frame containing your variables.</li>
+<li><code>count_dependent_variable</code>: The count-dependent variable you want to model.</li>
+<li><code>independent_variable1</code>, <code>independent_variable2</code>, etc.: The independent variables that influence the count-dependent variable.</li>
+<li><code>family</code>: Specify the family argument as <code>poisson</code> to indicate Poisson regression.</li>
+<li><code>data</code>: The data frame containing your variables.</li>
 </ul>
 </div>
-<div id="model-summary-1" class="section level3" number="10.9.2">
-<h3>
-<span class="header-section-number">10.9.2</span> Model Summary<a class="anchor" aria-label="anchor" href="#model-summary-1"><i class="fas fa-link"></i></a>
-</h3>
-<p>After creating the Poisson regression model, you can obtain a summary of the model’s coefficients, standard errors, z-values, and p-values using the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function applied to the <code>glm</code> object:</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">poisson_model</span><span class="op">)</span></span></code></pre></div>
+<div id="model-summary-1" class="section level3 hasAnchor" number="10.9.2">
+<h3><span class="header-section-number">10.9.2</span> Model Summary<a href="int-prep.html#model-summary-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>After creating the Poisson regression model, you can obtain a summary of the model’s coefficients, standard errors, z-values, and p-values using the <code>summary()</code> function applied to the <code>glm</code> object:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="int-prep.html#cb38-1" tabindex="-1"></a><span class="fu">summary</span>(poisson_model)</span></code></pre></div>
 <p>This summary provides information about the influence of the independent variables on the expected count of the dependent variable.</p>
 </div>
-<div id="interpreting-poisson-regression" class="section level3" number="10.9.3">
-<h3>
-<span class="header-section-number">10.9.3</span> Interpreting Poisson Regression<a class="anchor" aria-label="anchor" href="#interpreting-poisson-regression"><i class="fas fa-link"></i></a>
-</h3>
+<div id="interpreting-poisson-regression" class="section level3 hasAnchor" number="10.9.3">
+<h3><span class="header-section-number">10.9.3</span> Interpreting Poisson Regression<a href="int-prep.html#interpreting-poisson-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>The coefficients in the summary indicate the direction and strength of the relationship between the independent variables and the expected count of the dependent variable.</p></li>
 <li><p>Positive coefficients suggest an increase in the expected count, while negative coefficients suggest a decrease.</p></li>
@@ -394,10 +712,8 @@ Figure 10.1: The t.test vademecum
 </ul>
 </div>
 </div>
-<div id="class-exercises-do-it-in-groups" class="section level2" number="10.10">
-<h2>
-<span class="header-section-number">10.10</span> class exercises, do it in groups 👯<a class="anchor" aria-label="anchor" href="#class-exercises-do-it-in-groups"><i class="fas fa-link"></i></a>
-</h2>
+<div id="class-exercises-do-it-in-groups" class="section level2 hasAnchor" number="10.10">
+<h2><span class="header-section-number">10.10</span> class exercises, do it in groups 👯<a href="int-prep.html#class-exercises-do-it-in-groups" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>first guided,</p>
 <div class="exercise">
 <p><span id="exr:ttest1" class="exercise"><strong>Exercise 10.1  </strong></span>A state Highway Patrol periodically samples vehicle at various location on a
@@ -407,7 +723,7 @@ for which the mean is less than equal to <strong>65</strong></p>
 At location F, a sample of <strong>64</strong> vehicles shows a mean speed of <strong>66.2 mph</strong> with a std
 dev of <strong>4.2 mph</strong>. Use a <span class="math inline">\(\alpha  = 0.05\)</span> to test the hypothesis.</p>
 </div>
-<hr>
+<hr />
 <div class="exercise">
 <p><span id="exr:ttest6" class="exercise"><strong>Exercise 10.2  </strong></span>Let’s assume to have dataset <code>midwest</code> in <code>ggplot2</code> package: this contains demographic information of midwest counties from 2000 US census.
 Besides all the other variables we are interested in <code>percollege</code> which describes the Percent college educated in midwest.</p>
@@ -415,7 +731,7 @@ Besides all the other variables we are interested in <code>percollege</code> whi
 <li>test if the midwest average is less than the national average (i.e. *<strong>35%</strong>) with a p-value &lt; .02.</li>
 </ol>
 </div>
-<hr>
+<hr />
 <div class="exercise">
 <p><span id="exr:ttest2" class="exercise"><strong>Exercise 10.3  </strong></span>Download the datafile ‘prawnGR.CSV’ from the <a href="https://alexd106.github.io/intro2R/data.html">Data link</a> and save it to the data directory (Remember R projects and working directory). Import these data into R and assign to a variable with an appropriate name. These data were collected from an experiment to investigate the difference in growth rate of the <strong>giant tiger prawn</strong> (Penaeus monodon) fed either an artificial or natural diet.</p>
 <ol style="list-style-type: decimal">
@@ -426,20 +742,20 @@ Besides all the other variables we are interested in <code>percollege</code> whi
 <li>Conduct a two sample t-test using the t.test() using the argument <code>var.equal = TRUE</code> to perform the t-test assuming equal variances. What is the null hypothesis you want to test? Do you reject or fail to reject the null hypothesis? What is the value of the t statistic, degrees of freedom and p value? How would you summarise these summary statistics in a report?</li>
 </ol>
 </div>
-<hr>
+<hr />
 <div class="exercise">
 <p><span id="exr:ttest3" class="exercise"><strong>Exercise 10.4  </strong></span>A new coach has been hired at an athletics school, and the effectiveness of the new type of training will be evaluated by comparing the average times of 10 centimeters. The times in seconds before and after each athlete’s competition are repeated.ù</p>
 <pre><code>before_training: =  c(12.9, 13.5, 12.8, 15.6, 17.2, 19.2, 12.6, 15.3, 14.4, 11.3)
 after_training = c( 12.7, 13.6, 12.0, 15.2, 16.8, 20.0, 12.0, 15.9, 16.0, 11.1)</code></pre>
 <p>We are up against two groups of trained competitors, as measurements were taken on the same athletes before and after the competition. To determine if there has been an improvement, a deterioration, or if the time averages have remained essentially constant (i.e., H0). Conduct a test t of student for paired changes if the difference significant to a 95% confidence level?</p>
 </div>
-<hr>
+<hr />
 <div class="exercise">
 <p><span id="exr:ttest4" class="exercise"><strong>Exercise 10.5  </strong></span>Following exercise 4 Assume that the club management, based on the statistics, fires this coach who has not improved and hires another more promising coach. Following the second training session, we record the athletes’ times:</p>
 <pre><code>before training: 12.9, 13.5, 12.8, 15.6, 17.2, 19.2, 12.6, 15.3, 14.4, 11.3
 after training: 12.0, 12.2, 11.2, 13.0, 15.0, 15.8, 12.2, 13.4, 12.9, 11.0</code></pre>
 </div>
-<hr>
+<hr />
 <div class="exercise">
 <p><span id="exr:ttest5" class="exercise"><strong>Exercise 10.6  </strong></span>Let’s assume <code>genderweight</code> in <code>datarium</code> package, containing the weight of 40 individuals (20 women and 20 men).</p>
 <ol style="list-style-type: decimal">
@@ -452,11 +768,11 @@ after training: 12.0, 12.2, 11.2, 13.0, 15.0, 15.8, 12.2, 13.4, 12.9, 11.0</code
 <pre><code>x&lt;-c(12,23,12,13,14,21,23,24,30,21,12,13,14,15,16)
 
 z&lt;-c(1,1,1,1,1,2,2,2,2,2,3,3,3,3,3)</code></pre>
-<p>perform anova test with <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code> function testing if there is significant differences between group <strong>1</strong>, <strong>2</strong> and <strong>3</strong>.</p>
+<p>perform anova test with <code>aov()</code> function testing if there is significant differences between group <strong>1</strong>, <strong>2</strong> and <strong>3</strong>.</p>
 </div>
-<p>You specify the formula, where <code>x</code> is the continous variable and <code>y</code> is the group variable.
+<p>You specify the formula, where <code>x</code> is the continous variable and <code>z</code> is the group variable.
 This is how you solve it.</p>
-<hr>
+<hr />
 <div class="exercise">
 <p><span id="exr:anova2" class="exercise"><strong>Exercise 10.8  </strong></span>Assume you have a dataset named <code>PlantGrowth</code> with variables <code>weight</code> (dependent variable) and <code>group</code> (categorical independent variable).</p>
 <ol style="list-style-type: decimal">
@@ -464,42 +780,42 @@ This is how you solve it.</p>
 <li>Check the p-value and determine whether there are significant differences among the group means.</li>
 </ol>
 </div>
-<hr>
+<hr />
 <div class="exercise">
 <p><span id="exr:anova3" class="exercise"><strong>Exercise 10.9  </strong></span>We recruit 90 people to participate in an experiment in which we randomly assign 30 people to follow either program A, program B, or program C for one month.</p>
 <pre><code>#make this example reproducible
 set.seed(0)
 
 #create data frame
-data &lt;- data.frame(program = rep(c("A", "B", "C"), each = 30),
+data &lt;- data.frame(program = rep(c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;), each = 30),
                    weight_loss = c(runif(30, 0, 3),
                                    runif(30, 0, 5),
                                    runif(30, 1, 7)))
                                    </code></pre>
 <ol style="list-style-type: decimal">
-<li>plot boxplot of weight_loss ~ program Hint: use <code><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot()</a></code> function specifying the formula.</li>
+<li>plot boxplot of weight_loss ~ program Hint: use <code>boxplot()</code> function specifying the formula.</li>
 <li>fit 1 way anova to test difference in weight loss for each program.</li>
 </ol>
 </div>
-<hr>
+<hr />
 <div class="exercise">
 <p><span id="exr:anova4" class="exercise"><strong>Exercise 10.10  </strong></span>Consider the maximum size of 4 fish each from 3 populations (n=12). We want to use a model that will help us examine the question of whether the mean maximum fish size differs among populations.</p>
 <pre><code>size &lt;- c(3,4,5,6,4,5,6,7,7,8,9,10)
-pop &lt;- c("A","A","A","A","B","B","B","B","C","C","C","C")</code></pre>
+pop &lt;- c(&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;,&quot;C&quot;,&quot;C&quot;,&quot;C&quot;,&quot;C&quot;)</code></pre>
 <ol style="list-style-type: decimal">
 <li>visualize it through boxplot</li>
 <li>Using ANOVA model test whether any group means differ from another.</li>
 </ol>
 </div>
-<hr>
+<hr />
 <div class="exercise">
 <p><span id="exr:anova5" class="exercise"><strong>Exercise 10.11  </strong></span>Let’s consider 6 different insect sprays in <code>InsectSprays</code> contained in R. Let’s assume we are interested in testing if there was a difference in the number of insects found in the field after each spraying, use varibales <code>count</code> and <code>spray</code>.</p>
 </div>
-<hr>
+<hr />
 <div class="exercise">
 <p><span id="exr:anova6" class="exercise"><strong>Exercise 10.12  </strong></span>Let’s consider the <code>diet</code> dataset in <a href="https://www.kaggle.com/code/evitaginiyatullina/one-way-anova-comparison/data">this link here</a> The data set contains information on 76 people who undertook one of three diets (referred to as diet A, B and C). There is background information such as age, gender, and height. The aim of the study was to see which diet was best for losing weight.</p>
 <p>to read data first dowload it from the link, then move data inside your R project. then run these commands:</p>
-<pre><code>diet = read.csv("&lt; the dataset name&gt;.csv")</code></pre>
+<pre><code>diet = read.csv(&quot;&lt; the dataset name&gt;.csv&quot;)</code></pre>
 <p>We will be using variable <code>Diet</code>, <code>pre.weight</code> and <code>weight6weeks</code></p>
 <ol style="list-style-type: decimal">
 <li>read data from kaggle</li>
@@ -507,7 +823,7 @@ pop &lt;- c("A","A","A","A","B","B","B","B","C","C","C","C")</code></pre>
 <li>calculate anova on Diet against the weight cut</li>
 </ol>
 </div>
-<hr>
+<hr />
 <div class="exercise">
 <p><span id="exr:lr1" class="exercise"><strong>Exercise 10.13  </strong></span>Use the built-in <code>mtcars</code> dataset with variables mpg (miles per gallon) and vs (engine type: 0 = V-shaped, 1 = straight).</p>
 <ul>
@@ -515,7 +831,7 @@ pop &lt;- c("A","A","A","A","B","B","B","B","C","C","C","C")</code></pre>
 <li>Interpret the coefficients of the logistic regression model.</li>
 </ul>
 </div>
-<hr>
+<hr />
 <div class="exercise">
 <p><span id="exr:pr1" class="exercise"><strong>Exercise 10.14  </strong></span>Use the built-in <code>mtcars</code> dataset with variables <code>mpg</code> (miles per gallon) and <code>gear</code> (number of forward gears).</p>
 <ul>
@@ -523,18 +839,16 @@ pop &lt;- c("A","A","A","A","B","B","B","B","C","C","C","C")</code></pre>
 <li>Interpret the coefficients of the Poisson regression model.</li>
 </ul>
 </div>
-<hr>
+<hr />
 </div>
-<div id="solutions" class="section level2" number="10.11">
-<h2>
-<span class="header-section-number">10.11</span> solutions<a class="anchor" aria-label="anchor" href="#solutions"><i class="fas fa-link"></i></a>
-</h2>
+<div id="solutions" class="section level2 hasAnchor" number="10.11">
+<h2><span class="header-section-number">10.11</span> solutions<a href="int-prep.html#solutions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="answer">
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:ttest1">10.1</a></strong>:</p>
 <p>Sample random data from a Normal distribution with a given mean and sd.
 Then define <strong>H0</strong> and <strong>H1</strong>. In the end run hte test.</p>
 <pre><code>x &lt;- rnorm(n = 64, mean = 66.2, sd = 4.2)
-test&lt;-t.test(x, mu = 65, alternative = "less")
+test&lt;-t.test(x, mu = 65, alternative = &quot;less&quot;)
 
 
 t = 1.469, df = 63, p-value = 0.9266
@@ -553,8 +867,9 @@ t(63) = 1.47, p = <strong>0.927</strong></p>
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:anova1">10.7</a></strong>:</p>
 <pre><code>x &lt;- c(12,23,12,13,14,21,23,24,30,21,12,13,14,15,16) 
 z &lt;- c(1,1,1,1,1,2,2,2,2,2,3,3,3,3,3)
-anova &lt;- aov( x ~ z ) 
-summary(anova)
+z &lt;- as.factor(z)
+anova_test &lt;- aov(x ~ z) 
+summary(anova_test)
 
         Df Sum Sq Mean Sq F value Pr(&gt;F)
 z            1    1.6    1.60   0.047  **0.832**
@@ -591,75 +906,68 @@ summary(anova_model)</code></pre>
 <pre><code>summary(poisson_model)</code></pre>
 </div>
 </div>
-<div id="tips" class="section level2" number="10.12">
-<h2>
-<span class="header-section-number">10.12</span> 🍬 tips and tricks<a class="anchor" aria-label="anchor" href="#tips"><i class="fas fa-link"></i></a>
-</h2>
+<div id="tips" class="section level2 hasAnchor" number="10.12">
+<h2><span class="header-section-number">10.12</span> 🍬 tips and tricks<a href="int-prep.html#tips" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Yout might be interested in standardizing/fornalize how you say things with a statistical jargon, <code>report</code> does that for you.
-you simply pass the test, wether it is ANOVA or t.test object inside report <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code>. Do you rememer the function <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> we have been using for linear regression? This is exactly that, but for both ANOVA and t tests.</p>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
-<span><span class="co"># remotes::install_github("easystats/report")</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/report/">report</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">64</span>, mean <span class="op">=</span> <span class="fl">66.2</span>, sd <span class="op">=</span> <span class="fl">4.2</span><span class="op">)</span></span>
-<span><span class="va">test</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">x</span>, mu <span class="op">=</span> <span class="fl">65</span>, alternative <span class="op">=</span> <span class="st">"less"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">test</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Effect sizes were labelled following Cohen's (1988)</span></span>
-<span><span class="co">#&gt; recommendations.</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The One Sample t-test testing the difference between x</span></span>
-<span><span class="co">#&gt; (mean = 65.71) and mu = 65 suggests that the effect is</span></span>
-<span><span class="co">#&gt; positive, statistically not significant, and very small</span></span>
-<span><span class="co">#&gt; (difference = 0.71, 95% CI [-Inf, 66.58], t(63) = 1.38, p =</span></span>
-<span><span class="co">#&gt; 0.914; Cohen's d = 0.17, 95% CI [-Inf, 0.38])</span></span></code></pre></div>
-<hr>
-<p>when you have data in <code>longer</code> fromat there a different in syntax when you specify t test and it pretty much follows the one for linear models i.e. <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>.
+you simply pass the test, wether it is ANOVA or t.test object inside report <code>report()</code>. Do you rememer the function <code>summary()</code> we have been using for linear regression? This is exactly that, but for both ANOVA and t tests.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="int-prep.html#cb55-1" tabindex="-1"></a><span class="co"># install.packages(&quot;remotes&quot;)</span></span>
+<span id="cb55-2"><a href="int-prep.html#cb55-2" tabindex="-1"></a><span class="co"># remotes::install_github(&quot;easystats/report&quot;)</span></span>
+<span id="cb55-3"><a href="int-prep.html#cb55-3" tabindex="-1"></a><span class="fu">library</span>(report)</span>
+<span id="cb55-4"><a href="int-prep.html#cb55-4" tabindex="-1"></a></span>
+<span id="cb55-5"><a href="int-prep.html#cb55-5" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">64</span>, <span class="at">mean =</span> <span class="fl">66.2</span>, <span class="at">sd =</span> <span class="fl">4.2</span>)</span>
+<span id="cb55-6"><a href="int-prep.html#cb55-6" tabindex="-1"></a>test<span class="ot">&lt;-</span><span class="fu">t.test</span>(x, <span class="at">mu =</span> <span class="dv">65</span>, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>)</span>
+<span id="cb55-7"><a href="int-prep.html#cb55-7" tabindex="-1"></a><span class="fu">report</span>(test)</span>
+<span id="cb55-8"><a href="int-prep.html#cb55-8" tabindex="-1"></a><span class="co">#&gt; Effect sizes were labelled following Cohen&#39;s (1988)</span></span>
+<span id="cb55-9"><a href="int-prep.html#cb55-9" tabindex="-1"></a><span class="co">#&gt; recommendations.</span></span>
+<span id="cb55-10"><a href="int-prep.html#cb55-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb55-11"><a href="int-prep.html#cb55-11" tabindex="-1"></a><span class="co">#&gt; The One Sample t-test testing the difference between x</span></span>
+<span id="cb55-12"><a href="int-prep.html#cb55-12" tabindex="-1"></a><span class="co">#&gt; (mean = 66.58) and mu = 65 suggests that the effect is</span></span>
+<span id="cb55-13"><a href="int-prep.html#cb55-13" tabindex="-1"></a><span class="co">#&gt; positive, statistically not significant, and small</span></span>
+<span id="cb55-14"><a href="int-prep.html#cb55-14" tabindex="-1"></a><span class="co">#&gt; (difference = 1.58, 95% CI [-Inf, 67.41], t(63) = 3.18, p =</span></span>
+<span id="cb55-15"><a href="int-prep.html#cb55-15" tabindex="-1"></a><span class="co">#&gt; 0.999; Cohen&#39;s d = 0.40, 95% CI [-Inf, 0.61])</span></span></code></pre></div>
+<hr />
+<p>when you have data in <code>longer</code> fromat there a different in syntax when you specify t test and it pretty much follows the one for linear models i.e. <code>lm()</code>.
 let’s look at it.</p>
 <p>we may have something like:</p>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span></span>
-<span><span class="va">longer</span> <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span> </span>
-<span>  <span class="op">~</span><span class="va">group</span>, <span class="op">~</span><span class="va">var</span>,</span>
-<span>  <span class="st">"a"</span>,   <span class="fl">10</span>,</span>
-<span>  <span class="st">"b"</span>,   <span class="fl">24</span>, </span>
-<span>  <span class="st">"a"</span>,   <span class="fl">31</span>,</span>
-<span>  <span class="st">"a"</span>,   <span class="fl">75</span>,</span>
-<span>  <span class="st">"b"</span>,   <span class="fl">26</span>,</span>
-<span>  <span class="st">"a"</span>,   <span class="fl">8</span>,</span>
-<span>  <span class="st">"b"</span>,   <span class="fl">98</span>,</span>
-<span>  <span class="st">"b"</span>,   <span class="fl">62</span>,</span>
-<span>  <span class="op">)</span></span>
-<span><span class="va">wider</span> <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html">tribble</a></span><span class="op">(</span> </span>
-<span>  <span class="op">~</span><span class="va">group_a</span>, <span class="op">~</span><span class="va">group_b</span>,</span>
-<span>   <span class="fl">10</span>,       <span class="fl">24</span>,</span>
-<span>   <span class="fl">31</span>,       <span class="fl">26</span>,</span>
-<span>   <span class="fl">75</span>,       <span class="fl">98</span>,</span>
-<span>   <span class="fl">8</span>,        <span class="fl">62</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<p>Those are exaclty the same dataset but arranged in a different format. We are used to the <em>wider</em> format but iut might happen that we bump into the <em>longer</em> one. What do we do? There’sa trick for that, let’s say you want to test if the mean are statistically different with a 95% confidence level, the instead of supplying <code>x</code> and <code>y</code> to <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> you would follow pretty much the syntax for linear models <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>:</p>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="va">test_for_wider_format</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">var</span><span class="op">~</span><span class="va">group</span>, data <span class="op">=</span>  <span class="va">longer</span><span class="op">)</span></span>
-<span><span class="va">test_for_wider_format</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Welch Two Sample t-test</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; data:  var by group</span></span>
-<span><span class="co">#&gt; t = -0.91809, df = 5.9192, p-value = 0.3944</span></span>
-<span><span class="co">#&gt; alternative hypothesis: true difference in means between group a and group b is not equal to 0</span></span>
-<span><span class="co">#&gt; 95 percent confidence interval:</span></span>
-<span><span class="co">#&gt;  -78.99271  35.99271</span></span>
-<span><span class="co">#&gt; sample estimates:</span></span>
-<span><span class="co">#&gt; mean in group a mean in group b </span></span>
-<span><span class="co">#&gt;            31.0            52.5</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="int-prep.html#cb56-1" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb56-2"><a href="int-prep.html#cb56-2" tabindex="-1"></a>longer <span class="ot">=</span> <span class="fu">tribble</span>( </span>
+<span id="cb56-3"><a href="int-prep.html#cb56-3" tabindex="-1"></a>  <span class="sc">~</span>group, <span class="sc">~</span>var,</span>
+<span id="cb56-4"><a href="int-prep.html#cb56-4" tabindex="-1"></a>  <span class="st">&quot;a&quot;</span>,   <span class="dv">10</span>,</span>
+<span id="cb56-5"><a href="int-prep.html#cb56-5" tabindex="-1"></a>  <span class="st">&quot;b&quot;</span>,   <span class="dv">24</span>, </span>
+<span id="cb56-6"><a href="int-prep.html#cb56-6" tabindex="-1"></a>  <span class="st">&quot;a&quot;</span>,   <span class="dv">31</span>,</span>
+<span id="cb56-7"><a href="int-prep.html#cb56-7" tabindex="-1"></a>  <span class="st">&quot;a&quot;</span>,   <span class="dv">75</span>,</span>
+<span id="cb56-8"><a href="int-prep.html#cb56-8" tabindex="-1"></a>  <span class="st">&quot;b&quot;</span>,   <span class="dv">26</span>,</span>
+<span id="cb56-9"><a href="int-prep.html#cb56-9" tabindex="-1"></a>  <span class="st">&quot;a&quot;</span>,   <span class="dv">8</span>,</span>
+<span id="cb56-10"><a href="int-prep.html#cb56-10" tabindex="-1"></a>  <span class="st">&quot;b&quot;</span>,   <span class="dv">98</span>,</span>
+<span id="cb56-11"><a href="int-prep.html#cb56-11" tabindex="-1"></a>  <span class="st">&quot;b&quot;</span>,   <span class="dv">62</span>,</span>
+<span id="cb56-12"><a href="int-prep.html#cb56-12" tabindex="-1"></a>  )</span>
+<span id="cb56-13"><a href="int-prep.html#cb56-13" tabindex="-1"></a>wider <span class="ot">=</span> <span class="fu">tribble</span>( </span>
+<span id="cb56-14"><a href="int-prep.html#cb56-14" tabindex="-1"></a>  <span class="sc">~</span>group_a, <span class="sc">~</span>group_b,</span>
+<span id="cb56-15"><a href="int-prep.html#cb56-15" tabindex="-1"></a>   <span class="dv">10</span>,       <span class="dv">24</span>,</span>
+<span id="cb56-16"><a href="int-prep.html#cb56-16" tabindex="-1"></a>   <span class="dv">31</span>,       <span class="dv">26</span>,</span>
+<span id="cb56-17"><a href="int-prep.html#cb56-17" tabindex="-1"></a>   <span class="dv">75</span>,       <span class="dv">98</span>,</span>
+<span id="cb56-18"><a href="int-prep.html#cb56-18" tabindex="-1"></a>   <span class="dv">8</span>,        <span class="dv">62</span></span>
+<span id="cb56-19"><a href="int-prep.html#cb56-19" tabindex="-1"></a>  )</span></code></pre></div>
+<p>Those are exaclty the same dataset but arranged in a different format. We are used to the <em>wider</em> format but iut might happen that we bump into the <em>longer</em> one. What do we do? There’sa trick for that, let’s say you want to test if the mean are statistically different with a 95% confidence level, the instead of supplying <code>x</code> and <code>y</code> to <code>t.test()</code> you would follow pretty much the syntax for linear models <code>lm()</code>:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="int-prep.html#cb57-1" tabindex="-1"></a></span>
+<span id="cb57-2"><a href="int-prep.html#cb57-2" tabindex="-1"></a>test_for_wider_format <span class="ot">=</span> <span class="fu">t.test</span>(var<span class="sc">~</span>group, <span class="at">data =</span>  longer)</span>
+<span id="cb57-3"><a href="int-prep.html#cb57-3" tabindex="-1"></a>test_for_wider_format</span>
+<span id="cb57-4"><a href="int-prep.html#cb57-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb57-5"><a href="int-prep.html#cb57-5" tabindex="-1"></a><span class="co">#&gt;  Welch Two Sample t-test</span></span>
+<span id="cb57-6"><a href="int-prep.html#cb57-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb57-7"><a href="int-prep.html#cb57-7" tabindex="-1"></a><span class="co">#&gt; data:  var by group</span></span>
+<span id="cb57-8"><a href="int-prep.html#cb57-8" tabindex="-1"></a><span class="co">#&gt; t = -0.91809, df = 5.9192, p-value = 0.3944</span></span>
+<span id="cb57-9"><a href="int-prep.html#cb57-9" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true difference in means between group a and group b is not equal to 0</span></span>
+<span id="cb57-10"><a href="int-prep.html#cb57-10" tabindex="-1"></a><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span id="cb57-11"><a href="int-prep.html#cb57-11" tabindex="-1"></a><span class="co">#&gt;  -78.99271  35.99271</span></span>
+<span id="cb57-12"><a href="int-prep.html#cb57-12" tabindex="-1"></a><span class="co">#&gt; sample estimates:</span></span>
+<span id="cb57-13"><a href="int-prep.html#cb57-13" tabindex="-1"></a><span class="co">#&gt; mean in group a mean in group b </span></span>
+<span id="cb57-14"><a href="int-prep.html#cb57-14" tabindex="-1"></a><span class="co">#&gt;            31.0            52.5</span></span></code></pre></div>
 <p>what we conclude? we conclude that: Effect sizes were labelled following Cohen’s (1988) recommendations.</p>
 <p>The Welch Two Sample t-test testing the difference of var by group (mean in group a = 31.00, mean in group b = 52.50) suggests that the effect is negative, statistically not significant, and medium (difference = -21.50, 95% CI [-78.99, 35.99], t(5.92) = -0.92, p = 0.394; Cohen’s d = -0.75, 95% CI [-2.39, 0.94])</p>
 </div>
-<div id="further-exercies" class="section level2" number="10.13">
-<h2>
-<span class="header-section-number">10.13</span> further exercies 🏋️<a class="anchor" aria-label="anchor" href="#further-exercies"><i class="fas fa-link"></i></a>
-</h2>
+<div id="further-exercies" class="section level2 hasAnchor" number="10.13">
+<h2><span class="header-section-number">10.13</span> further exercies 🏋️<a href="int-prep.html#further-exercies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="exercise">
 <p><span id="exr:paired1" class="exercise"><strong>Exercise 10.15  </strong></span>We have the test scores of students before and after an intervention. How can we assess if the intervention had a statistically significant effect on the scores? Specify the type of test to use and the assumptions involved.</p>
 </div>
@@ -729,12 +1037,12 @@ let’s look at it.</p>
 set.seed(0)
 
 #create data frame
-data &lt;- data.frame(program = rep(c("A", "B", "C"), each = 30),
+data &lt;- data.frame(program = rep(c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;), each = 30),
                    weight_loss = c(runif(30, 0, 3),
                                    runif(30, 0, 5),
                                    runif(30, 1, 7)))</code></pre>
 <ol style="list-style-type: decimal">
-<li>plot boxplot of weight_loss ~ program Hint: use <code><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot()</a></code> function specifying the formula.</li>
+<li>plot boxplot of weight_loss ~ program Hint: use <code>boxplot()</code> function specifying the formula.</li>
 <li>fit 1 way anova to test difference in weight loss for each program.</li>
 </ol>
 </div>
@@ -745,8 +1053,8 @@ data &lt;- data.frame(program = rep(c("A", "B", "C"), each = 30),
 <div class="answer">
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:mtcars1">10.16</a></strong>:</p>
 <p>The <code>dplyr</code> package is used to calculate the mean and standard deviation of the <code>disp</code> variable grouped by <code>cyl</code>:</p>
-<pre><code><a href="https://dplyr.tidyverse.org">library(dplyr)
-mtcars %&gt;% group_by(cyl) %&gt;% summarise(mean_disp = mean(disp), sd_disp = sd(disp))</a></code></pre>
+<pre><code>library(dplyr)
+mtcars %&gt;% group_by(cyl) %&gt;% summarise(mean_disp = mean(disp), sd_disp = sd(disp))</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Exercise @ref(exr:mean_diff1)</strong>:</p>
@@ -755,9 +1063,9 @@ mtcars %&gt;% group_by(cyl) %&gt;% summarise(mean_disp = mean(disp), sd_disp = s
 <div class="answer">
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:boston1">10.17</a></strong>:</p>
 <p>To create a histogram of the <code>crim</code> variable from the Boston dataset, use the following code:</p>
-<pre><code><a href="http://www.stats.ox.ac.uk/pub/MASS4/">library(MASS)
+<pre><code>library(MASS)
 data(Boston)
-hist(Boston$crim, main = "Histogram of crim", xlab = "Crime rate per capita")</a></code></pre>
+hist(Boston$crim, main = &quot;Histogram of crim&quot;, xlab = &quot;Crime rate per capita&quot;)</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:pvalue1">10.18</a></strong>:</p>
@@ -784,7 +1092,7 @@ cor(X, Y)</code></pre>
 <p>To calculate the mean of <code>weight</code> for each level of <code>group</code> and plot a boxplot of <code>weight</code> grouped by <code>group</code>:</p>
 <pre><code>data(PlantGrowth)
 aggregate(weight ~ group, data = PlantGrowth, mean)
-boxplot(weight ~ group, data = PlantGrowth, main = "Boxplot of Weight by Group")</code></pre>
+boxplot(weight ~ group, data = PlantGrowth, main = &quot;Boxplot of Weight by Group&quot;)</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:ttest1">10.1</a></strong>:</p>
@@ -794,26 +1102,26 @@ boxplot(weight ~ group, data = PlantGrowth, main = "Boxplot of Weight by Group")
 <div class="answer">
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:iris1">10.22</a></strong>:</p>
 <p>To test for a significant difference between the average <code>Sepal.Length</code> of setosa and versicolor species:</p>
-<pre><code>t.test(Sepal.Length ~ Species, data = subset(iris, Species %in% c("setosa", "versicolor")))</code></pre>
+<pre><code>t.test(Sepal.Length ~ Species, data = subset(iris, Species %in% c(&quot;setosa&quot;, &quot;versicolor&quot;)))</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:poisson1">10.23</a></strong>:</p>
 <p>To simulate 500 observations from a Poisson distribution with a lambda of 3 and plot its histogram:</p>
 <pre><code>set.seed(0)
 poisson_data &lt;- rpois(500, lambda = 3)
-hist(poisson_data, main = "Histogram of Poisson Distribution", xlab = "Values")</code></pre>
+hist(poisson_data, main = &quot;Histogram of Poisson Distribution&quot;, xlab = &quot;Values&quot;)</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:multicollinearity1">10.24</a></strong>:</p>
 <p>To check for multicollinearity, we can use the Variance Inflation Factor (VIF). A VIF value greater than 10 indicates high multicollinearity:</p>
-<pre><code><a href="https://r-forge.r-project.org/projects/car/">library(car)
-vif(model)</a></code></pre>
+<pre><code>library(car)
+vif(model)</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:airquality1">10.25</a></strong>:</p>
 <p>To calculate the correlation matrix for <code>Ozone</code>, <code>Solar.R</code>, <code>Wind</code>, and <code>Temp</code> in the <code>airquality</code> dataset:</p>
-<pre><code>airquality_subset &lt;- airquality[, c("Ozone", "Solar.R", "Wind", "Temp")]
-cor(airquality_subset, use = "complete.obs")</code></pre>
+<pre><code>airquality_subset &lt;- airquality[, c(&quot;Ozone&quot;, &quot;Solar.R&quot;, &quot;Wind&quot;, &quot;Temp&quot;)]
+cor(airquality_subset, use = &quot;complete.obs&quot;)</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:paired2">10.26</a></strong>:</p>
@@ -831,10 +1139,10 @@ summary(model)$adj.r.squared</code></pre>
 <div class="answer">
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:density1">10.27</a></strong>:</p>
 <p>To create a density plot of the variable <code>Sepal.Length</code> for each species in the <code>iris</code> dataset:</p>
-<pre><code><a href="https://ggplot2.tidyverse.org">library(ggplot2)
+<pre><code>library(ggplot2)
 ggplot(iris, aes(x = Sepal.Length, fill = Species)) +
   geom_density(alpha = 0.5) +
-  labs(title = "Density Plot of Sepal.Length by Species")</a></code></pre>
+  labs(title = &quot;Density Plot of Sepal.Length by Species&quot;)</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:anova1">10.7</a></strong>:</p>
@@ -849,10 +1157,10 @@ summary(aov_model)</code></pre>
 <div class="answer">
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:stepwise1">10.29</a></strong>:</p>
 <p>To refit a multiple linear regression model with <code>mpg</code> as the dependent variable and <code>hp</code>, <code>wt</code>, and <code>drat</code> as independent variables, using stepwise regression:</p>
-<pre><code><a href="http://www.stats.ox.ac.uk/pub/MASS4/">library(MASS)
+<pre><code>library(MASS)
 initial_model &lt;- lm(mpg ~ hp + wt + drat, data = mtcars)
-stepwise_model &lt;- stepAIC(initial_model, direction = "both")
-summary(stepwise_model)</a></code></pre>
+stepwise_model &lt;- stepAIC(initial_model, direction = &quot;both&quot;)
+summary(stepwise_model)</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:anova2">10.8</a></strong>:</p>
@@ -865,7 +1173,7 @@ summary(aov_model)</code></pre>
 <p><strong>Answer to Exercise <a href="int-prep.html#exr:anova3">10.9</a></strong>:</p>
 <p>To plot a boxplot of <code>weight_loss</code> by <code>program</code> and fit a one-way ANOVA to test the difference in weight loss for each program:</p>
 <pre><code># Plot boxplot
-boxplot(weight_loss ~ program, data = data, main = "Boxplot of Weight Loss by Program", xlab = "Program", ylab = "Weight Loss")
+boxplot(weight_loss ~ program, data = data, main = &quot;Boxplot of Weight Loss by Program&quot;, xlab = &quot;Program&quot;, ylab = &quot;Weight Loss&quot;)
 
 # Fit one-way ANOVA
 aov_model &lt;- aov(weight_loss ~ program, data = data)
@@ -874,88 +1182,68 @@ summary(aov_model)</code></pre>
 
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></div>
-<div class="next"><a href="int-samp-q-second.html"><span class="header-section-number">11</span> 📚 Additional Practice Exercises for Intermediate Exam</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#int-prep"><span class="header-section-number">10</span> 💻 Intermediate preparation</a></li>
-<li><a class="nav-link" href="#core-concepts-of-t-test"><span class="header-section-number">10.1</span> 🪨 core concepts of T test</a></li>
-<li><a class="nav-link" href="#t.test-function"><span class="header-section-number">10.2</span> t.test() function</a></li>
-<li><a class="nav-link" href="#introduction"><span class="header-section-number">10.3</span> Introduction</a></li>
-<li><a class="nav-link" href="#basic-usage"><span class="header-section-number">10.4</span> Basic Usage</a></li>
-<li>
-<a class="nav-link" href="#arguments"><span class="header-section-number">10.5</span> Arguments</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#formula"><span class="header-section-number">10.5.1</span> Formula</a></li>
-<li><a class="nav-link" href="#data"><span class="header-section-number">10.5.2</span> Data</a></li>
-<li><a class="nav-link" href="#subset"><span class="header-section-number">10.5.3</span> Subset</a></li>
-<li><a class="nav-link" href="#weight"><span class="header-section-number">10.5.4</span> Weight</a></li>
-<li><a class="nav-link" href="#na.action"><span class="header-section-number">10.5.5</span> Na.action</a></li>
-<li><a class="nav-link" href="#other-arguments"><span class="header-section-number">10.5.6</span> Other Arguments</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#vif-variance-inflation-factor"><span class="header-section-number">10.6</span> VIF (Variance Inflation Factor)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#calculating-vif"><span class="header-section-number">10.6.1</span> Calculating VIF</a></li>
-<li><a class="nav-link" href="#interpreting-vif"><span class="header-section-number">10.6.2</span> Interpreting VIF</a></li>
-<li><a class="nav-link" href="#addressing-multicollinearity"><span class="header-section-number">10.6.3</span> Addressing Multicollinearity</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#anova-analysis-of-variance"><span class="header-section-number">10.7</span> ANOVA (Analysis of Variance)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#performing-anova-with-aov"><span class="header-section-number">10.7.1</span> Performing ANOVA with aov()</a></li>
-<li><a class="nav-link" href="#anova-tables"><span class="header-section-number">10.7.2</span> ANOVA Tables</a></li>
-<li><a class="nav-link" href="#interpreting-anova"><span class="header-section-number">10.7.3</span> Interpreting ANOVA</a></li>
-<li><a class="nav-link" href="#assumptions-of-anova"><span class="header-section-number">10.7.4</span> Assumptions of ANOVA</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#logistic-regression-with-glm"><span class="header-section-number">10.8</span> Logistic Regression with glm()</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#performing-logistic-regression-with-glm"><span class="header-section-number">10.8.1</span> Performing Logistic Regression with glm()</a></li>
-<li><a class="nav-link" href="#model-summary"><span class="header-section-number">10.8.2</span> Model Summary</a></li>
-<li><a class="nav-link" href="#interpreting-logistic-regression"><span class="header-section-number">10.8.3</span> Interpreting Logistic Regression</a></li>
-<li><a class="nav-link" href="#model-evaluation"><span class="header-section-number">10.8.4</span> Model Evaluation</a></li>
-<li><a class="nav-link" href="#assumptions-of-logistic-regression"><span class="header-section-number">10.8.5</span> Assumptions of Logistic Regression</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#poisson-regression-with-glm"><span class="header-section-number">10.9</span> Poisson Regression with glm()</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#performing-poisson-regression-with-glm"><span class="header-section-number">10.9.1</span> Performing Poisson Regression with glm()</a></li>
-<li><a class="nav-link" href="#model-summary-1"><span class="header-section-number">10.9.2</span> Model Summary</a></li>
-<li><a class="nav-link" href="#interpreting-poisson-regression"><span class="header-section-number">10.9.3</span> Interpreting Poisson Regression</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#class-exercises-do-it-in-groups"><span class="header-section-number">10.10</span> class exercises, do it in groups 👯</a></li>
-<li><a class="nav-link" href="#solutions"><span class="header-section-number">10.11</span> solutions</a></li>
-<li><a class="nav-link" href="#tips"><span class="header-section-number">10.12</span> 🍬 tips and tricks</a></li>
-<li><a class="nav-link" href="#further-exercies"><span class="header-section-number">10.13</span> further exercies 🏋️</a></li>
-</ul>
+            </section>
 
-      <div class="book-extra">
-        <ul class="list-unstyled">
-<li><a id="book-source" href="https://sbd-labs-22-23.netlify.app/blob/master/06ter-lab-prep-to-intermediate.Rmd">View source <i class="fab fa-gitlab"></i></a></li>
-          <li><a id="book-edit" href="https://sbd-labs-22-23.netlify.app/edit/master/06ter-lab-prep-to-intermediate.Rmd">Edit this page <i class="fab fa-gitlab"></i></a></li>
-        </ul>
-</div>
-    </nav>
-</div>
-
-</div>
-</div> <!-- .container -->
-
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-10-16.</p>
+          </div>
+        </div>
+      </div>
+<a href="advanced-modeling-techniques.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="int-samp-q-second.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
   </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
 
-  <div class="col-12 col-md-6 mt-3">
-    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
-  </div>
-
-</div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -967,22 +1255,7 @@ summary(aov_model)</code></pre>
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
 </script>
 </body>
+
 </html>

@@ -398,7 +398,7 @@ perform anova test with `aov()` function testing if there is significant differe
 
 :::
 
-You specify the formula, where `x` is the continous variable and `y` is the group variable.
+You specify the formula, where `x` is the continous variable and `z` is the group variable.
 This is how you solve it.
 
 ---
@@ -547,8 +547,9 @@ t(63) = 1.47, p = **0.927**
 
     x <- c(12,23,12,13,14,21,23,24,30,21,12,13,14,15,16) 
     z <- c(1,1,1,1,1,2,2,2,2,2,3,3,3,3,3)
-    anova <- aov( x ~ z ) 
-    summary(anova)
+    z <- as.factor(z)
+    anova_test <- aov(x ~ z) 
+    summary(anova_test)
 
             Df Sum Sq Mean Sq F value Pr(>F)
     z            1    1.6    1.60   0.047  **0.832**
@@ -640,10 +641,10 @@ report(test)
 #> recommendations.
 #> 
 #> The One Sample t-test testing the difference between x
-#> (mean = 65.71) and mu = 65 suggests that the effect is
-#> positive, statistically not significant, and very small
-#> (difference = 0.71, 95% CI [-Inf, 66.58], t(63) = 1.38, p =
-#> 0.914; Cohen's d = 0.17, 95% CI [-Inf, 0.38])
+#> (mean = 66.58) and mu = 65 suggests that the effect is
+#> positive, statistically not significant, and small
+#> (difference = 1.58, 95% CI [-Inf, 67.41], t(63) = 3.18, p =
+#> 0.999; Cohen's d = 0.40, 95% CI [-Inf, 0.61])
 ```
 
 
