@@ -4,7 +4,7 @@ bookdown::bs4_book:
     primary: "#002f57"
     secondary: "#125ea0"
     heading_font: "'Raleway', sans-serif"
-  repo: https://sbd-labs-22-23.netlify.app
+  repo: https://github.com/NiccoloSalvini/sbd_25_26
   includes:
     in_header:
     - html/favicon.html

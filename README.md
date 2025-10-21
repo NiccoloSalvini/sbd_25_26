@@ -1,4 +1,4 @@
-# Welcome to Statistics & Big Data 22-23! 
+# Welcome to Statistics & Big Data 25-26! 
 <!-- badges: start -->
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7494142a-3046-427b-bbb5-378efc2663a6/deploy-status)](https://app.netlify.com/sites/sbd-labs-22-23/deploys)
 <!-- badges: end -->

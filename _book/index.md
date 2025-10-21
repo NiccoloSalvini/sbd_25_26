@@ -200,7 +200,7 @@ library(testthat)
 #> 
 #>     matches
 devtools::session_info()
-#> ─ Session info ───────────────────────────────────────────────────────────────────
+#> ─ Session info ───────────────────────────────────────────
 #>  setting  value
 #>  version  R version 4.2.0 (2022-04-22)
 #>  os       macOS 15.6.1
@@ -213,7 +213,7 @@ devtools::session_info()
 #>  date     2025-10-21
 #>  pandoc   3.7.0.2 @ /opt/homebrew/bin/ (via rmarkdown)
 #> 
-#> ─ Packages ───────────────────────────────────────────────────────────────────────
+#> ─ Packages ───────────────────────────────────────────────
 #>  package      * version    date (UTC) lib source
 #>  bookdown       0.29       2022-09-12 [1] CRAN (R 4.2.0)
 #>  brio           1.1.3      2021-11-30 [1] CRAN (R 4.2.0)
@@ -225,6 +225,7 @@ devtools::session_info()
 #>  devtools     * 2.4.5      2022-10-11 [1] CRAN (R 4.2.0)
 #>  dichromat      2.0-0.1    2022-05-02 [1] CRAN (R 4.2.0)
 #>  digest         0.6.33     2023-07-07 [1] CRAN (R 4.2.0)
+#>  downlit        0.4.2      2022-07-05 [1] CRAN (R 4.2.0)
 #>  dplyr        * 1.1.4      2023-11-17 [1] CRAN (R 4.2.3)
 #>  ellipsis       0.3.2      2021-04-29 [1] CRAN (R 4.2.0)
 #>  evaluate       1.0.3      2025-01-10 [1] CRAN (R 4.2.0)
@@ -287,6 +288,7 @@ devtools::session_info()
 #>  viridisLite    0.4.2      2023-05-02 [1] CRAN (R 4.2.0)
 #>  webexercises * 1.0.0      2021-09-15 [1] CRAN (R 4.2.0)
 #>  webshot        0.5.4      2022-09-26 [1] CRAN (R 4.2.0)
+#>  withr          3.0.2      2024-10-28 [1] CRAN (R 4.2.0)
 #>  xfun           0.40       2023-08-09 [1] CRAN (R 4.2.0)
 #>  xml2           1.3.4      2023-04-27 [1] CRAN (R 4.2.0)
 #>  xtable         1.8-4      2019-04-21 [1] CRAN (R 4.2.0)
@@ -295,5 +297,5 @@ devtools::session_info()
 #>  [1] /Users/niccolo/Library/R/arm64/4.2/library
 #>  [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library
 #> 
-#> ──────────────────────────────────────────────────────────────────────────────────
+#> ──────────────────────────────────────────────────────────
 ```
