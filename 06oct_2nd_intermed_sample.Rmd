@@ -65,6 +65,42 @@ From a `patients` dataset with columns `patient_id`, `age`, `sex`, `diagnosis_co
 
 ----
 
+::: {.exercise #add65}
+A hospital needs to calculate personalized medication dosages. Given a `medication_data` dataframe with columns `patient_id`, `weight_kg`, `age`, and `base_dose_mg`, create a new column `adjusted_dose` that calculates 1.5 mg per kg of body weight, with a maximum dose of 200mg. First create the dataframe:
+```r
+set.seed(456)
+medication_data <- data.frame(
+  patient_id = 1:100,
+  weight_kg = rnorm(100, 75, 15),
+  age = sample(18:80, 100, replace = TRUE),
+  base_dose_mg = rep(100, 100)
+)
+```
+:::
+
+----
+
+::: {.exercise #add66}
+You have ICU monitoring data in long format. The `icu_data` dataframe contains `patient_id`, `measurement_time` (with values "admission", "24h", "48h"), `temperature`, and `blood_pressure`. Reshape this data into wide format so that each patient has one row with separate columns for each measurement time. First create the data:
+```r
+set.seed(321)
+icu_data <- data.frame(
+  patient_id = rep(1:30, each = 3),
+  measurement_time = rep(c("admission", "24h", "48h"), 30),
+  temperature = rnorm(90, 37, 1),
+  blood_pressure = rnorm(90, 120, 15)
+)
+```
+:::
+
+----
+
+::: {.exercise #add67}
+From a `lab_results` dataset with columns `patient_id`, `test_date`, `cholesterol`, `glucose`, and `test_type`, filter to include only patients who have had both "fasting" and "non-fasting" tests, and calculate the difference in their glucose levels between these two test types. Write the `dplyr` pipeline.
+:::
+
+----
+
 ## 🔬 Part 2: Hypothesis Testing - Single Population
 
 ::: {.exercise #add5}
@@ -276,6 +312,72 @@ You are modeling the length of a hospital stay (`los`) based on `age` and `infec
 
 ----
 
+::: {.exercise #add68}
+A medical researcher collects data on resting heart rate and wants to predict it based on age, weekly exercise hours, and daily caffeine consumption. The data is as follows:
+
+```r
+set.seed(789)
+heart_rate_data <- data.frame(
+  age = sample(20:70, 80, replace = TRUE),
+  exercise_hours = runif(80, 0, 10),
+  caffeine_mg = sample(0:400, 80, replace = TRUE)
+)
+heart_rate_data$heart_rate <- 60 + 0.3 * heart_rate_data$age - 
+                               1.2 * heart_rate_data$exercise_hours + 
+                               0.02 * heart_rate_data$caffeine_mg + 
+                               rnorm(80, 0, 5)
+```
+
+Fit a multiple linear regression model and predict the heart rate for a 45-year-old person who exercises 3 hours per week and consumes 200mg of caffeine daily.
+:::
+
+----
+
+::: {.exercise #add69}
+You have data on systolic blood pressure and want to model it based on age, BMI, and smoking status (Never, Former, Current). Create the following dataset and fit a multiple regression model:
+
+```r
+set.seed(654)
+bmi_bp_data <- data.frame(
+  patient_id = 1:120,
+  age = rnorm(120, 55, 12),
+  bmi = rnorm(120, 27, 4),
+  smoking = sample(c("Never", "Former", "Current"), 120, replace = TRUE)
+)
+bmi_bp_data$systolic_bp <- 90 + 0.4 * bmi_bp_data$age + 
+                            1.8 * bmi_bp_data$bmi +
+                            ifelse(bmi_bp_data$smoking == "Current", 12,
+                                   ifelse(bmi_bp_data$smoking == "Former", 5, 0)) +
+                            rnorm(120, 0, 8)
+```
+
+What is the predicted systolic blood pressure for a 60-year-old patient with BMI of 30 who is a current smoker? How do you interpret the coefficient for smoking status?
+:::
+
+----
+
+::: {.exercise #add70}
+A hospital administrator wants to predict the time until readmission based on initial length of stay, number of comorbidities, and patient age. Create and analyze this dataset:
+
+```r
+set.seed(987)
+readmission_data <- data.frame(
+  initial_los = rpois(100, 7),
+  num_comorbidities = sample(0:5, 100, replace = TRUE),
+  age = rnorm(100, 68, 10)
+)
+readmission_data$readmission_days <- 30 + 
+                                     2.5 * readmission_data$initial_los +
+                                     3.2 * readmission_data$num_comorbidities +
+                                     0.3 * readmission_data$age +
+                                     rnorm(100, 0, 8)
+```
+
+Fit a multiple regression model, check for multicollinearity using VIF, and interpret which variable has the strongest effect on readmission time.
+:::
+
+----
+
 ## 🔄 Part 6: Nonlinear Regression and Transformations
 
 ::: {.exercise #add23}
@@ -445,12 +547,6 @@ Using the `mtcars` dataset, fit a model `mpg ~ wt + hp` and create diagnostic pl
 
 ----
 
-::: {.exercise #add60}
-You run diagnostic plots for a linear model and notice that observation #45 has a Cook's distance value much larger than 1. What does this indicate, and what are two potential next steps to address this issue?
-:::
-
-----
-
 ---
 
 ## ✅ SOLUTIONS
@@ -561,6 +657,154 @@ aggregate(recovery_days ~ treatment, data = health_data, FUN = mean)
 :::
 
 ::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add51):
+
+```r
+library(dplyr)
+# First, create sample data for the example
+set.seed(123)
+patients <- data.frame(
+  patient_id = 1:200,
+  age = sample(40:85, 200, replace = TRUE),
+  sex = sample(c("M", "F"), 200, replace = TRUE),
+  diagnosis_code = sample(c("D001", "D002", "D003", "D004", "D005"), 200, replace = TRUE),
+  hospital_stay_days = rpois(200, 8)
+)
+
+# Convert sex to factor (important for filtering)
+patients$sex <- factor(patients$sex)
+
+# Solution using dplyr pipeline
+result <- patients %>%
+  filter(sex == "M", age > 65) %>%
+  group_by(diagnosis_code) %>%
+  summarise(
+    n_patients = n(),
+    avg_stay = mean(hospital_stay_days, na.rm = TRUE)
+  ) %>%
+  filter(n_patients > 10)
+
+print(result)
+```
+
+**Key points**: 
+- Convert categorical variables to factors first for clearer filtering
+- Use `filter()` to select male patients over 65
+- Use `group_by()` and `summarise()` to calculate statistics by diagnosis
+- Filter again to show only diagnoses with more than 10 patients
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add65):
+
+```r
+library(dplyr)
+
+set.seed(456)
+medication_data <- data.frame(
+  patient_id = 1:100,
+  weight_kg = rnorm(100, 75, 15),
+  age = sample(18:80, 100, replace = TRUE),
+  base_dose_mg = rep(100, 100)
+)
+
+# Calculate adjusted dose with maximum cap
+medication_data <- medication_data %>%
+  mutate(adjusted_dose = pmin(weight_kg * 1.5, 200))
+
+# View results
+head(medication_data)
+
+# Check that no dose exceeds 200mg
+summary(medication_data$adjusted_dose)
+```
+
+**Explanation**: The `pmin()` function compares element-wise and returns the minimum value between `weight_kg * 1.5` and 200, ensuring no dose exceeds the maximum.
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add66):
+
+```r
+library(dplyr)
+library(tidyr)
+
+set.seed(321)
+icu_data <- data.frame(
+  patient_id = rep(1:30, each = 3),
+  measurement_time = rep(c("admission", "24h", "48h"), 30),
+  temperature = rnorm(90, 37, 1),
+  blood_pressure = rnorm(90, 120, 15)
+)
+
+# Reshape to wide format
+icu_wide <- icu_data %>%
+  pivot_wider(
+    id_cols = patient_id,
+    names_from = measurement_time,
+    values_from = c(temperature, blood_pressure)
+  )
+
+# View results
+head(icu_wide)
+print(dim(icu_wide))  # Should be 30 rows, 7 columns
+```
+
+**Explanation**: `pivot_wider()` creates separate columns for each combination of measurement time and variable (temperature/blood_pressure), resulting in columns like `temperature_admission`, `temperature_24h`, `blood_pressure_admission`, etc.
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add67):
+
+```r
+library(dplyr)
+library(tidyr)
+
+# First, create sample lab_results data
+set.seed(654)
+lab_results <- data.frame(
+  patient_id = rep(1:50, each = 2),
+  test_date = rep(seq.Date(as.Date("2024-01-01"), by = "day", length.out = 50), each = 2),
+  test_type = rep(c("fasting", "non-fasting"), 50),
+  cholesterol = rnorm(100, 200, 30),
+  glucose = c(
+    rnorm(50, 95, 10),   # fasting glucose (lower)
+    rnorm(50, 125, 15)   # non-fasting glucose (higher)
+  )
+)
+
+# Solution: Find patients with both test types and calculate glucose difference
+glucose_diff <- lab_results %>%
+  # Keep only patients who have both test types
+  group_by(patient_id) %>%
+  filter(n_distinct(test_type) == 2) %>%
+  # Reshape to wide format to calculate difference
+  select(patient_id, test_type, glucose) %>%
+  pivot_wider(
+    names_from = test_type,
+    values_from = glucose
+  ) %>%
+  mutate(glucose_difference = `non-fasting` - fasting)
+
+head(glucose_diff)
+
+# Alternative solution without pivot_wider
+glucose_diff_alt <- lab_results %>%
+  group_by(patient_id) %>%
+  filter(n_distinct(test_type) == 2) %>%
+  summarise(
+    fasting_glucose = glucose[test_type == "fasting"],
+    non_fasting_glucose = glucose[test_type == "non-fasting"],
+    glucose_difference = non_fasting_glucose - fasting_glucose
+  )
+
+head(glucose_diff_alt)
+```
+
+**Explanation**: First filter for patients with both test types using `n_distinct()`, then reshape data or use conditional indexing to calculate the difference between fasting and non-fasting glucose levels.
+:::
+
+::: {.answer data-latex=""}
 **Answer to Exercise** \@ref(exr:add5):
 
 ```r
@@ -618,6 +862,23 @@ t_cell_increase <- rnorm(35, mean = 162, sd = 40)
 t.test(t_cell_increase, mu = 150, alternative = "greater")
 ```
 **Explanation**: A **one-sided test** (`alternative = "greater"`) is used because the research question is directional. We are not just interested in whether the T-cell count is *different* from 150, but specifically whether it is *greater than* 150. If the p-value is less than our significance level (e.g., 0.05), we would reject the null hypothesis and conclude that there is statistically significant evidence that the drug's effect meets the clinically significant threshold.
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add52):
+
+```r
+# H0: mu >= 10 (The mean reduction is at least 10 mmHg, clinically significant)
+# Ha: mu < 10 (The mean reduction is less than 10 mmHg, not clinically significant)
+# Simulate the data
+set.seed(456)
+bp_reduction <- rnorm(40, mean = 8.5, sd = 10)
+
+# One-sample t-test with alternative = "less"
+t.test(bp_reduction, mu = 10, alternative = "less")
+```
+
+**Interpretation**: This is a **one-sided test** (`alternative = "less"`) because we want to test if the mean reduction is *less than* the clinically significant threshold of 10 mmHg. If the p-value is small (< 0.05), we would reject H0 and conclude that the drug does NOT achieve a clinically significant reduction. If p-value is large, we fail to reject H0, meaning the evidence is not sufficient to say the reduction is below 10 mmHg - the drug may still be clinically effective.
 :::
 
 ::: {.answer data-latex=""}
@@ -897,6 +1158,130 @@ summary(interaction_model)
 ```
 **Interpretation of the interaction coefficient (`age:infection_status`)**:
 If the interaction term is significant, it means the effect of age on the length of stay is different depending on infection status. The coefficient for `age:infection_status` represents the **additional change in the slope of age** for patients with an infection compared to those without. For example, if the coefficient is 1.5, it means that for each one-year increase in age, the length of stay increases by an additional 1.5 days for infected patients, on top of the baseline age effect for non-infected patients.
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add68):
+
+```r
+# Create the dataset
+set.seed(789)
+heart_rate_data <- data.frame(
+  age = sample(20:70, 80, replace = TRUE),
+  exercise_hours = runif(80, 0, 10),
+  caffeine_mg = sample(0:400, 80, replace = TRUE)
+)
+heart_rate_data$heart_rate <- 60 + 0.3 * heart_rate_data$age - 
+                               1.2 * heart_rate_data$exercise_hours + 
+                               0.02 * heart_rate_data$caffeine_mg + 
+                               rnorm(80, 0, 5)
+
+# Fit the model
+heart_model <- lm(heart_rate ~ age + exercise_hours + caffeine_mg, data = heart_rate_data)
+summary(heart_model)
+
+# Predict for the specific case
+new_patient <- data.frame(age = 45, exercise_hours = 3, caffeine_mg = 200)
+predicted_hr <- predict(heart_model, newdata = new_patient)
+print(paste("Predicted heart rate:", round(predicted_hr, 2), "bpm"))
+```
+
+**Interpretation**: 
+- Age has a positive effect: older individuals tend to have higher resting heart rates
+- Exercise hours have a negative effect: more exercise is associated with lower heart rates
+- Caffeine has a positive effect: more caffeine consumption increases heart rate
+- The predicted heart rate is approximately **73.5 bpm** for the specified patient
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add69):
+
+```r
+# Create the dataset
+set.seed(654)
+bmi_bp_data <- data.frame(
+  patient_id = 1:120,
+  age = rnorm(120, 55, 12),
+  bmi = rnorm(120, 27, 4),
+  smoking = sample(c("Never", "Former", "Current"), 120, replace = TRUE)
+)
+bmi_bp_data$systolic_bp <- 90 + 0.4 * bmi_bp_data$age + 
+                            1.8 * bmi_bp_data$bmi +
+                            ifelse(bmi_bp_data$smoking == "Current", 12,
+                                   ifelse(bmi_bp_data$smoking == "Former", 5, 0)) +
+                            rnorm(120, 0, 8)
+
+# Convert smoking to factor with "Current" as reference
+bmi_bp_data$smoking <- factor(bmi_bp_data$smoking, levels = c("Current", "Former", "Never"))
+
+# Fit the model
+bp_model <- lm(systolic_bp ~ age + bmi + smoking, data = bmi_bp_data)
+summary(bp_model)
+
+# Predict for specific case
+new_patient <- data.frame(age = 60, bmi = 30, smoking = factor("Current", levels = c("Current", "Former", "Never")))
+predicted_bp <- predict(bp_model, newdata = new_patient)
+print(paste("Predicted systolic BP:", round(predicted_bp, 2), "mmHg"))
+```
+
+**Interpretation**: 
+- The predicted systolic blood pressure is approximately **180 mmHg**
+- **Smoking coefficients**: With "Current" as the reference category:
+  - `smokingFormer`: negative coefficient (about -7 mmHg) means former smokers have lower BP than current smokers
+  - `smokingNever`: negative coefficient (about -12 mmHg) means never-smokers have even lower BP than current smokers
+- This indicates that current smokers have the highest blood pressure, followed by former smokers, then never-smokers
+- Both age and BMI have positive effects on blood pressure, as expected
+:::
+
+::: {.answer data-latex=""}
+**Answer to Exercise** \@ref(exr:add70):
+
+```r
+# Create the dataset
+set.seed(987)
+readmission_data <- data.frame(
+  initial_los = rpois(100, 7),
+  num_comorbidities = sample(0:5, 100, replace = TRUE),
+  age = rnorm(100, 68, 10)
+)
+readmission_data$readmission_days <- 30 + 
+                                     2.5 * readmission_data$initial_los +
+                                     3.2 * readmission_data$num_comorbidities +
+                                     0.3 * readmission_data$age +
+                                     rnorm(100, 0, 8)
+
+# Fit the model
+readmission_model <- lm(readmission_days ~ initial_los + num_comorbidities + age, 
+                        data = readmission_data)
+summary(readmission_model)
+
+# Check for multicollinearity
+library(car)
+vif_values <- vif(readmission_model)
+print("VIF values:")
+print(vif_values)
+
+# Compare effect sizes using t-values
+coef_summary <- summary(readmission_model)$coefficients
+print("\nCoefficient summary:")
+print(coef_summary)
+```
+
+**Results and Interpretation**:
+- **VIF values**: All VIF values are close to 1 (around 1.01), indicating **no multicollinearity** issues. This means the predictors are not highly correlated with each other.
+
+- **Strongest effect**: Looking at the t-values (absolute values):
+  - `initial_los`: t ≈ 9.06 (strongest)
+  - `num_comorbidities`: t ≈ 7.79 (second strongest)  
+  - `age`: t ≈ 2.63 (weakest, but still significant)
+
+- **Initial length of stay** has the strongest effect on readmission time. For each additional day in the initial hospital stay, readmission time increases by approximately 2.84 days.
+
+- **Number of comorbidities** is also highly significant: each additional comorbidity increases expected readmission time by about 3.77 days.
+
+- **Age** has a smaller but still significant effect: each additional year of age increases readmission time by about 0.24 days.
+
+- The model explains about **59.8%** of the variance in readmission time (R² = 0.5983), indicating a good fit.
 :::
 
 ::: {.answer data-latex=""}
@@ -1457,14 +1842,5 @@ shapiro.test(residuals(mpg_model))
 - Plot 2: Points should follow the diagonal line
 - Plot 3: Should show horizontal line with equal spread
 - Plot 4: Points outside Cook's distance indicate influential observations
-:::
-
-::: {.answer data-latex=""}
-**Answer to Exercise** \@ref(exr:add60):
-
-**Indication**: A Cook's distance > 1 indicates that observation #45 is a **highly influential point**. This means that its presence in the dataset has a substantial impact on the estimated regression coefficients. The model fitted with this point is likely very different from the model fitted without it.
-**Next steps**:
-1.  **Investigate the data point**: Check observation #45 for data entry errors or determine if it represents a truly unusual case (e.g., a patient with a rare condition). If it's an error, correct it.
-2.  **Perform sensitivity analysis**: Rerun the regression model after removing observation #45. If the model's coefficients or conclusions change dramatically, you must report this sensitivity and be cautious about interpreting the original model. You might report the results of both models. Simply deleting the point without justification is generally not recommended.
 :::
 
