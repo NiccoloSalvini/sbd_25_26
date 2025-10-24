@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 9 🔬 Advanced Statistical Methods | Statistics &amp; Big Data 25-26 Labs</title>
+<title>Chapter 8 🔬 Advanced Statistical Methods | Statistics &amp; Big Data 25-26 Labs</title>
 <meta name="author" content="Dr. Niccolò Salvini">
-<meta name="description" content="This chapter covers advanced statistical methods including regression with dummy variables, logistic regression, factor analysis, and cluster analysis.  9.1 Learning Objectives By the end of this...">
+<meta name="description" content="This chapter covers advanced statistical methods including regression with dummy variables, logistic regression, factor analysis, and cluster analysis.  8.1 Learning Objectives By the end of this...">
 <meta name="generator" content="bookdown 0.29 with bs4_book()">
-<meta property="og:title" content="Chapter 9 🔬 Advanced Statistical Methods | Statistics &amp; Big Data 25-26 Labs">
+<meta property="og:title" content="Chapter 8 🔬 Advanced Statistical Methods | Statistics &amp; Big Data 25-26 Labs">
 <meta property="og:type" content="book">
-<meta property="og:description" content="This chapter covers advanced statistical methods including regression with dummy variables, logistic regression, factor analysis, and cluster analysis.  9.1 Learning Objectives By the end of this...">
+<meta property="og:description" content="This chapter covers advanced statistical methods including regression with dummy variables, logistic regression, factor analysis, and cluster analysis.  8.1 Learning Objectives By the end of this...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 9 🔬 Advanced Statistical Methods | Statistics &amp; Big Data 25-26 Labs">
-<meta name="twitter:description" content="This chapter covers advanced statistical methods including regression with dummy variables, logistic regression, factor analysis, and cluster analysis.  9.1 Learning Objectives By the end of this...">
+<meta name="twitter:title" content="Chapter 8 🔬 Advanced Statistical Methods | Statistics &amp; Big Data 25-26 Labs">
+<meta name="twitter:description" content="This chapter covers advanced statistical methods including regression with dummy variables, logistic regression, factor analysis, and cluster analysis.  8.1 Learning Objectives By the end of this...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -54,14 +54,14 @@
 <li class="book-part">Part 1: The Foundations</li>
 <li><a class="" href="hypothesis-testing-fundamentals.html"><span class="header-section-number">6</span> 🧪 Hypothesis Testing Fundamentals</a></li>
 <li><a class="" href="linear-regression-analysis.html"><span class="header-section-number">7</span> 📈 Linear Regression Analysis</a></li>
-<li><a class="" href="exam-sim-intermediate.html"><span class="header-section-number">8</span> 📝 Intermediate Exam Simulation - Healthcare Management</a></li>
-<li><a class="active" href="advanced-statistical-methods.html"><span class="header-section-number">9</span> 🔬 Advanced Statistical Methods</a></li>
+<li><a class="active" href="advanced-statistical-methods.html"><span class="header-section-number">8</span> 🔬 Advanced Statistical Methods</a></li>
 <li class="book-part">Part 2: Advanced Modeling</li>
-<li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">10</span> 🚀 Advanced Modeling Techniques</a></li>
+<li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
 <li class="book-part">Additional Resources</li>
-<li><a class="" href="int-prep.html"><span class="header-section-number">11</span> 💻 Intermediate preparation</a></li>
-<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">12</span> 📚 Additional Practice Exercises for Intermediate Exam</a></li>
-<li><a class="" href="int-samp-q.html"><span class="header-section-number">13</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">10</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">11</span> 📚 Additional Practice Exercises for Intermediate Exam</a></li>
+<li><a class="" href="int-samp-q.html"><span class="header-section-number">12</span> 💻 Intermediate Sample Questions</a></li>
+<li><a class="" href="exam-sim-intermediate.html"><span class="header-section-number">13</span> 📝 Intermediate Exam Simulation - Healthcare Management</a></li>
 <li><a class="" href="course-performance.html"><span class="header-section-number">14</span> ⚡ Course Performance</a></li>
 <li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">15</span> ❓ Frequently Asked Questions</a></li>
 <li class="book-part">Appendix</li>
@@ -75,14 +75,14 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="advanced-statistical-methods" class="section level1" number="9">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="advanced-statistical-methods" class="section level1" number="8">
 <h1>
-<span class="header-section-number">9</span> 🔬 Advanced Statistical Methods<a class="anchor" aria-label="anchor" href="#advanced-statistical-methods"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8</span> 🔬 Advanced Statistical Methods<a class="anchor" aria-label="anchor" href="#advanced-statistical-methods"><i class="fas fa-link"></i></a>
 </h1>
 <p>This chapter covers advanced statistical methods including regression with dummy variables, logistic regression, factor analysis, and cluster analysis.</p>
-<div id="learning-objectives-2" class="section level2" number="9.1">
+<div id="learning-objectives-2" class="section level2" number="8.1">
 <h2>
-<span class="header-section-number">9.1</span> Learning Objectives<a class="anchor" aria-label="anchor" href="#learning-objectives-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.1</span> Learning Objectives<a class="anchor" aria-label="anchor" href="#learning-objectives-2"><i class="fas fa-link"></i></a>
 </h2>
 <p>By the end of this chapter, you will be able to:</p>
 <ul>
@@ -94,16 +94,16 @@
 <li>Use R for advanced statistical analysis</li>
 </ul>
 </div>
-<div id="regression-with-dummy-variables" class="section level2" number="9.2">
+<div id="regression-with-dummy-variables" class="section level2" number="8.2">
 <h2>
-<span class="header-section-number">9.2</span> Regression with Dummy Variables<a class="anchor" aria-label="anchor" href="#regression-with-dummy-variables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.2</span> Regression with Dummy Variables<a class="anchor" aria-label="anchor" href="#regression-with-dummy-variables"><i class="fas fa-link"></i></a>
 </h2>
 <p>Dummy variables (also called indicator variables) are binary variables (0/1) used to represent categorical data in regression models.</p>
-<div id="creating-dummy-variables" class="section level3" number="9.2.1">
+<div id="creating-dummy-variables" class="section level3" number="8.2.1">
 <h3>
-<span class="header-section-number">9.2.1</span> Creating Dummy Variables<a class="anchor" aria-label="anchor" href="#creating-dummy-variables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.2.1</span> Creating Dummy Variables<a class="anchor" aria-label="anchor" href="#creating-dummy-variables"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jacobkap/fastDummies">fastDummies</a></span><span class="op">)</span></span>
@@ -138,9 +138,9 @@
 <span><span class="va">model_auto</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">salary</span> <span class="op">~</span> <span class="va">experience</span> <span class="op">+</span> <span class="va">education</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model_auto</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="interpreting-dummy-variable-coefficients" class="section level3" number="9.2.2">
+<div id="interpreting-dummy-variable-coefficients" class="section level3" number="8.2.2">
 <h3>
-<span class="header-section-number">9.2.2</span> Interpreting Dummy Variable Coefficients<a class="anchor" aria-label="anchor" href="#interpreting-dummy-variable-coefficients"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.2.2</span> Interpreting Dummy Variable Coefficients<a class="anchor" aria-label="anchor" href="#interpreting-dummy-variable-coefficients"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>
@@ -152,16 +152,16 @@
 </ul>
 </div>
 </div>
-<div id="logistic-regression" class="section level2" number="9.3">
+<div id="logistic-regression" class="section level2" number="8.3">
 <h2>
-<span class="header-section-number">9.3</span> Logistic Regression<a class="anchor" aria-label="anchor" href="#logistic-regression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.3</span> Logistic Regression<a class="anchor" aria-label="anchor" href="#logistic-regression"><i class="fas fa-link"></i></a>
 </h2>
 <p>Logistic regression is used when the dependent variable is binary (0/1, Yes/No, Success/Failure).</p>
-<div id="binary-logistic-regression" class="section level3" number="9.3.1">
+<div id="binary-logistic-regression" class="section level3" number="8.3.1">
 <h3>
-<span class="header-section-number">9.3.1</span> Binary Logistic Regression<a class="anchor" aria-label="anchor" href="#binary-logistic-regression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.3.1</span> Binary Logistic Regression<a class="anchor" aria-label="anchor" href="#binary-logistic-regression"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span></span>
@@ -207,9 +207,9 @@
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="interpreting-logistic-regression-results" class="section level3" number="9.3.2">
+<div id="interpreting-logistic-regression-results" class="section level3" number="8.3.2">
 <h3>
-<span class="header-section-number">9.3.2</span> Interpreting Logistic Regression Results<a class="anchor" aria-label="anchor" href="#interpreting-logistic-regression-results"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.3.2</span> Interpreting Logistic Regression Results<a class="anchor" aria-label="anchor" href="#interpreting-logistic-regression-results"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>
@@ -221,16 +221,16 @@
 </ul>
 </div>
 </div>
-<div id="factor-analysis" class="section level2" number="9.4">
+<div id="factor-analysis" class="section level2" number="8.4">
 <h2>
-<span class="header-section-number">9.4</span> Factor Analysis<a class="anchor" aria-label="anchor" href="#factor-analysis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.4</span> Factor Analysis<a class="anchor" aria-label="anchor" href="#factor-analysis"><i class="fas fa-link"></i></a>
 </h2>
 <p>Factor analysis is used to identify underlying latent factors that explain the correlations among observed variables.</p>
-<div id="exploratory-factor-analysis-efa" class="section level3" number="9.4.1">
+<div id="exploratory-factor-analysis-efa" class="section level3" number="8.4.1">
 <h3>
-<span class="header-section-number">9.4.1</span> Exploratory Factor Analysis (EFA)<a class="anchor" aria-label="anchor" href="#exploratory-factor-analysis-efa"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.4.1</span> Exploratory Factor Analysis (EFA)<a class="anchor" aria-label="anchor" href="#exploratory-factor-analysis-efa"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span></span>
@@ -290,16 +290,16 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
-<div id="cluster-analysis" class="section level2" number="9.5">
+<div id="cluster-analysis" class="section level2" number="8.5">
 <h2>
-<span class="header-section-number">9.5</span> Cluster Analysis<a class="anchor" aria-label="anchor" href="#cluster-analysis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5</span> Cluster Analysis<a class="anchor" aria-label="anchor" href="#cluster-analysis"><i class="fas fa-link"></i></a>
 </h2>
 <p>Cluster analysis groups similar observations together based on their characteristics.</p>
-<div id="k-means-clustering" class="section level3" number="9.5.1">
+<div id="k-means-clustering" class="section level3" number="8.5.1">
 <h3>
-<span class="header-section-number">9.5.1</span> K-Means Clustering<a class="anchor" aria-label="anchor" href="#k-means-clustering"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5.1</span> K-Means Clustering<a class="anchor" aria-label="anchor" href="#k-means-clustering"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://svn.r-project.org/R-packages/trunk/cluster/">cluster</a></span><span class="op">)</span></span>
@@ -359,11 +359,11 @@
 <span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_nbclust.html">fviz_nbclust</a></span><span class="op">(</span><span class="va">data</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span>, <span class="va">kmeans</span>, method <span class="op">=</span> <span class="st">"wss"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_nbclust.html">fviz_nbclust</a></span><span class="op">(</span><span class="va">data</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span>, <span class="va">kmeans</span>, method <span class="op">=</span> <span class="st">"silhouette"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="hierarchical-clustering" class="section level3" number="9.5.2">
+<div id="hierarchical-clustering" class="section level3" number="8.5.2">
 <h3>
-<span class="header-section-number">9.5.2</span> Hierarchical Clustering<a class="anchor" aria-label="anchor" href="#hierarchical-clustering"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.5.2</span> Hierarchical Clustering<a class="anchor" aria-label="anchor" href="#hierarchical-clustering"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Perform hierarchical clustering</span></span>
 <span><span class="va">dist_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/dist.html">dist</a></span><span class="op">(</span><span class="va">data</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">hclust_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html">hclust</a></span><span class="op">(</span><span class="va">dist_matrix</span>, method <span class="op">=</span> <span class="st">"ward.D2"</span><span class="op">)</span></span>
@@ -386,15 +386,15 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
-<div id="model-selection-and-validation" class="section level2" number="9.6">
+<div id="model-selection-and-validation" class="section level2" number="8.6">
 <h2>
-<span class="header-section-number">9.6</span> Model Selection and Validation<a class="anchor" aria-label="anchor" href="#model-selection-and-validation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.6</span> Model Selection and Validation<a class="anchor" aria-label="anchor" href="#model-selection-and-validation"><i class="fas fa-link"></i></a>
 </h2>
-<div id="cross-validation-for-logistic-regression" class="section level3" number="9.6.1">
+<div id="cross-validation-for-logistic-regression" class="section level3" number="8.6.1">
 <h3>
-<span class="header-section-number">9.6.1</span> Cross-Validation for Logistic Regression<a class="anchor" aria-label="anchor" href="#cross-validation-for-logistic-regression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.6.1</span> Cross-Validation for Logistic Regression<a class="anchor" aria-label="anchor" href="#cross-validation-for-logistic-regression"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load required packages</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/topepo/caret/">caret</a></span><span class="op">)</span></span>
@@ -429,9 +429,9 @@
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">model</span><span class="op">$</span><span class="va">results</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
-<div id="best-practices-2" class="section level2" number="9.7">
+<div id="best-practices-2" class="section level2" number="8.7">
 <h2>
-<span class="header-section-number">9.7</span> Best Practices<a class="anchor" aria-label="anchor" href="#best-practices-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.7</span> Best Practices<a class="anchor" aria-label="anchor" href="#best-practices-2"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li>
@@ -448,9 +448,9 @@
 <strong>Document decisions</strong> and rationale</li>
 </ol>
 </div>
-<div id="common-pitfalls-1" class="section level2" number="9.8">
+<div id="common-pitfalls-1" class="section level2" number="8.8">
 <h2>
-<span class="header-section-number">9.8</span> Common Pitfalls<a class="anchor" aria-label="anchor" href="#common-pitfalls-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.8</span> Common Pitfalls<a class="anchor" aria-label="anchor" href="#common-pitfalls-1"><i class="fas fa-link"></i></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li>
@@ -465,9 +465,9 @@
 <strong>Interpretation</strong>: Misunderstanding coefficients and results</li>
 </ol>
 </div>
-<div id="summary-2" class="section level2" number="9.9">
+<div id="summary-2" class="section level2" number="8.9">
 <h2>
-<span class="header-section-number">9.9</span> Summary<a class="anchor" aria-label="anchor" href="#summary-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.9</span> Summary<a class="anchor" aria-label="anchor" href="#summary-2"><i class="fas fa-link"></i></a>
 </h2>
 <p>Advanced statistical methods provide powerful tools for analyzing complex data. Key points:</p>
 <ul>
@@ -478,9 +478,9 @@
 <li>Document all decisions and rationale</li>
 </ul>
 </div>
-<div id="references" class="section level2" number="9.10">
+<div id="references" class="section level2" number="8.10">
 <h2>
-<span class="header-section-number">9.10</span> References<a class="anchor" aria-label="anchor" href="#references"><i class="fas fa-link"></i></a>
+<span class="header-section-number">8.10</span> References<a class="anchor" aria-label="anchor" href="#references"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
 <li>Slides: Available in the course drive</li>
@@ -493,41 +493,41 @@
 
 
   <div class="chapter-nav">
-<div class="prev"><a href="exam-sim-intermediate.html"><span class="header-section-number">8</span> 📝 Intermediate Exam Simulation - Healthcare Management</a></div>
-<div class="next"><a href="advanced-modeling-techniques.html"><span class="header-section-number">10</span> 🚀 Advanced Modeling Techniques</a></div>
+<div class="prev"><a href="linear-regression-analysis.html"><span class="header-section-number">7</span> 📈 Linear Regression Analysis</a></div>
+<div class="next"><a href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#advanced-statistical-methods"><span class="header-section-number">9</span> 🔬 Advanced Statistical Methods</a></li>
-<li><a class="nav-link" href="#learning-objectives-2"><span class="header-section-number">9.1</span> Learning Objectives</a></li>
+<li><a class="nav-link" href="#advanced-statistical-methods"><span class="header-section-number">8</span> 🔬 Advanced Statistical Methods</a></li>
+<li><a class="nav-link" href="#learning-objectives-2"><span class="header-section-number">8.1</span> Learning Objectives</a></li>
 <li>
-<a class="nav-link" href="#regression-with-dummy-variables"><span class="header-section-number">9.2</span> Regression with Dummy Variables</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#creating-dummy-variables"><span class="header-section-number">9.2.1</span> Creating Dummy Variables</a></li>
-<li><a class="nav-link" href="#interpreting-dummy-variable-coefficients"><span class="header-section-number">9.2.2</span> Interpreting Dummy Variable Coefficients</a></li>
+<a class="nav-link" href="#regression-with-dummy-variables"><span class="header-section-number">8.2</span> Regression with Dummy Variables</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#creating-dummy-variables"><span class="header-section-number">8.2.1</span> Creating Dummy Variables</a></li>
+<li><a class="nav-link" href="#interpreting-dummy-variable-coefficients"><span class="header-section-number">8.2.2</span> Interpreting Dummy Variable Coefficients</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#logistic-regression"><span class="header-section-number">9.3</span> Logistic Regression</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#binary-logistic-regression"><span class="header-section-number">9.3.1</span> Binary Logistic Regression</a></li>
-<li><a class="nav-link" href="#interpreting-logistic-regression-results"><span class="header-section-number">9.3.2</span> Interpreting Logistic Regression Results</a></li>
+<a class="nav-link" href="#logistic-regression"><span class="header-section-number">8.3</span> Logistic Regression</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#binary-logistic-regression"><span class="header-section-number">8.3.1</span> Binary Logistic Regression</a></li>
+<li><a class="nav-link" href="#interpreting-logistic-regression-results"><span class="header-section-number">8.3.2</span> Interpreting Logistic Regression Results</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#factor-analysis"><span class="header-section-number">9.4</span> Factor Analysis</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exploratory-factor-analysis-efa"><span class="header-section-number">9.4.1</span> Exploratory Factor Analysis (EFA)</a></li></ul>
+<a class="nav-link" href="#factor-analysis"><span class="header-section-number">8.4</span> Factor Analysis</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exploratory-factor-analysis-efa"><span class="header-section-number">8.4.1</span> Exploratory Factor Analysis (EFA)</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#cluster-analysis"><span class="header-section-number">9.5</span> Cluster Analysis</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#k-means-clustering"><span class="header-section-number">9.5.1</span> K-Means Clustering</a></li>
-<li><a class="nav-link" href="#hierarchical-clustering"><span class="header-section-number">9.5.2</span> Hierarchical Clustering</a></li>
+<a class="nav-link" href="#cluster-analysis"><span class="header-section-number">8.5</span> Cluster Analysis</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#k-means-clustering"><span class="header-section-number">8.5.1</span> K-Means Clustering</a></li>
+<li><a class="nav-link" href="#hierarchical-clustering"><span class="header-section-number">8.5.2</span> Hierarchical Clustering</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#model-selection-and-validation"><span class="header-section-number">9.6</span> Model Selection and Validation</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#cross-validation-for-logistic-regression"><span class="header-section-number">9.6.1</span> Cross-Validation for Logistic Regression</a></li></ul>
+<a class="nav-link" href="#model-selection-and-validation"><span class="header-section-number">8.6</span> Model Selection and Validation</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#cross-validation-for-logistic-regression"><span class="header-section-number">8.6.1</span> Cross-Validation for Logistic Regression</a></li></ul>
 </li>
-<li><a class="nav-link" href="#best-practices-2"><span class="header-section-number">9.7</span> Best Practices</a></li>
-<li><a class="nav-link" href="#common-pitfalls-1"><span class="header-section-number">9.8</span> Common Pitfalls</a></li>
-<li><a class="nav-link" href="#summary-2"><span class="header-section-number">9.9</span> Summary</a></li>
-<li><a class="nav-link" href="#references"><span class="header-section-number">9.10</span> References</a></li>
+<li><a class="nav-link" href="#best-practices-2"><span class="header-section-number">8.7</span> Best Practices</a></li>
+<li><a class="nav-link" href="#common-pitfalls-1"><span class="header-section-number">8.8</span> Common Pitfalls</a></li>
+<li><a class="nav-link" href="#summary-2"><span class="header-section-number">8.9</span> Summary</a></li>
+<li><a class="nav-link" href="#references"><span class="header-section-number">8.10</span> References</a></li>
 </ul>
 
       <div class="book-extra">
