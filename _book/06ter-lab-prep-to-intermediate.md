@@ -641,10 +641,10 @@ report(test)
 #> recommendations.
 #> 
 #> The One Sample t-test testing the difference between x
-#> (mean = 65.78) and mu = 65 suggests that the effect is
+#> (mean = 65.18) and mu = 65 suggests that the effect is
 #> positive, statistically not significant, and very small
-#> (difference = 0.78, 95% CI [-Inf, 66.67], t(63) = 1.45, p =
-#> 0.924; Cohen's d = 0.18, 95% CI [-Inf, 0.39])
+#> (difference = 0.18, 95% CI [-Inf, 65.99], t(63) = 0.37, p =
+#> 0.644; Cohen's d = 0.05, 95% CI [-Inf, 0.25])
 ```
 
 
