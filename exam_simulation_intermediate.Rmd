@@ -236,35 +236,50 @@ patient_data <- data.frame(
 
 ---
 
-## 📈 Question 15: Linear Regression - Model Diagnostics
+## 📈 Question 15: Linear Regression - Model Prediction and Classification
 
 ::: {.exercise #exam15}
-You have fitted a linear regression model stored in `model` and want to check the model assumptions (linearity, normality of residuals, homoscedasticity) using diagnostic plots. Write the R command to display the diagnostic plots and explain what each plot tells you about the model assumptions.
+A hospital has developed a regression model to predict length of stay (LOS) based on patient age, BMI, and number of comorbidities. The model output is:
 
-**Sample model:**
-```r
-set.seed(123)
-data <- data.frame(
-  age = rnorm(100),
-  bmi = rnorm(100),
-  los = 5 + 0.1 * age + 0.3 * bmi + rnorm(100, 0, 1)
-)
-model <- lm(los ~ age + bmi, data = data)
 ```
+Coefficients:
+              Estimate  Std. Error  t value  Pr(>|t|)    
+(Intercept)   3.250     0.450       7.22     < 0.001 ***
+age           0.045     0.012       3.75     0.0003 ***
+BMI           0.120     0.025       4.80     < 0.001 ***
+comorbidities 1.450     0.180       8.06     < 0.001 ***
+```
+
+Using this model, predict the length of stay for a 65-year-old patient with BMI of 28 and 2 comorbidities. Then, classify this patient as "Short Stay" (< 7 days) or "Long Stay" (≥ 7 days). Show your calculations.
 :::
 
 ---
 
-## 📈 Question 16: Linear Regression - Prediction and Confidence Intervals
+## 📈 Question 16: Linear Regression - Practical Prediction
 
 ::: {.exercise #exam16}
-Using the regression model from Question 15, predict the length of stay for a new patient with age = 70 and BMI = 30. Calculate both the prediction interval and confidence interval. Write the R commands and explain the difference between these two intervals.
+A hospital has fitted a multiple regression model to predict patient readmission risk score (scale 0-100) based on the following variables:
 
-**Sample model:**
+**Sample data:**
 ```r
-# Using the model from Question 15
-new_patient <- data.frame(age = 70, bmi = 30)
+set.seed(456)
+patient_data <- data.frame(
+  age = c(45, 62, 71, 55, 68, 58, 75, 63, 52, 70),
+  length_of_stay = c(3, 7, 9, 4, 8, 5, 10, 6, 4, 9),
+  comorbidities = c(0, 2, 3, 1, 2, 1, 4, 2, 0, 3),
+  readmission_risk = c(25, 55, 72, 35, 60, 40, 78, 50, 28, 68)
+)
+
+# Fit the model
+risk_model <- lm(readmission_risk ~ age + length_of_stay + comorbidities, 
+                 data = patient_data)
 ```
+
+**Task:** 
+1. Fit the model and display the summary
+2. Predict the readmission risk for a new 60-year-old patient with 6-day length of stay and 2 comorbidities
+3. Based on the prediction, classify the patient as "Low Risk" (< 40), "Medium Risk" (40-60), or "High Risk" (> 60)
+4. Write the complete R code
 :::
 
 ---
@@ -791,54 +806,100 @@ if(all(vif_values < 5)) {
 ::: {.answer data-latex=""}
 **Answer to Question 15:**
 
-```r
-# Create sample data and model
-set.seed(123)
-data <- data.frame(
-  x1 = rnorm(100),
-  x2 = rnorm(100),
-  y = 2 + 3*x1 - 1.5*x2 + rnorm(100, 0, 2)
-)
-model <- lm(y ~ x1 + x2, data = data)
-
-# Diagnostic plots
-par(mfrow = c(2, 2))
-plot(model)
-par(mfrow = c(1, 1))
-
-# Interpretation
-cat("Diagnostic plots interpretation:\n")
-cat("1. Residuals vs Fitted: Should show random scatter (linearity assumption)\n")
-cat("2. Q-Q plot: Points should follow diagonal line (normality assumption)\n")
-cat("3. Scale-Location: Should show horizontal line (homoscedasticity assumption)\n")
-cat("4. Residuals vs Leverage: Identifies influential observations\n")
+**Step 1: Write the regression equation**
+```
+LOS = 3.250 + 0.045(age) + 0.120(BMI) + 1.450(comorbidities)
 ```
 
-**Explanation**: The four diagnostic plots check the main regression assumptions. Random patterns indicate assumptions are met, while systematic patterns suggest violations that need addressing.
+**Step 2: Plug in the values**
+- age = 65
+- BMI = 28
+- comorbidities = 2
+
+```
+LOS = 3.250 + 0.045(65) + 0.120(28) + 1.450(2)
+LOS = 3.250 + 2.925 + 3.360 + 2.900
+LOS = 12.435 days
+```
+
+**Step 3: Classification**
+Since 12.435 ≥ 7 days, this patient is classified as **"Long Stay"**
+
+**R code:**
+```r
+# Coefficients from the model
+intercept <- 3.250
+coef_age <- 0.045
+coef_bmi <- 0.120
+coef_comorbidities <- 1.450
+
+# New patient values
+age <- 65
+bmi <- 28
+comorbidities <- 2
+
+# Prediction
+predicted_los <- intercept + coef_age * age + coef_bmi * bmi + coef_comorbidities * comorbidities
+cat("Predicted Length of Stay:", round(predicted_los, 2), "days\n")
+
+# Classification
+if(predicted_los < 7) {
+  cat("Classification: Short Stay\n")
+} else {
+  cat("Classification: Long Stay\n")
+}
+```
+
+**Explanation**: The predicted length of stay is approximately 12.4 days, which exceeds the 7-day threshold, classifying this patient as a "Long Stay" case. This information can help the hospital plan resource allocation.
 :::
 
 ::: {.answer data-latex=""}
 **Answer to Question 16:**
 
 ```r
-# Using the model from Question 15
-new_data <- data.frame(x1 = 1.5, x2 = -0.8)
+# Create the data
+set.seed(456)
+patient_data <- data.frame(
+  age = c(45, 62, 71, 55, 68, 58, 75, 63, 52, 70),
+  length_of_stay = c(3, 7, 9, 4, 8, 5, 10, 6, 4, 9),
+  comorbidities = c(0, 2, 3, 1, 2, 1, 4, 2, 0, 3),
+  readmission_risk = c(25, 55, 72, 35, 60, 40, 78, 50, 28, 68)
+)
 
-# Prediction
-prediction <- predict(model, newdata = new_data, interval = "prediction")
-confidence <- predict(model, newdata = new_data, interval = "confidence")
+# Task 1: Fit the model and display summary
+risk_model <- lm(readmission_risk ~ age + length_of_stay + comorbidities, 
+                 data = patient_data)
+summary(risk_model)
 
-cat("Predicted value:", round(prediction[1], 3), "\n")
-cat("Prediction interval: [", round(prediction[2], 3), ",", round(prediction[3], 3), "]\n")
-cat("Confidence interval: [", round(confidence[2], 3), ",", round(confidence[3], 3), "]\n")
+# Task 2: Predict for new patient
+new_patient <- data.frame(age = 60, length_of_stay = 6, comorbidities = 2)
+predicted_risk <- predict(risk_model, newdata = new_patient)
+cat("Predicted readmission risk:", round(predicted_risk, 2), "\n")
 
-cat("\nDifference between intervals:\n")
-cat("Confidence interval: Range for the MEAN response at given x values\n")
-cat("Prediction interval: Range for an INDIVIDUAL response at given x values\n")
-cat("Prediction interval is wider because it includes both model uncertainty and individual variation\n")
+# Task 3: Classification
+if(predicted_risk < 40) {
+  risk_category <- "Low Risk"
+} else if(predicted_risk <= 60) {
+  risk_category <- "Medium Risk"
+} else {
+  risk_category <- "High Risk"
+}
+
+cat("Risk Classification:", risk_category, "\n")
+
+# Display complete results
+cat("\n=== COMPLETE RESULTS ===\n")
+cat("Patient Profile:\n")
+cat("  - Age: 60 years\n")
+cat("  - Length of Stay: 6 days\n")
+cat("  - Comorbidities: 2\n")
+cat("Predicted Risk Score:", round(predicted_risk, 2), "\n")
+cat("Risk Category:", risk_category, "\n")
 ```
 
-**Explanation**: Confidence intervals estimate the mean response, while prediction intervals estimate individual responses. Prediction intervals are always wider because they account for additional uncertainty in individual predictions.
+**Interpretation**: Based on the model, a 60-year-old patient with a 6-day length of stay and 2 comorbidities has a predicted readmission risk score around 49-51 (depending on the exact coefficients). This falls into the "Medium Risk" category (40-60), suggesting moderate follow-up care and monitoring would be appropriate.
+
+**Explanation**: This practical approach shows how hospitals can use regression models to classify patients into risk categories, enabling targeted interventions and resource allocation for patients most at risk of readmission.
 :::
 
 ::: {.answer data-latex=""}
