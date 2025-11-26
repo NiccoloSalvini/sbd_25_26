@@ -59,14 +59,17 @@
 <li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
 <li class="book-part">Additional Resources</li>
 <li><a class="" href="int-prep.html"><span class="header-section-number">10</span> 💻 Intermediate preparation</a></li>
-<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">11</span> 📚 Additional Practice Exercises for Intermediate Exam</a></li>
-<li><a class="" href="int-samp-q.html"><span class="header-section-number">12</span> 💻 Intermediate Sample Questions</a></li>
-<li><a class="" href="exam-sim-intermediate.html"><span class="header-section-number">13</span> 📝 Intermediate Exam Simulation - Healthcare Management</a></li>
-<li><a class="" href="course-performance.html"><span class="header-section-number">14</span> ⚡ Course Performance</a></li>
-<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">15</span> ❓ Frequently Asked Questions</a></li>
+<li><a class="" href="int-samp-q-first.html"><span class="header-section-number">11</span> 💻 First Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">12</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="pca.html"><span class="header-section-number">13</span> 💻 PCA</a></li>
+<li><a class="" href="hier-clust.html"><span class="header-section-number">14</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-means.html"><span class="header-section-number">15</span> 💻 K-Means Clustering</a></li>
+<li><a class="" href="exam-sim-intermediate.html"><span class="header-section-number">16</span> 📝 Intermediate Exam Simulation - Healthcare Management</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">17</span> ⚡ Course Performance</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">18</span> ❓ Frequently Asked Questions</a></li>
 <li class="book-part">Appendix</li>
-<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">16</span> Symbols, formulas, statistics and parameters</a></li>
-<li><a class="" href="appendixdatasets.html"><span class="header-section-number">17</span> Datasets</a></li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">19</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">20</span> Datasets</a></li>
 <li><a class="" href="references-2.html">References</a></li>
 </ul>
 
@@ -312,32 +315,32 @@ The complete source is available from <a href="https://github.com/NiccoloSalvini
 <p>This version of the book was built with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/">devtools</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Loading required package: usethis</span></span>
+<span><span class="co">#&gt; Caricamento del pacchetto richiesto: usethis</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://roxygen2.r-lib.org/">roxygen2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://testthat.r-lib.org">testthat</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Attaching package: 'testthat'</span></span>
-<span><span class="co">#&gt; The following object is masked from 'package:devtools':</span></span>
+<span><span class="co">#&gt; Caricamento pacchetto: 'testthat'</span></span>
+<span><span class="co">#&gt; Il seguente oggetto `e mascherato da 'package:devtools':</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;     test_file</span></span>
-<span><span class="co">#&gt; The following object is masked from 'package:dplyr':</span></span>
+<span><span class="co">#&gt; Il seguente oggetto `e mascherato da 'package:dplyr':</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;     matches</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://sessioninfo.r-lib.org/reference/session_info.html">session_info</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ─ Session info ───────────────────────────────────────────</span></span>
+<span><span class="co">#&gt; - Session info -------------------------------------------</span></span>
 <span><span class="co">#&gt;  setting  value</span></span>
 <span><span class="co">#&gt;  version  R version 4.2.0 (2022-04-22)</span></span>
 <span><span class="co">#&gt;  os       macOS 15.6.1</span></span>
 <span><span class="co">#&gt;  system   aarch64, darwin20</span></span>
 <span><span class="co">#&gt;  ui       X11</span></span>
 <span><span class="co">#&gt;  language (EN)</span></span>
-<span><span class="co">#&gt;  collate  en_US.UTF-8</span></span>
-<span><span class="co">#&gt;  ctype    en_US.UTF-8</span></span>
+<span><span class="co">#&gt;  collate  C</span></span>
+<span><span class="co">#&gt;  ctype    C</span></span>
 <span><span class="co">#&gt;  tz       Europe/Rome</span></span>
-<span><span class="co">#&gt;  date     2025-10-24</span></span>
+<span><span class="co">#&gt;  date     2025-11-26</span></span>
 <span><span class="co">#&gt;  pandoc   3.7.0.2 @ /opt/homebrew/bin/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ─ Packages ───────────────────────────────────────────────</span></span>
+<span><span class="co">#&gt; - Packages -----------------------------------------------</span></span>
 <span><span class="co">#&gt;  package      * version    date (UTC) lib source</span></span>
 <span><span class="co">#&gt;  bookdown       0.29       2022-09-12 [1] CRAN (R 4.2.0)</span></span>
 <span><span class="co">#&gt;  brio           1.1.3      2021-11-30 [1] CRAN (R 4.2.0)</span></span>
@@ -421,7 +424,7 @@ The complete source is available from <a href="https://github.com/NiccoloSalvini
 <span><span class="co">#&gt;  [1] /Users/niccolo/Library/R/arm64/4.2/library</span></span>
 <span><span class="co">#&gt;  [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ──────────────────────────────────────────────────────────</span></span></code></pre></div>
+<span><span class="co">#&gt; ----------------------------------------------------------</span></span></code></pre></div>
 
 </div>
 </div>
@@ -471,7 +474,7 @@ The complete source is available from <a href="https://github.com/NiccoloSalvini
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-10-24.</p>
+    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-11-26.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -1,4 +1,4 @@
-# 💻 Intermediate Sample Questions {#int-samp-q}
+# 💻 First Intermediate Sample Questions {#int-samp-q-first}
 
 Hi guys, this is your favourite **TA**, I am just aggregating questions that have been asked in previous exam sessions the previous years i.e. 2020/2021 and 2021/2022. They are representative of the actual exam, but you know, take it like a grain of salt. 
 

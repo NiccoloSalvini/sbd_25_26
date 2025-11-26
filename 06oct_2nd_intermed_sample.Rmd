@@ -1,4 +1,4 @@
-# 📚 Additional Practice Exercises for Intermediate Exam {#int-samp-q-second}
+# 💻 Second Intermediate Sample Questions {#int-samp-q-second}
 
 This is a comprehensive collection of practice exercises designed to prepare you for the intermediate exam. These exercises cover all major topics from hypothesis testing to advanced regression techniques, with a focus on healthcare and biomedical data analysis.
 
