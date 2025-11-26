@@ -686,7 +686,7 @@ Here we perform PCA on the USArrests, the rows of the data set contain the 50 st
 
 
 ```r
-?USArrests
+# ?USArrests  # Commented out - prints documentation examples to output
 # View(USArrests)  # Commented out - requires XQuartz on macOS
 head(USArrests)
 #>            Murder Assault UrbanPop Rape

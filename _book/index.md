@@ -188,32 +188,32 @@ This version of the book was built with:
 
 ```r
 library(devtools)
-#> Caricamento del pacchetto richiesto: usethis
+#> Loading required package: usethis
 library(roxygen2)
 library(testthat)
 #> 
-#> Caricamento pacchetto: 'testthat'
-#> Il seguente oggetto `e mascherato da 'package:devtools':
+#> Attaching package: 'testthat'
+#> The following object is masked from 'package:devtools':
 #> 
 #>     test_file
-#> Il seguente oggetto `e mascherato da 'package:dplyr':
+#> The following object is masked from 'package:dplyr':
 #> 
 #>     matches
 devtools::session_info()
-#> - Session info -------------------------------------------
+#> ─ Session info ───────────────────────────────────────────────────────────────────────────────────
 #>  setting  value
 #>  version  R version 4.2.0 (2022-04-22)
 #>  os       macOS 15.6.1
 #>  system   aarch64, darwin20
 #>  ui       X11
 #>  language (EN)
-#>  collate  C
-#>  ctype    C
+#>  collate  en_US.UTF-8
+#>  ctype    en_US.UTF-8
 #>  tz       Europe/Rome
 #>  date     2025-11-26
 #>  pandoc   3.7.0.2 @ /opt/homebrew/bin/ (via rmarkdown)
 #> 
-#> - Packages -----------------------------------------------
+#> ─ Packages ───────────────────────────────────────────────────────────────────────────────────────
 #>  package      * version    date (UTC) lib source
 #>  bookdown       0.29       2022-09-12 [1] CRAN (R 4.2.0)
 #>  brio           1.1.3      2021-11-30 [1] CRAN (R 4.2.0)
@@ -297,5 +297,5 @@ devtools::session_info()
 #>  [1] /Users/niccolo/Library/R/arm64/4.2/library
 #>  [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library
 #> 
-#> ----------------------------------------------------------
+#> ──────────────────────────────────────────────────────────────────────────────────────────────────
 ```
