@@ -28,6 +28,10 @@ All course materials are available in the `slides/` folder:
 **Slides by Prof. Vincenzo Nardelli:**
 - [Linear Regression](slides/linear_regression.pdf)
 
+**Laboratori Modulo 2 (Dr. Niccolò Salvini):**
+- [PCA & Correspondence Analysis](slides/module_2_PCA_&_CA.pdf)
+- [Hierarchical Clustering](slides/module_2_hierarchical_clustering.pdf)
+- [K-Means Clustering](slides/module_2_kmeans_clustering.pdf)
 
 ### Part 2: Advanced Modeling (Prof. Sophie Dabo-Niang)
 - Materials will be provided during the intensive session (week of November 17th)
