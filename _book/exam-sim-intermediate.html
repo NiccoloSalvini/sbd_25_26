@@ -92,7 +92,7 @@
 <div class="exercise">
 <p><span id="exr:exam1" class="exercise"><strong>Exercise 16.1  </strong></span>You have a <code>patient_data</code> dataframe with columns: <code>patient_id</code>, <code>emergency_visits</code>, and <code>outpatient_visits</code>. Reshape the data into a “long” format with three columns: <code>patient_id</code>, <code>visit_type</code> (containing “emergency_visits” or “outpatient_visits”), and <code>visit_count</code>. Write the R command using the tidyr package.</p>
 <p><strong>Sample data:</strong></p>
-<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
 <span><span class="va">patient_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  patient_id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,</span>
@@ -109,7 +109,7 @@
 <div class="exercise">
 <p><span id="exr:exam2" class="exercise"><strong>Exercise 16.2  </strong></span>From a <code>patient_satisfaction</code> dataset with columns <code>patient_id</code>, <code>department</code> (e.g., “Cardiology”, “Orthopedics”, “Emergency”), <code>satisfaction_score</code>, and <code>treatment_cost</code>, write a dplyr pipeline to create a summary table showing the number of patients, mean satisfaction score, and total treatment cost for each department. Show only departments with more than 50 patients AND mean satisfaction above 4.0.</p>
 <p><strong>Sample data:</strong></p>
-<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">456</span><span class="op">)</span></span>
 <span><span class="va">patient_satisfaction</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  patient_id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">200</span>,</span>
@@ -127,7 +127,7 @@
 <div class="exercise">
 <p><span id="exr:exam3" class="exercise"><strong>Exercise 16.3  </strong></span>A hospital needs to calculate physician bonuses based on performance. Given a <code>physician_data</code> dataframe with columns <code>physician_id</code>, <code>patient_satisfaction_score</code>, <code>years_experience</code>, and <code>specialty</code>, create a new column <code>bonus_amount</code> that calculates 2% of satisfaction score per year of experience, with a maximum bonus of 8000 and a minimum bonus of 1000 for physicians with less than 3 years experience. Additionally, add a 15% specialty bonus for physicians in “Emergency Medicine” due to higher risk. Write the complete dplyr pipeline.</p>
 <p><strong>Sample data:</strong></p>
-<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">789</span><span class="op">)</span></span>
 <span><span class="va">physician_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  physician_id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span>,</span>
@@ -145,7 +145,7 @@
 <div class="exercise">
 <p><span id="exr:exam4" class="exercise"><strong>Exercise 16.4  </strong></span>From a <code>patient_monitoring</code> dataset with columns <code>patient_id</code>, <code>measurement_date</code>, <code>pain_level</code>, <code>mobility_score</code>, and <code>measurement_time</code> (with values “morning” or “evening”), filter to include only patients who have taken both types of measurements, and calculate the difference in their pain levels between these two measurement times. Also calculate the correlation between morning and evening pain levels. Write the complete dplyr pipeline.</p>
 <p><strong>Sample data:</strong></p>
-<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">321</span><span class="op">)</span></span>
 <span><span class="va">patient_monitoring</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  patient_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">50</span>, each <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
@@ -164,7 +164,7 @@
 <div class="exercise">
 <p><span id="exr:exam5" class="exercise"><strong>Exercise 16.5  </strong></span>You have hospital performance data in long format. The <code>hospital_performance</code> dataframe contains <code>hospital_id</code>, <code>quarter</code> (with values “Q1”, “Q2”, “Q3”, “Q4”), <code>patient_volume</code>, and <code>region</code>. Reshape this data into wide format so that each hospital has one row with separate columns for each quarter (<code>volume_Q1</code>, <code>volume_Q2</code>, <code>volume_Q3</code>, <code>volume_Q4</code>). Then calculate the quarterly growth rate for each hospital (Q4 vs Q1). Write the complete pipeline.</p>
 <p><strong>Sample data:</strong></p>
-<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">654</span><span class="op">)</span></span>
 <span><span class="va">hospital_performance</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  hospital_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">30</span>, each <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>,</span>
@@ -182,7 +182,7 @@
 <div class="exercise">
 <p><span id="exr:exam6" class="exercise"><strong>Exercise 16.6  </strong></span>A hospital claims that their new patient management system reduces average waiting time by 15 minutes. In a pilot study with 45 patients, the mean reduction was 18 minutes with a standard deviation of 6 minutes. Test at α = 0.05 if the actual reduction is significantly greater than the claimed 15 minutes. Write the R command and interpret the results.</p>
 <p><strong>Sample data:</strong></p>
-<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
 <span><span class="va">waiting_time_reduction</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">45</span>, mean <span class="op">=</span> <span class="fl">18</span>, sd <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -204,7 +204,7 @@
 <div class="exercise">
 <p><span id="exr:exam8" class="exercise"><strong>Exercise 16.8  </strong></span>A hospital is testing a new training program for nurses. The same 25 nurses took a patient safety competency test before and after the training. Test if the training program significantly improved the test scores. Write the appropriate R command and state whether this should be a paired or unpaired test.</p>
 <p><strong>Sample data:</strong></p>
-<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">456</span><span class="op">)</span></span>
 <span><span class="va">nurse_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  nurse_id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">25</span>,</span>
@@ -230,7 +230,7 @@
 <div class="exercise">
 <p><span id="exr:exam10" class="exercise"><strong>Exercise 16.10  </strong></span>A study compares the patient satisfaction scores between two different hospital wards. Before running a t-test, you perform a Levene’s test for equality of variances and get a p-value of 0.02. Which type of two-sample t-test should you use and why? Write the R command for the appropriate t-test, assuming you have a <code>patient_satisfaction</code> dataframe with <code>score</code> and <code>ward</code> columns.</p>
 <p><strong>Sample data:</strong></p>
-<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">789</span><span class="op">)</span></span>
 <span><span class="va">patient_satisfaction</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  score <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">4.2</span>, <span class="fl">0.8</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">35</span>, <span class="fl">4.0</span>, <span class="fl">1.2</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -246,7 +246,7 @@
 <div class="exercise">
 <p><span id="exr:exam11" class="exercise"><strong>Exercise 16.11  </strong></span>A clinical trial tests three different pain management protocols (Protocol A, Protocol B, Protocol C) on different patients. The pain reduction scores are stored in a variable called <code>pain_reduction</code> and the treatment group is stored in <code>protocol</code> in a dataframe called <code>pain_study</code>. Write the R command to perform ANOVA and display the results. Also test the assumptions.</p>
 <p><strong>Sample data:</strong></p>
-<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">321</span><span class="op">)</span></span>
 <span><span class="va">pain_study</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  pain_reduction <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">6.5</span>, <span class="fl">1.2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">7.2</span>, <span class="fl">1.5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">5.8</span>, <span class="fl">1.0</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -277,7 +277,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="exercise">
 <p><span id="exr:exam13" class="exercise"><strong>Exercise 16.13  </strong></span>Before conducting ANOVA, you want to test the homogeneity of variances assumption using Levene’s test. Your data is in a dataframe called <code>patient_data</code> with a continuous variable <code>recovery_time</code> and a grouping variable <code>hospital</code>. Write the R command using the car package. Also test for normality of residuals and interpret both results.</p>
 <p><strong>Sample data:</strong></p>
-<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">654</span><span class="op">)</span></span>
 <span><span class="va">patient_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  recovery_time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">12</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">8</span>, <span class="fl">1.5</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -293,7 +293,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="exercise">
 <p><span id="exr:exam14" class="exercise"><strong>Exercise 16.14  </strong></span>You have a <code>patient_data</code> dataframe with variables <code>length_of_stay</code> (dependent variable), <code>age</code>, <code>BMI</code>, and <code>comorbidity_count</code> (independent variables). Write the R command to fit a multiple linear regression model, check for multicollinearity using VIF, and display the summary. Interpret the results.</p>
 <p><strong>Sample data:</strong></p>
-<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">987</span><span class="op">)</span></span>
 <span><span class="va">patient_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">65</span>, <span class="fl">15</span><span class="op">)</span>,</span>
@@ -327,7 +327,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 <div class="exercise">
 <p><span id="exr:exam16" class="exercise"><strong>Exercise 16.16  </strong></span>A hospital has fitted a multiple regression model to predict patient readmission risk score (scale 0-100) based on the following variables:</p>
 <p><strong>Sample data:</strong></p>
-<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">456</span><span class="op">)</span></span>
 <span><span class="va">patient_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">45</span>, <span class="fl">62</span>, <span class="fl">71</span>, <span class="fl">55</span>, <span class="fl">68</span>, <span class="fl">58</span>, <span class="fl">75</span>, <span class="fl">63</span>, <span class="fl">52</span>, <span class="fl">70</span><span class="op">)</span>,</span>
@@ -354,7 +354,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 <div class="exercise">
 <p><span id="exr:exam17" class="exercise"><strong>Exercise 16.17  </strong></span>You want to predict the probability of hospital readmission (binary variable: 1=readmitted, 0=not readmitted) based on age, diabetes status, and length of stay. The data is in <code>patient_data</code>. Write the R command to fit a logistic regression model, calculate odds ratios, and interpret the results.</p>
 <p><strong>Sample data:</strong></p>
-<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">456</span><span class="op">)</span></span>
 <span><span class="va">patient_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">65</span>, <span class="fl">15</span><span class="op">)</span>,</span>
@@ -372,7 +372,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 <div class="exercise">
 <p><span id="exr:exam18" class="exercise"><strong>Exercise 16.18  </strong></span>Using the logistic regression model from Question 17, predict the probability of readmission for a 75-year-old patient with diabetes and a 10-day length of stay. Also calculate the odds ratio for diabetes status and interpret what it means in practical terms.</p>
 <p><strong>Sample model:</strong></p>
-<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Using the model from Question 17</span></span>
 <span><span class="va">new_patient</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>age <span class="op">=</span> <span class="fl">75</span>, diabetes_status <span class="op">=</span> <span class="fl">1</span>, length_of_stay <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -385,7 +385,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 <div class="exercise">
 <p><span id="exr:exam19" class="exercise"><strong>Exercise 16.19  </strong></span>You have a <code>clinical_data</code> dataframe with <code>recovery_time</code> (continuous), <code>age</code> (continuous), and <code>treatment_type</code> (categorical: A, B, C). Write the R command to fit a linear regression model including <code>treatment_type</code> as a factor. Set treatment A as the reference category and interpret the coefficients.</p>
 <p><strong>Sample data:</strong></p>
-<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">789</span><span class="op">)</span></span>
 <span><span class="va">clinical_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">90</span>, <span class="fl">65</span>, <span class="fl">10</span><span class="op">)</span>,</span>
@@ -402,7 +402,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 <div class="exercise">
 <p><span id="exr:exam20" class="exercise"><strong>Exercise 16.20  </strong></span>You want to test if the effect of age on <code>patient_satisfaction</code> differs between patients with and without chronic conditions. Write the R command to fit a regression model that includes an interaction term between age (continuous) and chronic_condition (binary dummy variable). Interpret the interaction coefficient if it is significant.</p>
 <p><strong>Sample data:</strong></p>
-<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">321</span><span class="op">)</span></span>
 <span><span class="va">patient_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">150</span>, <span class="fl">55</span>, <span class="fl">12</span><span class="op">)</span>,</span>
@@ -419,7 +419,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 </h2>
 <div class="answer">
 <p><strong>Answer to Question 1:</strong></p>
-<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
@@ -444,7 +444,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Question 2:</strong></p>
-<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Create sample data</span></span>
@@ -471,7 +471,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Question 3:</strong></p>
-<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Create sample data</span></span>
@@ -499,7 +499,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Question 4:</strong></p>
-<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span></span>
 <span></span>
@@ -533,7 +533,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Question 5:</strong></p>
-<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span></span>
 <span></span>
@@ -562,7 +562,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Question 6:</strong></p>
-<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create sample data</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
 <span><span class="va">waiting_time_reduction</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">45</span>, mean <span class="op">=</span> <span class="fl">18</span>, sd <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
@@ -583,7 +583,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Question 7:</strong></p>
-<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Proportion test</span></span>
 <span><span class="va">prop_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/prop.test.html">prop.test</a></span><span class="op">(</span><span class="fl">120</span>, <span class="fl">400</span>, p <span class="op">=</span> <span class="fl">0.35</span>, alternative <span class="op">=</span> <span class="st">"less"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">prop_test</span><span class="op">)</span></span>
@@ -605,7 +605,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Question 8:</strong></p>
-<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create sample data</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">456</span><span class="op">)</span></span>
 <span><span class="va">nurse_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
@@ -631,7 +631,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Question 9:</strong></p>
-<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Two-sample proportion test</span></span>
 <span><span class="va">prop_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/prop.test.html">prop.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">180</span>, <span class="fl">210</span><span class="op">)</span>, n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">250</span>, <span class="fl">280</span><span class="op">)</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">prop_test</span><span class="op">)</span></span>
@@ -657,7 +657,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Question 10:</strong></p>
-<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Create sample data</span></span>
@@ -683,7 +683,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Question 11:</strong></p>
-<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create sample data</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">321</span><span class="op">)</span></span>
 <span><span class="va">clinical_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
@@ -716,7 +716,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Question 12:</strong></p>
-<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Assuming anova_model is already fitted</span></span>
 <span><span class="co"># Tukey's HSD test</span></span>
 <span><span class="va">tukey_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span><span class="va">anova_model</span><span class="op">)</span></span>
@@ -733,7 +733,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Question 13:</strong></p>
-<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Create sample data</span></span>
@@ -772,7 +772,7 @@ comorbidities 1.450     0.180       8.06     &lt; 0.001 ***</code></pre>
 </div>
 <div class="answer">
 <p><strong>Answer to Question 14:</strong></p>
-<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Create sample data</span></span>
@@ -822,7 +822,7 @@ LOS = 12.435 days</code></pre>
 <p><strong>Step 3: Classification</strong>
 Since 12.435 ≥ 7 days, this patient is classified as <strong>“Long Stay”</strong></p>
 <p><strong>R code:</strong></p>
-<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Coefficients from the model</span></span>
 <span><span class="va">intercept</span> <span class="op">&lt;-</span> <span class="fl">3.250</span></span>
 <span><span class="va">coef_age</span> <span class="op">&lt;-</span> <span class="fl">0.045</span></span>
@@ -848,7 +848,7 @@ Since 12.435 ≥ 7 days, this patient is classified as <strong>“Long Stay”</
 </div>
 <div class="answer">
 <p><strong>Answer to Question 16:</strong></p>
-<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create the data</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">456</span><span class="op">)</span></span>
 <span><span class="va">patient_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
@@ -892,7 +892,7 @@ Since 12.435 ≥ 7 days, this patient is classified as <strong>“Long Stay”</
 </div>
 <div class="answer">
 <p><strong>Answer to Question 17:</strong></p>
-<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb249"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create sample data</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">456</span><span class="op">)</span></span>
 <span><span class="va">patient_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
@@ -921,7 +921,7 @@ Since 12.435 ≥ 7 days, this patient is classified as <strong>“Long Stay”</
 </div>
 <div class="answer">
 <p><strong>Answer to Question 18:</strong></p>
-<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Using the model from Question 17</span></span>
 <span><span class="va">new_patient</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>age <span class="op">=</span> <span class="fl">60</span>, smoking_status <span class="op">=</span> <span class="fl">1</span>, cholesterol <span class="op">=</span> <span class="fl">250</span><span class="op">)</span></span>
 <span></span>
@@ -944,7 +944,7 @@ Since 12.435 ≥ 7 days, this patient is classified as <strong>“Long Stay”</
 </div>
 <div class="answer">
 <p><strong>Answer to Question 19:</strong></p>
-<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create sample data</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">789</span><span class="op">)</span></span>
 <span><span class="va">clinical_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
@@ -970,7 +970,7 @@ Since 12.435 ≥ 7 days, this patient is classified as <strong>“Long Stay”</
 </div>
 <div class="answer">
 <p><strong>Answer to Question 20:</strong></p>
-<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create sample data</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">321</span><span class="op">)</span></span>
 <span><span class="va">patient_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
@@ -1048,7 +1048,7 @@ Since 12.435 ≥ 7 days, this patient is classified as <strong>“Long Stay”</
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-11-26.</p>
+    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-11-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

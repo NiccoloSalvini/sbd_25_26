@@ -1,7 +1,7 @@
 --- 
 title: "Statistics & Big Data 25-26 Labs"
 author: "Dr. Niccolò Salvini"
-date: "2025-11-26"
+date: "2025-11-27"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -210,7 +210,7 @@ devtools::session_info()
 #>  collate  en_US.UTF-8
 #>  ctype    en_US.UTF-8
 #>  tz       Europe/Rome
-#>  date     2025-11-26
+#>  date     2025-11-27
 #>  pandoc   3.7.0.2 @ /opt/homebrew/bin/ (via rmarkdown)
 #> 
 #> ─ Packages ───────────────────────────────────────────────────────────────────────────────────────
