@@ -29,7 +29,7 @@ All course materials are available in the `slides/` folder:
 - [Linear Regression](slides/linear_regression.pdf)
 
 **Laboratori Modulo 2 (Dr. Niccolò Salvini):**
-- [PCA & Correspondence Analysis](slides/module_2_PCA_&_CA.pdf)
+- [PCA & Correspondence Analysis](slides/module_2_PCA_CA.pdf) 
 - [Hierarchical Clustering](slides/module_2_hierarchical_clustering.pdf)
 - [K-Means Clustering](slides/module_2_kmeans_clustering.pdf)
 

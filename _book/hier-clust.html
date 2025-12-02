@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 11 💻 Hierarchical Clustering | Statistics &amp; Big Data 25-26 Labs</title>
+<title>Chapter 12 💻 Hierarchical Clustering | Statistics &amp; Big Data 25-26 Labs</title>
 <meta name="author" content="Dr. Niccolò Salvini">
 <meta name="description" content="Hierarchical clustering is a machine learning technique used to group data points into clusters based on their similarity. It works by creating a hierarchical tree-like structure of clusters,...">
 <meta name="generator" content="bookdown 0.29 with bs4_book()">
-<meta property="og:title" content="Chapter 11 💻 Hierarchical Clustering | Statistics &amp; Big Data 25-26 Labs">
+<meta property="og:title" content="Chapter 12 💻 Hierarchical Clustering | Statistics &amp; Big Data 25-26 Labs">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Hierarchical clustering is a machine learning technique used to group data points into clusters based on their similarity. It works by creating a hierarchical tree-like structure of clusters,...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 11 💻 Hierarchical Clustering | Statistics &amp; Big Data 25-26 Labs">
+<meta name="twitter:title" content="Chapter 12 💻 Hierarchical Clustering | Statistics &amp; Big Data 25-26 Labs">
 <meta name="twitter:description" content="Hierarchical clustering is a machine learning technique used to group data points into clusters based on their similarity. It works by creating a hierarchical tree-like structure of clusters,...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -58,18 +58,19 @@
 <li class="book-part">Part 2: Advanced Modeling</li>
 <li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
 <li><a class="" href="pca.html"><span class="header-section-number">10</span> 💻 PCA</a></li>
-<li><a class="active" href="hier-clust.html"><span class="header-section-number">11</span> 💻 Hierarchical Clustering</a></li>
-<li><a class="" href="k-means.html"><span class="header-section-number">12</span> 💻 K-Means Clustering</a></li>
+<li><a class="" href="lab-pca-ca.html"><span class="header-section-number">11</span> 💻 Lab: PCA &amp; Correspondence Analysis</a></li>
+<li><a class="active" href="hier-clust.html"><span class="header-section-number">12</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-means.html"><span class="header-section-number">13</span> 💻 K-Means Clustering</a></li>
 <li class="book-part">Additional Resources</li>
-<li><a class="" href="int-prep.html"><span class="header-section-number">13</span> 💻 Intermediate preparation</a></li>
-<li><a class="" href="int-samp-q-first.html"><span class="header-section-number">14</span> 💻 First Intermediate Sample Questions</a></li>
-<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">15</span> 💻 Second Intermediate Sample Questions</a></li>
-<li><a class="" href="exam-sim-intermediate.html"><span class="header-section-number">16</span> 📝 Intermediate Exam Simulation - Healthcare Management</a></li>
-<li><a class="" href="course-performance.html"><span class="header-section-number">17</span> ⚡ Course Performance</a></li>
-<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">18</span> ❓ Frequently Asked Questions</a></li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="int-samp-q-first.html"><span class="header-section-number">15</span> 💻 First Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">16</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="exam-sim-intermediate.html"><span class="header-section-number">17</span> 📝 Intermediate Exam Simulation - Healthcare Management</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">18</span> ⚡ Course Performance</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">19</span> ❓ Frequently Asked Questions</a></li>
 <li class="book-part">Appendix</li>
-<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">19</span> Symbols, formulas, statistics and parameters</a></li>
-<li><a class="" href="appendixdatasets.html"><span class="header-section-number">20</span> Datasets</a></li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">20</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">21</span> Datasets</a></li>
 <li><a class="" href="references-2.html">References</a></li>
 </ul>
 
@@ -78,17 +79,17 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="hier-clust" class="section level1" number="11">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="hier-clust" class="section level1" number="12">
 <h1>
-<span class="header-section-number">11</span> 💻 Hierarchical Clustering<a class="anchor" aria-label="anchor" href="#hier-clust"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12</span> 💻 Hierarchical Clustering<a class="anchor" aria-label="anchor" href="#hier-clust"><i class="fas fa-link"></i></a>
 </h1>
 <p>Hierarchical clustering is a machine learning technique used to group data points into clusters based on their similarity. It works by creating a hierarchical tree-like structure of clusters, where each cluster is divided into smaller clusters until all data points are grouped together. This technique is useful for finding patterns in data and can be used for a variety of applications, such as customer segmentation, image recognition, and anomaly detection.</p>
 <p>If you are stuck either ask to the TA or team work! Collaboration is always key 👯‍♂️!</p>
 <p>Remember also that if you want to visualize clusters you may think to use <code><a href="https://rdrr.io/pkg/factoextra/man/fviz_cluster.html">fviz_cluster()</a></code> from lib <code>factoextra</code>. you just simply define which observation belogs to which group taking advantage of the <code>cutree</code> function. Below a minimal example</p>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://svn.r-project.org/R-packages/trunk/cluster/">cluster</a></span><span class="op">)</span>  <span class="co"># clustering algorithms</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.sthda.com/english/rpkgs/factoextra">factoextra</a></span><span class="op">)</span> <span class="co">#</span></span></code></pre></div>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">iris</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
@@ -105,13 +106,13 @@
 <span><span class="co"># Visualize the result in a scatter plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_cluster.html">fviz_cluster</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>, cluster <span class="op">=</span> <span class="va">sub_grps</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="19-hierarchical-clustering_files/figure-html/example-hier-1.png" width="100%"></div>
-<div id="exercises" class="section level2" number="11.1">
+<div id="exercises" class="section level2" number="12.1">
 <h2>
-<span class="header-section-number">11.1</span> 19.1 Exercises 👨‍💻<a class="anchor" aria-label="anchor" href="#exercises"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.1</span> 19.1 Exercises 👨‍💻<a class="anchor" aria-label="anchor" href="#exercises"><i class="fas fa-link"></i></a>
 </h2>
-<div id="exercise-19.1" class="section level3" number="11.1.1">
+<div id="exercise-19.1" class="section level3" number="12.1.1">
 <h3>
-<span class="header-section-number">11.1.1</span> Exercise 19.1<a class="anchor" aria-label="anchor" href="#exercise-19.1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.1.1</span> Exercise 19.1<a class="anchor" aria-label="anchor" href="#exercise-19.1"><i class="fas fa-link"></i></a>
 </h3>
 <p>Consider the USArrests data which is by default installed with R. We will now perform hierarchical clustering on the states.</p>
 <ol style="list-style-type: decimal">
@@ -125,7 +126,7 @@
 <p>Remember how to use hclust.</p>
 <div class="answer">
 <p><strong>Answer to Question 19.1:</strong></p>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Distance matrix</span></span>
 <span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/dist.html">dist</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span></span>
 <span></span>
@@ -136,12 +137,12 @@
 <span><span class="va">sub_groups</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/cutree.html">cutree</a></span><span class="op">(</span><span class="va">hc_complete</span>, k <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/rect.hclust.html">rect.hclust</a></span><span class="op">(</span><span class="va">hc_complete</span>, k <span class="op">=</span> <span class="fl">4</span>, border <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="19-hierarchical-clustering_files/figure-html/answer-19-1-1.png" width="100%"></div>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.sthda.com/english/rpkgs/factoextra">factoextra</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_cluster.html">fviz_cluster</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/dist.html">dist</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span>, cluster <span class="op">=</span> <span class="va">sub_groups</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="19-hierarchical-clustering_files/figure-html/answer-19-1-2.png" width="100%"></div>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span><span class="va">us_arrests_simplified</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">USArrests</span>, <span class="va">Murder</span>, <span class="va">Rape</span><span class="op">)</span></span>
@@ -151,12 +152,12 @@
 <div class="inline-figure"><img src="19-hierarchical-clustering_files/figure-html/answer-19-1-3.png" width="100%"></div>
 </div>
 </div>
-<div id="exercise-19.2" class="section level3" number="11.1.2">
+<div id="exercise-19.2" class="section level3" number="12.1.2">
 <h3>
-<span class="header-section-number">11.1.2</span> Exercise 19.2<a class="anchor" aria-label="anchor" href="#exercise-19.2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.1.2</span> Exercise 19.2<a class="anchor" aria-label="anchor" href="#exercise-19.2"><i class="fas fa-link"></i></a>
 </h3>
 <p>suppose you measure a small sample of penguins 🐧. Measurament are stored into the following dataframe:</p>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">penguins_small</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>    depth <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">2.7</span>, <span class="fl">3.2</span>, <span class="fl">3.5</span>, <span class="fl">3.6</span><span class="op">)</span>,</span>
 <span>    length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5.5</span>, <span class="fl">6.0</span>, <span class="fl">4.5</span>, <span class="fl">5.0</span>, <span class="fl">4.7</span><span class="op">)</span></span>
@@ -165,21 +166,21 @@
 <div class="answer">
 <p><strong>Answer to Question 19.2:</strong></p>
 <p>At first visualise clusters through dendogram</p>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">penguin_cluster</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html">hclust</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/dist.html">dist</a></span><span class="op">(</span><span class="va">penguins_small</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"complete"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">penguin_cluster</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="19-hierarchical-clustering_files/figure-html/answer-19-2-1.png" width="100%"></div>
 <p>then with scatter:</p>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.sthda.com/english/rpkgs/factoextra">factoextra</a></span><span class="op">)</span></span>
 <span><span class="va">penguins_subgroups</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/cutree.html">cutree</a></span><span class="op">(</span><span class="va">penguin_cluster</span>, k <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_cluster.html">fviz_cluster</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/dist.html">dist</a></span><span class="op">(</span><span class="va">penguins_small</span><span class="op">)</span>, cluster <span class="op">=</span> <span class="va">penguins_subgroups</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="19-hierarchical-clustering_files/figure-html/answer-19-2-scatter-1.png" width="100%"></div>
 </div>
 </div>
-<div id="exercise-19.3" class="section level3" number="11.1.3">
+<div id="exercise-19.3" class="section level3" number="12.1.3">
 <h3>
-<span class="header-section-number">11.1.3</span> Exercise 19.3<a class="anchor" aria-label="anchor" href="#exercise-19.3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.1.3</span> Exercise 19.3<a class="anchor" aria-label="anchor" href="#exercise-19.3"><i class="fas fa-link"></i></a>
 </h3>
 <p>The coleman data set in the robustbase library lists summary statistics for 20 different schools in the northeast US.</p>
 <p>The six variables measured on each school include demographic information (such as percent of white-collar fathers) and characteristics of each school (such as staff salaries per pupil).</p>
@@ -187,7 +188,7 @@
 <p>If we cluster individuals in 9 groups how many individuals fall in the largest cluster ?</p>
 <div class="answer">
 <p><strong>Answer to Question 19.3:</strong></p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://robustbase.R-forge.R-project.org/">robustbase</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">coleman</span><span class="op">)</span></span>
 <span></span>
@@ -207,17 +208,17 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="pca.html"><span class="header-section-number">10</span> 💻 PCA</a></div>
-<div class="next"><a href="k-means.html"><span class="header-section-number">12</span> 💻 K-Means Clustering</a></div>
+<div class="prev"><a href="lab-pca-ca.html"><span class="header-section-number">11</span> 💻 Lab: PCA &amp; Correspondence Analysis</a></div>
+<div class="next"><a href="k-means.html"><span class="header-section-number">13</span> 💻 K-Means Clustering</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#hier-clust"><span class="header-section-number">11</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="nav-link" href="#hier-clust"><span class="header-section-number">12</span> 💻 Hierarchical Clustering</a></li>
 <li>
-<a class="nav-link" href="#exercises"><span class="header-section-number">11.1</span> 19.1 Exercises 👨‍💻</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exercise-19.1"><span class="header-section-number">11.1.1</span> Exercise 19.1</a></li>
-<li><a class="nav-link" href="#exercise-19.2"><span class="header-section-number">11.1.2</span> Exercise 19.2</a></li>
-<li><a class="nav-link" href="#exercise-19.3"><span class="header-section-number">11.1.3</span> Exercise 19.3</a></li>
+<a class="nav-link" href="#exercises"><span class="header-section-number">12.1</span> 19.1 Exercises 👨‍💻</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-19.1"><span class="header-section-number">12.1.1</span> Exercise 19.1</a></li>
+<li><a class="nav-link" href="#exercise-19.2"><span class="header-section-number">12.1.2</span> Exercise 19.2</a></li>
+<li><a class="nav-link" href="#exercise-19.3"><span class="header-section-number">12.1.3</span> Exercise 19.3</a></li>
 </ul>
 </li>
 </ul>
@@ -237,7 +238,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-11-27.</p>
+    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-12-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -1,0 +1,525 @@
+# 💻 Lab: PCA & Correspondence Analysis {#lab-pca-ca}
+
+> **⚠️ Note on Slides**: If you encounter broken links in the PDF slides (`module_2_PCA_&_CA.pdf`), please refer to the "Additional Resources" section at the end of this lab for updated and working links.
+
+This is a hands-on laboratory session to practice Principal Component Analysis (PCA) and Correspondence Analysis (CA) after the theoretical lecture. Work through these exercises step by step, and don't hesitate to ask questions!
+
+## Setup
+
+First, load the required packages:
+
+```{r setup-lab-pca-ca, message=FALSE, warning=FALSE}
+library(FactoMineR)  # For PCA and CA
+library(factoextra)  # For visualization
+library(corrplot)    # For correlation plots
+library(dplyr)       # For data manipulation
+```
+
+## Part 1: Principal Component Analysis (PCA)
+
+### Exercise 1.1: Understanding the Data - Wine Dataset
+
+We'll work with the wine dataset from the `gclus` package, which contains chemical analyses of wines from three different cultivars.
+
+```{r ex1-1-load-data}
+# Load the wine dataset
+library(gclus)
+data(wine)
+
+# Examine the structure
+str(wine)
+head(wine)
+dim(wine)
+
+# Check for missing values
+sum(is.na(wine))
+```
+
+**Questions:**
+1. How many observations and variables are in the dataset?
+2. What types of variables do we have?
+3. Are there any missing values?
+
+### Exercise 1.2: Data Exploration and Preprocessing
+
+Before performing PCA, let's explore the data and understand why standardization is important.
+
+```{r ex1-2-explore}
+# Calculate means for each variable
+apply(wine, 2, mean)
+
+# Calculate variances for each variable
+apply(wine, 2, var)
+
+# Calculate standard deviations
+apply(wine, 2, sd)
+
+# Create a correlation matrix
+cor_matrix <- cor(wine)
+cor_matrix
+
+# Visualize correlations
+corrplot(cor_matrix, method = "circle", type = "upper", 
+         order = "hclust", tl.cex = 0.8)
+```
+
+**Questions:**
+1. Do the variables have similar scales? Why is this important for PCA?
+2. Which variables are highly correlated? What does this suggest?
+3. Should we standardize the data? Why or why not?
+
+### Exercise 1.3: Perform PCA
+
+Now let's perform PCA on the wine dataset.
+
+```{r ex1-3-pca}
+# Perform PCA with standardization
+res.pca.wine <- PCA(wine, scale.unit = TRUE, graph = FALSE)
+
+# Print summary
+print(res.pca.wine)
+```
+
+**Questions:**
+1. How many principal components were created?
+2. Why is this number equal to the number of variables (or n-1)?
+
+### Exercise 1.4: Examine Eigenvalues
+
+```{r ex1-4-eigenvalues}
+# Get eigenvalues
+eigenvalues <- get_eigenvalue(res.pca.wine)
+eigenvalues
+
+# Alternative way
+res.pca.wine$eig
+
+# Plot scree plot
+fviz_eig(res.pca.wine, addlabels = TRUE, ylim = c(0, 50))
+```
+
+**Questions:**
+1. What is the total inertia? What does it represent?
+2. How much variance is explained by the first principal component?
+3. How many components would you retain based on:
+   - Kaiser's criterion (eigenvalue > 1)?
+   - The scree plot (elbow method)?
+   - Cumulative variance > 80%?
+
+### Exercise 1.5: Analyze Variables
+
+```{r ex1-5-variables}
+# Variable information
+res.pca.wine$var
+
+# Correlations between variables and components
+res.pca.wine$var$cor
+
+# Coordinates of variables
+res.pca.wine$var$coord
+
+# Quality of representation (cos²)
+res.pca.wine$var$cos2
+
+# Contributions
+res.pca.wine$var$contrib
+```
+
+**Questions:**
+1. Which variables are most correlated with the first principal component?
+2. Which variables contribute most to the first dimension?
+3. Which variables are well represented in the first two dimensions (cos² > 0.5)?
+
+### Exercise 1.6: Visualize Variables
+
+```{r ex1-6-plot-vars, fig.width=10, fig.height=8}
+# Basic variable plot
+fviz_pca_var(res.pca.wine, col.var = "black")
+
+# Variables colored by quality of representation
+fviz_pca_var(res.pca.wine, col.var = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE)
+
+# Variables colored by contributions
+fviz_pca_var(res.pca.wine, col.var = "contrib",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE)
+```
+
+**Questions:**
+1. What do the arrows represent in the variable plot?
+2. What does the length of an arrow indicate?
+3. What does the angle between two arrows tell you about the correlation between variables?
+
+### Exercise 1.7: Analyze Individuals
+
+```{r ex1-7-individuals}
+# Individual information
+res.pca.wine$ind
+
+# Coordinates of individuals
+head(res.pca.wine$ind$coord)
+
+# Quality of representation
+head(res.pca.wine$ind$cos2)
+
+# Contributions
+head(res.pca.wine$ind$contrib)
+```
+
+### Exercise 1.8: Visualize Individuals
+
+```{r ex1-8-plot-ind, fig.width=10, fig.height=8}
+# Basic individual plot
+fviz_pca_ind(res.pca.wine, col.ind = "black")
+
+# Individuals colored by cultivar (if available)
+# First, check if cultivar information exists
+if("class" %in% colnames(wine)) {
+  fviz_pca_ind(res.pca.wine, 
+               col.ind = wine$class,
+               palette = c("#00AFBB", "#E7B800", "#FC4E07"),
+               addEllipses = TRUE,
+               legend.title = "Cultivar")
+}
+
+# Individuals colored by quality of representation
+fviz_pca_ind(res.pca.wine, col.ind = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE)
+```
+
+**Questions:**
+1. Do the wines cluster by cultivar in the PCA space?
+2. Which individuals are outliers or poorly represented?
+
+### Exercise 1.9: Biplot
+
+```{r ex1-9-biplot, fig.width=10, fig.height=8}
+# Create biplot
+fviz_pca_biplot(res.pca.wine, 
+                col.ind = if("class" %in% colnames(wine)) wine$class else "black",
+                col.var = "#2E9FDF",
+                repel = TRUE,
+                legend.title = list(col = "Cultivar"))
+```
+
+**Questions:**
+1. What does the biplot show?
+2. How can you interpret the relationship between wines and chemical properties?
+
+### Exercise 1.10: Dimension Description
+
+```{r ex1-10-dimdesc}
+# Describe dimensions
+dimdesc(res.pca.wine, axes = 1:2, proba = 0.05)
+```
+
+**Questions:**
+1. Which variables are significantly associated with dimension 1?
+2. Which variables are significantly associated with dimension 2?
+3. How would you interpret these dimensions?
+
+---
+
+## Part 2: Correspondence Analysis (CA)
+
+### Exercise 2.1: Understanding CA Data - Hair and Eye Color
+
+We'll work with a contingency table showing the relationship between hair color and eye color.
+
+```{r ex2-1-create-data}
+# Create a contingency table
+# Hair color (rows) vs Eye color (columns)
+hair_eye <- matrix(c(32, 11, 10, 3,    # Black hair
+                     38, 50, 25, 15,    # Brown hair
+                     10, 10, 7, 7,      # Red hair
+                     3, 30, 5, 8),      # Blond hair
+                   nrow = 4, byrow = TRUE)
+
+rownames(hair_eye) <- c("Black", "Brown", "Red", "Blond")
+colnames(hair_eye) <- c("Brown", "Blue", "Hazel", "Green")
+
+# Convert to data frame for better display
+hair_eye_df <- as.data.frame(hair_eye)
+hair_eye_df
+
+# Total
+sum(hair_eye)
+```
+
+**Questions:**
+1. What does this contingency table represent?
+2. What is the total number of observations?
+3. Are there any obvious associations between hair and eye color?
+
+### Exercise 2.2: Perform Correspondence Analysis
+
+```{r ex2-2-ca}
+# Perform CA
+res.ca <- CA(hair_eye, graph = FALSE)
+
+# Print summary
+print(res.ca)
+```
+
+**Questions:**
+1. How many dimensions does CA create?
+2. What is the total inertia? What does it represent?
+
+### Exercise 2.3: Examine Eigenvalues and Inertia
+
+```{r ex2-3-eigenvalues}
+# Get eigenvalues
+res.ca$eig
+
+# Plot scree plot
+fviz_screeplot(res.ca, addlabels = TRUE)
+
+# Calculate percentage of inertia explained
+inertia_percent <- res.ca$eig[,2]
+inertia_percent
+```
+
+**Questions:**
+1. How much inertia is explained by the first dimension?
+2. How many dimensions would you retain? Why?
+
+### Exercise 2.4: Analyze Rows (Hair Colors)
+
+```{r ex2-4-rows}
+# Row information
+res.ca$row
+
+# Row coordinates
+res.ca$row$coord
+
+# Row contributions
+res.ca$row$contrib
+
+# Row cos² (quality of representation)
+res.ca$row$cos2
+```
+
+**Questions:**
+1. Which hair color is best represented in the first dimension?
+2. Which hair color contributes most to dimension 1?
+
+### Exercise 2.5: Analyze Columns (Eye Colors)
+
+```{r ex2-5-cols}
+# Column information
+res.ca$col
+
+# Column coordinates
+res.ca$col$coord
+
+# Column contributions
+res.ca$col$contrib
+
+# Column cos²
+res.ca$col$cos2
+```
+
+**Questions:**
+1. Which eye color is best represented in the first dimension?
+2. Which eye color contributes most to dimension 1?
+
+### Exercise 2.6: Visualize CA Results
+
+```{r ex2-6-plot-ca, fig.width=10, fig.height=8}
+# Symmetric plot (default)
+fviz_ca_biplot(res.ca, repel = TRUE)
+
+# Asymmetric plot (rows in principal coordinates)
+fviz_ca_biplot(res.ca, map = "rowprincipal", repel = TRUE)
+
+# Asymmetric plot (columns in principal coordinates)
+fviz_ca_biplot(res.ca, map = "colprincipal", repel = TRUE)
+```
+
+**Questions:**
+1. What does proximity between a row point and a column point indicate?
+2. Which hair colors are associated with which eye colors?
+3. What does the distance from the origin tell you?
+
+### Exercise 2.7: Chi-Square Test
+
+```{r ex2-7-chisq}
+# Perform chi-square test
+chisq.test(hair_eye)
+
+# CA provides chi-square statistics
+summary(res.ca)
+```
+
+**Questions:**
+1. Is there a significant association between hair and eye color?
+2. What does the chi-square statistic tell us?
+
+### Exercise 2.8: Real Dataset - Smoking and Exercise
+
+Let's work with a more realistic example. Create a contingency table from survey data.
+
+```{r ex2-8-real-data}
+# Create a contingency table: Smoking status vs Exercise frequency
+smoking_exercise <- matrix(c(50, 30, 20,    # Non-smoker
+                             20, 25, 15,    # Occasional smoker
+                             10, 15, 25),   # Regular smoker
+                           nrow = 3, byrow = TRUE)
+
+rownames(smoking_exercise) <- c("Non-smoker", "Occasional", "Regular")
+colnames(smoking_exercise) <- c("High", "Moderate", "Low")
+
+smoking_exercise_df <- as.data.frame(smoking_exercise)
+smoking_exercise_df
+
+# Perform CA
+res.ca2 <- CA(smoking_exercise, graph = FALSE)
+print(res.ca2)
+```
+
+### Exercise 2.9: Visualize and Interpret
+
+```{r ex2-9-plot-ca2, fig.width=10, fig.height=8}
+# Create biplot
+fviz_ca_biplot(res.ca2, repel = TRUE,
+               title = "CA: Smoking Status vs Exercise Frequency")
+
+# Get detailed information
+summary(res.ca2)
+```
+
+**Questions:**
+1. What associations do you see between smoking and exercise?
+2. How would you interpret the dimensions?
+3. What insights can you draw from this analysis?
+
+---
+
+## Part 3: Integrated Exercise
+
+### Exercise 3.1: Complete Analysis - USArrests Dataset
+
+Perform a complete PCA analysis on the `USArrests` dataset and answer the following questions:
+
+```{r ex3-1-complete}
+# Load data
+data(USArrests)
+head(USArrests)
+
+# Your tasks:
+# 1. Explore the data (means, variances, correlations)
+# 2. Perform PCA
+# 3. Determine how many components to retain
+# 4. Interpret the results
+# 5. Create visualizations
+# 6. Describe what each dimension represents
+
+# Write your code here:
+```
+
+**Questions to Answer:**
+1. Why is standardization important for this dataset?
+2. How many principal components should be retained? Justify your answer.
+3. What does the first principal component represent?
+4. Which states are outliers or unusual?
+5. Can you identify regional patterns in the data?
+
+### Exercise 3.2: CA on Survey Data
+
+Create your own contingency table (e.g., from a survey or research question) and perform CA.
+
+```{r ex3-2-custom-ca}
+# Create your contingency table here
+# Example: Education level vs Job satisfaction
+# my_table <- matrix(c(...), nrow = ..., ncol = ...)
+
+# Perform CA
+# res.ca.custom <- CA(my_table, graph = FALSE)
+
+# Visualize and interpret
+# fviz_ca_biplot(res.ca.custom, repel = TRUE)
+```
+
+**Questions:**
+1. What is your research question?
+2. What associations do you find?
+3. How would you interpret the dimensions?
+
+---
+
+## Summary and Key Takeaways
+
+After completing these exercises, you should be able to:
+
+✅ **PCA:**
+- Understand when and why to use PCA
+- Perform PCA using FactoMineR
+- Interpret eigenvalues, loadings, and contributions
+- Determine the optimal number of components
+- Visualize and interpret PCA results
+- Understand the difference between covariance and correlation-based PCA
+
+✅ **CA:**
+- Understand when to use CA (categorical data in contingency tables)
+- Perform CA using FactoMineR
+- Interpret row and column coordinates
+- Understand the relationship between CA and chi-square test
+- Visualize and interpret CA results
+- Understand the difference between symmetric and asymmetric plots
+
+### Common Mistakes to Avoid
+
+1. **Forgetting to standardize** in PCA when variables are on different scales
+2. **Using PCA on categorical data** - use CA instead
+3. **Over-interpreting dimensions** - not all dimensions are meaningful
+4. **Ignoring quality of representation** - check cos² values
+5. **Not checking assumptions** - understand your data before analysis
+
+### Next Steps
+
+- Practice with different datasets
+- Try combining PCA with clustering (see clustering chapters)
+- Explore other dimensionality reduction techniques
+- Read about Multiple Correspondence Analysis (MCA) for multiple categorical variables
+
+---
+
+## Additional Resources
+
+### R Documentation
+- FactoMineR documentation: `?PCA`, `?CA`
+- factoextra documentation: `?fviz_pca_var`, `?fviz_ca_biplot`
+
+### Online Resources (All Links Verified and Working)
+
+#### Official Package Documentation
+- **FactoMineR CRAN**: https://cran.r-project.org/package=FactoMineR
+- **FactoMineR GitHub**: https://github.com/husson/FactoMineR
+- **FactoMineR Website**: http://factominer.free.fr/
+- **factoextra CRAN**: https://cran.r-project.org/package=factoextra
+
+#### Tutorials and Guides
+- **STHDA PCA Guide**: http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/112-pca-principal-component-analysis-essentials/
+- **STHDA CA Guide**: http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/113-ca-correspondence-analysis-in-r-the-essentials/
+- **R Documentation Search**: https://www.rdocumentation.org/ (search for PCA, CA functions)
+
+#### R Markdown Resources (from slides)
+- **R Markdown Cheat Sheet**: https://www.rstudio.com/resources/cheatsheets/ (download R Markdown cheat sheet)
+- **R Markdown Guide**: https://bookdown.org/yihui/rmarkdown/
+- **RStudio Download**: https://www.rstudio.com/products/rstudio/download/
+- **R Markdown Tutorial**: https://rmarkdown.rstudio.com/lesson-1.html
+
+### Further Reading
+
+- Review the theoretical slides for deeper understanding
+- Check the main PCA chapter (Chapter 17) for more examples
+- **Principal Component Analysis** by Jolliffe (textbook)
+- **Correspondence Analysis in Practice** by Greenacre
+
+**⚠️ Important**: If you find broken links in the PDF slides (`module_2_PCA_&_CA.pdf`), all the links above are verified and working. Use this section as your reference.
+
+**Good luck with your analysis! 🍀**
+

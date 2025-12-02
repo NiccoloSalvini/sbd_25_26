@@ -6,14 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 10 💻 PCA | Statistics &amp; Big Data 25-26 Labs</title>
 <meta name="author" content="Dr. Niccolò Salvini">
-<meta name="description" content="10.1 17.1 Principal Components Analysis We will use the following packages ‘FactoMineR’, ‘factoextra’, ‘ISRL2’  10.1.1 17.1.1 PCA using ‘FactoMineR’, ‘factoextra’ library(FactoMineR)...">
+<meta name="description" content="⚠️ Note on Slides: If you encounter broken links in the PDF slides (module_2_PCA_&amp;_CA.pdf), please refer to the “Online Resources and References” section at the end of this chapter for updated and...">
 <meta name="generator" content="bookdown 0.29 with bs4_book()">
 <meta property="og:title" content="Chapter 10 💻 PCA | Statistics &amp; Big Data 25-26 Labs">
 <meta property="og:type" content="book">
-<meta property="og:description" content="10.1 17.1 Principal Components Analysis We will use the following packages ‘FactoMineR’, ‘factoextra’, ‘ISRL2’  10.1.1 17.1.1 PCA using ‘FactoMineR’, ‘factoextra’ library(FactoMineR)...">
+<meta property="og:description" content="⚠️ Note on Slides: If you encounter broken links in the PDF slides (module_2_PCA_&amp;_CA.pdf), please refer to the “Online Resources and References” section at the end of this chapter for updated and...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 10 💻 PCA | Statistics &amp; Big Data 25-26 Labs">
-<meta name="twitter:description" content="10.1 17.1 Principal Components Analysis We will use the following packages ‘FactoMineR’, ‘factoextra’, ‘ISRL2’  10.1.1 17.1.1 PCA using ‘FactoMineR’, ‘factoextra’ library(FactoMineR)...">
+<meta name="twitter:description" content="⚠️ Note on Slides: If you encounter broken links in the PDF slides (module_2_PCA_&amp;_CA.pdf), please refer to the “Online Resources and References” section at the end of this chapter for updated and...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -58,18 +58,19 @@
 <li class="book-part">Part 2: Advanced Modeling</li>
 <li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
 <li><a class="active" href="pca.html"><span class="header-section-number">10</span> 💻 PCA</a></li>
-<li><a class="" href="hier-clust.html"><span class="header-section-number">11</span> 💻 Hierarchical Clustering</a></li>
-<li><a class="" href="k-means.html"><span class="header-section-number">12</span> 💻 K-Means Clustering</a></li>
+<li><a class="" href="lab-pca-ca.html"><span class="header-section-number">11</span> 💻 Lab: PCA &amp; Correspondence Analysis</a></li>
+<li><a class="" href="hier-clust.html"><span class="header-section-number">12</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-means.html"><span class="header-section-number">13</span> 💻 K-Means Clustering</a></li>
 <li class="book-part">Additional Resources</li>
-<li><a class="" href="int-prep.html"><span class="header-section-number">13</span> 💻 Intermediate preparation</a></li>
-<li><a class="" href="int-samp-q-first.html"><span class="header-section-number">14</span> 💻 First Intermediate Sample Questions</a></li>
-<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">15</span> 💻 Second Intermediate Sample Questions</a></li>
-<li><a class="" href="exam-sim-intermediate.html"><span class="header-section-number">16</span> 📝 Intermediate Exam Simulation - Healthcare Management</a></li>
-<li><a class="" href="course-performance.html"><span class="header-section-number">17</span> ⚡ Course Performance</a></li>
-<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">18</span> ❓ Frequently Asked Questions</a></li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="int-samp-q-first.html"><span class="header-section-number">15</span> 💻 First Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">16</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="exam-sim-intermediate.html"><span class="header-section-number">17</span> 📝 Intermediate Exam Simulation - Healthcare Management</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">18</span> ⚡ Course Performance</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">19</span> ❓ Frequently Asked Questions</a></li>
 <li class="book-part">Appendix</li>
-<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">19</span> Symbols, formulas, statistics and parameters</a></li>
-<li><a class="" href="appendixdatasets.html"><span class="header-section-number">20</span> Datasets</a></li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">20</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">21</span> Datasets</a></li>
 <li><a class="" href="references-2.html">References</a></li>
 </ul>
 
@@ -82,24 +83,65 @@
 <h1>
 <span class="header-section-number">10</span> 💻 PCA<a class="anchor" aria-label="anchor" href="#pca"><i class="fas fa-link"></i></a>
 </h1>
-<div id="principal-components-analysis" class="section level2" number="10.1">
+<blockquote>
+<p><strong>⚠️ Note on Slides</strong>: If you encounter broken links in the PDF slides (<code>module_2_PCA_&amp;_CA.pdf</code>), please refer to the “Online Resources and References” section at the end of this chapter for updated and working links.</p>
+</blockquote>
+<div id="introduction-to-principal-component-analysis" class="section level2" number="10.1">
 <h2>
-<span class="header-section-number">10.1</span> 17.1 Principal Components Analysis<a class="anchor" aria-label="anchor" href="#principal-components-analysis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1</span> Introduction to Principal Component Analysis<a class="anchor" aria-label="anchor" href="#introduction-to-principal-component-analysis"><i class="fas fa-link"></i></a>
 </h2>
-<p>We will use the following packages ‘FactoMineR’, ‘factoextra’, ‘ISRL2’</p>
-<div id="pca-using-factominer-factoextra" class="section level3" number="10.1.1">
+<p>Principal Component Analysis (PCA) is a powerful dimensionality reduction technique used to transform a large set of variables into a smaller set of uncorrelated variables called principal components. These components capture the maximum variance in the data while reducing complexity.</p>
+<div id="key-concepts-2" class="section level3" number="10.1.1">
 <h3>
-<span class="header-section-number">10.1.1</span> 17.1.1 PCA using ‘FactoMineR’, ‘factoextra’<a class="anchor" aria-label="anchor" href="#pca-using-factominer-factoextra"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1.1</span> Key Concepts<a class="anchor" aria-label="anchor" href="#key-concepts-2"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://factominer.free.fr">FactoMineR</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.sthda.com/english/rpkgs/factoextra">factoextra</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.statlearning.com">ISLR2</a></span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>
+<strong>Dimensionality Reduction</strong>: Reduce the number of variables while retaining most of the information</li>
+<li>
+<strong>Variance Preservation</strong>: Principal components are ordered by the amount of variance they explain</li>
+<li>
+<strong>Uncorrelated Components</strong>: Each principal component is orthogonal (uncorrelated) to the others</li>
+<li>
+<strong>Data Standardization</strong>: Often necessary when variables are on different scales</li>
+</ul>
 </div>
-<div id="exercise-1-read-the-data" class="section level3" number="10.1.2">
+<div id="when-to-use-pca" class="section level3" number="10.1.2">
 <h3>
-<span class="header-section-number">10.1.2</span> 17.1.2 Exercise 1 : read the data<a class="anchor" aria-label="anchor" href="#exercise-1-read-the-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.1.2</span> When to Use PCA<a class="anchor" aria-label="anchor" href="#when-to-use-pca"><i class="fas fa-link"></i></a>
 </h3>
+<ul>
+<li>When you have many correlated variables</li>
+<li>To visualize high-dimensional data in 2D or 3D</li>
+<li>To reduce noise in the data</li>
+<li>Before applying other machine learning algorithms</li>
+<li>To identify the most important features in your dataset</li>
+</ul>
+</div>
+</div>
+<div id="required-packages" class="section level2" number="10.2">
+<h2>
+<span class="header-section-number">10.2</span> Required Packages<a class="anchor" aria-label="anchor" href="#required-packages"><i class="fas fa-link"></i></a>
+</h2>
+<p>We will use the following packages throughout this chapter:</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://factominer.free.fr">FactoMineR</a></span><span class="op">)</span>  <span class="co"># For PCA analysis</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.sthda.com/english/rpkgs/factoextra">factoextra</a></span><span class="op">)</span>  <span class="co"># For visualization</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.statlearning.com">ISLR2</a></span><span class="op">)</span>       <span class="co"># For datasets</span></span></code></pre></div>
+</div>
+<div id="pca-with-factominer-package" class="section level2" number="10.3">
+<h2>
+<span class="header-section-number">10.3</span> 17.1 PCA with FactoMineR Package<a class="anchor" aria-label="anchor" href="#pca-with-factominer-package"><i class="fas fa-link"></i></a>
+</h2>
+<div id="example-1-simple-2d-dataset" class="section level3" number="10.3.1">
+<h3>
+<span class="header-section-number">10.3.1</span> 17.1.1 Example 1: Simple 2D Dataset<a class="anchor" aria-label="anchor" href="#example-1-simple-2d-dataset"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let’s start with a simple example to understand the fundamentals of PCA.</p>
+<div id="step-1-create-and-explore-the-data" class="section level4" number="10.3.1.1">
+<h4>
+<span class="header-section-number">10.3.1.1</span> Step 1: Create and Explore the Data<a class="anchor" aria-label="anchor" href="#step-1-create-and-explore-the-data"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  Var1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="op">-</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">2</span><span class="op">)</span>,</span>
@@ -112,25 +154,35 @@
 <span><span class="co">#&gt; i2    1   -1</span></span>
 <span><span class="co">#&gt; i3   -1    1</span></span>
 <span><span class="co">#&gt; i4   -2   -2</span></span></code></pre></div>
-<p><strong>Covariance matrix</strong></p>
+</div>
+<div id="step-2-calculate-covariance-matrix-and-inertia" class="section level4" number="10.3.1.2">
+<h4>
+<span class="header-section-number">10.3.1.2</span> Step 2: Calculate Covariance Matrix and Inertia<a class="anchor" aria-label="anchor" href="#step-2-calculate-covariance-matrix-and-inertia"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">X</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="co"># mean of Var1</span></span>
+<code class="sourceCode R"><span><span class="co"># Calculate means</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">X</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="co"># mean of Var1</span></span>
 <span><span class="co">#&gt; [1] 0</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">X</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span><span class="op">)</span> <span class="co"># mean of Var2</span></span>
 <span><span class="co">#&gt; [1] 0</span></span>
 <span></span>
-<span><span class="co">##variance and inertia </span></span>
-<span><span class="va">S</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span><span class="op">*</span><span class="op">(</span><span class="fl">3</span><span class="op">/</span><span class="fl">4</span><span class="op">)</span>  <span class="co"># the constant (n-1)/n is have the variance-covariance matrix used in the lecture</span></span>
+<span><span class="co"># Variance-covariance matrix</span></span>
+<span><span class="co"># The constant (n-1)/n adjusts for the variance-covariance matrix used in lectures</span></span>
+<span><span class="va">S</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span> <span class="op">*</span> <span class="op">(</span><span class="fl">3</span><span class="op">/</span><span class="fl">4</span><span class="op">)</span></span>
 <span><span class="va">S</span></span>
 <span><span class="co">#&gt;      Var1 Var2</span></span>
 <span><span class="co">#&gt; Var1  2.5  1.5</span></span>
 <span><span class="co">#&gt; Var2  1.5  2.5</span></span>
 <span></span>
-<span><span class="co">#inertia</span></span>
-<span><span class="va">Inertia</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">S</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># Inertia (sum of diagonal elements = sum of variances)</span></span>
+<span><span class="va">Inertia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">S</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">Inertia</span></span>
 <span><span class="co">#&gt; [1] 5</span></span></code></pre></div>
-<p><strong>## eigen-analysis</strong></p>
+</div>
+<div id="step-3-eigen-analysis-on-covariance-matrix" class="section level4" number="10.3.1.3">
+<h4>
+<span class="header-section-number">10.3.1.3</span> Step 3: Eigen-analysis on Covariance Matrix<a class="anchor" aria-label="anchor" href="#step-3-eigen-analysis-on-covariance-matrix"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/eigen.html">eigen</a></span><span class="op">(</span><span class="va">S</span><span class="op">)</span> <span class="co"># gives the eigen-values and eigen-vectors</span></span>
 <span><span class="co">#&gt; eigen() decomposition</span></span>
@@ -141,10 +193,15 @@
 <span><span class="co">#&gt;           [,1]       [,2]</span></span>
 <span><span class="co">#&gt; [1,] 0.7071068 -0.7071068</span></span>
 <span><span class="co">#&gt; [2,] 0.7071068  0.7071068</span></span></code></pre></div>
-<p><strong>Eigen-analysis on the correlation matrix</strong></p>
+</div>
+<div id="step-4-eigen-analysis-on-correlation-matrix" class="section level4" number="10.3.1.4">
+<h4>
+<span class="header-section-number">10.3.1.4</span> Step 4: Eigen-analysis on Correlation Matrix<a class="anchor" aria-label="anchor" href="#step-4-eigen-analysis-on-correlation-matrix"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">R</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span>
-<span><span class="va">eigenan</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/eigen.html">eigen</a></span><span class="op">(</span><span class="va">R</span><span class="op">)</span> <span class="co">##eigen analysis of R</span></span>
+<code class="sourceCode R"><span><span class="co"># Correlation matrix</span></span>
+<span><span class="va">R</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span>
+<span><span class="va">eigenan</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/eigen.html">eigen</a></span><span class="op">(</span><span class="va">R</span><span class="op">)</span> <span class="co"># eigen analysis of R</span></span>
 <span><span class="va">eigenan</span></span>
 <span><span class="co">#&gt; eigen() decomposition</span></span>
 <span><span class="co">#&gt; $values</span></span>
@@ -155,26 +212,25 @@
 <span><span class="co">#&gt; [1,] 0.7071068 -0.7071068</span></span>
 <span><span class="co">#&gt; [2,] 0.7071068  0.7071068</span></span>
 <span></span>
+<span><span class="co"># Sum of eigenvalues equals p (number of variables)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">eigenan</span><span class="op">$</span><span class="va">values</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 2</span></span>
 <span></span>
-<span><span class="co">#Inertia is p=2</span></span>
-<span><span class="co">#normalized the data</span></span>
-<span><span class="va">Z</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">Z</span><span class="op">)</span> <span class="co">## is teh correlation matrix </span></span>
+<span><span class="co"># Normalized data (centered and scaled)</span></span>
+<span><span class="va">Z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">Z</span><span class="op">)</span> <span class="co"># is the correlation matrix</span></span>
 <span><span class="co">#&gt;      Var1 Var2</span></span>
 <span><span class="co">#&gt; Var1  1.0  0.6</span></span>
 <span><span class="co">#&gt; Var2  0.6  1.0</span></span></code></pre></div>
 </div>
-<div id="pca-function" class="section level3" number="10.1.3">
-<h3>
-<span class="header-section-number">10.1.3</span> 17.1.3 PCA function<a class="anchor" aria-label="anchor" href="#pca-function"><i class="fas fa-link"></i></a>
-</h3>
-<p>PCA with the covariance matrix (using only centered data). For PCA on the correlation matrix (normed PCA), use scale.unit = TRUE (default option).</p>
-<p><strong>Correlation between two variables</strong> <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>:
+<div id="step-5-perform-pca-on-covariance-matrix" class="section level4" number="10.3.1.5">
+<h4>
+<span class="header-section-number">10.3.1.5</span> Step 5: Perform PCA on Covariance Matrix<a class="anchor" aria-label="anchor" href="#step-5-perform-pca-on-covariance-matrix"><i class="fas fa-link"></i></a>
+</h4>
+<p>PCA with the covariance matrix uses only centered data. For PCA on the correlation matrix (normed PCA), use <code>scale.unit = TRUE</code> (default option).</p>
+<p><strong>Note on Correlation</strong>: The correlation between two variables <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> is:
 <span class="math display">\[\rho = \frac{cov(X_1, X_2)}{\sigma_{X_1} \sigma_{X_2}}\]</span></p>
-<p>where <span class="math inline">\(cov(X_1, X_2)\)</span> is the covariance, <span class="math inline">\(\sigma_{X_1} = \sqrt{Var(X_1)}\)</span> is the standard deviation of <span class="math inline">\(X_1\)</span>.</p>
-<p><strong>Eigen-analysis on the covariance matrix (‘scale.unit=FALSE’)</strong></p>
+<p>where <span class="math inline">\(cov(X_1, X_2)\)</span> is the covariance, and <span class="math inline">\(\sigma_{X_1} = \sqrt{Var(X_1)}\)</span> is the standard deviation of <span class="math inline">\(X_1\)</span>.</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cov</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/FactoMineR/man/PCA.html">PCA</a></span><span class="op">(</span><span class="va">X</span>, scale.unit <span class="op">=</span> <span class="cn">FALSE</span>, graph <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">res.pca.cov</span><span class="op">)</span></span>
@@ -199,11 +255,11 @@
 <span><span class="co">#&gt; 14 "$call$row.w"      "weights for the individuals"        </span></span>
 <span><span class="co">#&gt; 15 "$call$col.w"      "weights for the variables"</span></span></code></pre></div>
 </div>
-<div id="eigen-values" class="section level3" number="10.1.4">
-<h3>
-<span class="header-section-number">10.1.4</span> 17.1.4 Eigen-values<a class="anchor" aria-label="anchor" href="#eigen-values"><i class="fas fa-link"></i></a>
-</h3>
-<p>We have <span class="math inline">\(p = 2 = min(n-1, p) = min(3, 2)\)</span> eigen-values, 4 and 1, <span class="math inline">\(Inertia = 4 + 1 = 4\)</span> is the sum of the variances of the variables.</p>
+<div id="step-6-examine-eigenvalues" class="section level4" number="10.3.1.6">
+<h4>
+<span class="header-section-number">10.3.1.6</span> Step 6: Examine Eigenvalues<a class="anchor" aria-label="anchor" href="#step-6-examine-eigenvalues"><i class="fas fa-link"></i></a>
+</h4>
+<p>We have <span class="math inline">\(p = 2 = min(n-1, p) = min(3, 2)\)</span> eigenvalues: 4 and 1. The inertia <span class="math inline">\(Inertia = 4 + 1 = 5\)</span> is the sum of the variances of the variables.</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cov</span><span class="op">$</span><span class="va">eig</span></span>
 <span><span class="co">#&gt;        eigenvalue percentage of variance</span></span>
@@ -213,10 +269,10 @@
 <span><span class="co">#&gt; comp 1                                80</span></span>
 <span><span class="co">#&gt; comp 2                               100</span></span></code></pre></div>
 </div>
-<div id="the-variables" class="section level3" number="10.1.5">
-<h3>
-<span class="header-section-number">10.1.5</span> 17.1.5 The variables<a class="anchor" aria-label="anchor" href="#the-variables"><i class="fas fa-link"></i></a>
-</h3>
+<div id="step-7-examine-variables-and-individuals" class="section level4" number="10.3.1.7">
+<h4>
+<span class="header-section-number">10.3.1.7</span> Step 7: Examine Variables and Individuals<a class="anchor" aria-label="anchor" href="#step-7-examine-variables-and-individuals"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cov</span><span class="op">$</span><span class="va">var</span></span>
 <span><span class="co">#&gt; $coord</span></span>
@@ -238,11 +294,6 @@
 <span><span class="co">#&gt;      Dim.1 Dim.2</span></span>
 <span><span class="co">#&gt; Var1    50    50</span></span>
 <span><span class="co">#&gt; Var2    50    50</span></span></code></pre></div>
-</div>
-<div id="the-individuals" class="section level3" number="10.1.6">
-<h3>
-<span class="header-section-number">10.1.6</span> 17.1.6 The individuals<a class="anchor" aria-label="anchor" href="#the-individuals"><i class="fas fa-link"></i></a>
-</h3>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cov</span><span class="op">$</span><span class="va">ind</span></span>
 <span><span class="co">#&gt; $coord</span></span>
@@ -280,12 +331,19 @@
 <span><span class="co">#&gt;       i1       i2       i3       i4 </span></span>
 <span><span class="co">#&gt; 2.828427 1.414214 1.414214 2.828427</span></span></code></pre></div>
 </div>
-<div id="another-example" class="section level3" number="10.1.7">
+</div>
+<div id="example-2-student-grades-dataset" class="section level3" number="10.3.2">
 <h3>
-<span class="header-section-number">10.1.7</span> 17.1.7 Another example<a class="anchor" aria-label="anchor" href="#another-example"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.3.2</span> 17.1.2 Example 2: Student Grades Dataset<a class="anchor" aria-label="anchor" href="#example-2-student-grades-dataset"><i class="fas fa-link"></i></a>
 </h3>
+<p>Now let’s work with a more realistic example: student grades in three subjects.</p>
+<div id="step-1-prepare-the-data" class="section level4" number="10.3.2.1">
+<h4>
+<span class="header-section-number">10.3.2.1</span> Step 1: Prepare the Data<a class="anchor" aria-label="anchor" href="#step-1-prepare-the-data"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">A</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9</span>,<span class="fl">12</span>,<span class="fl">10</span>,<span class="fl">15</span>,<span class="fl">9</span>,<span class="fl">10</span>,<span class="fl">5</span>,<span class="fl">10</span>,<span class="fl">8</span>,<span class="fl">11</span>,<span class="fl">13</span>,<span class="fl">14</span>,<span class="fl">11</span>,<span class="fl">13</span>,<span class="fl">8</span>,<span class="fl">3</span>,<span class="fl">15</span>,<span class="fl">10</span><span class="op">)</span>,nrow<span class="op">=</span><span class="fl">6</span>, byrow<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9</span>,<span class="fl">12</span>,<span class="fl">10</span>,<span class="fl">15</span>,<span class="fl">9</span>,<span class="fl">10</span>,<span class="fl">5</span>,<span class="fl">10</span>,<span class="fl">8</span>,<span class="fl">11</span>,<span class="fl">13</span>,<span class="fl">14</span>,<span class="fl">11</span>,<span class="fl">13</span>,<span class="fl">8</span>,<span class="fl">3</span>,<span class="fl">15</span>,<span class="fl">10</span><span class="op">)</span>, </span>
+<span>            nrow<span class="op">=</span><span class="fl">6</span>, byrow<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">A</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
 <span><span class="co">#&gt; [1,]    9   12   10</span></span>
@@ -295,13 +353,14 @@
 <span><span class="co">#&gt; [5,]   11   13    8</span></span>
 <span><span class="co">#&gt; [6,]    3   15   10</span></span>
 <span></span>
-<span><span class="va">Nframe</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span>
+<span><span class="va">Nframe</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">m1</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Alex"</span>, <span class="st">"Bea"</span>, <span class="st">"Claudio"</span>,<span class="st">"Damien"</span>, <span class="st">"Emilie"</span>, <span class="st">"Fran"</span><span class="op">)</span></span>
-<span><span class="va">m2</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Biostatistics"</span>, <span class="st">"Economics"</span>, <span class="st">"English"</span><span class="op">)</span></span>
+<span><span class="co"># Set row and column names</span></span>
+<span><span class="va">m1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Alex"</span>, <span class="st">"Bea"</span>, <span class="st">"Claudio"</span>, <span class="st">"Damien"</span>, <span class="st">"Emilie"</span>, <span class="st">"Fran"</span><span class="op">)</span></span>
+<span><span class="va">m2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Biostatistics"</span>, <span class="st">"Economics"</span>, <span class="st">"English"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span><span class="op">=</span><span class="va">m1</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span><span class="op">=</span><span class="va">m2</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">m1</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">m2</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span>
 <span><span class="co">#&gt;         Biostatistics Economics English</span></span>
 <span><span class="co">#&gt; Alex                9        12      10</span></span>
@@ -311,10 +370,10 @@
 <span><span class="co">#&gt; Emilie             11        13       8</span></span>
 <span><span class="co">#&gt; Fran                3        15      10</span></span></code></pre></div>
 </div>
-<div id="pca-on-the-correlation-matrix" class="section level3" number="10.1.8">
-<h3>
-<span class="header-section-number">10.1.8</span> 17.1.8 PCA on the correlation matrix<a class="anchor" aria-label="anchor" href="#pca-on-the-correlation-matrix"><i class="fas fa-link"></i></a>
-</h3>
+<div id="step-2-perform-pca-on-correlation-matrix" class="section level4" number="10.3.2.2">
+<h4>
+<span class="header-section-number">10.3.2.2</span> Step 2: Perform PCA on Correlation Matrix<a class="anchor" aria-label="anchor" href="#step-2-perform-pca-on-correlation-matrix"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/FactoMineR/man/PCA.html">PCA</a></span><span class="op">(</span><span class="va">A</span>, scale.unit <span class="op">=</span> <span class="cn">TRUE</span>, graph <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">res.pca.cor</span><span class="op">)</span></span>
@@ -339,10 +398,10 @@
 <span><span class="co">#&gt; 14 "$call$row.w"      "weights for the individuals"        </span></span>
 <span><span class="co">#&gt; 15 "$call$col.w"      "weights for the variables"</span></span></code></pre></div>
 </div>
-<div id="eigen-values-1" class="section level3" number="10.1.9">
-<h3>
-<span class="header-section-number">10.1.9</span> 17.1.9 Eigen-values<a class="anchor" aria-label="anchor" href="#eigen-values-1"><i class="fas fa-link"></i></a>
-</h3>
+<div id="step-3-examine-eigenvalues" class="section level4" number="10.3.2.3">
+<h4>
+<span class="header-section-number">10.3.2.3</span> Step 3: Examine Eigenvalues<a class="anchor" aria-label="anchor" href="#step-3-examine-eigenvalues"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cor</span><span class="op">$</span><span class="va">eig</span></span>
 <span><span class="co">#&gt;        eigenvalue percentage of variance</span></span>
@@ -362,12 +421,12 @@
 <span><span class="co">#&gt; Dim.1                    50.00000</span></span>
 <span><span class="co">#&gt; Dim.2                    89.43376</span></span>
 <span><span class="co">#&gt; Dim.3                   100.00000</span></span></code></pre></div>
-<p>Kaiser rule suggests <span class="math inline">\(q = 2\)</span> components because the eigen-value mean is 1 (with 89% of explained variance). The rule of Thumb gives <span class="math inline">\(q = 2\)</span> because the first 2 dimensions explain 89% of the variance/inertia.</p>
+<p><strong>Interpretation</strong>: Kaiser’s rule suggests <span class="math inline">\(q = 2\)</span> components because the eigenvalue mean is 1 (with 89% of explained variance). The rule of thumb gives <span class="math inline">\(q = 2\)</span> because the first 2 dimensions explain 89% of the variance/inertia.</p>
 </div>
-<div id="variables" class="section level3" number="10.1.10">
-<h3>
-<span class="header-section-number">10.1.10</span> 17.1.10 Variables<a class="anchor" aria-label="anchor" href="#variables"><i class="fas fa-link"></i></a>
-</h3>
+<div id="step-4-examine-variables" class="section level4" number="10.3.2.4">
+<h4>
+<span class="header-section-number">10.3.2.4</span> Step 4: Examine Variables<a class="anchor" aria-label="anchor" href="#step-4-examine-variables"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cor</span><span class="op">$</span><span class="va">var</span></span>
 <span><span class="co">#&gt; $coord</span></span>
@@ -402,23 +461,22 @@
 <span><span class="co">#&gt; Economics     10.56624 39.43376</span></span>
 <span><span class="co">#&gt; English       78.86751 21.13249</span></span></code></pre></div>
 </div>
-<div id="correlations-of-variables-and-componentsdimensions" class="section level3" number="10.1.11">
-<h3>
-<span class="header-section-number">10.1.11</span> 17.1.11 Correlations of variables and components/dimensions<a class="anchor" aria-label="anchor" href="#correlations-of-variables-and-componentsdimensions"><i class="fas fa-link"></i></a>
-</h3>
+<div id="step-5-correlations-between-variables-and-components" class="section level4" number="10.3.2.5">
+<h4>
+<span class="header-section-number">10.3.2.5</span> Step 5: Correlations Between Variables and Components<a class="anchor" aria-label="anchor" href="#step-5-correlations-between-variables-and-components"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cor</span><span class="op">$</span><span class="va">var</span><span class="op">$</span><span class="va">cor</span></span>
 <span><span class="co">#&gt;                                  Dim.1     Dim.2      Dim.3</span></span>
 <span><span class="co">#&gt; Biostatistics -0.866025403784438041477 0.3535534  0.3535534</span></span>
 <span><span class="co">#&gt; Economics      0.866025403784439151700 0.3535534  0.3535534</span></span>
 <span><span class="co">#&gt; English        0.000000000000001047394 0.9659258 -0.2588190</span></span></code></pre></div>
-<p>The first axis is correlated with Biostatistics (+0.86) and Economics (-0.86). The second axis is correlated to English (0.96).</p>
-<p>The two components (or dimensions) are correlated with at least one variable. Then <span class="math inline">\(q = 2\)</span> may be considered to reduce the dimension (<span class="math inline">\(p = 3\)</span>).</p>
+<p><strong>Interpretation</strong>: The first axis is correlated with Biostatistics (+0.86) and Economics (-0.86). The second axis is correlated to English (0.96). The two components are correlated with at least one variable, so <span class="math inline">\(q = 2\)</span> may be considered to reduce the dimension from <span class="math inline">\(p = 3\)</span>.</p>
 </div>
-<div id="coordinates-of-variables" class="section level3" number="10.1.12">
-<h3>
-<span class="header-section-number">10.1.12</span> 17.1.12 Coordinates of variables<a class="anchor" aria-label="anchor" href="#coordinates-of-variables"><i class="fas fa-link"></i></a>
-</h3>
+<div id="step-6-coordinates-of-variables" class="section level4" number="10.3.2.6">
+<h4>
+<span class="header-section-number">10.3.2.6</span> Step 6: Coordinates of Variables<a class="anchor" aria-label="anchor" href="#step-6-coordinates-of-variables"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cor</span><span class="op">$</span><span class="va">var</span><span class="op">$</span><span class="va">coord</span></span>
 <span><span class="co">#&gt;                                  Dim.1     Dim.2      Dim.3</span></span>
@@ -426,10 +484,10 @@
 <span><span class="co">#&gt; Economics      0.866025403784439040678 0.3535534  0.3535534</span></span>
 <span><span class="co">#&gt; English        0.000000000000001047394 0.9659258 -0.2588190</span></span></code></pre></div>
 </div>
-<div id="quality-of-representation-of-variables" class="section level3" number="10.1.13">
-<h3>
-<span class="header-section-number">10.1.13</span> 17.1.13 Quality of representation of variables<a class="anchor" aria-label="anchor" href="#quality-of-representation-of-variables"><i class="fas fa-link"></i></a>
-</h3>
+<div id="step-7-quality-of-representation-cos²" class="section level4" number="10.3.2.7">
+<h4>
+<span class="header-section-number">10.3.2.7</span> Step 7: Quality of Representation (cos²)<a class="anchor" aria-label="anchor" href="#step-7-quality-of-representation-cos%C2%B2"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cor</span><span class="op">$</span><span class="va">var</span><span class="op">$</span><span class="va">cos2</span></span>
 <span><span class="co">#&gt;                                                Dim.1</span></span>
@@ -440,12 +498,12 @@
 <span><span class="co">#&gt; Biostatistics 0.1250000 0.1250000</span></span>
 <span><span class="co">#&gt; Economics     0.1250000 0.1250000</span></span>
 <span><span class="co">#&gt; English       0.9330127 0.0669873</span></span></code></pre></div>
-<p>Biostatistics and Economics are well represented in the first dimension (75%), while English is very well represented in the second axis (93%). In the first plane (Dim.1 and Dim.2) Biostatistics and Economics are well represented (75%+12.5%=87.5%), English is very represented in the first plane (93%+0%=93%)</p>
+<p><strong>Interpretation</strong>: Biostatistics and Economics are well represented in the first dimension (75%), while English is very well represented in the second axis (93%). In the first plane (Dim.1 and Dim.2), Biostatistics and Economics are well represented (75% + 12.5% = 87.5%), and English is very well represented (93% + 0% = 93%).</p>
 </div>
-<div id="contributions-of-variables" class="section level3" number="10.1.14">
-<h3>
-<span class="header-section-number">10.1.14</span> 17.1.14 Contributions of variables<a class="anchor" aria-label="anchor" href="#contributions-of-variables"><i class="fas fa-link"></i></a>
-</h3>
+<div id="step-8-contributions-of-variables" class="section level4" number="10.3.2.8">
+<h4>
+<span class="header-section-number">10.3.2.8</span> Step 8: Contributions of Variables<a class="anchor" aria-label="anchor" href="#step-8-contributions-of-variables"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cor</span><span class="op">$</span><span class="va">var</span><span class="op">$</span><span class="va">contrib</span></span>
 <span><span class="co">#&gt;                                                Dim.1</span></span>
@@ -456,8 +514,12 @@
 <span><span class="co">#&gt; Biostatistics 10.56624 39.43376</span></span>
 <span><span class="co">#&gt; Economics     10.56624 39.43376</span></span>
 <span><span class="co">#&gt; English       78.86751 21.13249</span></span></code></pre></div>
-<p>Biostatistics and Economics contribute to the construction of the first dimension (50%), while English contribute highy to the construction of the second axis (78.8%). In the first plane (Dim.1 and Dim.2) the contribution of Biostatistics and Economics is 50%+10.5%=65.5%, that of English is 78.8%.</p>
-<p><strong>Description of the first dimension</strong></p>
+<p><strong>Interpretation</strong>: Biostatistics and Economics contribute to the construction of the first dimension (50%), while English contributes highly to the construction of the second axis (78.8%). In the first plane, the contribution of Biostatistics and Economics is 50% + 10.5% = 60.5%, and that of English is 78.8%.</p>
+</div>
+<div id="step-9-description-of-dimensions" class="section level4" number="10.3.2.9">
+<h4>
+<span class="header-section-number">10.3.2.9</span> Step 9: Description of Dimensions<a class="anchor" aria-label="anchor" href="#step-9-description-of-dimensions"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/FactoMineR/man/dimdesc.html">dimdesc</a></span><span class="op">(</span><span class="va">res.pca.cor</span>, axes <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; $Dim.1</span></span>
@@ -468,10 +530,10 @@
 <span><span class="co">#&gt; Economics       0.8660254 0.02572142</span></span>
 <span><span class="co">#&gt; Biostatistics  -0.8660254 0.02572142</span></span></code></pre></div>
 </div>
-<div id="contributions-of-first-two-variables" class="section level3" number="10.1.15">
-<h3>
-<span class="header-section-number">10.1.15</span> 17.1.15 Contributions of first two variables<a class="anchor" aria-label="anchor" href="#contributions-of-first-two-variables"><i class="fas fa-link"></i></a>
-</h3>
+<div id="step-10-contributions-of-first-two-dimensions" class="section level4" number="10.3.2.10">
+<h4>
+<span class="header-section-number">10.3.2.10</span> Step 10: Contributions of First Two Dimensions<a class="anchor" aria-label="anchor" href="#step-10-contributions-of-first-two-dimensions"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cor</span><span class="op">$</span><span class="va">var</span><span class="op">$</span><span class="va">contrib</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></span>
 <span><span class="co">#&gt;                                                Dim.1</span></span>
@@ -483,45 +545,50 @@
 <span><span class="co">#&gt; Economics     10.56624</span></span>
 <span><span class="co">#&gt; English       78.86751</span></span></code></pre></div>
 </div>
-<div id="representation-of-variables" class="section level3" number="10.1.16">
+</div>
+<div id="visualizations" class="section level3" number="10.3.3">
 <h3>
-<span class="header-section-number">10.1.16</span> 17.1.16 Representation of variables<a class="anchor" aria-label="anchor" href="#representation-of-variables"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.3.3</span> 17.1.3 Visualizations<a class="anchor" aria-label="anchor" href="#visualizations"><i class="fas fa-link"></i></a>
 </h3>
+<div id="variables-plot" class="section level4" number="10.3.3.1">
+<h4>
+<span class="header-section-number">10.3.3.1</span> Variables Plot<a class="anchor" aria-label="anchor" href="#variables-plot"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_pca.html">fviz_pca_var</a></span><span class="op">(</span><span class="va">res.pca.cor</span>, col.var <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="17-pca_files/figure-html/plot-vars-1.png" width="100%"></div>
 </div>
-<div id="with-the-quality-of-representation" class="section level3" number="10.1.17">
-<h3>
-<span class="header-section-number">10.1.17</span> 17.1.17 With the quality of representation<a class="anchor" aria-label="anchor" href="#with-the-quality-of-representation"><i class="fas fa-link"></i></a>
-</h3>
+<div id="variables-plot-with-quality-of-representation" class="section level4" number="10.3.3.2">
+<h4>
+<span class="header-section-number">10.3.3.2</span> Variables Plot with Quality of Representation<a class="anchor" aria-label="anchor" href="#variables-plot-with-quality-of-representation"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_pca.html">fviz_pca_var</a></span><span class="op">(</span><span class="va">res.pca.cor</span>, col.var <span class="op">=</span> <span class="st">"cos2"</span>,</span>
 <span>             gradient.cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span><span class="op">)</span>,</span>
 <span>             repel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="17-pca_files/figure-html/plot-vars-quality-1.png" width="100%"></div>
 </div>
-<div id="variables-with-quality-of-representation-larger-than-0.6" class="section level3" number="10.1.18">
-<h3>
-<span class="header-section-number">10.1.18</span> 17.1.18 Variables with quality of representation larger than 0.6<a class="anchor" aria-label="anchor" href="#variables-with-quality-of-representation-larger-than-0.6"><i class="fas fa-link"></i></a>
-</h3>
+<div id="variables-with-high-quality-of-representation-cos²-0.6" class="section level4" number="10.3.3.3">
+<h4>
+<span class="header-section-number">10.3.3.3</span> Variables with High Quality of Representation (cos² &gt; 0.6)<a class="anchor" aria-label="anchor" href="#variables-with-high-quality-of-representation-cos%C2%B2-0.6"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_pca.html">fviz_pca_var</a></span><span class="op">(</span><span class="va">res.pca.cor</span>, select.var <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>cos2 <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="17-pca_files/figure-html/plot-vars-quality-filter-1.png" width="100%"></div>
 </div>
-<div id="with-contribution" class="section level3" number="10.1.19">
-<h3>
-<span class="header-section-number">10.1.19</span> 17.1.19 With contribution<a class="anchor" aria-label="anchor" href="#with-contribution"><i class="fas fa-link"></i></a>
-</h3>
+<div id="variables-plot-with-contributions" class="section level4" number="10.3.3.4">
+<h4>
+<span class="header-section-number">10.3.3.4</span> Variables Plot with Contributions<a class="anchor" aria-label="anchor" href="#variables-plot-with-contributions"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_pca.html">fviz_pca_var</a></span><span class="op">(</span><span class="va">res.pca.cor</span>, col.var <span class="op">=</span> <span class="st">"contrib"</span>,</span>
 <span>             gradient.cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="17-pca_files/figure-html/plot-vars-contrib-1.png" width="100%"></div>
 </div>
-<div id="variables-and-individuals-with-largest-quality-of-representation" class="section level3" number="10.1.20">
-<h3>
-<span class="header-section-number">10.1.20</span> 17.1.20 Variables and individuals with largest quality of representation<a class="anchor" aria-label="anchor" href="#variables-and-individuals-with-largest-quality-of-representation"><i class="fas fa-link"></i></a>
-</h3>
+<div id="biplot-variables-and-individuals" class="section level4" number="10.3.3.5">
+<h4>
+<span class="header-section-number">10.3.3.5</span> Biplot: Variables and Individuals<a class="anchor" aria-label="anchor" href="#biplot-variables-and-individuals"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_pca.html">fviz_pca_biplot</a></span><span class="op">(</span><span class="va">res.pca.cor</span>, repel <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                col.var <span class="op">=</span> <span class="st">"#2E9FDF"</span>, <span class="co"># Variables color</span></span>
@@ -529,10 +596,15 @@
 <span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="17-pca_files/figure-html/plot-biplot-1.png" width="100%"></div>
 </div>
-<div id="the-individuals-1" class="section level3" number="10.1.21">
+</div>
+<div id="analysis-of-individuals" class="section level3" number="10.3.4">
 <h3>
-<span class="header-section-number">10.1.21</span> 17.1.21 The individuals<a class="anchor" aria-label="anchor" href="#the-individuals-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.3.4</span> 17.1.4 Analysis of Individuals<a class="anchor" aria-label="anchor" href="#analysis-of-individuals"><i class="fas fa-link"></i></a>
 </h3>
+<div id="individuals-information" class="section level4" number="10.3.4.1">
+<h4>
+<span class="header-section-number">10.3.4.1</span> Individuals Information<a class="anchor" aria-label="anchor" href="#individuals-information"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cor</span><span class="op">$</span><span class="va">ind</span></span>
 <span><span class="co">#&gt; $coord</span></span>
@@ -605,10 +677,10 @@
 <span><span class="co">#&gt;                   Emilie                     Fran </span></span>
 <span><span class="co">#&gt; 1.2247448713915896068016 2.1213203435596428292342</span></span></code></pre></div>
 </div>
-<div id="individuals-coordinates" class="section level3" number="10.1.22">
-<h3>
-<span class="header-section-number">10.1.22</span> 17.1.22 Individuals: coordinates<a class="anchor" aria-label="anchor" href="#individuals-coordinates"><i class="fas fa-link"></i></a>
-</h3>
+<div id="individuals-coordinates" class="section level4" number="10.3.4.2">
+<h4>
+<span class="header-section-number">10.3.4.2</span> Individuals: Coordinates<a class="anchor" aria-label="anchor" href="#individuals-coordinates"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cor</span><span class="op">$</span><span class="va">ind</span><span class="op">$</span><span class="va">coord</span></span>
 <span><span class="co">#&gt;                             Dim.1                    Dim.2</span></span>
@@ -626,10 +698,10 @@
 <span><span class="co">#&gt; Emilie   1.08766387358053817635550</span></span>
 <span><span class="co">#&gt; Fran     0.00000000000000002468473</span></span></code></pre></div>
 </div>
-<div id="quality-of-representation" class="section level3" number="10.1.23">
-<h3>
-<span class="header-section-number">10.1.23</span> 17.1.23 Quality of representation<a class="anchor" aria-label="anchor" href="#quality-of-representation"><i class="fas fa-link"></i></a>
-</h3>
+<div id="individuals-quality-of-representation" class="section level4" number="10.3.4.3">
+<h4>
+<span class="header-section-number">10.3.4.3</span> Individuals: Quality of Representation<a class="anchor" aria-label="anchor" href="#individuals-quality-of-representation"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cor</span><span class="op">$</span><span class="va">ind</span><span class="op">$</span><span class="va">cos2</span></span>
 <span><span class="co">#&gt;                                            Dim.1</span></span>
@@ -654,10 +726,10 @@
 <span><span class="co">#&gt; Emilie  0.788675134594813309618643870635423809290</span></span>
 <span><span class="co">#&gt; Fran    0.000000000000000000000000000000000135408</span></span></code></pre></div>
 </div>
-<div id="contributions" class="section level3" number="10.1.24">
-<h3>
-<span class="header-section-number">10.1.24</span> 17.1.24 Contributions<a class="anchor" aria-label="anchor" href="#contributions"><i class="fas fa-link"></i></a>
-</h3>
+<div id="individuals-contributions" class="section level4" number="10.3.4.4">
+<h4>
+<span class="header-section-number">10.3.4.4</span> Individuals: Contributions<a class="anchor" aria-label="anchor" href="#individuals-contributions"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res.pca.cor</span><span class="op">$</span><span class="va">ind</span><span class="op">$</span><span class="va">contrib</span></span>
 <span><span class="co">#&gt;                                            Dim.1</span></span>
@@ -682,63 +754,72 @@
 <span><span class="co">#&gt; Emilie  62.20084679281465867006772896274924278259</span></span>
 <span><span class="co">#&gt; Fran     0.00000000000000000000000000000003203788</span></span></code></pre></div>
 </div>
-<div id="contributions-on-the-first-two-axes" class="section level3" number="10.1.25">
-<h3>
-<span class="header-section-number">10.1.25</span> 17.1.25 Contributions on the first two axes<a class="anchor" aria-label="anchor" href="#contributions-on-the-first-two-axes"><i class="fas fa-link"></i></a>
-</h3>
+<div id="individuals-plot-with-contributions" class="section level4" number="10.3.4.5">
+<h4>
+<span class="header-section-number">10.3.4.5</span> Individuals Plot with Contributions<a class="anchor" aria-label="anchor" href="#individuals-plot-with-contributions"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_pca.html">fviz_pca_ind</a></span><span class="op">(</span><span class="va">res.pca.cor</span>, col.ind <span class="op">=</span> <span class="st">"contrib"</span>,</span>
 <span>             gradient.cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="17-pca_files/figure-html/plot-ind-contrib-1.png" width="100%"></div>
 </div>
-<div id="representation-of-individuals-with-respect-to-quality-of-projection" class="section level3" number="10.1.26">
-<h3>
-<span class="header-section-number">10.1.26</span> 17.1.26 Representation of individuals with respect to quality of projection<a class="anchor" aria-label="anchor" href="#representation-of-individuals-with-respect-to-quality-of-projection"><i class="fas fa-link"></i></a>
-</h3>
+<div id="individuals-plot-with-quality-of-representation" class="section level4" number="10.3.4.6">
+<h4>
+<span class="header-section-number">10.3.4.6</span> Individuals Plot with Quality of Representation<a class="anchor" aria-label="anchor" href="#individuals-plot-with-quality-of-representation"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_pca.html">fviz_pca_ind</a></span><span class="op">(</span><span class="va">res.pca.cor</span>, col.ind <span class="op">=</span> <span class="st">"cos2"</span>,</span>
 <span>             gradient.cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>, <span class="st">"#FC4E07"</span><span class="op">)</span>,</span>
 <span>             repel <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="17-pca_files/figure-html/plot-ind-quality-1.png" width="100%"></div>
 </div>
-<div id="save-the-figures-in-pdf" class="section level3" number="10.1.27">
+</div>
+<div id="exporting-results" class="section level3" number="10.3.5">
 <h3>
-<span class="header-section-number">10.1.27</span> 17.1.27 Save the figures in pdf<a class="anchor" aria-label="anchor" href="#save-the-figures-in-pdf"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.3.5</span> 17.1.5 Exporting Results<a class="anchor" aria-label="anchor" href="#exporting-results"><i class="fas fa-link"></i></a>
 </h3>
+<div id="save-figures-as-pdf" class="section level4" number="10.3.5.1">
+<h4>
+<span class="header-section-number">10.3.5.1</span> Save Figures as PDF<a class="anchor" aria-label="anchor" href="#save-figures-as-pdf"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html">pdf</a></span><span class="op">(</span><span class="st">"PCA.pdf"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_pca.html">fviz_pca_var</a></span><span class="op">(</span><span class="va">res.pca.cor</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_pca.html">fviz_pca_ind</a></span><span class="op">(</span><span class="va">res.pca.cor</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="save-in-png" class="section level3" number="10.1.28">
-<h3>
-<span class="header-section-number">10.1.28</span> 17.1.28 Save in png<a class="anchor" aria-label="anchor" href="#save-in-png"><i class="fas fa-link"></i></a>
-</h3>
+<div id="save-figures-as-png" class="section level4" number="10.3.5.2">
+<h4>
+<span class="header-section-number">10.3.5.2</span> Save Figures as PNG<a class="anchor" aria-label="anchor" href="#save-figures-as-png"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/png.html">png</a></span><span class="op">(</span><span class="st">"PCA%03d.png"</span>, width <span class="op">=</span> <span class="fl">800</span>, height <span class="op">=</span> <span class="fl">600</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_pca.html">fviz_pca_var</a></span><span class="op">(</span><span class="va">res.pca.cor</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/factoextra/man/fviz_pca.html">fviz_pca_ind</a></span><span class="op">(</span><span class="va">res.pca.cor</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="export-the-results-in-txt-files" class="section level3" number="10.1.29">
-<h3>
-<span class="header-section-number">10.1.29</span> 17.1.29 Export the results in txt files<a class="anchor" aria-label="anchor" href="#export-the-results-in-txt-files"><i class="fas fa-link"></i></a>
-</h3>
+<div id="export-results-to-text-files" class="section level4" number="10.3.5.3">
+<h4>
+<span class="header-section-number">10.3.5.3</span> Export Results to Text Files<a class="anchor" aria-label="anchor" href="#export-results-to-text-files"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">res.pca.cor</span><span class="op">$</span><span class="va">eig</span>, <span class="st">"eigenvalues.txt"</span>, sep <span class="op">=</span> <span class="st">"\t"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">res.pca.cor</span><span class="op">$</span><span class="va">var</span><span class="op">$</span><span class="va">coord</span>, <span class="st">"variables_coordinates.txt"</span>, sep <span class="op">=</span> <span class="st">"\t"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">res.pca.cor</span><span class="op">$</span><span class="va">ind</span><span class="op">$</span><span class="va">coord</span>, <span class="st">"individuals_coordinates.txt"</span>, sep <span class="op">=</span> <span class="st">"\t"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
-<div id="pca-with-prcomp-function-of-the-base-r-package" class="section level2" number="10.2">
+</div>
+<div id="pca-with-base-r-prcomp-function" class="section level2" number="10.4">
 <h2>
-<span class="header-section-number">10.2</span> 17.2 PCA with prcomp function of the base R package<a class="anchor" aria-label="anchor" href="#pca-with-prcomp-function-of-the-base-r-package"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4</span> 17.2 PCA with Base R: prcomp() Function<a class="anchor" aria-label="anchor" href="#pca-with-base-r-prcomp-function"><i class="fas fa-link"></i></a>
 </h2>
-<p>Here we perform PCA on the USArrests, the rows of the data set contain the 50 states, in alphabetical order.</p>
+<p>The <code><a href="https://rdrr.io/r/stats/prcomp.html">prcomp()</a></code> function is part of base R and provides an alternative way to perform PCA. Let’s use the <code>USArrests</code> dataset, which contains crime statistics for the 50 US states.</p>
+<div id="data-exploration" class="section level3" number="10.4.1">
+<h3>
+<span class="header-section-number">10.4.1</span> 17.2.1 Data Exploration<a class="anchor" aria-label="anchor" href="#data-exploration"><i class="fas fa-link"></i></a>
+</h3>
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># ?USArrests  # Commented out - prints documentation examples to output</span></span>
-<span><span class="co"># View(USArrests)  # Commented out - requires XQuartz on macOS</span></span>
+<code class="sourceCode R"><span><span class="co"># Load and examine the data</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span></span>
 <span><span class="co">#&gt;            Murder Assault UrbanPop Rape</span></span>
 <span><span class="co">#&gt; Alabama      13.2     236       58 21.2</span></span>
@@ -765,33 +846,47 @@
 <span><span class="co">#&gt; [43] "Texas"          "Utah"           "Vermont"       </span></span>
 <span><span class="co">#&gt; [46] "Virginia"       "Washington"     "West Virginia" </span></span>
 <span><span class="co">#&gt; [49] "Wisconsin"      "Wyoming"</span></span></code></pre></div>
-<p>The columns of the data set contain four variables:</p>
+<p>The dataset contains four variables:</p>
 <ul>
-<li>Murder: Murder arrests (per 100,000)</li>
-<li>Assault: Assault arrests (per 100,000)</li>
-<li>UrbanPop: Percent urban population</li>
-<li>Rape: Rape arrests (per 100,000)</li>
+<li>
+<strong>Murder</strong>: Murder arrests (per 100,000)</li>
+<li>
+<strong>Assault</strong>: Assault arrests (per 100,000)</li>
+<li>
+<strong>UrbanPop</strong>: Percent urban population</li>
+<li>
+<strong>Rape</strong>: Rape arrests (per 100,000)</li>
 </ul>
 <div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Murder"   "Assault"  "UrbanPop" "Rape"</span></span></code></pre></div>
-<p>Notice that the variables have vastly different means (of variables in columns), with the apply() function. ‘apply(USArrests, 2, mean)’ permits to calculate the means of each column, the option ‘1’ will do the calculation by row</p>
+</div>
+<div id="data-preprocessing-why-standardization-matters" class="section level3" number="10.4.2">
+<h3>
+<span class="header-section-number">10.4.2</span> 17.2.2 Data Preprocessing: Why Standardization Matters<a class="anchor" aria-label="anchor" href="#data-preprocessing-why-standardization-matters"><i class="fas fa-link"></i></a>
+</h3>
+<p>Notice that the variables have vastly different means. The <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code> function with option <code>2</code> calculates statistics for each column (option <code>1</code> does it by row):</p>
 <div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">USArrests</span>, <span class="fl">2</span>, <span class="va">mean</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   Murder  Assault UrbanPop     Rape </span></span>
 <span><span class="co">#&gt;    7.788  170.760   65.540   21.232</span></span></code></pre></div>
-<p>There are on average three times as many rapes as murders, and more than eight times as many assaults as rapes. Let us also examine the variances of the variables</p>
+<p>There are on average three times as many rapes as murders, and more than eight times as many assaults as rapes. Let’s examine the variances:</p>
 <div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">USArrests</span>, <span class="fl">2</span>, <span class="va">var</span><span class="op">)</span></span>
 <span><span class="co">#&gt;     Murder    Assault   UrbanPop       Rape </span></span>
 <span><span class="co">#&gt;   18.97047 6945.16571  209.51878   87.72916</span></span></code></pre></div>
-<p>The variables have very different variances: the UrbanPop variable measuring the percentage of the population in each state living in an urban area, is not a comparable number to the number of rapes in each state per 100,000 individuals. If we do not scale the variables before performing PCA, then most of the principal components that we observed would be driven by the Assault variable, since it has the largest mean and variance. Here, it is important to standardize the variables to have mean zero and standard deviation one before performing PCA.</p>
-<p>The option scale = TRUE, does a scaling of the variables to have standard deviation one.</p>
+<p><strong>Important</strong>: The variables have very different variances. The <code>UrbanPop</code> variable (percentage) is not comparable to the number of arrests per 100,000. If we don’t scale the variables before performing PCA, most principal components would be driven by the <code>Assault</code> variable, since it has the largest mean and variance. <strong>It is crucial to standardize variables to have mean zero and standard deviation one before performing PCA.</strong></p>
+</div>
+<div id="performing-pca-with-prcomp" class="section level3" number="10.4.3">
+<h3>
+<span class="header-section-number">10.4.3</span> 17.2.3 Performing PCA with prcomp()<a class="anchor" aria-label="anchor" href="#performing-pca-with-prcomp"><i class="fas fa-link"></i></a>
+</h3>
+<p>The option <code>scale = TRUE</code> scales the variables to have standard deviation one.</p>
 <div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pr.out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/prcomp.html">prcomp</a></span><span class="op">(</span><span class="va">USArrests</span>, scale <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">pr.out</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "sdev"     "rotation" "center"   "scale"    "x"</span></span></code></pre></div>
-<p>The center and scale components correspond to the means and standard deviations of the variables that were used for scaling prior to implementing PCA.</p>
+<p>The <code>center</code> and <code>scale</code> components correspond to the means and standard deviations used for scaling:</p>
 <div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pr.out</span><span class="op">$</span><span class="va">center</span></span>
 <span><span class="co">#&gt;   Murder  Assault UrbanPop     Rape </span></span>
@@ -799,7 +894,12 @@
 <span><span class="va">pr.out</span><span class="op">$</span><span class="va">scale</span></span>
 <span><span class="co">#&gt;    Murder   Assault  UrbanPop      Rape </span></span>
 <span><span class="co">#&gt;  4.355510 83.337661 14.474763  9.366385</span></span></code></pre></div>
-<p>The rotation matrix provides the principal component loadings; each column of pr.out$rotation contains the corresponding principal component loading vector.</p>
+</div>
+<div id="principal-component-loadings" class="section level3" number="10.4.4">
+<h3>
+<span class="header-section-number">10.4.4</span> 17.2.4 Principal Component Loadings<a class="anchor" aria-label="anchor" href="#principal-component-loadings"><i class="fas fa-link"></i></a>
+</h3>
+<p>The rotation matrix provides the principal component loadings; each column contains the corresponding principal component loading vector.</p>
 <div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pr.out</span><span class="op">$</span><span class="va">rotation</span></span>
 <span><span class="co">#&gt;                 PC1        PC2        PC3         PC4</span></span>
@@ -807,8 +907,13 @@
 <span><span class="co">#&gt; Assault  -0.5831836  0.1879856 -0.2681484 -0.74340748</span></span>
 <span><span class="co">#&gt; UrbanPop -0.2781909 -0.8728062 -0.3780158  0.13387773</span></span>
 <span><span class="co">#&gt; Rape     -0.5434321 -0.1673186  0.8177779  0.08902432</span></span></code></pre></div>
-<p>We see that there are four distinct principal components. This is to be expected because there are in general <span class="math inline">\(min(n-1, p)\)</span> informative principal components in a data set with <span class="math inline">\(n\)</span> observations and <span class="math inline">\(p\)</span> variables.</p>
-<p>Using the pr.out$x we have the <span class="math inline">\(50 \times 4\)</span> matrix x principal component score vectors. That is, the <span class="math inline">\(k\)</span>th column is the <span class="math inline">\(k\)</span>th principal component score vector.</p>
+<p>We see that there are four distinct principal components. This is expected because there are generally <span class="math inline">\(min(n-1, p)\)</span> informative principal components in a dataset with <span class="math inline">\(n\)</span> observations and <span class="math inline">\(p\)</span> variables.</p>
+</div>
+<div id="principal-component-scores" class="section level3" number="10.4.5">
+<h3>
+<span class="header-section-number">10.4.5</span> 17.2.5 Principal Component Scores<a class="anchor" aria-label="anchor" href="#principal-component-scores"><i class="fas fa-link"></i></a>
+</h3>
+<p>Using <code>pr.out$x</code>, we have the <span class="math inline">\(50 \times 4\)</span> matrix of principal component score vectors. The <span class="math inline">\(k\)</span>th column is the <span class="math inline">\(k\)</span>th principal component score vector.</p>
 <div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">pr.out</span><span class="op">$</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 50  4</span></span>
@@ -820,35 +925,46 @@
 <span><span class="co">#&gt; Arkansas    0.1399989  1.1085423  0.11342217 -0.180973554</span></span>
 <span><span class="co">#&gt; California -2.4986128 -1.5274267  0.59254100 -0.338559240</span></span>
 <span><span class="co">#&gt; Colorado   -1.4993407 -0.9776297  1.08400162  0.001450164</span></span></code></pre></div>
+</div>
+<div id="visualizing-results" class="section level3" number="10.4.6">
+<h3>
+<span class="header-section-number">10.4.6</span> 17.2.6 Visualizing Results<a class="anchor" aria-label="anchor" href="#visualizing-results"><i class="fas fa-link"></i></a>
+</h3>
 <p>We can plot the first two principal components as follows:</p>
 <div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/biplot.html">biplot</a></span><span class="op">(</span><span class="va">pr.out</span>, scale <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="17-pca_files/figure-html/plot-prcomp-1.png" width="100%"></div>
-<p>The scale = 0 argument to biplot() ensures that the arrows are scaled to represent the loadings; other values for scale give slightly different biplots with different interpretations.</p>
-<p>The principal components are only unique up to a sign change, so we can reproduce the above figure by making a small changes:</p>
+<p>The <code>scale = 0</code> argument ensures that the arrows are scaled to represent the loadings; other values give slightly different biplots with different interpretations.</p>
+<p><strong>Note</strong>: Principal components are only unique up to a sign change. We can reproduce the figure by changing signs:</p>
 <div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pr.out</span><span class="op">$</span><span class="va">rotation</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="va">pr.out</span><span class="op">$</span><span class="va">rotation</span></span>
 <span><span class="va">pr.out</span><span class="op">$</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="va">pr.out</span><span class="op">$</span><span class="va">x</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/biplot.html">biplot</a></span><span class="op">(</span><span class="va">pr.out</span>, scale <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="17-pca_files/figure-html/prcomp-sign-change-1.png" width="100%"></div>
-<p>The standard deviation (square root of the corresponding eigen-value) of each principal component is as follows:</p>
+</div>
+<div id="variance-explained" class="section level3" number="10.4.7">
+<h3>
+<span class="header-section-number">10.4.7</span> 17.2.7 Variance Explained<a class="anchor" aria-label="anchor" href="#variance-explained"><i class="fas fa-link"></i></a>
+</h3>
+<p>The standard deviation (square root of the corresponding eigenvalue) of each principal component:</p>
 <div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pr.out</span><span class="op">$</span><span class="va">sdev</span></span>
 <span><span class="co">#&gt; [1] 1.5748783 0.9948694 0.5971291 0.4164494</span></span></code></pre></div>
-<p>The variance explained by each principal component (corresponding eigen-value) is obtained by squaring these:</p>
+<p>The variance explained by each principal component (corresponding eigenvalue) is obtained by squaring these:</p>
 <div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pr.var</span> <span class="op">&lt;-</span> <span class="va">pr.out</span><span class="op">$</span><span class="va">sdev</span><span class="op">^</span><span class="fl">2</span></span>
 <span><span class="va">pr.var</span></span>
 <span><span class="co">#&gt; [1] 2.4802416 0.9897652 0.3565632 0.1734301</span></span></code></pre></div>
-<p>Compute the proportion of variance explained by each principal component as follows</p>
+<p>Compute the proportion of variance explained by each principal component:</p>
 <div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pve</span> <span class="op">&lt;-</span> <span class="va">pr.var</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">pr.var</span><span class="op">)</span></span>
 <span><span class="va">pve</span></span>
 <span><span class="co">#&gt; [1] 0.62006039 0.24744129 0.08914080 0.04335752</span></span></code></pre></div>
-<p>We see that the first principal component explains <span class="math inline">\(62.0\%\)</span> of the variance in the data, the next principal component explains <span class="math inline">\(24.7\%\)</span> of the variance. Plot the PVE (Proportion of Variance Explained) explained by each component, and the cumulative PVE, as follows:</p>
+<p>We see that the first principal component explains 62.0% of the variance, and the next explains 24.7%. Let’s plot the PVE (Proportion of Variance Explained) and cumulative PVE:</p>
 <div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">pve</span>, xlab <span class="op">=</span> <span class="st">"Principal Component"</span>, ylab <span class="op">=</span> <span class="st">"Proportion of Variance Explained"</span>, </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">pve</span>, xlab <span class="op">=</span> <span class="st">"Principal Component"</span>, </span>
+<span>     ylab <span class="op">=</span> <span class="st">"Proportion of Variance Explained"</span>, </span>
 <span>     ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"b"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">pve</span><span class="op">)</span>, xlab <span class="op">=</span> <span class="st">"Principal Component"</span>, </span>
 <span>     ylab <span class="op">=</span> <span class="st">"Cumulative Proportion of Variance Explained"</span>, </span>
@@ -856,136 +972,291 @@
 <div class="inline-figure"><img src="17-pca_files/figure-html/plot-pve-1.png" width="100%"></div>
 <div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>The function cumsum() computes the cumulative sum of the elements of a numeric vector.</p>
+<p>The function <code><a href="https://rdrr.io/r/base/cumsum.html">cumsum()</a></code> computes the cumulative sum of the elements of a numeric vector.</p>
 </div>
-<div id="exercise-1-nutritional-and-marketing-information-on-us-cereals" class="section level2" number="10.3">
+</div>
+<div id="practical-exercises" class="section level2" number="10.5">
 <h2>
-<span class="header-section-number">10.3</span> 17.3 Exercise 1: Nutritional and Marketing Information on US Cereals<a class="anchor" aria-label="anchor" href="#exercise-1-nutritional-and-marketing-information-on-us-cereals"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.5</span> 17.3 Practical Exercises<a class="anchor" aria-label="anchor" href="#practical-exercises"><i class="fas fa-link"></i></a>
 </h2>
-<p>Consider the UScereal data (65 rows and 11 columns, package ‘MASS’) from the 1993 ASA Statistical Graphics Exposition and taken from the mandatory F&amp;DA food label. The data have been normalized here to a portion of one American cup.</p>
+<div id="exercise-1-us-cereals-dataset" class="section level3" number="10.5.1">
+<h3>
+<span class="header-section-number">10.5.1</span> Exercise 1: US Cereals Dataset<a class="anchor" aria-label="anchor" href="#exercise-1-us-cereals-dataset"><i class="fas fa-link"></i></a>
+</h3>
+<p>Consider the <code>UScereal</code> dataset from the <code>MASS</code> package (65 rows and 11 columns), which contains nutritional and marketing information from the 1993 ASA Statistical Graphics Exposition. The data have been normalized to a portion of one American cup.</p>
+<p><strong>Tasks:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Load the dataset and examine its structure</li>
+<li>Identify which variables are quantitative and suitable for PCA</li>
+<li>Perform PCA on the quantitative variables</li>
+<li>Interpret the results: how many components should be retained?</li>
+<li>Create visualizations to understand the relationships between variables</li>
+</ol>
 <div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">UScereal</span><span class="op">)</span></span>
 <span><span class="co"># Note: Some variables are not quantitative</span></span>
-<span><span class="co"># res.pca.cereal &lt;- PCA(UScereal, scale.unit = TRUE, graph = FALSE)</span></span></code></pre></div>
+<span><span class="co"># Select only quantitative variables before performing PCA</span></span>
+<span><span class="co"># res.pca.cereal &lt;- PCA(UScereal[, quantitative_cols], scale.unit = TRUE, graph = FALSE)</span></span></code></pre></div>
 </div>
-<div id="exercise-2" class="section level2" number="10.4">
-<h2>
-<span class="header-section-number">10.4</span> 17.4 Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2"><i class="fas fa-link"></i></a>
-</h2>
-<p>Consider the NCI cancer cell line microarray data, which consists of <span class="math inline">\(6,830\)</span> gene expression measurements on <span class="math inline">\(64\)</span> cancer cell lines.</p>
+<div id="exercise-2-nci-cancer-cell-line-data" class="section level3" number="10.5.2">
+<h3>
+<span class="header-section-number">10.5.2</span> Exercise 2: NCI Cancer Cell Line Data<a class="anchor" aria-label="anchor" href="#exercise-2-nci-cancer-cell-line-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>Consider the NCI cancer cell line microarray data from <code>ISLR2</code>, which consists of 6,830 gene expression measurements on 64 cancer cell lines.</p>
+<p><strong>Tasks:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Load the dataset</li>
+<li>Perform PCA on the gene expression data</li>
+<li>Visualize the first few principal components</li>
+<li>Check if the cancer types (given in <code>nci.labs</code>) cluster together in the PCA space</li>
+</ol>
 <div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.statlearning.com">ISLR2</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">NCI60</span><span class="op">)</span></span>
-<span><span class="co"># Each cell line is labeled with a cancer type, given in nci.labs.</span></span></code></pre></div>
-<div id="exercise-3-wine-quality-analysis" class="section level3" number="10.4.1">
+<span><span class="co"># Each cell line is labeled with a cancer type, given in nci.labs</span></span>
+<span><span class="co"># Perform PCA and check if cancer types cluster in the first two dimensions</span></span></code></pre></div>
+</div>
+<div id="exercise-3-wine-quality-analysis" class="section level3" number="10.5.3">
 <h3>
-<span class="header-section-number">10.4.1</span> 17.4.1 Exercise 3: Wine Quality Analysis<a class="anchor" aria-label="anchor" href="#exercise-3-wine-quality-analysis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.5.3</span> Exercise 3: Wine Quality Analysis<a class="anchor" aria-label="anchor" href="#exercise-3-wine-quality-analysis"><i class="fas fa-link"></i></a>
 </h3>
-<p>Consider the wine dataset available in the gclus package, which contains chemical analyses of wines grown in the same region in Italy but derived from three different cultivars. The dataset has 13 variables and over 170 observations.</p>
+<p>Consider the wine dataset from the <code>gclus</code> package, which contains chemical analyses of wines grown in the same region in Italy but derived from three different cultivars. The dataset has 13 variables and over 170 observations.</p>
+<p><strong>Tasks:</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Perform PCA on the wine dataset. Remember to standardize the variables as they are on different scales.</li>
+</ol>
 <div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gclus</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">wine</span><span class="op">)</span></span></code></pre></div>
-<div id="tasks" class="section level4" number="10.4.1.1">
-<h4>
-<span class="header-section-number">10.4.1.1</span> Tasks:<a class="anchor" aria-label="anchor" href="#tasks"><i class="fas fa-link"></i></a>
-</h4>
-<ol style="list-style-type: lower-alpha">
-<li>Perform PCA on the wine dataset. Remember to standardize the variables if necessary, as they might be on different scales.</li>
-</ol>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Example code snippet</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">wine</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://factominer.free.fr">FactoMineR</a></span><span class="op">)</span></span>
+<span><span class="co"># Perform PCA</span></span>
 <span><span class="va">res.pca.wine</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/FactoMineR/man/PCA.html">PCA</a></span><span class="op">(</span><span class="va">wine</span>, scale.unit <span class="op">=</span> <span class="cn">TRUE</span>, graph <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <ol start="2" style="list-style-type: lower-alpha">
-<li>Interpret the PCA results. Focus on understanding which chemical properties contribute most to the variance in the dataset and if the wines cluster by cultivar.</li>
+<li>Interpret the PCA results. Focus on:</li>
 </ol>
+<ul>
+<li>Which chemical properties contribute most to the variance?</li>
+<li>Do the wines cluster by cultivar?</li>
+<li>How many principal components should be retained?</li>
+</ul>
 </div>
-</div>
-<div id="exercise-4-boston-housing-data-analysis" class="section level3" number="10.4.2">
+<div id="exercise-4-boston-housing-data" class="section level3" number="10.5.4">
 <h3>
-<span class="header-section-number">10.4.2</span> 17.4.2 Exercise 4: Boston Housing Data Analysis<a class="anchor" aria-label="anchor" href="#exercise-4-boston-housing-data-analysis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.5.4</span> Exercise 4: Boston Housing Data<a class="anchor" aria-label="anchor" href="#exercise-4-boston-housing-data"><i class="fas fa-link"></i></a>
 </h3>
-<p>Consider the Boston dataset from the MASS package, which contains information collected by the U.S Census Service concerning housing in the area of Boston Mass. It has 506 rows and 14 columns.</p>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">Boston</span><span class="op">)</span></span></code></pre></div>
-<div id="tasks-1" class="section level4" number="10.4.2.1">
-<h4>
-<span class="header-section-number">10.4.2.1</span> Tasks:<a class="anchor" aria-label="anchor" href="#tasks-1"><i class="fas fa-link"></i></a>
-</h4>
+<p>Consider the Boston dataset from the <code>MASS</code> package, which contains information collected by the U.S. Census Service concerning housing in the area of Boston, Massachusetts. It has 506 rows and 14 columns.</p>
+<p><strong>Tasks:</strong></p>
 <ol style="list-style-type: lower-alpha">
-<li>Conduct PCA on the Boston housing dataset. Before performing PCA, assess which variables are most suitable for the analysis and preprocess the data accordingly.</li>
+<li>Conduct PCA on the Boston housing dataset. Before performing PCA:</li>
 </ol>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Example code snippet</span></span>
+<ul>
+<li>Assess which variables are most suitable for the analysis</li>
+<li>Handle any missing values</li>
+<li>Preprocess the data accordingly</li>
+</ul>
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">Boston</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://factominer.free.fr">FactoMineR</a></span><span class="op">)</span></span>
+<span><span class="co"># Select appropriate variables and perform PCA</span></span>
 <span><span class="va">res.pca.boston</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/FactoMineR/man/PCA.html">PCA</a></span><span class="op">(</span><span class="va">Boston</span>, scale.unit <span class="op">=</span> <span class="cn">TRUE</span>, graph <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <ol start="2" style="list-style-type: lower-alpha">
-<li>Interpret the results of the PCA. Look for patterns that might indicate relationships between different aspects of the housing data, such as crime rates, property tax, and median value of owner-occupied homes.</li>
+<li>Interpret the results. Look for patterns indicating relationships between:</li>
 </ol>
+<ul>
+<li>Crime rates</li>
+<li>Property tax</li>
+<li>Median value of owner-occupied homes</li>
+<li>Other housing characteristics</li>
+</ul>
 </div>
-</div>
-<div id="notes-for-solving" class="section level3" number="10.4.3">
+<div id="general-guidelines-for-solving-exercises" class="section level3" number="10.5.5">
 <h3>
-<span class="header-section-number">10.4.3</span> 17.4.3 Notes for Solving:<a class="anchor" aria-label="anchor" href="#notes-for-solving"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.5.5</span> General Guidelines for Solving Exercises<a class="anchor" aria-label="anchor" href="#general-guidelines-for-solving-exercises"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li><p><strong>Data Preprocessing</strong>: Before performing PCA, it’s crucial to preprocess the data. This may include handling missing values, standardizing the data, and selecting relevant variables.</p></li>
-<li><p><strong>PCA Interpretation</strong>: When interpreting the results, focus on the eigenvalues, the proportion of variance explained by the principal components, and the loadings of the variables on the principal components.</p></li>
-<li><p><strong>Visualization</strong>: Use plots like scree plots, biplots, or individual component plots to aid in your interpretation, use packages that do that for you!</p></li>
-<li><p><strong>Contextual Understanding</strong>: Each dataset has its context. Understanding the domain can significantly help in interpreting the results meaningfully.</p></li>
+<li>
+<strong>Data Preprocessing</strong>: Before performing PCA, it’s crucial to:
+<ul>
+<li>Handle missing values appropriately</li>
+<li>Standardize the data (especially when variables are on different scales)</li>
+<li>Select relevant quantitative variables</li>
 </ul>
+</li>
+<li>
+<strong>PCA Interpretation</strong>: When interpreting results, focus on:
+<ul>
+<li>Eigenvalues and proportion of variance explained</li>
+<li>Loadings of variables on principal components</li>
+<li>Quality of representation (cos²)</li>
+<li>Contributions of variables and individuals</li>
+</ul>
+</li>
+<li>
+<strong>Visualization</strong>: Use plots to aid interpretation:
+<ul>
+<li>Scree plots (eigenvalues)</li>
+<li>Biplots (variables and individuals together)</li>
+<li>Variable plots (with contributions or quality)</li>
+<li>Individual plots</li>
+</ul>
+</li>
+<li>
+<strong>Contextual Understanding</strong>: Understanding the domain context can significantly help in interpreting results meaningfully. Always relate statistical findings back to the real-world problem you’re solving.</li>
+</ul>
+</div>
+</div>
+<div id="online-resources-and-references" class="section level2" number="10.6">
+<h2>
+<span class="header-section-number">10.6</span> Online Resources and References<a class="anchor" aria-label="anchor" href="#online-resources-and-references"><i class="fas fa-link"></i></a>
+</h2>
+<div id="official-documentation" class="section level3" number="10.6.1">
+<h3>
+<span class="header-section-number">10.6.1</span> Official Documentation<a class="anchor" aria-label="anchor" href="#official-documentation"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>FactoMineR Package</strong>:
+<ul>
+<li><a href="https://cran.r-project.org/package=FactoMineR">CRAN page</a></li>
+<li><a href="https://github.com/husson/FactoMineR">GitHub repository</a></li>
+<li><a href="http://factominer.free.fr/">Official website</a></li>
+</ul>
+</li>
+<li>
+<strong>factoextra Package</strong>:
+<ul>
+<li><a href="https://cran.r-project.org/package=factoextra">CRAN page</a></li>
+<li><a href="http://www.sthda.com/english/rpkgs/factoextra/">Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="r-markdown-resources-as-mentioned-in-slides" class="section level3" number="10.6.2">
+<h3>
+<span class="header-section-number">10.6.2</span> R Markdown Resources (as mentioned in slides)<a class="anchor" aria-label="anchor" href="#r-markdown-resources-as-mentioned-in-slides"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>R Markdown Cheat Sheet</strong>: <a href="https://www.rstudio.com/resources/cheatsheets/">RStudio Cheatsheets</a> - Download the R Markdown cheat sheet</li>
+<li>
+<strong>R Markdown Guide</strong>: <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a>
+</li>
+<li>
+<strong>RStudio</strong>: <a href="https://www.rstudio.com/products/rstudio/download/">Download RStudio</a>
+</li>
+<li>
+<strong>R Markdown Tutorial</strong>: <a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown Tutorial</a>
+</li>
+</ul>
+</div>
+<div id="tutorials-and-guides" class="section level3" number="10.6.3">
+<h3>
+<span class="header-section-number">10.6.3</span> Tutorials and Guides<a class="anchor" aria-label="anchor" href="#tutorials-and-guides"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>PCA Tutorial</strong>: <a href="http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/112-pca-principal-component-analysis-essentials/">STHDA - Principal Component Analysis in R</a>
+</li>
+<li>
+<strong>CA Tutorial</strong>: <a href="http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/113-ca-correspondence-analysis-in-r-the-essentials/">STHDA - Correspondence Analysis in R</a>
+</li>
+<li>
+<strong>R-bloggers</strong>: Search for PCA and CA articles at <a href="https://www.r-bloggers.com/">R-bloggers.com</a>
+</li>
+</ul>
+</div>
+<div id="interactive-tools" class="section level3" number="10.6.4">
+<h3>
+<span class="header-section-number">10.6.4</span> Interactive Tools<a class="anchor" aria-label="anchor" href="#interactive-tools"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>PCA Visualization</strong>: <a href="https://huygens.science.uva.nl/">PCA Explorer</a> - Interactive PCA visualization tool</li>
+<li>
+<strong>R Documentation</strong>: <a href="https://www.rdocumentation.org/">rdocumentation.org</a> - Search for PCA and CA functions</li>
+</ul>
+</div>
+<div id="books-and-academic-resources" class="section level3" number="10.6.5">
+<h3>
+<span class="header-section-number">10.6.5</span> Books and Academic Resources<a class="anchor" aria-label="anchor" href="#books-and-academic-resources"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>An Introduction to Applied Multivariate Analysis with R</strong> by Everitt &amp; Hothorn</li>
+<li>
+<strong>Principal Component Analysis</strong> by Jolliffe (classic textbook)</li>
+<li>
+<strong>Correspondence Analysis in Practice</strong> by Greenacre</li>
+</ul>
+</div>
+<div id="quick-reference" class="section level3" number="10.6.6">
+<h3>
+<span class="header-section-number">10.6.6</span> Quick Reference<a class="anchor" aria-label="anchor" href="#quick-reference"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<strong>FactoMineR Help</strong>: Type <code><a href="https://rdrr.io/pkg/FactoMineR/man/PCA.html">?PCA</a></code> or <code><a href="https://rdrr.io/pkg/FactoMineR/man/CA.html">?CA</a></code> in R console after loading the package</li>
+<li>
+<strong>factoextra Help</strong>: Type <code><a href="https://rdrr.io/pkg/factoextra/man/fviz_pca.html">?fviz_pca_var</a></code> or <code><a href="https://rdrr.io/pkg/factoextra/man/fviz_ca.html">?fviz_ca_biplot</a></code> in R console</li>
+</ul>
+<p><strong>⚠️ Important</strong>: If you encounter broken links in the PDF slides (<code>module_2_PCA_&amp;_CA.pdf</code>), all the links above are verified and working. Use this section as your reference for online resources.</p>
+
 </div>
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></div>
-<div class="next"><a href="hier-clust.html"><span class="header-section-number">11</span> 💻 Hierarchical Clustering</a></div>
+<div class="next"><a href="lab-pca-ca.html"><span class="header-section-number">11</span> 💻 Lab: PCA &amp; Correspondence Analysis</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#pca"><span class="header-section-number">10</span> 💻 PCA</a></li>
 <li>
-<a class="nav-link" href="#principal-components-analysis"><span class="header-section-number">10.1</span> 17.1 Principal Components Analysis</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#pca-using-factominer-factoextra"><span class="header-section-number">10.1.1</span> 17.1.1 PCA using ‘FactoMineR’, ‘factoextra’</a></li>
-<li><a class="nav-link" href="#exercise-1-read-the-data"><span class="header-section-number">10.1.2</span> 17.1.2 Exercise 1 : read the data</a></li>
-<li><a class="nav-link" href="#pca-function"><span class="header-section-number">10.1.3</span> 17.1.3 PCA function</a></li>
-<li><a class="nav-link" href="#eigen-values"><span class="header-section-number">10.1.4</span> 17.1.4 Eigen-values</a></li>
-<li><a class="nav-link" href="#the-variables"><span class="header-section-number">10.1.5</span> 17.1.5 The variables</a></li>
-<li><a class="nav-link" href="#the-individuals"><span class="header-section-number">10.1.6</span> 17.1.6 The individuals</a></li>
-<li><a class="nav-link" href="#another-example"><span class="header-section-number">10.1.7</span> 17.1.7 Another example</a></li>
-<li><a class="nav-link" href="#pca-on-the-correlation-matrix"><span class="header-section-number">10.1.8</span> 17.1.8 PCA on the correlation matrix</a></li>
-<li><a class="nav-link" href="#eigen-values-1"><span class="header-section-number">10.1.9</span> 17.1.9 Eigen-values</a></li>
-<li><a class="nav-link" href="#variables"><span class="header-section-number">10.1.10</span> 17.1.10 Variables</a></li>
-<li><a class="nav-link" href="#correlations-of-variables-and-componentsdimensions"><span class="header-section-number">10.1.11</span> 17.1.11 Correlations of variables and components/dimensions</a></li>
-<li><a class="nav-link" href="#coordinates-of-variables"><span class="header-section-number">10.1.12</span> 17.1.12 Coordinates of variables</a></li>
-<li><a class="nav-link" href="#quality-of-representation-of-variables"><span class="header-section-number">10.1.13</span> 17.1.13 Quality of representation of variables</a></li>
-<li><a class="nav-link" href="#contributions-of-variables"><span class="header-section-number">10.1.14</span> 17.1.14 Contributions of variables</a></li>
-<li><a class="nav-link" href="#contributions-of-first-two-variables"><span class="header-section-number">10.1.15</span> 17.1.15 Contributions of first two variables</a></li>
-<li><a class="nav-link" href="#representation-of-variables"><span class="header-section-number">10.1.16</span> 17.1.16 Representation of variables</a></li>
-<li><a class="nav-link" href="#with-the-quality-of-representation"><span class="header-section-number">10.1.17</span> 17.1.17 With the quality of representation</a></li>
-<li><a class="nav-link" href="#variables-with-quality-of-representation-larger-than-0.6"><span class="header-section-number">10.1.18</span> 17.1.18 Variables with quality of representation larger than 0.6</a></li>
-<li><a class="nav-link" href="#with-contribution"><span class="header-section-number">10.1.19</span> 17.1.19 With contribution</a></li>
-<li><a class="nav-link" href="#variables-and-individuals-with-largest-quality-of-representation"><span class="header-section-number">10.1.20</span> 17.1.20 Variables and individuals with largest quality of representation</a></li>
-<li><a class="nav-link" href="#the-individuals-1"><span class="header-section-number">10.1.21</span> 17.1.21 The individuals</a></li>
-<li><a class="nav-link" href="#individuals-coordinates"><span class="header-section-number">10.1.22</span> 17.1.22 Individuals: coordinates</a></li>
-<li><a class="nav-link" href="#quality-of-representation"><span class="header-section-number">10.1.23</span> 17.1.23 Quality of representation</a></li>
-<li><a class="nav-link" href="#contributions"><span class="header-section-number">10.1.24</span> 17.1.24 Contributions</a></li>
-<li><a class="nav-link" href="#contributions-on-the-first-two-axes"><span class="header-section-number">10.1.25</span> 17.1.25 Contributions on the first two axes</a></li>
-<li><a class="nav-link" href="#representation-of-individuals-with-respect-to-quality-of-projection"><span class="header-section-number">10.1.26</span> 17.1.26 Representation of individuals with respect to quality of projection</a></li>
-<li><a class="nav-link" href="#save-the-figures-in-pdf"><span class="header-section-number">10.1.27</span> 17.1.27 Save the figures in pdf</a></li>
-<li><a class="nav-link" href="#save-in-png"><span class="header-section-number">10.1.28</span> 17.1.28 Save in png</a></li>
-<li><a class="nav-link" href="#export-the-results-in-txt-files"><span class="header-section-number">10.1.29</span> 17.1.29 Export the results in txt files</a></li>
+<a class="nav-link" href="#introduction-to-principal-component-analysis"><span class="header-section-number">10.1</span> Introduction to Principal Component Analysis</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#key-concepts-2"><span class="header-section-number">10.1.1</span> Key Concepts</a></li>
+<li><a class="nav-link" href="#when-to-use-pca"><span class="header-section-number">10.1.2</span> When to Use PCA</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#pca-with-prcomp-function-of-the-base-r-package"><span class="header-section-number">10.2</span> 17.2 PCA with prcomp function of the base R package</a></li>
-<li><a class="nav-link" href="#exercise-1-nutritional-and-marketing-information-on-us-cereals"><span class="header-section-number">10.3</span> 17.3 Exercise 1: Nutritional and Marketing Information on US Cereals</a></li>
+<li><a class="nav-link" href="#required-packages"><span class="header-section-number">10.2</span> Required Packages</a></li>
 <li>
-<a class="nav-link" href="#exercise-2"><span class="header-section-number">10.4</span> 17.4 Exercise 2</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exercise-3-wine-quality-analysis"><span class="header-section-number">10.4.1</span> 17.4.1 Exercise 3: Wine Quality Analysis</a></li>
-<li><a class="nav-link" href="#exercise-4-boston-housing-data-analysis"><span class="header-section-number">10.4.2</span> 17.4.2 Exercise 4: Boston Housing Data Analysis</a></li>
-<li><a class="nav-link" href="#notes-for-solving"><span class="header-section-number">10.4.3</span> 17.4.3 Notes for Solving:</a></li>
+<a class="nav-link" href="#pca-with-factominer-package"><span class="header-section-number">10.3</span> 17.1 PCA with FactoMineR Package</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#example-1-simple-2d-dataset"><span class="header-section-number">10.3.1</span> 17.1.1 Example 1: Simple 2D Dataset</a></li>
+<li><a class="nav-link" href="#example-2-student-grades-dataset"><span class="header-section-number">10.3.2</span> 17.1.2 Example 2: Student Grades Dataset</a></li>
+<li><a class="nav-link" href="#visualizations"><span class="header-section-number">10.3.3</span> 17.1.3 Visualizations</a></li>
+<li><a class="nav-link" href="#analysis-of-individuals"><span class="header-section-number">10.3.4</span> 17.1.4 Analysis of Individuals</a></li>
+<li><a class="nav-link" href="#exporting-results"><span class="header-section-number">10.3.5</span> 17.1.5 Exporting Results</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#pca-with-base-r-prcomp-function"><span class="header-section-number">10.4</span> 17.2 PCA with Base R: prcomp() Function</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-exploration"><span class="header-section-number">10.4.1</span> 17.2.1 Data Exploration</a></li>
+<li><a class="nav-link" href="#data-preprocessing-why-standardization-matters"><span class="header-section-number">10.4.2</span> 17.2.2 Data Preprocessing: Why Standardization Matters</a></li>
+<li><a class="nav-link" href="#performing-pca-with-prcomp"><span class="header-section-number">10.4.3</span> 17.2.3 Performing PCA with prcomp()</a></li>
+<li><a class="nav-link" href="#principal-component-loadings"><span class="header-section-number">10.4.4</span> 17.2.4 Principal Component Loadings</a></li>
+<li><a class="nav-link" href="#principal-component-scores"><span class="header-section-number">10.4.5</span> 17.2.5 Principal Component Scores</a></li>
+<li><a class="nav-link" href="#visualizing-results"><span class="header-section-number">10.4.6</span> 17.2.6 Visualizing Results</a></li>
+<li><a class="nav-link" href="#variance-explained"><span class="header-section-number">10.4.7</span> 17.2.7 Variance Explained</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#practical-exercises"><span class="header-section-number">10.5</span> 17.3 Practical Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1-us-cereals-dataset"><span class="header-section-number">10.5.1</span> Exercise 1: US Cereals Dataset</a></li>
+<li><a class="nav-link" href="#exercise-2-nci-cancer-cell-line-data"><span class="header-section-number">10.5.2</span> Exercise 2: NCI Cancer Cell Line Data</a></li>
+<li><a class="nav-link" href="#exercise-3-wine-quality-analysis"><span class="header-section-number">10.5.3</span> Exercise 3: Wine Quality Analysis</a></li>
+<li><a class="nav-link" href="#exercise-4-boston-housing-data"><span class="header-section-number">10.5.4</span> Exercise 4: Boston Housing Data</a></li>
+<li><a class="nav-link" href="#general-guidelines-for-solving-exercises"><span class="header-section-number">10.5.5</span> General Guidelines for Solving Exercises</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#online-resources-and-references"><span class="header-section-number">10.6</span> Online Resources and References</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#official-documentation"><span class="header-section-number">10.6.1</span> Official Documentation</a></li>
+<li><a class="nav-link" href="#r-markdown-resources-as-mentioned-in-slides"><span class="header-section-number">10.6.2</span> R Markdown Resources (as mentioned in slides)</a></li>
+<li><a class="nav-link" href="#tutorials-and-guides"><span class="header-section-number">10.6.3</span> Tutorials and Guides</a></li>
+<li><a class="nav-link" href="#interactive-tools"><span class="header-section-number">10.6.4</span> Interactive Tools</a></li>
+<li><a class="nav-link" href="#books-and-academic-resources"><span class="header-section-number">10.6.5</span> Books and Academic Resources</a></li>
+<li><a class="nav-link" href="#quick-reference"><span class="header-section-number">10.6.6</span> Quick Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -1005,7 +1276,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-11-27.</p>
+    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-12-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

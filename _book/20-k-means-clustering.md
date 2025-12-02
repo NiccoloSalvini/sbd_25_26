@@ -37,8 +37,8 @@ p4 <- fviz_cluster(k5, geom = "point",  data = scale_USArrests) + ggtitle("k = 5
 
 library(gridExtra)
 #> 
-#> Attaching package: 'gridExtra'
-#> The following object is masked from 'package:dplyr':
+#> Caricamento pacchetto: 'gridExtra'
+#> Il seguente oggetto `e mascherato da 'package:dplyr':
 #> 
 #>     combine
 grid.arrange(p1, p2, p3, p4, nrow = 2)
