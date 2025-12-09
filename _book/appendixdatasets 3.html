@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 21 Datasets | Statistics &amp; Big Data 25-26 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="This section provides information about the datasets used throughout the course. These datasets come from various R packages and are commonly used in statistical analysis and data science...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 21 Datasets | Statistics &amp; Big Data 25-26 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="This section provides information about the datasets used throughout the course. These datasets come from various R packages and are commonly used in statistical analysis and data science...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 21 Datasets | Statistics &amp; Big Data 25-26 Labs">
+<meta name="twitter:description" content="This section provides information about the datasets used throughout the course. These datasets come from various R packages and are commonly used in statistical analysis and data science...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 25-26 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li class="book-part">Part 1: The Foundations</li>
+<li><a class="" href="hypothesis-testing-fundamentals.html"><span class="header-section-number">6</span> 🧪 Hypothesis Testing Fundamentals</a></li>
+<li><a class="" href="linear-regression-analysis.html"><span class="header-section-number">7</span> 📈 Linear Regression Analysis</a></li>
+<li><a class="" href="advanced-statistical-methods.html"><span class="header-section-number">8</span> 🔬 Advanced Statistical Methods</a></li>
+<li class="book-part">Part 2: Advanced Modeling</li>
+<li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
+<li><a class="" href="pca.html"><span class="header-section-number">10</span> 💻 PCA</a></li>
+<li><a class="" href="lab-pca-ca.html"><span class="header-section-number">11</span> 💻 Lab: PCA &amp; Correspondence Analysis</a></li>
+<li><a class="" href="hier-clust.html"><span class="header-section-number">12</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-means.html"><span class="header-section-number">13</span> 💻 K-Means Clustering</a></li>
+<li class="book-part">Additional Resources</li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="int-samp-q-first.html"><span class="header-section-number">15</span> 💻 First Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">16</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="exam-sim-intermediate.html"><span class="header-section-number">17</span> 📝 Intermediate Exam Simulation - Healthcare Management</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">18</span> ⚡ Course Performance</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">19</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">20</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="active" href="appendixdatasets.html"><span class="header-section-number">21</span> Datasets</a></li>
+<li><a class="" href="references-2.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/NiccoloSalvini/sbd_25_26">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="appendixdatasets" class="section level1" number="21">
+<h1>
+<span class="header-section-number">21</span> Datasets<a class="anchor" aria-label="anchor" href="#appendixdatasets"><i class="fas fa-link"></i></a>
+</h1>
+<p>This section provides information about the datasets used throughout the course. These datasets come from various R packages and are commonly used in statistical analysis and data science education.</p>
+<div id="built-in-r-datasets" class="section level2" number="21.1">
+<h2>
+<span class="header-section-number">21.1</span> Built-in R Datasets<a class="anchor" aria-label="anchor" href="#built-in-r-datasets"><i class="fas fa-link"></i></a>
+</h2>
+<div id="mtcars---motor-trend-car-road-tests" class="section level3" number="21.1.1">
+<h3>
+<span class="header-section-number">21.1.1</span> <code>mtcars</code> - Motor Trend Car Road Tests<a class="anchor" aria-label="anchor" href="#mtcars---motor-trend-car-road-tests"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Package</strong>: <code>datasets</code><br><strong>Description</strong>: Data extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).</p>
+<p><strong>Variables</strong>:
+- <code>mpg</code>: Miles/(US) gallon
+- <code>cyl</code>: Number of cylinders
+- <code>disp</code>: Displacement (cu.in.)
+- <code>hp</code>: Gross horsepower
+- <code>drat</code>: Rear axle ratio
+- <code>wt</code>: Weight (1000 lbs)
+- <code>qsec</code>: 1/4 mile time
+- <code>vs</code>: Engine (0 = V-shaped, 1 = straight)
+- <code>am</code>: Transmission (0 = automatic, 1 = manual)
+- <code>gear</code>: Number of forward gears
+- <code>carb</code>: Number of carburetors</p>
+</div>
+<div id="iris---edgar-andersons-iris-data" class="section level3" number="21.1.2">
+<h3>
+<span class="header-section-number">21.1.2</span> <code>iris</code> - Edgar Anderson’s Iris Data<a class="anchor" aria-label="anchor" href="#iris---edgar-andersons-iris-data"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Package</strong>: <code>datasets</code><br><strong>Description</strong>: Famous dataset giving the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris.</p>
+<p><strong>Variables</strong>:
+- <code>Sepal.Length</code>: Sepal length in cm
+- <code>Sepal.Width</code>: Sepal width in cm
+- <code>Petal.Length</code>: Petal length in cm
+- <code>Petal.Width</code>: Petal width in cm
+- <code>Species</code>: Species of iris (setosa, versicolor, virginica)</p>
+</div>
+<div id="cars---speed-and-stopping-distances-of-cars" class="section level3" number="21.1.3">
+<h3>
+<span class="header-section-number">21.1.3</span> <code>cars</code> - Speed and Stopping Distances of Cars<a class="anchor" aria-label="anchor" href="#cars---speed-and-stopping-distances-of-cars"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Package</strong>: <code>datasets</code><br><strong>Description</strong>: The data give the speed of cars and the distances taken to stop.</p>
+<p><strong>Variables</strong>:
+- <code>speed</code>: Speed (mph)
+- <code>dist</code>: Stopping distance (ft)</p>
+</div>
+</div>
+<div id="course-specific-datasets" class="section level2" number="21.2">
+<h2>
+<span class="header-section-number">21.2</span> Course-Specific Datasets<a class="anchor" aria-label="anchor" href="#course-specific-datasets"><i class="fas fa-link"></i></a>
+</h2>
+<div id="bikeshare.csv---bike-sharing-data" class="section level3" number="21.2.1">
+<h3>
+<span class="header-section-number">21.2.1</span> <code>bikeshare.csv</code> - Bike Sharing Data<a class="anchor" aria-label="anchor" href="#bikeshare.csv---bike-sharing-data"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>File</strong>: <code>data/bikeshare.csv</code><br><strong>Description</strong>: Dataset containing bike sharing information with various weather and temporal features.</p>
+<p><strong>Variables</strong>:
+- <code>datetime</code>: Date and time
+- <code>season</code>: Season (1:spring, 2:summer, 3:fall, 4:winter)
+- <code>holiday</code>: Whether day is holiday or not
+- <code>workingday</code>: If day is neither weekend nor holiday
+- <code>weather</code>: Weather situation (1: Clear, 2: Mist, 3: Light Snow/Rain, 4: Heavy Rain)
+- <code>temp</code>: Temperature in Celsius
+- <code>atemp</code>: “Feels like” temperature in Celsius
+- <code>humidity</code>: Relative humidity
+- <code>windspeed</code>: Wind speed
+- <code>casual</code>: Count of casual users
+- <code>registered</code>: Count of registered users
+- <code>count</code>: Count of total rental bikes</p>
+</div>
+<div id="stroke_data.csv---stroke-prediction-data" class="section level3" number="21.2.2">
+<h3>
+<span class="header-section-number">21.2.2</span> <code>stroke_data.csv</code> - Stroke Prediction Data<a class="anchor" aria-label="anchor" href="#stroke_data.csv---stroke-prediction-data"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>File</strong>: <code>data/stroke_data.csv</code><br><strong>Description</strong>: Dataset for predicting stroke occurrence based on various health indicators.</p>
+<p><strong>Variables</strong>:
+- <code>id</code>: Unique identifier
+- <code>gender</code>: Gender
+- <code>age</code>: Age
+- <code>hypertension</code>: Hypertension (0: No, 1: Yes)
+- <code>heart_disease</code>: Heart disease (0: No, 1: Yes)
+- <code>ever_married</code>: Ever married (No, Yes)
+- <code>work_type</code>: Type of work
+- <code>Residence_type</code>: Residence type (Rural, Urban)
+- <code>avg_glucose_level</code>: Average glucose level
+- <code>bmi</code>: Body mass index
+- <code>smoking_status</code>: Smoking status
+- <code>stroke</code>: Stroke (0: No, 1: Yes)</p>
+</div>
+<div id="coronary.dta---coronary-heart-disease-data" class="section level3" number="21.2.3">
+<h3>
+<span class="header-section-number">21.2.3</span> <code>coronary.dta</code> - Coronary Heart Disease Data<a class="anchor" aria-label="anchor" href="#coronary.dta---coronary-heart-disease-data"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>File</strong>: <code>data/coronary.dta</code><br><strong>Description</strong>: Dataset containing information about coronary heart disease patients.</p>
+<p><strong>Variables</strong>:
+- Various medical and demographic variables related to coronary heart disease
+- Used for survival analysis and medical statistics</p>
+</div>
+</div>
+<div id="how-to-access-datasets" class="section level2" number="21.3">
+<h2>
+<span class="header-section-number">21.3</span> How to Access Datasets<a class="anchor" aria-label="anchor" href="#how-to-access-datasets"><i class="fas fa-link"></i></a>
+</h2>
+<div id="built-in-r-datasets-1" class="section level3" number="21.3.1">
+<h3>
+<span class="header-section-number">21.3.1</span> Built-in R Datasets<a class="anchor" aria-label="anchor" href="#built-in-r-datasets-1"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb280"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load built-in datasets</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># View dataset structure</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="course-datasets" class="section level3" number="21.3.2">
+<h3>
+<span class="header-section-number">21.3.2</span> Course Datasets<a class="anchor" aria-label="anchor" href="#course-datasets"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb281"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load course datasets</span></span>
+<span><span class="va">bikeshare</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data/bikeshare.csv"</span><span class="op">)</span></span>
+<span><span class="va">stroke_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data/stroke_data.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># View dataset structure</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">bikeshare</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">bikeshare</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div id="dataset-usage-in-course" class="section level2" number="21.4">
+<h2>
+<span class="header-section-number">21.4</span> Dataset Usage in Course<a class="anchor" aria-label="anchor" href="#dataset-usage-in-course"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<strong>mtcars</strong>: Used for linear regression examples and correlation analysis</li>
+<li>
+<strong>iris</strong>: Used for classification, clustering, and ANOVA examples</li>
+<li>
+<strong>cars</strong>: Used for simple linear regression demonstrations</li>
+<li>
+<strong>bikeshare</strong>: Used for time series analysis and multiple regression</li>
+<li>
+<strong>stroke_data</strong>: Used for logistic regression and classification examples</li>
+<li>
+<strong>coronary</strong>: Used for survival analysis examples</li>
+</ul>
+</div>
+<div id="additional-resources-1" class="section level2" number="21.5">
+<h2>
+<span class="header-section-number">21.5</span> Additional Resources<a class="anchor" aria-label="anchor" href="#additional-resources-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>For more information about these datasets:
+- R documentation: <code><a href="https://rdrr.io/r/datasets/mtcars.html">?mtcars</a></code>, <code><a href="https://rdrr.io/r/datasets/iris.html">?iris</a></code>, <code><a href="https://rdrr.io/pkg/caret/man/cars.html">?cars</a></code>
+- Course materials and exercises
+- Statistical analysis examples in course chapters</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="StatisticsAndParameters.html"><span class="header-section-number">20</span> Symbols, formulas, statistics and parameters</a></div>
+<div class="next"><a href="references-2.html">References</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#appendixdatasets"><span class="header-section-number">21</span> Datasets</a></li>
+<li>
+<a class="nav-link" href="#built-in-r-datasets"><span class="header-section-number">21.1</span> Built-in R Datasets</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#mtcars---motor-trend-car-road-tests"><span class="header-section-number">21.1.1</span> mtcars - Motor Trend Car Road Tests</a></li>
+<li><a class="nav-link" href="#iris---edgar-andersons-iris-data"><span class="header-section-number">21.1.2</span> iris - Edgar Anderson’s Iris Data</a></li>
+<li><a class="nav-link" href="#cars---speed-and-stopping-distances-of-cars"><span class="header-section-number">21.1.3</span> cars - Speed and Stopping Distances of Cars</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#course-specific-datasets"><span class="header-section-number">21.2</span> Course-Specific Datasets</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#bikeshare.csv---bike-sharing-data"><span class="header-section-number">21.2.1</span> bikeshare.csv - Bike Sharing Data</a></li>
+<li><a class="nav-link" href="#stroke_data.csv---stroke-prediction-data"><span class="header-section-number">21.2.2</span> stroke_data.csv - Stroke Prediction Data</a></li>
+<li><a class="nav-link" href="#coronary.dta---coronary-heart-disease-data"><span class="header-section-number">21.2.3</span> coronary.dta - Coronary Heart Disease Data</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#how-to-access-datasets"><span class="header-section-number">21.3</span> How to Access Datasets</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#built-in-r-datasets-1"><span class="header-section-number">21.3.1</span> Built-in R Datasets</a></li>
+<li><a class="nav-link" href="#course-datasets"><span class="header-section-number">21.3.2</span> Course Datasets</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#dataset-usage-in-course"><span class="header-section-number">21.4</span> Dataset Usage in Course</a></li>
+<li><a class="nav-link" href="#additional-resources-1"><span class="header-section-number">21.5</span> Additional Resources</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/NiccoloSalvini/sbd_25_26/blob/master/98-datasets.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/NiccoloSalvini/sbd_25_26/edit/master/98-datasets.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-11-27.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

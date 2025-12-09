@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 4 🔥 Nice warm-up | Statistics &amp; Big Data 25-26 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="Now we are going to cover some very basic operations and computer science concepts with R. Hopefully this will get you with a really cool starter pack of function that you might reuse throughout...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 4 🔥 Nice warm-up | Statistics &amp; Big Data 25-26 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Now we are going to cover some very basic operations and computer science concepts with R. Hopefully this will get you with a really cool starter pack of function that you might reuse throughout...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 4 🔥 Nice warm-up | Statistics &amp; Big Data 25-26 Labs">
+<meta name="twitter:description" content="Now we are going to cover some very basic operations and computer science concepts with R. Hopefully this will get you with a really cool starter pack of function that you might reuse throughout...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 25-26 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="active" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li class="book-part">Part 1: The Foundations</li>
+<li><a class="" href="hypothesis-testing-fundamentals.html"><span class="header-section-number">6</span> 🧪 Hypothesis Testing Fundamentals</a></li>
+<li><a class="" href="linear-regression-analysis.html"><span class="header-section-number">7</span> 📈 Linear Regression Analysis</a></li>
+<li><a class="" href="advanced-statistical-methods.html"><span class="header-section-number">8</span> 🔬 Advanced Statistical Methods</a></li>
+<li class="book-part">Part 2: Advanced Modeling</li>
+<li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
+<li><a class="" href="pca.html"><span class="header-section-number">10</span> 💻 PCA</a></li>
+<li><a class="" href="lab-pca-ca.html"><span class="header-section-number">11</span> 💻 Lab: PCA &amp; Correspondence Analysis</a></li>
+<li><a class="" href="hier-clust.html"><span class="header-section-number">12</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-means.html"><span class="header-section-number">13</span> 💻 K-Means Clustering</a></li>
+<li class="book-part">Additional Resources</li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="" href="int-samp-q-first.html"><span class="header-section-number">15</span> 💻 First Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">16</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="exam-sim-intermediate.html"><span class="header-section-number">17</span> 📝 Intermediate Exam Simulation - Healthcare Management</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">18</span> ⚡ Course Performance</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">19</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">20</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">21</span> Datasets</a></li>
+<li><a class="" href="references-2.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/NiccoloSalvini/sbd_25_26">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="nice-warm-up" class="section level1" number="4">
+<h1>
+<span class="header-section-number">4</span> 🔥 Nice warm-up<a class="anchor" aria-label="anchor" href="#nice-warm-up"><i class="fas fa-link"></i></a>
+</h1>
+<p>Now we are going to cover some very basic operations and computer science concepts with R. Hopefully this will get you with a really cool starter pack of function that you might reuse throughout you R journey.</p>
+<!-- Some other very insightful resources related to wrangling Healthcare data according to `{Tidyverse}` conventions may include (by proficiency level): -->
+<!-- - Fundamentals of Wrangling Healthcare Data with R, J. Kyle Armstrong 2022, [free book](https://bookdown.org/jkylearmstrong/jeff_data_wrangling/) -->
+<!-- -  -->
+<!-- -  -->
+<div id="starting-your-fresh-new-r-project" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> Starting your fresh new R project<a class="anchor" aria-label="anchor" href="#starting-your-fresh-new-r-project"><i class="fas fa-link"></i></a>
+</h2>
+<p>Every fresh attempt is likely to pique your interest and pique your emotions. And it should. You will uncover the answers to your research questions, and you should become more knowledgeable as a consequence. However, you are likely to dislike certain aspects of data analysis. Two examples spring to mind:</p>
+<ul>
+<li><p><strong>A</strong> Keeping track of all the files generated by my project</p></li>
+<li><p><strong>B</strong> Data manipulation</p></li>
+</ul>
+<p>While we will go into deeper detail on data manipulation in a later chapter, I’d like to share some ideas from my work that helped me stay organized and, as a result, less frustrated. The following is applicable to both small and large research projects, making it extremely useful regardless of the circumstance or size of the project.</p>
+</div>
+<div id="creating-an-r-project" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> Creating an <em>R</em> Project file<a class="anchor" aria-label="anchor" href="#creating-an-r-project"><i class="fas fa-link"></i></a>
+</h2>
+<p>When working on a project, you likely create many different files for various purposes, especially <em>R</em> Scripts (<code>File &gt; New File &gt; R Script</code>). If you are not careful, this file is stored in your system’s default location, which might not be where you want them to be. RStudio allows you to manage your entire project intuitively and conveniently through <em>R</em> Project files. Using <em>R</em> Project files comes with a couple of perks, for example:</p>
+<ul>
+<li><p>All of the files you create are saved in the same location. Your data, coding, exported charts, reports, and so on are all in one location, so you don’t have to maintain the files manually. This is because RStudio sets the root directory to the folder where your project is stored.</p></li>
+<li><p>If you wish to share your project, you may do so by sharing the entire folder, and others can rapidly replicate your study or assist in issue resolution. This is due to the fact that all file paths are relative rather than absolute.</p></li>
+<li><p>You may utilize GitHub more readily for backups and so-called ‘version control’ tools, which allows you to trace changes to your code over time. (btw this is really crucial in work envirnoments, if you would like to know more about that I dedicated a <a href="https://corso-git.netlify.app/">tutorial website</a> of git+GitHub+RStudio workflow and a set of slides to explain these concepts). This is <strong>not a requirement</strong> for the course and you can skip that. However let me clarify that: it is a nice-to-have skill whenever you are collaborating with someone. It could happen on the job, or while writing your thesis, you name it.</p></li>
+</ul>
+<p>For the time being, the most significant reason to make <em>R</em> Project files is the ease of file organization and the ability to readily share them with co-investigators, your supervisor, or your students.</p>
+<p>To create an R Project, you need to perform the following steps:</p>
+<ol style="list-style-type: decimal">
+<li>Select <code>File &gt; New Project…</code> from the menu bar.</li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:rproj-menu"></span>
+<img src="images/cpt_3/00_r_project_file_menu.png" alt="Get the R project" width="100%"><p class="caption">
+Figure 4.1: Get the R project
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Select <code>New Directory</code> from the popup window.</li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:rproj-new-dir"></span>
+<img src="images/cpt_3/01_r_project_new_directory.png" alt="New Project Wizard pop up menu" width="100%"><p class="caption">
+Figure 4.2: New Project Wizard pop up menu
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Next, select <code>New Project</code>.</li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:rproj-open-new-dir"></span>
+<img src="images/cpt_3/02_r_project_new_project.png" alt="The full set of project you can initialize through the RStudio IDE" width="100%"><p class="caption">
+Figure 4.3: The full set of project you can initialize through the RStudio IDE
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Pick a meaningful name for your project folder, i.e. the <code>Directory Name</code>. Ensure this project folder is created in the right place. You can change the <code>subdirectory</code> by clicking on <code>Browse…</code>. Ideally the subdirectory is a place where you usually store your research projects.</li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:rproj-specs"></span>
+<img src="images/cpt_3/03_r_project_specs.png" alt="The RProject specifications" width="100%"><p class="caption">
+Figure 4.4: The RProject specifications
+</p>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li><p>You have the option to <code>Create a git repository</code>. This is only relevant if you already have a GitHub account and wish to use version control. For now, you can happily ignore it if you do not use GitHub.</p></li>
+<li><p>Lastly, tick <code>Open in new session</code>. This will open your <em>R</em> Project in a new RStudio window.</p></li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:rproj-dirname"></span>
+<img src="images/cpt_3/04_r_project_directory_name.png" alt="Choose a directory name for your new project" width="100%"><p class="caption">
+Figure 4.5: Choose a directory name for your new project
+</p>
+</div>
+<ol start="7" style="list-style-type: decimal">
+<li>Once you are happy with your choices, you can click <code>Create Project</code>. This will open a new <em>R</em> Session, and you can start working on your project.</li>
+</ol>
+<div class="figure">
+<span style="display:block;" id="fig:rproj-open-new-session"></span>
+<img src="images/cpt_3/05_r_project_new_session.png" alt="A new RStudio Session will pop up just like magic!" width="100%"><p class="caption">
+Figure 4.6: A new RStudio Session will pop up just like magic!
+</p>
+</div>
+<p>If you look carefully, you can see that your RStudio is now ‘branded’ with your project name. At the top of the window, you see the project name, the files pane shows the root directory where all your files will be, and even the console shows on top the file path of your project. You could set all this up manually, but I would not recommend it, not the least because it is easy and swift to work with <em>R</em> Projects</p>
+</div>
+<div id="workdir" class="section level2" number="4.3">
+<h2>
+<span class="header-section-number">4.3</span> Working Directory with <code>here</code><a class="anchor" aria-label="anchor" href="#workdir"><i class="fas fa-link"></i></a>
+</h2>
+<p>When you bootstrap your RProject in that way, RStudio is going to take care of many headaches that any fresher and sophmore developer have in the beginning. As a matter of fact each time you double click on the RStudio project file (the one that finishes with .RProj) RStudio will link itself to the directory on your computer you specified during the creation of the project, in the previous case “tidy_tuesday_2021_08_03”. This is called the <strong>Working Directory</strong>.
+What it is interesting it that this place is where R will look for files when you attempt to load them, and it is where R will save files when you save them. The location of your working directory will vary on different computers.
+There is a <em>base</em> (rather vintage) way to look for the working directory.
+To understrand which directory R is using as your working directory, run:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">## "/Users/niccolo/Desktop/r_projects/sbd_22-23"</span></span></code></pre></div>
+<p>However since we live in 2022 we are going to use a very convenient package i.e. <code>here</code> that does exactly the same thing but prettier and more intuitively.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"here"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://here.r-lib.org/reference/here.html">here</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">## "/Users/niccolo/Desktop/r_projects/sbd_22-23"</span></span></code></pre></div>
+<p><code><a href="https://here.r-lib.org/reference/here.html">here()</a></code> is going to look for the <code>.RProj</code> file and will the Working Directory exactly where it is placed.</p>
+</div>
+<div id="creating-an-r-script" class="section level2" number="4.4">
+<h2>
+<span class="header-section-number">4.4</span> Creating an R Script<a class="anchor" aria-label="anchor" href="#creating-an-r-script"><i class="fas fa-link"></i></a>
+</h2>
+<p>Code may easily grow lengthy and complicated. As a result, writing it on the console is inconvenient. As an alternative, we may write code into a R Script. An R Script is a document that is recognized by RStudio as R programming code. Non-R Script files, such as <code>.txt</code>,<code>.rtf</code>, or <code>.md</code>, can also be opened in RStudio, but any code typed in them will not be immediately recognized.</p>
+<p>When you open or create a new R script, it will appear in the Source pane. This window is sometimes referred to as the ‘script editor’. An R script begins with an empty file. Good coding etiquette requires us to put a comment # on the first line to describe what this file does. Here’s a ‘TidyTuesday’ R Project sample.</p>
+<div class="figure">
+<span style="display:block;" id="fig:rscript"></span>
+<img src="images/cpt_3/00_r_script.png" alt="Open an R Script and write some on it" width="100%"><p class="caption">
+Figure 4.7: Open an R Script and write some on it
+</p>
+</div>
+<p>All of the examples in this tutorial are made to be copied and pasted into your own R script. However, you will need to install the R packages for certain code. Let’s give it a shot with the following code. The plot produced by this code displays which car company provides the most fuel-efficient vehicles. This code should be copied and pasted into your R script. Below there’s a simple script that generates a plot, copy and paste into your file, then execute it.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mpg</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">manufacturer</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">hwy</span><span class="op">)</span>, FUN <span class="op">=</span> <span class="va">median</span><span class="op">)</span>,</span>
+<span>                   y <span class="op">=</span> <span class="va">hwy</span>,</span>
+<span>                   fill <span class="op">=</span> <span class="va">manufacturer</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Manufacturer"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Highway miles per gallon"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="03-nicewarmup_files/figure-html/R%20Script%20copy%20and%20paste%20examples-1.png" width="100%"></div>
+<p>You’re probably wondering what happened to your plot. Copying the code will not execute it in your <em>R</em> script. However, this is required in order to develop the plot. If you pressed <code>Return ↵</code>, you would just add a new line. Instead, choose the code you wish to run and hit <code>Ctrl+Return ↵</code> (PC) or <code>Cmd+Return ↵</code> (Mac). You may also use the <code>Run</code> command at the top of your source window, but the keyboard shortcut is far more convenient. Furthermore, you will rapidly remember this shortcut because we will need to utilize it frequently. If everything is in order, you should see the following:</p>
+<p>As you can see, Honda automobiles appear to travel the furthest with the same quantity of fuel (a gallon) as other vehicles. As a result, if you’re seeking for cheap automobiles, you now know where to look at.</p>
+<p>It’s worth noting that the R script editor includes some handy features for developing code. You’ve undoubtedly noticed that part of the code we’ve pasted is blue and others is green. Because they have a distinct significance, these colors aid in making your code more understandable. In the default settings, green represents any value in ““, which often represents characters. Syntax highlighting refers to the automatic coloring of our programming code.</p>
+</div>
+<div id="using-r-markdown" class="section level2" number="4.5">
+<h2>
+<span class="header-section-number">4.5</span> Using R Markdown<a class="anchor" aria-label="anchor" href="#using-r-markdown"><i class="fas fa-link"></i></a>
+</h2>
+<p>There is too lot to say about R Markdown, so I’ll just mention that it exists and highlight one feature that could persuade you to use it instead of plain R scripts: They appear to be <em>Word documents</em> (almost).</p>
+<p>R Markdown files, as the name implies, are a mix of R scripts and ‘Markdown.’ ‘Markdown’ is a method of composing and formatting text documents without the use of software such as Microsoft Word. You instead write everything in plain text. Such plain text may be translated into a variety of document forms, including HTML webpages, PDF files, and Word documents. I recommend checking out the <a href="https://www.rstudio.com/resources/cheatsheets/">R Markdown Cheatsheet</a> to learn how it works. <code>Click File &gt; New File &gt; R Markdown</code> to create a R Markdown file.</p>
+<p>An R Markdown file is the inverse of a R script. By default, a R script treats everything as code, and we can only use language to describe what the code does by commenting <code>#</code>. This is what you’ve seen in all of the previous code examples. An R Markdown file, on the other hand, treats everything as text and requires us to declare what is code. We may accomplish this by injecting ‘code chunks.’ As a result, using comments <code>#</code> in R Markdown files is less necessary because you may write about it. Another advantage of R Markdown files is that the results of your analysis are shown immediately underneath the code chunk rather than in the terminal. They are also sometimes called <strong>notebooks</strong> since they can display both code and text together, the Python equivalent for those that have been someway exposed to Python scripting in <strong>Jupyter</strong></p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></div>
+<div class="next"><a href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#nice-warm-up"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="nav-link" href="#starting-your-fresh-new-r-project"><span class="header-section-number">4.1</span> Starting your fresh new R project</a></li>
+<li><a class="nav-link" href="#creating-an-r-project"><span class="header-section-number">4.2</span> Creating an R Project file</a></li>
+<li><a class="nav-link" href="#workdir"><span class="header-section-number">4.3</span> Working Directory with here</a></li>
+<li><a class="nav-link" href="#creating-an-r-script"><span class="header-section-number">4.4</span> Creating an R Script</a></li>
+<li><a class="nav-link" href="#using-r-markdown"><span class="header-section-number">4.5</span> Using R Markdown</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/NiccoloSalvini/sbd_25_26/blob/master/03-nicewarmup.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/NiccoloSalvini/sbd_25_26/edit/master/03-nicewarmup.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-11-27.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

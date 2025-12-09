@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 15 💻 First Intermediate Sample Questions | Statistics &amp; Big Data 25-26 Labs</title>
+<meta name="author" content="Dr. Niccolò Salvini">
+<meta name="description" content="Hi guys, this is your favourite TA, I am just aggregating questions that have been asked in previous exam sessions the previous years i.e. 2020/2021 and 2021/2022. They are representative of the...">
+<meta name="generator" content="bookdown 0.29 with bs4_book()">
+<meta property="og:title" content="Chapter 15 💻 First Intermediate Sample Questions | Statistics &amp; Big Data 25-26 Labs">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Hi guys, this is your favourite TA, I am just aggregating questions that have been asked in previous exam sessions the previous years i.e. 2020/2021 and 2021/2022. They are representative of the...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 15 💻 First Intermediate Sample Questions | Statistics &amp; Big Data 25-26 Labs">
+<meta name="twitter:description" content="Hi guys, this is your favourite TA, I am just aggregating questions that have been asked in previous exam sessions the previous years i.e. 2020/2021 and 2021/2022. They are representative of the...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/cattolica-logo-favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics &amp; Big Data 25-26 Labs</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> 🫶 About</a></li>
+<li class="book-part">Get Started</li>
+<li><a class="" href="prereq.html"><span class="header-section-number">2</span> ✨Prerequisites</a></li>
+<li><a class="" href="r-packages.html"><span class="header-section-number">3</span> 📦 R Packages</a></li>
+<li><a class="" href="nice-warm-up.html"><span class="header-section-number">4</span> 🔥 Nice warm-up</a></li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">5</span> 🗒️ Syllabus</a></li>
+<li class="book-part">Part 1: The Foundations</li>
+<li><a class="" href="hypothesis-testing-fundamentals.html"><span class="header-section-number">6</span> 🧪 Hypothesis Testing Fundamentals</a></li>
+<li><a class="" href="linear-regression-analysis.html"><span class="header-section-number">7</span> 📈 Linear Regression Analysis</a></li>
+<li><a class="" href="advanced-statistical-methods.html"><span class="header-section-number">8</span> 🔬 Advanced Statistical Methods</a></li>
+<li class="book-part">Part 2: Advanced Modeling</li>
+<li><a class="" href="advanced-modeling-techniques.html"><span class="header-section-number">9</span> 🚀 Advanced Modeling Techniques</a></li>
+<li><a class="" href="pca.html"><span class="header-section-number">10</span> 💻 PCA</a></li>
+<li><a class="" href="lab-pca-ca.html"><span class="header-section-number">11</span> 💻 Lab: PCA &amp; Correspondence Analysis</a></li>
+<li><a class="" href="hier-clust.html"><span class="header-section-number">12</span> 💻 Hierarchical Clustering</a></li>
+<li><a class="" href="k-means.html"><span class="header-section-number">13</span> 💻 K-Means Clustering</a></li>
+<li class="book-part">Additional Resources</li>
+<li><a class="" href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></li>
+<li><a class="active" href="int-samp-q-first.html"><span class="header-section-number">15</span> 💻 First Intermediate Sample Questions</a></li>
+<li><a class="" href="int-samp-q-second.html"><span class="header-section-number">16</span> 💻 Second Intermediate Sample Questions</a></li>
+<li><a class="" href="exam-sim-intermediate.html"><span class="header-section-number">17</span> 📝 Intermediate Exam Simulation - Healthcare Management</a></li>
+<li><a class="" href="course-performance.html"><span class="header-section-number">18</span> ⚡ Course Performance</a></li>
+<li><a class="" href="frequently-asked-questions.html"><span class="header-section-number">19</span> ❓ Frequently Asked Questions</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="StatisticsAndParameters.html"><span class="header-section-number">20</span> Symbols, formulas, statistics and parameters</a></li>
+<li><a class="" href="appendixdatasets.html"><span class="header-section-number">21</span> Datasets</a></li>
+<li><a class="" href="references-2.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/NiccoloSalvini/sbd_25_26">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="int-samp-q-first" class="section level1" number="15">
+<h1>
+<span class="header-section-number">15</span> 💻 First Intermediate Sample Questions<a class="anchor" aria-label="anchor" href="#int-samp-q-first"><i class="fas fa-link"></i></a>
+</h1>
+<p>Hi guys, this is your favourite <strong>TA</strong>, I am just aggregating questions that have been asked in previous exam sessions the previous years i.e. 2020/2021 and 2021/2022. They are representative of the actual exam, but you know, take it like a grain of salt.</p>
+<p>I will also make sure to provide to you some other exercises if you are still anxious.</p>
+<div id="section" class="section level2" number="15.1">
+<h2>
+<span class="header-section-number">15.1</span> 👨‍🎓 2020/2021<a class="anchor" aria-label="anchor" href="#section"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:int1" class="exercise"><strong>Exercise 15.1  </strong></span>Write the line of the R command that you use to produce a boxplot of the variable X</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int2" class="exercise"><strong>Exercise 15.2  </strong></span>We want to test statistically the hypothesis that the performances of students at UCSC in Rome that graduated last year are better than those that graduated this year. Can we say that this is a paired sample test ?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int3" class="exercise"><strong>Exercise 15.3  </strong></span>Without using formulae, describe how you can calculate the test statistics in a hypothesis testing procedure on a single mean with known variance.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int4" class="exercise"><strong>Exercise 15.4  </strong></span>Using the dataset Boston downloaded from the library spdep, write the correlation matrix of the variables MEDV, NOX and CRIM.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int5" class="exercise"><strong>Exercise 15.5  </strong></span>How do you define the confidence of a statistical test?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int6" class="exercise"><strong>Exercise 15.6  </strong></span>Given the following 2 variables X = (1,5,3,3,5,5) and Y= (4,4,6,3,2,3), write the cross-tabulation between X and Y.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int7" class="exercise"><strong>Exercise 15.7  </strong></span>Write the line of the R command that you use to simulate 1000 random observation from normal distribution with 0 mean and variance = 0.5.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int8" class="exercise"><strong>Exercise 15.8  </strong></span>A law company is evaluating the performances of two departments measuring in terms of the time required for solving a conflict in the last year. The observed values are reported in the following table:</p>
+<p>…</p>
+<p>can we accept the hypothesis H0: (the mean of Dept 1 is equal to the mean of Dept 2) versus a bilateral alternative hypothesis? (F)</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int9" class="exercise"><strong>Exercise 15.9  </strong></span>A company has recorded the number of costumers in 10 sample stores before (variable X) and after (Variable Y) a new advertising campaign was introduced. The observed values are reported in the following table</p>
+<p>…</p>
+<p>write the p-value of the test with H0: (the mean of X is equal to the mean of Y) versus a bilateral alternative hypothesis. ( 0,000341138)</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int12" class="exercise"><strong>Exercise 15.10  </strong></span>The HR office of a cleaning company wants to test if there is a gender discrimination between its employees. Call X = the income of a set of 20 male workers and Y = the income of a set of 35 female workers. Write the line R command to run an appropriate test of hypothesis.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int13" class="exercise"><strong>Exercise 15.11  </strong></span>What is the power of statistical test?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int14" class="exercise"><strong>Exercise 15.12  </strong></span>Using the dataset <code>boston.c</code> downloaded from the library <code>spdep</code>, calculate the coefficient of skewness of the variable RM.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-samp-q-first.html#exr:int14">15.12</a></strong>:</p>
+<pre><code>library(moments)
+skewness(boston.c$RM)
+
+0,4024147</code></pre>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int16" class="exercise"><strong>Exercise 15.13  </strong></span>How do you define the significance of a statistical test?</p>
+</div>
+</div>
+<div id="section-1" class="section level2" number="15.2">
+<h2>
+<span class="header-section-number">15.2</span> 👨‍🎓 2021/2022<a class="anchor" aria-label="anchor" href="#section-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:int17" class="exercise"><strong>Exercise 15.14  </strong></span>Given the dataset “Duncan” in the library “carData” estimate the regression model where the variable prestige is regressed on the variables income Looking at the following information,</p>
+<pre><code>Residuals:
+
+Min      1Q  Median      3Q     Max
+
+-29.538  -6.417   0.655   6.605  34.641</code></pre>
+<p>Do residuals display.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int18" class="exercise"><strong>Exercise 15.15  </strong></span>What are the consequences of <strong>collinearity</strong> among regressors?</p>
+<ol style="list-style-type: decimal">
+<li>Estimators become biased</li>
+<li>Estimators become inefficient</li>
+<li>Estimators become inconsistent</li>
+<li>Estimators become unstable</li>
+</ol>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int19" class="exercise"><strong>Exercise 15.16  </strong></span>What is the correct definition of the <strong>variance inflation factor</strong> i.e. VIF?</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(1-R2\)</span></li>
+<li>
+<span class="math inline">\(\frac{1}{R2}\)</span><br>
+</li>
+<li><span class="math inline">\(\frac{1}{1-R2}\)</span></li>
+<li><span class="math inline">\(1-\frac{1}{R2}\)</span></li>
+</ol>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-samp-q-first.html#exr:int19">15.16</a></strong>:</p>
+<p>A general guideline is that a VIF larger than 5 or 10 is large, indicating that the model has problems estimating the coefficient. However, this in general does not degrade the quality of predictions. If the VIF is larger than 1/(1-R2), where R2 is the Multiple R-squared of the regression, then that predictor is more related to the other predictors than it is to the response.</p>
+<pre><code>install.packages("regclass")
+library(regclass)
+VIF(modello_regressione)</code></pre>
+<p>alternatively you can use the library <code>car</code> and use <code><a href="https://rdrr.io/pkg/car/man/vif.html">vif()</a></code> function</p>
+<pre><code>install.packges("car")
+library(car)
+vif(modello_regressione)</code></pre>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int20" class="exercise"><strong>Exercise 15.17  </strong></span>Using only the following variables <code>minority</code> , <code>crime</code> , <code>poverty</code> , <code>language</code> <code>highschool</code> and <code>housing</code> of the <code>Ericksen</code> data in the library <code>carData</code>, run a factor analysis. What is the percentage explained by the first two factors?</p>
+<p>risposta: <strong>90.130.001</strong></p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int21" class="exercise"><strong>Exercise 15.18  </strong></span>In a multiple linear regression model y= a+bx1+cx2, if Correlation(x1,x2)=0.9, do we have to discard one of the two variables for collinearity?</p>
+<p>risposta: <strong>F</strong></p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int23" class="exercise"><strong>Exercise 15.19  </strong></span>Given the dataset <code>Duncan</code> in the library <code>carData</code> estimate the regression model where the variable <code>prestige</code> is regressed on the variables <code>income</code> and <code>education</code>. Which variable is the most significant?</p>
+<ol style="list-style-type: decimal">
+<li>Education</li>
+<li>income</li>
+</ol>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-samp-q-first.html#exr:int23">15.19</a></strong>:</p>
+<p>at first you load data from <code>Duncan</code> dataset</p>
+<pre><code><a href="https://r-forge.r-project.org/projects/car/">library(carData)
+data("Duncan")</a></code></pre>
+<p>Then you specify the model and produce sumamries:</p>
+<pre><code>duncan_regression = lm(prestige~ income + education, data= Duncan)
+summary(duncan_regression)</code></pre>
+<p>you look at pvalues and</p>
+<pre><code>Coefficients:
+            Estimate Std. Error t value   Pr(&gt;|t|)    
+(Intercept) -6.06466    4.27194  -1.420      0.163    
+income       0.59873    0.11967   5.003 0.00001053 ***
+education    0.54583    0.09825   5.555 0.00000173 ***</code></pre>
+<p>education is significant more than income since <em>0.00000173</em> &lt; <em>0.00001053</em></p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int25" class="exercise"><strong>Exercise 15.20  </strong></span>In a multiple linear regression model y= a+bx1+cx2, what is the level of correlation between x1 and x2 beyond which we have to discard one of the two variables for collinearity?</p>
+<p>risposta: <strong>0.948</strong></p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int26" class="exercise"><strong>Exercise 15.21  </strong></span>Given the dataset <code>Duncan</code> in the library <code>carData</code> estimate the regression model where the variable <code>prestige</code> is regressed on the variables <code>income</code> and <code>education</code>. What is the p-value of the coefficient of the variable <code>education</code>?</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-samp-q-first.html#exr:int26">15.21</a></strong>:</p>
+<p>at first you load data from <code>Duncan</code> dataset</p>
+<pre><code><a href="https://r-forge.r-project.org/projects/car/">library(carData)
+data("Duncan")</a></code></pre>
+<p>Then you specify the model and produce sumamries:</p>
+<pre><code>duncan_regression = lm(prestige~ income + education, data= Duncan)
+summary(duncan_regression)</code></pre>
+<p>you look at pvalues and</p>
+<pre><code>Coefficients:
+            Estimate Std. Error t value   Pr(&gt;|t|)    
+(Intercept) -6.06466    4.27194  -1.420      0.163    
+income       0.59873    0.11967   5.003 0.00001053 ***
+education    0.54583    0.09825   5.555 0.00000173 ***</code></pre>
+<p>The pvalue for the coefficient is <strong>0.00000173</strong></p>
+<p>you may want to directly access to it instead of just copying and pasting from console sumamry output</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int27" class="exercise"><strong>Exercise 15.22  </strong></span>What is the reason for adjusting the R2 in a multiple regression</p>
+<ol style="list-style-type: decimal">
+<li>To account for the number of degrees of freedom</li>
+<li>To account for the number of parameters</li>
+<li>To reduce the uncertainty</li>
+<li>To adjust for variance inflation factor</li>
+</ol>
+<p>rispoasta: <strong>To account for the number of degrees of freedom</strong></p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int28" class="exercise"><strong>Exercise 15.23  </strong></span>Given the dataset <code>Duncan</code> in the library <code>carData</code> estimate the regression model where the variable <code>prestige</code> is regressed on the variables <code>income</code>. Using the VIF, do we have to exclude some variable due to collinearity?</p>
+<p>result: F</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-samp-q-first.html#exr:int28">15.23</a></strong>:</p>
+<p>at first you load data from <code>Duncan</code> dataset</p>
+<pre><code><a href="https://r-forge.r-project.org/projects/car/">library(carData)
+library(car)
+data("Duncan")</a></code></pre>
+<p>Then you specify the model and produce sumamries:</p>
+<pre><code>duncan_regression = lm(prestige~ income + education, data= Duncan)
+vif(duncan_regression)</code></pre>
+<p>Then the output will look like something like.</p>
+<pre><code> income education 
+ 2.1049    2.1049 </code></pre>
+<p>Since they are below <strong>10</strong> which is the rule of thumb we gave to ourselves to assess multicollinearity then we conclude that neither <code>income</code> nor <code>education</code> are collinear.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int29" class="exercise"><strong>Exercise 15.24  </strong></span>Given the dataset <code>Duncan</code> in the library <code>carData</code> estimate the regression model where the variable <code>prestige</code> is regressed on the variables <code>income</code>. What is the value of the t value of the coefficient of the variable <code>education</code>?</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-samp-q-first.html#exr:int29">15.24</a></strong>:</p>
+<p>at first you load data from <code>Duncan</code> dataset</p>
+<pre><code><a href="https://r-forge.r-project.org/projects/car/">library(carData)
+data("Duncan")</a></code></pre>
+<p>Then you specify the model and produce sumamries:</p>
+<pre><code>duncan_regression = lm(prestige~ income + education, data= Duncan)
+summary(duncan_regression)</code></pre>
+<p>Then the output will look like something like.</p>
+<pre><code>Coefficients:
+            Estimate Std. Error t value   Pr(&gt;|t|)    
+(Intercept) -6.06466    4.27194  -1.420      0.163    
+income       0.59873    0.11967   5.003 0.00001053 ***
+education    0.54583    0.09825   5.555 0.00000173 ***</code></pre>
+<p>By inspecting the summary wee obtain that the t value (t value column in the summary) dor variable <code>education</code> is <strong>5.555</strong></p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int29" class="exercise"><strong>Exercise 15.24  </strong></span>Using only the following variables <code>minority</code> , <code>crime</code> , <code>poverty</code> , <code>language</code>, <code>highschool</code> and <code>housing</code> of the <code>Ericksen</code> data in the library <code>carData</code>, run a cluster analysis using the k-means method. If we divide the observations in 4 classes what is the frequency of the largest class ?</p>
+<p>result: <strong>26</strong></p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int30" class="exercise"><strong>Exercise 15.25  </strong></span>Using only the following variables <code>minority</code> , <code>crime</code> , <code>poverty</code> , <code>language</code>, <code>highschool</code> and <code>housing</code> of the <code>Ericksen</code> data in the library <code>carData</code>, run a cluster analysis using the <strong>k-means method</strong>. What is the percentage explained by the first factor?</p>
+<p>risposta: 7.391.719</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int31" class="exercise"><strong>Exercise 15.26  </strong></span>Using only the following variables <code>minority</code> , <code>crime</code> , <code>poverty</code> , <code>language</code>, <code>highschool</code> and <code>housing</code> of the <code>Ericksen</code> data in the library <code>carData</code>, run a cluster analysis using the <strong>hierarchical method</strong>. If we divide the observations in 10 classes what is the frequency of the largest class ?</p>
+<p>risposta: 27</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:int32" class="exercise"><strong>Exercise 15.27  </strong></span>Given the dataset <code>Duncan</code> in the library <code>carData</code> estimate the regression model where the variable <code>prestige</code> is regressed on the variables <code>income</code> and <code>education</code> and report the <span class="math inline">\(R^2\)</span>.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Exercise <a href="int-samp-q-first.html#exr:int32">15.27</a></strong>:</p>
+<p>at first you load data from <code>Duncan</code> dataset</p>
+<pre><code><a href="https://r-forge.r-project.org/projects/car/">library(carData)
+data("Duncan")</a></code></pre>
+<p>Then you specify the model and produce sumamries:</p>
+<pre><code>duncan_regression = lm(prestige~ income + education, data= Duncan)
+summary(duncan_regression)</code></pre>
+<p>Then the output will look like something like.</p>
+<pre><code>Residual standard error: 13.37 on 42 degrees of freedom
+Multiple R-squared:  0.8282,    Adjusted R-squared:   0.82 
+F-statistic: 101.2 on 2 and 42 DF,  p-value: &lt; 0.00000000000000022
+    </code></pre>
+<p>By inspecting the lowe end of the summary we obtain that the R2 (multiple) for the model is <strong>0.8282</strong>, which is high.</p>
+</div>
+<hr>
+</div>
+<div id="section-2" class="section level2" number="15.3">
+<h2>
+<span class="header-section-number">15.3</span> 👨‍🎓 2022/2023<a class="anchor" aria-label="anchor" href="#section-2"><i class="fas fa-link"></i></a>
+</h2>
+<div class="exercise">
+<p><span id="exr:intres1" class="exercise"><strong>Exercise 15.28  </strong></span>Using the dataset <code>Boston</code> downloaded from the library <code>spdep</code>,
+calculate the coefficient of skewness of the variable <code>RM</code>.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres2" class="exercise"><strong>Exercise 15.29  </strong></span>How do you define the significance of a statistical test?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres3" class="exercise"><strong>Exercise 15.30  </strong></span>What is the power of statistical test?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres4" class="exercise"><strong>Exercise 15.31  </strong></span>How do you define the confidence of a statistical test?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres5" class="exercise"><strong>Exercise 15.32  </strong></span>A law company is evaluating the performances of two departments
+measuring in terms of the time required for solving a conflict in the
+last year. The observed values are reported in the following table:</p>
+<pre><code>perf_table = data.frame(
+  stringsAsFactors = FALSE,
+             month = c("january","febraury","march",
+                       "april","may","june","july","august","september",
+                       "october","november","december"),
+            dept_1 = c(NA, NA, NA, 3L, 6L, 9L, 7L, 5L, 7L, 3L, 4L, 6L),
+            dept_2 = c(4L, 3L, 9L, 5L, 7L, 2L, 6L, 3L, 6L, 7L, 4L, 1L)
+)
+)</code></pre>
+<p>can we reject the hypothesis H0: (the mean of Dept 1 is equal to the
+mean of Dept 2) versus a bilateral alternative hypothesis?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres6" class="exercise"><strong>Exercise 15.33  </strong></span>A company has recorded the number of costumers in 10 sample stores
+before (variable X) and after (Variable Y) a new advertising campaign
+was introduced. The observed values are reported in the following table:</p>
+<pre><code>stores = data.frame(
+     n_store = c(1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L),
+      before = c(113L, 110L, 108L, 108L, 103L, 101L, 96L, 101L, 104L, 98L),
+       after = c(125L, 113L, 115L, 117L, 105L, 112L, 100L, 103L, 116L, 104L)
+)</code></pre>
+<p>can we reject the hypothesis H0: (the mean of X, i.e. before is equal to
+the mean of Y, i.e. after) versus a bilateral alternative hypothesis?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres7" class="exercise"><strong>Exercise 15.34  </strong></span>Write the line of the R command that you use to simulate 2000 random
+observation from normal distribution with 0 mean and variance = 0.1</p>
+</div>
+<p>Many of you fall into this <strong>trap!</strong>. Tip: always use the “tab” for
+automatic suggestion but also check what are arguments. In this case
+exercise wants you to sample from a normal distribution with <strong>2000</strong>
+instances (data points), <strong>0</strong> mean and <strong>variance = 0.1</strong>. The argument
+in <code>rnorm</code> is sd not var, so you have to apply the square root!</p>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres7">15.34</a>:</p>
+<pre><code>rnorm(n = 2000, mean = 0, sd = 0.1^(1/2))</code></pre>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres8" class="exercise"><strong>Exercise 15.35  </strong></span>Write the line of the R command that you use to produce a boxplot of the
+variable X</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres9" class="exercise"><strong>Exercise 15.36  </strong></span>Given the following 2 variables <code>X = (5,5,3,3,5,5)</code> and
+<code>Y= (4,4,3,3,3,3)</code>, test if the mean of X is significantly different
+from the mean of Y. Report the p-value of the appropriate test and your
+decision.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres10" class="exercise"><strong>Exercise 15.37  </strong></span>Using the dataset <code>boston.c</code> downloaded from the library <code>spdep</code>, write
+the elements of the correlation matrix of the variables <code>MEDV</code>, <code>NOX</code> and
+<code>CRIM</code>.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres11" class="exercise"><strong>Exercise 15.38  </strong></span>Without using formulae, describe how you can calculate the test
+statistics in a hypothesis testing procedure on a single mean with known
+variance.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres12" class="exercise"><strong>Exercise 15.39  </strong></span>The HR office of a cleaning company wants to test if there is significant difference in the salary between males and females. Call X = the salary of a set of <strong>2000</strong> male workers and Y = the salary of a set of <strong>150</strong> female workers. From previous survey we know that the <strong>variances of the two groups are equal</strong>. Write the line R command to run an appropriate test of hypothesis.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres13" class="exercise"><strong>Exercise 15.40  </strong></span>We want to test statistically the hypothesis that the students at UCSC
+in Rome have better performances in the second year than in first year
+year. Can we say that this is a paired sample test?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres14" class="exercise"><strong>Exercise 15.41  </strong></span>Using the dataset <code>iris</code> test if there is a significant difference
+between the mean of <code>Petal.Length</code> and the mean of <code>Sepal.Width</code> and
+report the outcome value of the t-test.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres15" class="exercise"><strong>Exercise 15.42  </strong></span>Using the dataset <code>iris</code> calculate the correlation between
+<code>Sepal.Length</code> and <code>Sepal.Width</code>.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres16" class="exercise"><strong>Exercise 15.43  </strong></span>Using the dataset <code>iris</code> report the highest correlation coefficient that
+you find between the four variables.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres161" class="exercise"><strong>Exercise 15.44  </strong></span>Using the dataset <code>iris</code> report the highest correlation coefficient that
+you find between the four variables.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres17" class="exercise"><strong>Exercise 15.45  </strong></span>Using the dataset <code>iris</code> report the variance of <code>Sepal.Length</code></p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres18" class="exercise"><strong>Exercise 15.46  </strong></span>Using the dataset <code>iris</code> report the third quartile of <code>Sepal.Length</code></p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres19" class="exercise"><strong>Exercise 15.47  </strong></span>What is the reason for adjusting the R2 in a multiple regression?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres20" class="exercise"><strong>Exercise 15.48  </strong></span>What is the correct definition of the variance inflation factor?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres21" class="exercise"><strong>Exercise 15.49  </strong></span>What are the consequences of <strong>collinearity</strong> among regressors?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres22" class="exercise"><strong>Exercise 15.50  </strong></span>Using the dataset <code>Wong</code> from the R library <code>carData</code>, estimate a
+multiple linear regression where the variable <code>piq</code> is expressed as a
+function of <code>age</code>, <code>days</code> and <code>duration.</code></p>
+<p>After the check of collinearity and of significance choose the best
+model.</p>
+<p>Which variables are retained in the model? (retained means
+<em>tratteresti</em>)</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres23" class="exercise"><strong>Exercise 15.51  </strong></span>sing the dataset <code>Wong</code> from the R library <code>carData</code>, estimate a
+multiple linear regression where the variable <code>piq</code> is expressed as a
+function of <code>age</code>, <code>days</code> and <code>duration.</code></p>
+<p>After the check of collinearity and of significance choose the best
+model.</p>
+<p>What is the value of the <strong>adjusted R squared</strong> in the best model</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres24" class="exercise"><strong>Exercise 15.52  </strong></span>sing the dataset <code>Wong</code> from the R library <code>carData</code>, estimate a
+multiple linear regression where the variable <code>piq</code> is expressed as a
+function of <code>age</code>, <code>days</code> and <code>duration.</code></p>
+<p>After the check of collinearity and of significance choose the best
+model.</p>
+<p>What is the estimated coefficient of the variable <code>duration</code> in the best
+model?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres25" class="exercise"><strong>Exercise 15.53  </strong></span>sing the dataset <code>Wong</code> from the R library <code>carData</code>, estimate a
+multiple linear regression where the variable <code>piq</code> is expressed as a
+function of <code>age</code>, <code>days</code> and <code>duration.</code></p>
+<p>After the check of collinearity and of significance choose the best
+model.</p>
+<p>What is the estimated value of the <code>intercept</code> in the best model?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres26" class="exercise"><strong>Exercise 15.54  </strong></span>sing the dataset <code>Wong</code> from the R library <code>carData</code>, estimate a
+multiple linear regression where the variable <code>piq</code> is expressed as a
+function of <code>age</code>, <code>days</code> and <code>duration.</code></p>
+<p>After the check of collinearity and of significance choose the best
+model.</p>
+<p>What is the <strong>p-value</strong> of the variable <code>duration</code> in the best model?</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres27" class="exercise"><strong>Exercise 15.55  </strong></span>sing the dataset <code>Wong</code> from the R library <code>carData</code>, estimate a
+multiple linear regression where the variable <code>piq</code> is expressed as a
+function of <code>age</code>, <code>days</code> and <code>duration.</code></p>
+<p>After the check of collinearity and of significance choose the best
+model.</p>
+<p>What is the value of the <strong>R square</strong> in the best model</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres28" class="exercise"><strong>Exercise 15.56  </strong></span>Using the dataset <code>iris</code>, test if the average of the variable
+<code>Sepal.Length</code> changes significantly in the three <code>Species</code> considered.
+Report here the p-value of the appropiate test.</p>
+</div>
+<p>We look at <code>Species</code> (we have already gone through that during lecture)
+by inspecting the dataset. What we see is that <code>Species</code> has three
+categories <em>setosa</em>, <em>versicolor</em> and <em>virginica</em>. If we would like to
+compare means across these 3 different categories we can’t use
+<code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> since they are 3. Instead we use <strong>ANOVA</strong> with the <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code>.
+Sintax is similar to linear models. We saw this when we were trying to
+tackle “long” format data vs. “wide” format data.</p>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres28">15.56</a>:</p>
+<pre><code>test_species = aov(Sepal.Length~Species, data = iris)
+summary(test_species)</code></pre>
+<p>resulting in <strong>0.0000000000000002</strong>, very significant. We can conclude
+that: The ANOVA (formula: Sepal.Length ~ Species) suggests that the
+main effect of Species is statistically significant and large.</p>
+</div>
+<hr>
+<div class="exercise">
+<p><span id="exr:intres29" class="exercise"><strong>Exercise 15.57  </strong></span>Using the dataset <code>iris</code>, test if the average of the variable
+<code>Sepal.Length</code> differs significantly in the three <code>Species</code>, Report here
+the value of the test statistic.</p>
+</div>
+</div>
+<div id="solutions-1" class="section level2" number="15.4">
+<h2>
+<span class="header-section-number">15.4</span> solutions<a class="anchor" aria-label="anchor" href="#solutions-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres1">15.28</a>:</p>
+<pre><code><a href="https://github.com/r-spatial/spdep/">library(spdep)</a></code></pre>
+<p>you are not required to load data in this case since the package already
+does it for you. SO you just need to type <code>boston.c</code> and you find it.
+Then you need to extract <code>RM</code></p>
+<pre><code>RM_var = boston.c$RM</code></pre>
+<p>There are a nunber of packages that makes you able to compute skewness,
+there are some: <code>e1071</code>, <code>moments</code>, <code>PerformanceAnalytics</code> etc. I will
+suggest to use moments. So if you dont have it installed execute:</p>
+<pre><code>install.packages("moments")
+library(moments)</code></pre>
+<p>Then use teh function <code>skewnes</code> on <code>RM_var</code></p>
+<pre><code>skewness(RM_var)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres2">15.29</a>:</p>
+<p>The probability of type I error, The probability of rejecting H0 when H0
+it is true</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres3">15.30</a>:</p>
+<p>1 minus the probability of type II error, The probability of accepting
+H0 when H0 it is true.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres4">15.31</a>:</p>
+<p>The probability of accepting H0 when H0 it is true.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres5">15.32</a>:</p>
+<p>H0: <span class="math inline">\(\mu_{dept1} = \mu_{dept2}\)</span> H1: <span class="math inline">\(\mu_{dept1} \neq \mu_{dept2}\)</span></p>
+<p>Remember you always test the alternative hypothesis H1. If the pvalue
+for the t test is not statistically significant then you reject H1 and
+conversely you accept H0, in this case means being the same (they are
+different but that’s because of randomness in data, i.e. sampling
+variation).</p>
+<pre><code>t.test(x = perf_table$dept_1, y = perf_table$dept_2, paired = F, alternative = "two.sided")</code></pre>
+<p>Then we look at the p-value for this test and we see something like:
+<strong>0.4076</strong>, so we can conclude that the Two Sample t-test testing the
+difference between dept_1 and dept_2 (mean of dept_1 = 5.56, mean of
+dept_2 = 4.75) suggests that the effect is positive, statistically <strong>not
+significant, and small</strong>. So we reject the alt. hypo H1 and accept H0.</p>
+<p>The question tells you if you can reject the Null Hypo, this is not the
+case since you just accepted it!</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres6">15.33</a>:</p>
+<p>This is exactly the same reasoning as before except that this is a
+paired t test. “Are we talking about the same individuals? are we
+checking individuals pre and after a treatment?” <strong>YES</strong></p>
+<pre><code>t.test(x = stores$before, y = stores$after, paired = T, alternative = "two.sided")</code></pre>
+<p>Look at the p-value: <strong>p-value = 0.0004646</strong>.this is really small. SO we
+can conclude that the Paired t-test testing the difference between
+before and after (mean difference = -6.80) suggests that the effect is
+negative, statistically significant, and large.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres7">15.34</a>:</p>
+<pre><code>rnorm(n = 2000, mean = 0, sd = 0.1^(1/2))</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres8">15.35</a>:</p>
+<pre><code>boxplot(X)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres9">15.36</a>:</p>
+<p>you at first define vectors X and Y by executing:</p>
+<pre><code>X = c(5,5,3,3,5,5)
+Y = c(4,4,3,3,3,3)
+t.test(X, Y, alternative = "two.sided", paired = F)</code></pre>
+<p>so the answer may look something like: The (Welch, remember we did not
+check variance so we rely on default R behavior applying a
+transformation to t.test) Sample t-test testing the difference between X
+and Y (mean of x = 4.33, mean of y = 3.33) suggests that the effect is
+positive, statistically not significant, and large given the pvalue
+being <strong>0.0697</strong>. However this would also be significant if the alpha
+level of significance was 10%.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres10">15.37</a>:</p>
+<pre><code><a href="https://github.com/r-spatial/spdep/">library(spdep)
+library(dplyr)
+new_boston = select(boston.c, MEDV, NOX, CRIM)
+cor(new_boston)</a></code></pre>
+<p>Note that the principal diag for the matrix is all 1s. This is because
+you a variables has perfect correlation with itself. You are just
+interested in the upper triangle. You might also be interested in
+visualizing it with <code>corrplot</code>. Install it
+<code>install.packages("corrplot")</code> then pass the matrix as the argument
+<code>corrplot(cor(new_boston))</code></p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres11">15.38</a>:</p>
+<p>the test statistic is calculated seeing, for example, how many times the
+absolute difference between the sample mean and the population mean
+(sm-mu) embodies the standard error = sqrt[(known variance)/n]. This
+value allow us to standardize the distribution and allocate the value in
+a Normal distribution (if the variance is known) or in a T di Student
+distribution (variance unknown) - looking at this value we can now
+calculate the probability that it is within the range of values
+established by the level of confidence of the statistical test.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres12">15.39</a>:</p>
+<pre><code>t.test(X, Y, paired = F, alternative ="less", var.equal = T)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres13">15.40</a>:</p>
+<p><strong>FALSE</strong></p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres15">15.42</a>:</p>
+<p>simple correlation aight?!</p>
+<pre><code>cor(x = iris$Sepal.Length, y = iris$Sepal.Width)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres16">15.43</a>:</p>
+<p>Please note that correlation with <code><a href="https://rdrr.io/r/stats/cor.html">cor()</a></code> can be computed with only
+numeric values. Looking at <code>iris</code> you see the variable <code>species</code> which
+is a factor (aka grouping variable) we used that for ANOVA <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code> when
+we are interested in comparing means across more than 2 groups. As a
+result you need to select all the variables but <code>Species</code> and do
+<code><a href="https://rdrr.io/r/stats/cor.html">cor()</a></code>.</p>
+<pre><code>iris_filtr = select(iris, Sepal.Length, Sepal.Width, Petal.Length, Petal.Width)
+cor(iris_filtr)</code></pre>
+<p>there’s another way to do the filtering stuff, you just deselect
+<code>Species</code> such that:</p>
+<pre><code>iris_filtr2 = select(iris, -Species)
+cor(iris_filtr2)</code></pre>
+<p>You also might want to visualize the correlation as we did before (advanced trick):</p>
+<pre><code><a href="https://github.com/taiyun/corrplot">library(corrplot)
+iris_filtr2 = select(iris, -Species)
+corrplot::corrplot(cor(iris_filtr2))
+    </a></code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres161">15.44</a>:</p>
+<pre><code>iris_filtr = select(iris, Sepal.Length, Sepal.Width, Petal.Length, Petal.Width)
+cor(iris_filtr)</code></pre>
+<p>there’s another way to do the filtering stuff, you just deselect
+<code>Species</code> such that:</p>
+<pre><code>iris_filtr2 = select(iris, -Species)
+cor(iris_filtr2)
+    </code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres17">15.45</a>:</p>
+<pre><code>var(iris$Sepal.Length)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres18">15.46</a>:</p>
+<pre><code>summary(iris$Sepal.Length)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres19">15.47</a>:</p>
+<p>Adjusted R2 is a corrected goodness-of-fit (model accuracy) measure for linear models. It identifies the percentage
+of variance in the target field that is explained by the input or
+inputs. R2 tends to optimistically estimate the fit of the linear
+regression. It always increases as the number of effects are included in
+the model. Adjusted R2 attempts to correct for this overestimation.
+Adjusted R2 might decrease if a specific effect does not improve the
+model. If you guessed the <code>To account for the number of parameters</code> this
+would also get you some points, But more precisely we are talking about
+the <strong>degrees of freedom</strong>.</p>
+<p><span class="math inline">\(R_{adj}^2 = 1- \frac{(1-R^2)(n-1)}{n-k-1}\)</span></p>
+<blockquote>
+<p>To account for the number of degrees of freedom!</p>
+</blockquote>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres20">15.48</a>:</p>
+<p>As you may know Multicollinearity is problem that you can run into when
+you’re fitting a regression model, or other linear model. It refers to
+predictors that are correlated with other predictors in the model.
+Unfortunately, the effects of multicollinearity can feel murky and
+intangible, which makes it unclear whether it’s important to fix.
+Multicollinearity results in unstable parameter estimates which makes it
+very difficult to assess the effect of independent variables on
+dependent variables.</p>
+<p>Let’s see that from another pov:</p>
+<p>Consider the simplest case where <span class="math inline">\(Y\)</span> is regressed against <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span>
+such that <span class="math inline">\(Y = \alpha + \beta_1X +\beta_2Z + \epsilon\)</span> and where <span class="math inline">\(Z\)</span> and
+<span class="math inline">\(Z\)</span> are highly positively correlated. Then the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> is
+hard to distinguish from the effect of <span class="math inline">\(Z\)</span> on <span class="math inline">\(Y\)</span> because any increase
+in <span class="math inline">\(X\)</span> tends to be associated with an increase in <span class="math inline">\(Z\)</span>. Now let’s also
+consider th pathological case where <span class="math inline">\(X = Z\)</span> highlights this further.
+<span class="math inline">\(Y = \alpha + \beta_1X + \beta_2Z + \epsilon\)</span> -&gt;
+<span class="math inline">\(Y = \alpha + (\beta_1 + \beta_2)X + 0Z + \epsilon\)</span> then both of the two
+variables would be indistinguishable.</p>
+<p><span class="math inline">\(\frac{1}{1-R^2}\)</span></p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres21">15.49</a>:</p>
+<p>Estimators become unstable</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres22">15.50</a>:</p>
+<p>first attempt:</p>
+<pre><code><a href="https://r-forge.r-project.org/projects/car/">library(carData)
+library(car)
+data("Wong")
+wong_regression = lm(piq ~ age + days + duration, data = Wong)
+summary(wong_regression)</a></code></pre>
+<p>From here you see that <code>age</code> and <code>days</code> are not significant, indeed
+<code>duration</code> is. However <code>days</code> havign .13 as p values is much more
+significant than age which accounts for .38 Let’s also check
+collinearity for this <strong>uncorrectly specified</strong> model. They all look
+good since their values are all <strong>&lt;10</strong>.</p>
+<p>Then we mnay want to see how the model, behaves by cancelling out <code>age</code>
+and keeping <code>days</code>, so:</p>
+<pre><code>wong_regression_2 = lm(piq ~ days + duration, data = Wong)</code></pre>
+<p>In this iteration we verify that <code>duration</code> becomes even more important
+since now has ***. However <code>days</code> just got worst. We finally remove
+it too. We don’t check <code><a href="https://rdrr.io/pkg/car/man/vif.html">vif()</a></code> we have already done that and we do not
+expect that a subset of non collinear varibales (as before) now become
+collinear. As a result:ù</p>
+<pre><code>wong_regression_3 = lm(piq ~ duration, data = Wong)</code></pre>
+<p>In the end we only retain <code>duration</code></p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres23">15.51</a>:</p>
+<pre><code>summary(wong_regression_3)</code></pre>
+<p>resulting in <strong>0.02618</strong></p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres24">15.52</a>:</p>
+<pre><code>wong_regression_3$coefficients[2]</code></pre>
+<p>resulting in <strong>-0.09918208</strong></p>
+<p>you can also directly look it through the summary</p>
+<pre><code>summary(wong_regression_3)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres25">15.53</a>:</p>
+<pre><code>wong_regression_3$coefficients[1]</code></pre>
+<p>resulting in <strong>88.97380549</strong></p>
+<p>you can also directly look it through the summary</p>
+<pre><code>summary(wong_regression_3)</code></pre>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres26">15.54</a>:</p>
+<pre><code>summary(wong_regression_3)</code></pre>
+<p>resulting in <code>duration</code> p-value: <strong>0.00183</strong></p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres27">15.55</a>:</p>
+<pre><code>summary(wong_regression_3)</code></pre>
+<p>result : <strong>0.02913</strong></p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres28">15.56</a>:</p>
+<p>We look at <code>Species</code> (we have already gone through that during lecture)
+by inspecting the dataset. What we see is that <code>Species</code> has three
+categories <em>setosa</em>, <em>versicolor</em> and <em>virginica</em>. If we would like to
+compare means across these 3 different categories we can’t use
+<code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> since they are 3. Instead we use <strong>ANOVA</strong> with the <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code>.
+Sintax is similar to linear models. We saw this when we were trying to
+tackle “long” format data vs. “wide” format data.</p>
+<pre><code>test_species = aov(Sepal.Length~Species, data = iris)
+summary(test_species)</code></pre>
+<p>resulting in <strong>0.0000000000000002</strong>, very significant. We can conclude
+that: The ANOVA (formula: Sepal.Length ~ Species) suggests that the
+main effect of Species is statistically significant and large.</p>
+</div>
+<div class="answer">
+<p><strong>Answer to Question</strong> <a href="int-samp-q-first.html#exr:intres29">15.57</a>:</p>
+<p>We take the exact same test as before and we look for the statistic</p>
+<pre><code>summary(test_species)</code></pre>
+<p>Here you look for the <strong>F statistics</strong>: F = <strong>119.3</strong></p>
+</div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="int-prep.html"><span class="header-section-number">14</span> 💻 Intermediate preparation</a></div>
+<div class="next"><a href="int-samp-q-second.html"><span class="header-section-number">16</span> 💻 Second Intermediate Sample Questions</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#int-samp-q-first"><span class="header-section-number">15</span> 💻 First Intermediate Sample Questions</a></li>
+<li><a class="nav-link" href="#section"><span class="header-section-number">15.1</span> 👨‍🎓 2020/2021</a></li>
+<li><a class="nav-link" href="#section-1"><span class="header-section-number">15.2</span> 👨‍🎓 2021/2022</a></li>
+<li><a class="nav-link" href="#section-2"><span class="header-section-number">15.3</span> 👨‍🎓 2022/2023</a></li>
+<li><a class="nav-link" href="#solutions-1"><span class="header-section-number">15.4</span> solutions</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/NiccoloSalvini/sbd_25_26/blob/master/06quater-intermediaate-sample.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/NiccoloSalvini/sbd_25_26/edit/master/06quater-intermediaate-sample.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics &amp; Big Data 25-26 Labs</strong>" was written by Dr. Niccolò Salvini. It was last built on 2025-11-27.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
